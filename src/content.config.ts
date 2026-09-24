@@ -129,6 +129,12 @@ const works = defineCollection({
     /** Link to the full text (e.g. the PDF on the YÖK National Thesis Centre). */
     fullText: z.url().optional(),
     abstract: z.string().optional(),
+    /** The abstract in its second language, as given by YÖK. */
+    abstractTranslation: z.string().optional(),
+    /** The title in its second language, as given by YÖK. */
+    titleTranslated: z.string().optional(),
+    /** YÖK National Thesis Centre number. */
+    yokNo: z.number().int().optional(),
     addedAt: z.coerce.date(),
     /** Thesis number in the YÖK National Thesis Centre; used to match records on automatic imports. */
     yokId: z.number().int().optional(),
