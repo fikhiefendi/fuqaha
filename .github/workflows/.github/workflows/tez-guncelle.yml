@@ -1,0 +1,85 @@
+# Tez toplayıcı (tools/tezci): YÖK Ulusal Tez Merkezi'ndeki fıkıh, İslam hukuku ve
+# İslam iktisadı tezlerini tezara.org üzerinden toplar, ayıklar ve kaynakçaya ekler.
+# Yeni kayıt varsa commit atar ve siteyi yeniden yayınlar. Elle çalıştırmak için:
+# Actions → "Tez güncelleme" → Run workflow.
+name: Tez güncelleme
+
+on:
+  schedule:
+    - cron: '0 0 * * 0,3' # Pazar ve çarşamba 03:00 (TR)
+  workflow_dispatch:
+    inputs:
+      tam_tarama:
+        description: 'Veritabanını sıfırdan kur (tüm tezleri yeniden tara)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: tez-guncelle
+  cancel-in-progress: false
+
+jobs:
+  guncelle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: tools/tezci/requirements.txt
+
+      - run: pip install -r tools/tezci/requirements.txt
+
+      - name: Veritabanını geri yükle
+        uses: actions/cache/restore@v4
+        with:
+          path: tools/tezci/veri/tezler.db
+          key: tezci-db-${{ github.run_id }}
+          restore-keys: tezci-db-
+
+      - name: Tezleri topla ve sınıflandır
+        working-directory: tools/tezci
+        run: |
+          if [ ! -f veri/tezler.db ] || [ "${{ inputs.tam_tarama }}" = "true" ]; then
+            python -m tezci tara --kaynak tezara
+          else
+            python -m tezci guncelle --kaynak tezara
+          fi
+          python -m tezci durum
+
+      - name: Veritabanını sakla
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: tools/tezci/veri/tezler.db
+          key: tezci-db-${{ github.run_id }}
+
+      - name: Kaynakçaya aktar
+        working-directory: tools/tezci
+        run: python -m tezci siteye-aktar
+
+      - name: Eser–fakih bağlantılarını yenile
+        run: python3 scripts/link_works.py
+
+      - name: Kaydet ve yayınla
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add src/content/works src/data/work-scholars.json sources/
+          if git diff --cached --quiet; then
+            echo "Değişiklik yok."
+            exit 0
+          fi
+          yeni=$(git diff --cached --name-only --diff-filter=A -- src/content/works | wc -l)
+          git config user.name "tez-botu"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "kaynakça: $yeni yeni tez ($(date +%F))" -m "$(head -1 sources/tezci-rapor.txt)"
+          git push
+          gh workflow run deploy.yml --ref main
