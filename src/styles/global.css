@@ -363,3 +363,14 @@ svg {
   font: 400 11px var(--sans);
   fill: var(--muted);
 }
+
+/* Diagrams are laid out in left-to-right coordinates on every page; Arabic
+   labels still read right to left by the bidi algorithm. */
+:root[dir='rtl'] svg {
+  direction: ltr;
+}
+/* Same for the scrolling boxes that hold them, so scroll offsets are measured
+   the same way in every language. */
+:root[dir='rtl'] :is(.tree-wrap, .arc-wrap, .scroller, .axis-scroll) {
+  direction: ltr;
+}
