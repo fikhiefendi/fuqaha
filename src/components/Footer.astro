@@ -30,7 +30,7 @@ const heads = {
     <div>
       <h3>{heads[0]}</h3>
       <ul>
-        {NAV.slice(0, 4).map((item) => <li><a href={href(lang, item.path)}>{t(item.key)}</a></li>)}
+        {NAV.slice(0, 5).map((item) => <li><a href={href(lang, item.path)}>{t(item.key)}</a></li>)}
         <li><a href={href(lang, 'network/')}>{t('network.pageTitle')}</a></li>
       </ul>
     </div>

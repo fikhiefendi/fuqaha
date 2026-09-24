@@ -38,7 +38,7 @@ Bir fakihin hayatını öğrenmek için çoğu zaman birkaç tabakât kitabına,
 
 ## Atıf
 
-Her âlim maddesinin sonunda ISNAD ve Chicago biçiminde hazır atıf bulunur. Siteye genel olarak şöyle atıf yapılabilir:
+Âlim maddelerindeki bilgiler kaynak eserden aktarıldığı için atıf siteye değil, **doğrudan esere** yapılmalıdır. Her maddenin sonunda el-Fevâid’in 1324 Mısır baskısına göre sayfa numarasıyla hazırlanmış ISNAD dipnotu, kısa dipnot ve kaynakça girdisi bulunur. Sitenin kendisine yalnızca burada yapılan derleme, eşleştirme ya da harita gibi özgün çalışmalardan yararlanıldığında atıf yapılabilir:
 
 > Fuqaha: Fakihlerin hayatları, şehirleri ve eserleri üzerine bir araştırma arşivi. https://fikhiefendi.github.io/fuqaha/
 

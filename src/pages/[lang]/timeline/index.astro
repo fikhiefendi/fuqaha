@@ -1,0 +1,654 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import { centuryLabel, getScholars, lifeShort, scholarCentury, scholarSummary } from '../../../lib/scholars';
+import { lifeRoute, scholarPlaces } from '../../../lib/mapdata';
+import { neighbours } from '../../../lib/network';
+import { langPaths, pick, useT, type Lang, type UIKey } from '../../../i18n/ui';
+import { href } from '../../../lib/url';
+
+export const getStaticPaths = langPaths;
+
+const lang = Astro.params.lang as Lang;
+const t = useT(lang);
+const k = (key: string) => t(key as UIKey);
+const places = new Map((await getCollection('places')).map((p) => [p.id, p.data]));
+const scholars = await getScholars();
+
+// Each jurist belongs to the region of the place of death, else of any place named.
+const regionOf = (s: (typeof scholars)[number]) => {
+  const ids = [s.data.death.place, ...lifeRoute(s)].filter((x): x is string => !!x && places.has(x));
+  return ids.length ? places.get(ids[0])!.regionId : '';
+};
+const counts = new Map<string, number>();
+scholars.forEach((s) => counts.set(regionOf(s), (counts.get(regionOf(s)) ?? 0) + 1));
+const band = (s: (typeof scholars)[number]) => {
+  const r = regionOf(s);
+  return !r ? '~unknown' : (counts.get(r) ?? 0) >= 6 ? r : '~other';
+};
+const regionName = (id: string) => {
+  if (id === '~unknown') return k('timeline.unknownPlace');
+  if (id === '~other') return k('timeline.others');
+  const p = [...places.values()].find((x) => x.regionId === id)!;
+  return pick(p.region, lang) ?? id;
+};
+const regionAr = (id: string) => [...places.values()].find((x) => x.regionId === id)?.region.ar ?? '';
+
+const items = scholars
+  .filter((s) => s.data.death.hijri)
+  .map((s) => {
+    const roles = scholarPlaces(s);
+    const c = scholarCentury(s);
+    return {
+      id: s.id,
+      name: lang === 'ar' ? s.data.name.ar : s.data.name[lang],
+      ar: s.data.name.ar,
+      y: s.data.death.hijri!,
+      b: s.data.birth?.hijri ?? null,
+      band: band(s),
+      life: lifeShort(s, lang),
+      cent: c ? centuryLabel(c, lang) : '',
+      sum: lang === 'ar' ? '' : scholarSummary(s, lang),
+      href: href(lang, `scholars/${s.id}/`),
+      route: lifeRoute(s)
+        .filter((pid) => places.has(pid))
+        .map((pid) => {
+          const p = places.get(pid)!;
+          return [p.lat, p.lng, pick(p.name, lang) ?? pid, p.name.ar ?? '', [...roles.get(pid)!].map((r) => k(`role.${r}`)).join(', '), p.coordSource !== 'thurayya'] as const;
+        }),
+      net: neighbours(s.id),
+    };
+  })
+  .sort((a, b) => a.y - b.y);
+
+// Bands ordered by when they flourished, so the eye follows the movement of the school.
+const bandIds = [...new Set(items.map((i) => i.band))];
+const mean = (id: string) => {
+  const ys = items.filter((i) => i.band === id).map((i) => i.y);
+  return ys.reduce((a, b) => a + b, 0) / ys.length;
+};
+const bands = bandIds
+  .sort((a, b) => (a.startsWith('~') ? 1 : 0) - (b.startsWith('~') ? 1 : 0) || mean(a) - mean(b))
+  .map((id) => ({ id, name: regionName(id), ar: id.startsWith('~') ? '' : regionAr(id) }));
+
+const payload = {
+  items,
+  bands,
+  rtl: lang === 'ar',
+  names: Object.fromEntries(scholars.map((s) => [s.id, lang === 'ar' ? s.data.name.ar : s.data.name[lang]])),
+  hrefs: Object.fromEntries(scholars.map((s) => [s.id, href(lang, `scholars/${s.id}/`)])),
+  t: {
+    hijri: k('network.hijri'),
+    miladi: k('network.miladi'),
+    teachers: k('scholar.teachers'),
+    students: k('scholar.students'),
+    open: k('network.openEntry'),
+    places: k('scholar.places'),
+  },
+};
+---
+
+<Base lang={lang} title={k('nav.timeline')} description={k('timeline.lead')}>
+  <div class="tm">
+    <section class="top">
+      <article class="card" data-card aria-live="polite"></article>
+      <div class="map-side">
+        <div class="map" data-map role="region" aria-label={t('nav.map')}></div>
+        <p class="legend">
+          <span class="swatch self"></span>{t('scholar.places')}
+          <span class="swatch peer"></span>{k('timeline.contemporaries')}
+        </p>
+      </div>
+    </section>
+
+    <section class="strip">
+      <div class="strip-bar">
+        <h1>{k('nav.timeline')}</h1>
+        <label class="find">
+          <span class="visually-hidden">{k('timeline.find')}</span>
+          <input type="search" list="tm-names" placeholder={k('timeline.find')} data-find autocomplete="off" />
+          <datalist id="tm-names">{items.map((i) => <option value={i.name} />)}</datalist>
+        </label>
+        <p class="meta hint">{k('timeline.keys')} {k('timeline.lifespan')}</p>
+        <div class="zoom">
+          <button type="button" data-step="-1" aria-label={k('timeline.prev')}>‹</button>
+          <button type="button" data-step="1" aria-label={k('timeline.next')}>›</button>
+          <button type="button" data-zoom="0.7" aria-label="−">−</button>
+          <button type="button" data-zoom="1.4" aria-label="+">+</button>
+        </div>
+      </div>
+      <div class="lanes">
+        <div class="band-names" data-band-names></div>
+        <div class="scroller" data-scroller></div>
+      </div>
+    </section>
+  </div>
+
+  <script type="application/json" id="tm-data" set:html={JSON.stringify(payload)} />
+</Base>
+
+<style>
+  .tm {
+    display: grid;
+    grid-template-rows: minmax(300px, 52vh) auto;
+    min-height: calc(100vh - var(--header-h));
+  }
+  .top {
+    display: grid;
+    min-height: 0;
+    border-block-end: 1px solid var(--rule);
+  }
+  @media (min-width: 900px) {
+    .top {
+      grid-template-columns: minmax(320px, 38%) 1fr;
+    }
+  }
+  .card {
+    overflow-y: auto;
+    padding: 26px 28px;
+    background: var(--surface);
+    border-inline-end: 1px solid var(--rule);
+  }
+  .card :global(.kick) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font: 500 0.8rem var(--sans);
+    letter-spacing: 0.04em;
+    color: var(--rubric);
+  }
+  .card :global(.kick::before) {
+    content: '';
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+  }
+  .card :global(.c-ar) {
+    margin-block-start: 10px;
+    font: 700 1.7rem/1.5 var(--arabic);
+    color: var(--accent);
+  }
+  .card :global(h2) {
+    font-size: 1.35rem;
+    line-height: 1.3;
+  }
+  .card :global(.c-life) {
+    margin-block: 6px 12px;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  .card :global(.c-sum) {
+    font: 400 1rem/1.7 var(--serif);
+    color: var(--text);
+  }
+  .card :global(h3) {
+    margin-block: 18px 8px;
+    font: 600 0.78rem var(--sans);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  :root[lang='ar'] .card :global(h3) {
+    font: 700 0.95rem var(--arabic-ui);
+    letter-spacing: 0;
+  }
+  .card :global(.chips) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .card :global(.chips li) {
+    padding: 4px 10px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    font-size: 0.82rem;
+    color: var(--ink);
+  }
+  .card :global(.chips button) {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--accent);
+    font: inherit;
+    cursor: pointer;
+  }
+  .card :global(.chips small) {
+    color: var(--muted);
+  }
+  .card :global(.btn) {
+    margin-block-start: 20px;
+  }
+  .map-side {
+    position: relative;
+    min-height: 300px;
+  }
+  .map {
+    position: absolute;
+    inset: 0;
+  }
+  .legend {
+    position: absolute;
+    z-index: 600;
+    inset-block-start: 12px;
+    inset-inline-start: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px 8px;
+    flex-wrap: wrap;
+    max-width: 70%;
+    padding: 6px 12px;
+    background: rgb(244 234 211 / 0.9);
+    border: 1px solid rgb(94 29 18 / 0.3);
+    font-size: 0.76rem;
+    color: #4a3a28;
+  }
+  .swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .swatch.self {
+    background: #1d5047;
+  }
+  .swatch.peer {
+    margin-inline-start: 8px;
+    background: #a8392a;
+    opacity: 0.5;
+  }
+
+  .strip {
+    background: var(--soft);
+  }
+  .strip-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 20px;
+    padding: 12px 20px;
+    border-block-end: 1px solid var(--rule);
+  }
+  .strip-bar h1 {
+    font-size: 1.25rem;
+  }
+  .find input {
+    width: min(280px, 70vw);
+    padding: 8px 14px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink);
+    font: inherit;
+    font-size: 0.9rem;
+  }
+  .hint {
+    flex: 1 1 260px;
+    font-size: 0.78rem;
+  }
+  .zoom {
+    display: flex;
+    gap: 4px;
+  }
+  .zoom button {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--rule);
+    background: var(--surface);
+    color: var(--ink);
+    font: 500 1.1rem/1 var(--sans);
+    cursor: pointer;
+  }
+  .zoom button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .lanes {
+    position: relative;
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    max-height: 48vh;
+    overflow-y: auto;
+  }
+  .band-names {
+    position: sticky;
+    inset-inline-start: 0;
+    z-index: 2;
+    background: var(--soft);
+    border-inline-end: 1px solid var(--rule);
+  }
+  .band-names :global(div) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-inline: 14px;
+    border-block-end: 1px solid var(--rule);
+    font: 600 0.82rem var(--sans);
+    color: var(--ink);
+  }
+  .band-names :global(.b-ar) {
+    font: 700 0.95rem var(--arabic);
+    color: var(--rubric);
+  }
+  .band-names :global(.b-axis) {
+    background: var(--surface);
+  }
+  .scroller {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .scroller :global(svg) {
+    display: block;
+    max-width: none;
+  }
+  .scroller :global(.band) {
+    fill: transparent;
+  }
+  .scroller :global(.band.alt) {
+    fill: color-mix(in srgb, var(--ink) 3%, transparent);
+  }
+  .scroller :global(.sep) {
+    stroke: var(--rule);
+  }
+  .scroller :global(.tick) {
+    stroke: var(--rule);
+  }
+  .scroller :global(.tick.c) {
+    stroke: color-mix(in srgb, var(--rubric) 35%, transparent);
+    stroke-dasharray: 2 4;
+  }
+  .scroller :global(.ax) {
+    fill: var(--surface);
+  }
+  .scroller :global(.axh) {
+    font: 600 11px var(--sans);
+    fill: var(--ink);
+  }
+  .scroller :global(.axm) {
+    font: 400 10px var(--sans);
+    fill: var(--muted);
+  }
+  .scroller :global(.it) {
+    cursor: pointer;
+  }
+  .scroller :global(.it circle) {
+    fill: var(--accent);
+  }
+  .scroller :global(.it line) {
+    stroke: var(--accent);
+    stroke-width: 2;
+    stroke-linecap: round;
+    opacity: 0.35;
+  }
+  .scroller :global(.it text) {
+    font: 500 11px var(--sans);
+    fill: var(--ink);
+  }
+  :root[lang='ar'] .scroller :global(.it text) {
+    font: 700 12.5px 'Amiri', serif;
+  }
+  .scroller :global(.it:hover text) {
+    fill: var(--accent);
+    text-decoration: underline;
+  }
+  .scroller :global(.it.peer circle) {
+    fill: var(--rubric);
+  }
+  .scroller :global(.it.on circle) {
+    fill: var(--rubric);
+    r: 6;
+  }
+  .scroller :global(.it.on text) {
+    font-weight: 700;
+    fill: var(--rubric);
+  }
+  .scroller :global(.it.on line) {
+    stroke: var(--rubric);
+    opacity: 0.8;
+  }
+  .scroller :global(.now) {
+    stroke: var(--rubric);
+    stroke-width: 1;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 899px) {
+    .tm {
+      grid-template-rows: auto auto;
+    }
+    .map-side {
+      height: 46vh;
+    }
+    .lanes {
+      grid-template-columns: 96px minmax(0, 1fr);
+    }
+  }
+</style>
+
+<script>
+  import { atlasMap, cityIcon, cityLabel, compass, esc, L, route, zoomButtons } from '../../../lib/atlas';
+
+  type Stop = [number, number, string, string, string, boolean];
+  type Item = {
+    id: string;
+    name: string;
+    ar: string;
+    y: number;
+    b: number | null;
+    band: string;
+    life: string;
+    cent: string;
+    sum: string;
+    href: string;
+    route: Stop[];
+    net: { teachers: string[]; students: string[] };
+  };
+  const data = JSON.parse(document.getElementById('tm-data')!.textContent!) as {
+    items: Item[];
+    bands: { id: string; name: string; ar: string }[];
+    rtl: boolean;
+    names: Record<string, string>;
+    hrefs: Record<string, string>;
+    t: Record<string, string>;
+  };
+  const rtl = data.rtl;
+  const card = document.querySelector<HTMLElement>('[data-card]')!;
+  const scroller = document.querySelector<HTMLElement>('[data-scroller]')!;
+  const bandNames = document.querySelector<HTMLElement>('[data-band-names]')!;
+  const byId = new Map(data.items.map((i) => [i.id, i]));
+
+  /* ---------- Map ---------- */
+  const map = atlasMap(document.querySelector<HTMLElement>('[data-map]')!).setView([35, 55], 4);
+  zoomButtons(map);
+  compass(map);
+  const peers = L.layerGroup().addTo(map);
+  const self = L.layerGroup().addTo(map);
+
+  /* ---------- Timeline drawing ---------- */
+  const minY = Math.floor(Math.min(...data.items.map((i) => i.b ?? i.y)) / 50) * 50 - 10;
+  const maxY = Math.ceil(Math.max(...data.items.map((i) => i.y)) / 50) * 50 + 10;
+  let K = 4.2;
+  const PAD = 24;
+  const LANE = 20;
+  const AXIS = 42;
+  const toMiladi = (h: number) => 622 + ((h - 1) * 354.367) / 365.2425;
+  const fromMiladi = (m: number) => ((m - 622) * 365.2425) / 354.367 + 1;
+  let X = (y: number) => y;
+  let current = data.items[0].id;
+
+  const draw = () => {
+    const W = PAD * 2 + (maxY - minY) * K;
+    X = (y: number) => (rtl ? W - PAD - (y - minY) * K : PAD + (y - minY) * K);
+    const textW = (s: string) => s.length * (rtl ? 6.4 : 6.1) + 16;
+    let top = AXIS;
+    const bandRows: { id: string; y: number; h: number }[] = [];
+    const placed: string[] = [];
+    for (const band of data.bands) {
+      const its = data.items.filter((i) => i.band === band.id);
+      const lanesEnd: number[] = [];
+      const rows = its.map((i) => {
+        const start = Math.min(X(i.b ?? i.y), X(i.y)) - 6;
+        const end = Math.max(X(i.b ?? i.y), X(i.y)) + textW(i.name);
+        const a = rtl ? W - end : start;
+        const z = rtl ? W - start : end;
+        let lane = lanesEnd.findIndex((e) => e < a);
+        if (lane < 0) lane = lanesEnd.push(z) - 1;
+        else lanesEnd[lane] = z;
+        return { i, lane };
+      });
+      const h = Math.max(lanesEnd.length, 1) * LANE + 14;
+      bandRows.push({ id: band.id, y: top, h });
+      rows.forEach(({ i, lane }) => {
+        const cy = top + 12 + lane * LANE;
+        const x = X(i.y);
+        const life = i.b !== null ? `<line x1="${X(i.b)}" x2="${x}" y1="${cy}" y2="${cy}"/>` : '';
+        const tx = rtl ? x - 8 : x + 8;
+        placed.push(
+          `<g class="it" data-id="${i.id}" tabindex="-1">${life}<circle cx="${x}" cy="${cy}" r="4"/><text x="${tx}" y="${cy + 4}" text-anchor="${rtl ? 'end' : 'start'}">${esc(i.name)}</text></g>`,
+        );
+      });
+      top += h;
+    }
+    const H = top + 8;
+
+    let grid = '';
+    for (let y = Math.ceil(minY / 10) * 10; y <= maxY; y += 10) {
+      const c = y % 100 === 0;
+      if (!c && K < 3 && y % 50) continue;
+      grid += `<line class="tick${c ? ' c' : ''}" x1="${X(y)}" x2="${X(y)}" y1="${AXIS - 8}" y2="${H}"/>`;
+    }
+    let axis = `<rect class="ax" x="0" y="0" width="${W}" height="${AXIS - 4}"/>`;
+    const stepH = K >= 6 ? 10 : K >= 3 ? 50 : 100;
+    for (let y = Math.ceil(minY / stepH) * stepH; y <= maxY; y += stepH) {
+      axis += `<text class="axh" x="${X(y)}" y="15" text-anchor="middle">${y}</text>`;
+    }
+    const stepM = K >= 6 ? 10 : 50;
+    for (let m = Math.ceil(toMiladi(minY) / stepM) * stepM; m <= toMiladi(maxY); m += stepM) {
+      axis += `<text class="axm" x="${X(fromMiladi(m))}" y="31" text-anchor="middle">${m}</text>`;
+    }
+    const bandsSvg = bandRows
+      .map((b, n) => `<rect class="band${n % 2 ? ' alt' : ''}" x="0" y="${b.y}" width="${W}" height="${b.h}"/><line class="sep" x1="0" x2="${W}" y1="${b.y + b.h}" y2="${b.y + b.h}"/>`)
+      .join('');
+    scroller.innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${bandsSvg}${grid}${axis}<line class="now" data-now x1="0" x2="0" y1="0" y2="${H}"/>${placed.join('')}</svg>`;
+
+    bandNames.innerHTML =
+      `<div class="b-axis" style="height:${AXIS}px"><span>${esc(data.t.hijri)}</span><span class="meta">${esc(data.t.miladi)}</span></div>` +
+      bandRows
+        .map((b) => {
+          const band = data.bands.find((x) => x.id === b.id)!;
+          return `<div style="height:${b.h}px">${band.ar && !rtl ? `<span class="b-ar">${esc(band.ar)}</span>` : ''}<span>${esc(band.name)}</span></div>`;
+        })
+        .join('');
+    mark();
+  };
+
+  /* ---------- Selection ---------- */
+  const chip = (id: string) =>
+    data.names[id] ? `<li><button type="button" data-go="${id}">${esc(data.names[id])}</button></li>` : '';
+
+  const mark = () => {
+    const it = byId.get(current)!;
+    const lo = it.y - 30;
+    const hi = it.y + 30;
+    scroller.querySelectorAll<SVGGElement>('.it').forEach((g) => {
+      const o = byId.get(g.dataset.id!)!;
+      g.classList.toggle('on', o.id === current);
+      g.classList.toggle('peer', o.id !== current && o.y >= lo && o.y <= hi);
+    });
+    const now = scroller.querySelector<SVGLineElement>('[data-now]');
+    now?.setAttribute('x1', String(X(it.y)));
+    now?.setAttribute('x2', String(X(it.y)));
+  };
+
+  const select = (id: string, scroll = true) => {
+    const it = byId.get(id);
+    if (!it) return;
+    current = id;
+    history.replaceState(null, '', `?id=${id}`);
+    const stops = it.route
+      .map((s) => `<li>${esc(s[2])} <small>· ${esc(s[4])}</small></li>`)
+      .join('');
+    card.innerHTML = `
+      <p class="kick">${esc(it.cent)}</p>
+      ${rtl ? '' : `<p class="c-ar" lang="ar" dir="rtl">${esc(it.ar)}</p>`}
+      <h2>${esc(it.name)}</h2>
+      <p class="c-life">${esc(it.life)}</p>
+      ${it.sum ? `<p class="c-sum">${esc(it.sum)}</p>` : ''}
+      ${stops ? `<h3>${esc(data.t.places)}</h3><ul class="chips">${stops}</ul>` : ''}
+      ${it.net.teachers.length ? `<h3>${esc(data.t.teachers)}</h3><ul class="chips">${it.net.teachers.map(chip).join('')}</ul>` : ''}
+      ${it.net.students.length ? `<h3>${esc(data.t.students)}</h3><ul class="chips">${it.net.students.map(chip).join('')}</ul>` : ''}
+      <a class="btn" href="${it.href}">${esc(data.t.open)}</a>`;
+    card.scrollTop = 0;
+
+    self.clearLayers();
+    peers.clearLayers();
+    const seen = new Set(it.route.map((s) => `${s[0]},${s[1]}`));
+    const counts = new Map<string, { s: Stop; n: number }>();
+    data.items
+      .filter((o) => o.id !== id && Math.abs(o.y - it.y) <= 30)
+      .forEach((o) =>
+        o.route.forEach((s) => {
+          const key = `${s[0]},${s[1]}`;
+          if (seen.has(key)) return;
+          counts.set(key, { s, n: (counts.get(key)?.n ?? 0) + 1 });
+        }),
+      );
+    counts.forEach(({ s, n }) => {
+      L.marker([s[0], s[1]], { icon: cityIcon(n, { approx: s[5] }), opacity: 0.55, interactive: true })
+        .bindTooltip(cityLabel(s[2], s[3], rtl), { direction: 'bottom', offset: [0, 6], className: 'city-name' })
+        .addTo(peers);
+    });
+    if (it.route.length > 1) route(it.route.map((s) => [s[0], s[1]])).addTo(self);
+    const ms = it.route.map((s) =>
+      L.marker([s[0], s[1]], { icon: cityIcon(6, { approx: s[5], on: true }), zIndexOffset: 1000 })
+        .bindTooltip(cityLabel(s[2], s[3], rtl), { permanent: true, direction: 'bottom', offset: [0, 6], className: 'city-name' })
+        .addTo(self),
+    );
+    if (ms.length) map.flyToBounds(L.featureGroup(ms).getBounds().pad(0.8), { maxZoom: 5, duration: 0.8 });
+
+    mark();
+    if (scroll) {
+      const x = X(it.y);
+      scroller.scrollTo({ left: x - scroller.clientWidth / 2, behavior: 'smooth' });
+      const g = scroller.querySelector<SVGGElement>(`.it[data-id="${id}"]`);
+      const lanes = scroller.parentElement!;
+      if (g) {
+        const top = (g.getBBox?.().y ?? 0) - lanes.clientHeight / 2;
+        lanes.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+  };
+
+  scroller.addEventListener('click', (e) => {
+    const g = (e.target as Element).closest<SVGGElement>('.it');
+    if (g) select(g.dataset.id!, false);
+  });
+  card.addEventListener('click', (e) => {
+    const b = (e.target as Element).closest<HTMLButtonElement>('[data-go]');
+    if (b) select(b.dataset.go!);
+  });
+  const order = data.items.map((i) => i.id);
+  const step = (d: number) => select(order[Math.min(order.length - 1, Math.max(0, order.indexOf(current) + d))]);
+  document.querySelectorAll<HTMLButtonElement>('[data-step]').forEach((b) => b.addEventListener('click', () => step(Number(b.dataset.step))));
+  document.addEventListener('keydown', (e) => {
+    if ((e.target as Element).closest('input, textarea')) return;
+    if (e.key === 'ArrowRight') step(rtl ? -1 : 1);
+    if (e.key === 'ArrowLeft') step(rtl ? 1 : -1);
+  });
+  document.querySelectorAll<HTMLButtonElement>('[data-zoom]').forEach((b) =>
+    b.addEventListener('click', () => {
+      K = Math.min(14, Math.max(1.2, K * Number(b.dataset.zoom)));
+      draw();
+      select(current);
+    }),
+  );
+  const find = document.querySelector<HTMLInputElement>('[data-find]')!;
+  find.addEventListener('change', () => {
+    const hit = data.items.find((i) => i.name === find.value.trim());
+    if (hit) select(hit.id);
+  });
+
+  draw();
+  select(new URLSearchParams(location.search).get('id') ?? order[0]);
+</script>

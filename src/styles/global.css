@@ -298,3 +298,68 @@ svg {
     scroll-behavior: auto !important;
   }
 }
+
+/* Silsila diagrams (jurist pages and the network page) */
+.lineage .ln {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1.2;
+  opacity: 0.55;
+}
+.lineage .ln.hot {
+  stroke: var(--rubric);
+  stroke-width: 1.8;
+  opacity: 0.9;
+}
+.lineage .nd rect {
+  fill: var(--surface);
+  stroke: var(--rule);
+  stroke-width: 1;
+  transition: stroke 0.2s, fill 0.2s;
+}
+.lineage .nd rect.inner {
+  fill: none;
+  stroke: color-mix(in srgb, var(--rubric) 25%, transparent);
+  stroke-width: 0.6;
+}
+.lineage .nd:hover rect:not(.inner) {
+  stroke: var(--accent);
+  fill: color-mix(in srgb, var(--accent) 6%, var(--surface));
+}
+.lineage .nd.self rect:not(.inner) {
+  fill: var(--accent);
+  stroke: var(--accent);
+}
+.lineage .nd.self rect.inner {
+  stroke: color-mix(in srgb, var(--on-accent) 45%, transparent);
+}
+.lineage text {
+  fill: var(--ink);
+}
+.lineage .nd.self text {
+  fill: var(--on-accent);
+}
+.lineage .ar {
+  font: 700 15px 'Amiri', serif;
+}
+.lineage .la {
+  font: 500 10.5px var(--sans);
+}
+.lineage .yr {
+  font: 400 10px var(--sans);
+  fill: var(--muted);
+}
+.lineage .nd.self .yr {
+  fill: color-mix(in srgb, var(--on-accent) 80%, transparent);
+}
+.lineage .cap {
+  font: italic 500 12px var(--serif-latin);
+  fill: var(--rubric);
+}
+:root[lang='ar'] .lineage .cap {
+  font: 700 14px 'Amiri', serif;
+}
+.lineage .more {
+  font: 400 11px var(--sans);
+  fill: var(--muted);
+}

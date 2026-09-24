@@ -3,14 +3,18 @@
 // a numbered pager with a progress rule and the photo's caption at the foot.
 import Cover from './Cover.astro';
 import { type FeatureItem } from '../lib/entries';
-import { LANG_META, useT, type Lang } from '../i18n/ui';
+import { LANG_META, useT, type Lang, type UIKey } from '../i18n/ui';
+import { href } from '../lib/url';
+import Mark from './Mark.astro';
 
 interface Props {
   lang: Lang;
   items: FeatureItem[];
   interval?: number;
+  /** Section shortcuts along the foot of the hero. */
+  modules?: { href: string; label: string; ar: string }[];
 }
-const { lang, items, interval = 7000 } = Astro.props;
+const { lang, items, interval = 7000, modules = [] } = Astro.props;
 const t = useT(lang);
 const pad = (n: number) => String(n).padStart(2, '0');
 ---
@@ -45,14 +49,44 @@ const pad = (n: number) => String(n).padStart(2, '0');
             {item.title}
           </h2>
           {item.summary && <p class="summary">{item.summary}</p>}
-          <a href={item.href} class="btn" tabindex={i === 0 ? undefined : '-1'}>
-            {t('details')}
-          </a>
+          <div class="cta">
+            <span class="cta-line" aria-hidden="true"></span>
+            <a href={item.href} class="cta-btn" tabindex={i === 0 ? undefined : '-1'}>
+              {t('details')}
+            </a>
+          </div>
         </div>
         {item.photo && <p class="caption">{item.photo.caption[lang]}</p>}
       </article>
     ))
   }
+
+  <a href={href(lang, 'about/')} class="badge" aria-label={t('nav.about')}>
+    <svg viewBox="0 0 120 120" aria-hidden="true">
+      <defs><path id="badge-circle" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"></path></defs>
+      <text><textPath href="#badge-circle" textLength="286" lengthAdjust="spacing">{t('hero.badge' as UIKey)}</textPath></text>
+    </svg>
+    <span class="badge-mark"><Mark size={30} /></span>
+  </a>
+
+  {
+    modules.length > 0 && (
+      <nav class="wrap modules" aria-label={t('menu')}>
+        {modules.map((m, i) => (
+          <a href={m.href} class:list={['module', { lead: i === 0 }]}>
+            <span class="m-label">{m.label}</span>
+            <span class="m-ar" lang="ar">
+              {m.ar}
+            </span>
+          </a>
+        ))}
+      </nav>
+    )
+  }
+
+  <a href="#main-sections" class="notch" aria-label="↓">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="m3 5 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+  </a>
 
   {
     items.length > 1 && (
@@ -128,10 +162,10 @@ const pad = (n: number) => String(n).padStart(2, '0');
   }
   .content {
     position: relative;
-    padding-block: var(--header-h) 90px;
+    padding-block: var(--header-h) 200px;
   }
   .content > * {
-    max-width: 600px;
+    max-width: 680px;
   }
   .kicker {
     display: inline-flex;
@@ -155,10 +189,11 @@ const pad = (n: number) => String(n).padStart(2, '0');
   }
   h2 {
     color: #fff;
-    font-size: clamp(2rem, 4.6vw, 3.4rem);
+    font-size: clamp(2.2rem, 5.2vw, 4.2rem);
     font-weight: 600;
-    line-height: 1.18;
-    letter-spacing: -0.01em;
+    line-height: 1.06;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
   }
   h2:lang(ar) {
     font-family: var(--arabic);
@@ -176,17 +211,158 @@ const pad = (n: number) => String(n).padStart(2, '0');
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  .btn {
+  /* A rule leading into an outlined button */
+  .cta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .cta-line {
+    width: 110px;
+    height: 1px;
+    background: rgb(255 255 255 / 0.75);
+  }
+  .cta-btn {
+    padding: 11px 26px;
+    border: 1.5px solid #fff;
+    color: #fff;
+    font: 500 0.88rem var(--sans);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition:
+      background 0.25s,
+      color 0.25s;
+  }
+  :root[lang='ar'] .cta-btn {
+    letter-spacing: 0;
+    font-size: 1rem;
+  }
+  .cta-btn:hover {
     background: #fff;
     color: var(--ink);
   }
-  .btn:hover {
-    background: #ecd9b0;
+
+  /* Section shortcuts */
+  .modules {
+    position: absolute;
+    z-index: 3;
+    inset-block-end: 34px;
+    inset-inline: 0;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .module {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 92px;
+    padding: 14px 16px;
+    border: 1px solid rgb(255 255 255 / 0.55);
+    background: rgb(20 16 10 / 0.28);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    transition:
+      background 0.25s,
+      border-color 0.25s;
+  }
+  .module:hover {
+    background: rgb(29 80 71 / 0.85);
+    border-color: transparent;
+  }
+  .module.lead {
+    background: var(--accent);
+    border-color: transparent;
+  }
+  .module.lead::after {
+    content: '';
+    position: absolute;
+    inset-block-start: -1px;
+    inset-inline-end: -1px;
+    border-style: solid;
+    border-width: 0 14px 14px 0;
+    border-color: transparent rgb(22 17 11 / 0.6) transparent transparent;
+  }
+  :root[dir='rtl'] .module.lead::after {
+    border-width: 0 0 14px 14px;
+    border-color: transparent transparent transparent rgb(22 17 11 / 0.6);
+  }
+  .m-label {
+    font: 600 0.98rem/1.25 var(--sans);
+  }
+  .m-ar {
+    align-self: flex-end;
+    font: 700 1.05rem var(--arabic);
+    color: rgb(255 255 255 / 0.75);
+  }
+  :root[dir='rtl'] .m-ar {
+    align-self: flex-start;
+  }
+
+  /* Slowly turning seal */
+  .badge {
+    position: absolute;
+    z-index: 3;
+    inset-block-start: calc(var(--header-h) + 18px);
+    inset-inline-end: 32px;
+    display: grid;
+    place-items: center;
+    width: 112px;
+    height: 112px;
+    color: #fff;
+  }
+  .badge svg {
+    position: absolute;
+    inset: 0;
+    animation: turn 36s linear infinite;
+  }
+  .badge text {
+    font: 600 9.6px var(--sans);
+    fill: currentColor;
+  }
+  :root[lang='ar'] .badge text {
+    font: 700 12px var(--arabic);
+    letter-spacing: 0;
+  }
+  .badge-mark {
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    border: 1px solid rgb(255 255 255 / 0.5);
+    border-radius: 50%;
+    color: #ecd9b0;
+  }
+  .badge:hover .badge-mark {
+    background: rgb(255 255 255 / 0.12);
+  }
+  @keyframes turn {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Notch at the foot of the hero */
+  .notch {
+    position: absolute;
+    z-index: 3;
+    inset-block-end: 0;
+    left: 50%;
+    display: grid;
+    place-items: end center;
+    width: 48px;
+    height: 24px;
+    margin-left: -24px;
+    padding-block-end: 1px;
+    background: var(--bg);
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    color: var(--ink);
   }
 
   .caption {
     position: absolute;
-    inset-block-end: 30px;
+    inset-block-end: 142px;
     inset-inline-end: 32px;
     max-width: 38ch;
     font: italic 400 0.76rem/1.45 var(--sans);
@@ -196,7 +372,8 @@ const pad = (n: number) => String(n).padStart(2, '0');
 
   .pager {
     position: absolute;
-    inset-block-end: 26px;
+    z-index: 3;
+    inset-block-end: 142px;
     inset-inline: 0;
     display: flex;
     align-items: center;
@@ -259,9 +436,30 @@ const pad = (n: number) => String(n).padStart(2, '0');
     transform: scaleX(-1);
   }
 
+  @media (max-width: 900px) {
+    .modules {
+      grid-template-columns: none;
+      grid-auto-flow: column;
+      grid-auto-columns: 150px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .badge {
+      display: none;
+    }
+  }
   @media (max-width: 760px) {
     .caption {
       display: none;
+    }
+    .module {
+      min-height: 76px;
+    }
+    .content {
+      padding-block-end: 180px;
+    }
+    .cta-line {
+      width: 44px;
     }
     .content > * {
       max-width: 100%;

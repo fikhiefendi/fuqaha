@@ -38,7 +38,7 @@ Learning about a jurist usually means consulting several biographical dictionari
 
 ## Citing
 
-Every jurist entry ends with a ready-made citation in ISNAD and Chicago style. The site as a whole may be cited as:
+Because the jurist entries transmit their source, please cite **the work itself**, not this website. Each entry ends with a Chicago note, short note and bibliography entry giving the page in the Cairo edition of al-Fawāʾid (1324/1906). Cite the site only when you use work done here, such as the compilation, the matching of names or the maps:
 
 > Fuqaha: A research archive on the lives, cities and works of Muslim jurists. https://fikhiefendi.github.io/fuqaha/
 

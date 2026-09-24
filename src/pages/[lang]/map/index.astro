@@ -12,7 +12,7 @@ const data = await getMapData(lang);
 const centuries = [...new Set(data.scholars.map((s) => s.c).filter(Boolean))].sort((a, b) => a - b);
 const payload = {
   ...data,
-  centuries: centuries.map((c) => [c, centuryLabel(c, lang)]),
+  centuries: centuries.map((c) => [c, centuryLabel(c, lang), centuryLabel(c, 'ar')]),
   t: {
     all: t('map.allCenturies'),
     play: t('map.play'),
@@ -28,11 +28,6 @@ const payload = {
 ---
 
 <Base lang={lang} title={t('nav.map')} description={t('map.lead')}>
-  <Fragment slot="head">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
-    <script is:inline src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-  </Fragment>
-
   <div class="map-page">
     <aside class="panel">
       <header>
@@ -91,7 +86,13 @@ const payload = {
       </footer>
     </aside>
 
-    <div class="map" id="map" role="region" aria-label={t('nav.map')}></div>
+    <div class="map-wrap">
+      <div class="map" id="map" role="region" aria-label={t('nav.map')}></div>
+      <div class="cartouche" data-cartouche aria-hidden="true">
+        <span class="c-ar" lang="ar">الفقهاء في البلدان</span>
+        <span class="c-sub" data-cartouche-sub>{t('map.allCenturies')}</span>
+      </div>
+    </div>
   </div>
 
   <script type="application/json" id="map-data" set:html={JSON.stringify(payload)} />
@@ -283,40 +284,78 @@ const payload = {
     text-decoration: underline;
   }
 
-  .map {
+  .map-wrap {
+    position: relative;
     min-height: 420px;
-    background: #eef1f3;
+  }
+  .map {
+    position: absolute;
+    inset: 0;
+  }
+  /* Title cartouche in the manner of an atlas sheet */
+  .cartouche {
+    position: absolute;
+    z-index: 500;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    justify-items: center;
+    gap: 2px;
+    padding: 10px 34px 12px;
+    background: rgb(244 234 211 / 0.92);
+    border: 1px solid rgb(94 29 18 / 0.45);
+    outline: 1px solid rgb(94 29 18 / 0.25);
+    outline-offset: 3px;
+    border-radius: 40px / 50%;
+    pointer-events: none;
+    text-align: center;
+  }
+  .c-ar {
+    font: 700 1.35rem/1.3 var(--arabic);
+    color: #5e1d12;
+  }
+  .c-sub {
+    font: italic 500 0.8rem var(--serif-latin);
+    letter-spacing: 0.08em;
+    color: #6b5a44;
+  }
+  :root[lang='ar'] .c-sub {
+    font: 700 0.95rem var(--arabic);
+    letter-spacing: 0;
+  }
+  :root[data-theme='dark'] .cartouche {
+    background: rgb(42 34 23 / 0.92);
+  }
+  :root[data-theme='dark'] .c-ar {
+    color: #e9c9a0;
   }
   @media (max-width: 899px) {
     .map-page {
       height: auto;
       grid-template-rows: 60vh auto;
     }
-    .map {
+    .map-wrap {
       order: -1;
     }
-  }
-  :global(.leaflet-tooltip.place-label) {
-    padding: 2px 6px;
-    border: 0;
-    box-shadow: none;
-    background: rgb(255 255 255 / 0.85);
-    font: 600 11px var(--sans);
-    color: var(--ink);
-  }
-  :global(.leaflet-tooltip.place-label::before) {
-    display: none;
+    .cartouche {
+      padding: 6px 18px 8px;
+    }
+    .c-ar {
+      font-size: 1.05rem;
+    }
   }
 </style>
 
 <script>
-  declare const L: any;
-  type Role = string;
+  import { atlasMap, cityIcon, cityLabel, compass, esc, L, labelThreshold, regionLabels, route, zoomButtons, type Region } from '../../../lib/atlas';
+
   type Data = {
-    places: { id: string; name: string; nameAr: string; region: string; lat: number; lng: number; uri?: string; approx: boolean; links: [number, Role[]][] }[];
-    scholars: { name: string; ar: string; href: string; c: number; life: string }[];
+    places: { id: string; name: string; nameAr: string; region: string; lat: number; lng: number; uri?: string; approx: boolean; links: [number, string[]][] }[];
+    scholars: { name: string; ar: string; href: string; c: number; life: string; p: string[] }[];
     roleLabels: Record<string, string>;
-    centuries: [number, string][];
+    regions: Region[];
+    centuries: [number, string, string][];
     t: Record<string, string>;
     rtl: boolean;
   };
@@ -325,22 +364,20 @@ const payload = {
   const detail = document.querySelector<HTMLElement>('[data-detail]')!;
   const stats = document.querySelector<HTMLElement>('[data-stats]')!;
   const centuryLabel = document.querySelector<HTMLElement>('[data-century-label]')!;
+  const cartoucheSub = document.querySelector<HTMLElement>('[data-cartouche-sub]')!;
   const playBtn = document.querySelector<HTMLButtonElement>('[data-play]')!;
-  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+  const byId = new Map(data.places.map((p) => [p.id, p]));
 
-  const map = L.map('map', { zoomControl: true, worldCopyJump: true, minZoom: 3 }).setView([34, 50], 4);
-  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-    attribution: 'Tiles © <a href="https://www.esri.com">Esri</a> — Esri, HERE, Garmin, © OpenStreetMap contributors · al-Ṯurayyā (CC BY 4.0)',
-    maxZoom: 10,
-  }).addTo(map);
+  const map = atlasMap(document.getElementById('map')!).setView([33, 52], 4);
+  zoomButtons(map);
+  compass(map);
+  regionLabels(map, data.regions, data.rtl);
+  const journey = L.layerGroup().addTo(map);
 
-  const NAVY = '#1d5047';
-  const GOLD = '#a23f2a';
   let selected: string | null = null;
-  const markers = new Map<string, any>();
+  const markers = new Map<string, L.Marker>();
   data.places.forEach((p) => {
-    const m = L.circleMarker([p.lat, p.lng], { weight: 2, color: NAVY, fillColor: NAVY, fillOpacity: 0.75, dashArray: p.approx ? '3 3' : null });
-    m.bindTooltip(p.name, { direction: 'top', offset: [0, -6] });
+    const m = L.marker([p.lat, p.lng], { icon: cityIcon(1, { approx: p.approx }), riseOnHover: true });
     m.on('click', () => select(p.id));
     markers.set(p.id, m);
   });
@@ -355,27 +392,31 @@ const payload = {
     };
   };
 
-  /** Scholars at a place that pass the current filters. */
   const linksFor = (p: Data['places'][number], s: ReturnType<typeof state>) =>
     p.links.filter(([i, roles]) => (!s.century || data.scholars[i].c === s.century) && roles.some((r) => s.roles.has(r)));
 
   const render = () => {
     const s = state();
-    centuryLabel.textContent = s.century ? data.centuries.find(([c]) => c === s.century)![1] : data.t.all;
+    const cent = s.century ? data.centuries.find(([c]) => c === s.century)! : null;
+    centuryLabel.textContent = cent ? cent[1] : data.t.all;
+    cartoucheSub.textContent = cent ? (data.rtl ? cent[2] : cent[1]) : data.t.all;
     const people = new Set<number>();
     let nPlaces = 0;
     data.places.forEach((p) => {
       const links = linksFor(p, s);
-      const m = markers.get(p.id);
+      const m = markers.get(p.id)!;
       const matchQ = !s.q || p.name.toLocaleLowerCase().includes(s.q) || p.nameAr.includes(s.q);
       if (links.length && matchQ) {
-        m.setRadius(4 + 2.4 * Math.sqrt(links.length));
-        const on = p.id === selected;
-        m.setStyle({ color: on ? GOLD : NAVY, fillColor: on ? GOLD : NAVY, fillOpacity: p.approx ? 0.25 : 0.75 });
+        m.setIcon(cityIcon(links.length, { approx: p.approx, on: p.id === selected }));
+        m.unbindTooltip();
+        const big = links.length >= labelThreshold(map.getZoom()) || p.id === selected;
+        m.bindTooltip(cityLabel(p.name, p.nameAr, data.rtl), {
+          permanent: big,
+          direction: 'bottom',
+          offset: [0, 6],
+          className: 'city-name',
+        });
         if (!map.hasLayer(m)) m.addTo(map);
-        // Label the busiest centres permanently.
-        if (links.length >= 12) m.bindTooltip(p.name, { permanent: true, direction: 'right', className: 'place-label', offset: [6, 0] }).openTooltip();
-        else m.bindTooltip(p.name, { direction: 'top', offset: [0, -6] });
         links.forEach(([i]) => people.add(i));
         nPlaces++;
       } else if (map.hasLayer(m)) {
@@ -390,19 +431,32 @@ const payload = {
     }
   };
 
+  const drawJourney = (i: number | null) => {
+    journey.clearLayers();
+    if (i === null) return;
+    const pts = data.scholars[i].p.map((id) => byId.get(id)).filter((p) => !!p);
+    if (pts.length > 1) journey.addLayer(route(pts.map((p) => [p!.lat, p!.lng])));
+  };
+
   const showDetail = (id: string) => {
-    const p = data.places.find((x) => x.id === id)!;
+    const p = byId.get(id)!;
     const links = linksFor(p, state());
     const items = links
       .sort((a, b) => data.scholars[a[0]].c - data.scholars[b[0]].c)
       .map(([i, roles]) => {
         const sc = data.scholars[i];
         const meta = [sc.life, roles.map((r) => data.roleLabels[r]).join(', ')].filter(Boolean).join(' · ');
-        return `<li><a href="${sc.href}"><span class="n">${esc(sc.name)}</span><span class="m">${esc(meta)}</span></a></li>`;
+        return `<li><a href="${sc.href}" data-i="${i}"><span class="n">${esc(sc.name)}</span><span class="m">${esc(meta)}</span></a></li>`;
       })
       .join('');
     const source = p.uri ? `${data.t.gazetteerId}: ${p.uri}` : data.t.approx;
     detail.innerHTML = `<h2>${esc(p.name)}</h2><p class="ar" lang="ar" dir="rtl">${esc(p.nameAr)}</p><p class="sub">${esc(p.region)} · ${links.length} ${data.t.scholars}<br>${esc(source)}</p><ul>${items}</ul>`;
+    detail.querySelectorAll<HTMLAnchorElement>('[data-i]').forEach((a) => {
+      const i = Number(a.dataset.i);
+      a.addEventListener('mouseenter', () => drawJourney(i));
+      a.addEventListener('focus', () => drawJourney(i));
+      a.addEventListener('mouseleave', () => drawJourney(null));
+    });
   };
 
   const select = (id: string) => {
@@ -411,6 +465,7 @@ const payload = {
   };
 
   form.addEventListener('input', render);
+  map.on('zoomend', render);
 
   let timer: number | undefined;
   const range = form.elements.namedItem('c') as HTMLInputElement;

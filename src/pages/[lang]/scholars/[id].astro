@@ -3,14 +3,16 @@ import { getCollection, render } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import PageHead from '../../../components/PageHead.astro';
 import MiniMap from '../../../components/MiniMap.astro';
-import { scholarPlaces } from '../../../lib/mapdata';
-import { centuryLabel, dateLong, getScholars, scholarCentury, scholarSummary } from '../../../lib/scholars';
+import { lifeRoute, scholarPlaces } from '../../../lib/mapdata';
+import { centuryLabel, dateLong, getScholars, lifeShort, scholarCentury, scholarSummary } from '../../../lib/scholars';
 import { LOCALES, pick, useT, type Lang, type UIKey } from '../../../i18n/ui';
 import { href } from '../../../lib/url';
-import { MADHHABS, SITE } from '../../../site.config';
-import { neighbours, refLink } from '../../../lib/network';
+import { MADHHABS } from '../../../site.config';
+import { EDGES, neighbours, refLink } from '../../../lib/network';
+import { lineage, lineageSvg } from '../../../lib/lineage';
 import { backdrop } from '../../../lib/images';
 import { miladi } from '../../../lib/hijri';
+import { sourceForms } from '../../../lib/sources';
 
 export async function getStaticPaths() {
   const scholars = await getScholars();
@@ -40,12 +42,15 @@ const facts: [string, string][] = [
   [t('scholars.century'), c ? centuryLabel(c, lang) : '—'],
 ];
 const src = d.sources[0];
-const points = [...scholarPlaces(s)]
-  .filter(([pid]) => places.has(pid))
-  .map(([pid, roles]) => {
+const roleMap = scholarPlaces(s);
+const points = lifeRoute(s)
+  .filter((pid) => places.has(pid))
+  .map((pid) => {
     const p = places.get(pid)!;
+    const roles = roleMap.get(pid)!;
     return {
       name: placeName(pid) ?? pid,
+      nameAr: p.name.ar ?? '',
       lat: p.lat,
       lng: p.lng,
       approx: p.coordSource !== 'thurayya',
@@ -60,6 +65,23 @@ const nameOf = (id: string) => {
   return lang === 'ar' ? x.data.name.ar : x.data.name[lang];
 };
 const net = neighbours(s.id);
+const yearOf = (id: string) => byId.get(id)?.data.death.hijri ?? null;
+const tree = net.teachers.length || net.students.length
+  ? lineageSvg(
+      lineage(s.id, EDGES, yearOf),
+      (id) => {
+        const x = byId.get(id)!;
+        return { name: x.data.name[lang === 'ar' ? 'tr' : lang], ar: x.data.name.ar, life: lifeShort(x, lang), href: href(lang, `scholars/${id}/`), year: yearOf(id) };
+      },
+      {
+        self: s.id,
+        rtl: lang === 'ar',
+        showLatin: lang !== 'ar',
+        labels: { [-2]: t('lineage.g-2' as UIKey), [-1]: t('lineage.g-1' as UIKey), 1: t('lineage.g1' as UIKey), 2: t('lineage.g2' as UIKey) },
+        moreLabel: (n) => t('lineage.more' as UIKey).replace('{n}', String(n)),
+      },
+    )
+  : '';
 const lists = [
   { key: 'scholar.teachers', role: 'teachers', items: d.teachers },
   { key: 'scholar.students', role: 'students', items: d.students },
@@ -67,6 +89,14 @@ const lists = [
 ] as const;
 
 const permalink = new URL(href(lang, `scholars/${s.id}/`), Astro.site).href;
+const forms = sourceForms(src.book, lang);
+const page = String(src.page ?? '');
+const TITLES = ['el-Fevâidü’l-behiyye fî terâcimi’l-Hanefiyye', 'el-Fevâidü’l-behiyye', 'al-Fawāʾid al-bahiyya fī tarājim al-Ḥanafiyya', 'al-Fawāʾid al-bahiyya', 'الفوائد البهية في تراجم الحنفية', 'الفوائد البهية'];
+const escHtml = (x: string) => x.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]!);
+const italic = (ref: string) => {
+  const hit = TITLES.find((ti) => ref.includes(ti));
+  return hit ? escHtml(ref).replace(escHtml(hit), `<em>${escHtml(hit)}</em>`) : escHtml(ref);
+};
 const ldPlace = (id?: string) => {
   const p = id ? places.get(id) : undefined;
   return p && { '@type': 'Place', name: pick(p.name, lang), geo: { '@type': 'GeoCoordinates', latitude: p.lat, longitude: p.lng } };
@@ -85,7 +115,6 @@ const jsonld = {
   knowsAbout: lang === 'ar' ? 'الفقه الحنفي' : lang === 'en' ? 'Hanafi jurisprudence' : 'Hanefî fıkhı',
   subjectOf: { '@type': 'Book', name: src.book, author: { '@type': 'Person', name: src.author } },
 };
-const siteName = lang === 'ar' ? SITE.nameAr : SITE.name;
 const srcRef =
   lang === 'ar'
     ? `${src.author}، ${src.book}، ص ${src.page}${src.entry ? `، رقم ${src.entry}` : ''}`
@@ -132,27 +161,14 @@ const srcRef =
       }
 
       {
-        (net.teachers.length > 0 || net.students.length > 0) && (
+        tree && (
           <section class="chain" data-pagefind-ignore>
             <h2>{t('network.title')}</h2>
             <p class="meta">{t('network.lead')}</p>
-            <div class="chain-grid">
-              {net.teachers.length > 0 && (
-                <div class="tier">
-                  <span class="tier-label">{t('scholar.teachers')}</span>
-                  {net.teachers.map((id) => <a href={href(lang, `scholars/${id}/`)}>{nameOf(id)}</a>)}
-                </div>
-              )}
-              <div class="tier self">
-                <span>{title}</span>
-              </div>
-              {net.students.length > 0 && (
-                <div class="tier">
-                  <span class="tier-label">{t('scholar.students')}</span>
-                  {net.students.map((id) => <a href={href(lang, `scholars/${id}/`)}>{nameOf(id)}</a>)}
-                </div>
-              )}
+            <div class="tree-wrap">
+              <Fragment set:html={tree} />
             </div>
+            <p class="meta scroll-note">{t('lineage.scroll' as UIKey)}</p>
             <a href={`${href(lang, 'network/')}?focus=${s.id}`} class="to-map">{t('network.open')} →</a>
           </section>
         )
@@ -160,21 +176,23 @@ const srcRef =
 
       <section class="cite" data-pagefind-ignore>
         <h2>{t('cite.title')}</h2>
-        <div class="cite-box">
-          <p class="label">ISNAD</p>
-          <p class="ref" data-copy-src>
-            “{title}”. <em>{siteName}</em>. {srcRef}. {t('cite.accessed')} <span data-today={lang}></span>. {permalink}
-          </p>
-          <button type="button" class="btn small plain" data-copy data-done={t('bib.copied')}>{t('bib.copy')}</button>
-        </div>
-        <div class="cite-box">
-          <p class="label">Chicago</p>
-          <p class="ref" data-copy-src>
-            “{title}.” In <em>{siteName}</em>. {lang === 'en' ? 'Based on' : lang === 'ar' ? 'عن' : 'Kaynak:'} {srcRef}. {lang === 'tr' ? 'Erişim' : lang === 'ar' ? 'اطُّلع عليه في' : 'Accessed'} <span data-today={lang}></span>. {permalink}.
-          </p>
-          <button type="button" class="btn small plain" data-copy data-done={t('bib.copied')}>{t('bib.copy')}</button>
-        </div>
-        <p class="meta permalink">{t('cite.permalink')}: <a href={permalink}>{permalink}</a></p>
+        <p class="meta">{t('cite.lead')}</p>
+        {
+          forms ? (
+            [forms.note(page), forms.short(page), forms.bib].map((ref, n) => (
+              <div class="cite-box">
+                <p class="label">{forms.styles[n]}</p>
+                <p class="ref" data-copy-src set:html={italic(ref)} />
+                <button type="button" class="btn small plain" data-copy data-done={t('bib.copied')}>{t('bib.copy')}</button>
+              </div>
+            ))
+          ) : (
+            <div class="cite-box">
+              <p class="ref" data-copy-src>{srcRef}.</p>
+            </div>
+          )
+        }
+        <p class="meta permalink">{t('cite.online')} <a href={permalink}>{permalink}</a></p>
       </section>
     </div>
 
@@ -194,7 +212,7 @@ const srcRef =
         points.length > 0 && (
           <div class="box map-box">
             <h3>{t('scholar.places')}</h3>
-            <MiniMap points={points} label={t('scholar.places')} />
+            <MiniMap points={points} label={t('scholar.places')} rtl={lang === 'ar'} />
             <ul class="places">
               {points.map((p) => (
                 <li>
@@ -252,9 +270,12 @@ const srcRef =
   }
   @media (min-width: 960px) {
     .layout {
-      grid-template-columns: 1fr 340px;
+      grid-template-columns: minmax(0, 1fr) 340px;
       gap: 56px;
     }
+  }
+  .main {
+    min-width: 0;
   }
   .summary {
     font: 400 1.12rem/1.8 var(--serif);
@@ -321,47 +342,19 @@ const srcRef =
   .cite h2 {
     margin-block-end: 6px;
   }
-  .chain-grid {
-    display: grid;
-    gap: 10px;
-    margin-block: 18px 12px;
-  }
-  .tier {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-    padding: 14px;
+  .tree-wrap {
+    margin-block: 18px 8px;
+    overflow-x: auto;
     background: var(--soft);
-  }
-  .tier-label {
-    flex-basis: 100%;
-    font-size: 0.78rem;
-    color: var(--muted);
-  }
-  .tier a {
-    padding: 5px 12px;
     border: 1px solid var(--rule);
-    border-radius: 999px;
-    background: var(--surface);
-    font-size: 0.88rem;
-    color: var(--ink);
   }
-  .tier a:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+  .tree-wrap :global(svg) {
+    display: block;
+    margin-inline: auto;
+    max-width: none;
   }
-  .tier.self {
-    justify-content: center;
-    background: none;
-    padding-block: 2px;
-  }
-  .tier.self span {
-    padding: 7px 16px;
-    border-radius: 999px;
-    background: var(--accent);
-    color: var(--on-accent);
-    font-weight: 600;
+  .scroll-note {
+    font-size: 0.78rem;
   }
   .cite-box {
     display: grid;

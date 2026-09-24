@@ -1,45 +1,40 @@
 ---
-// Small map of one jurist's places (Leaflet from the CDN).
+// Small parchment map of one jurist's places, joined in life order.
 interface Props {
-  points: { name: string; lat: number; lng: number; approx: boolean; roles: string }[];
+  points: { name: string; nameAr: string; lat: number; lng: number; approx: boolean; roles: string }[];
   label: string;
+  rtl?: boolean;
 }
-const { points, label } = Astro.props;
+const { points, label, rtl = false } = Astro.props;
 ---
 
-{
-  points.length > 0 && (
-    <>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
-      <script is:inline src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" />
-      <div class="mini-map" data-mini-map={JSON.stringify(points)} role="img" aria-label={label} />
-    </>
-  )
-}
+{points.length > 0 && <div class="mini-map" data-mini-map={JSON.stringify({ points, rtl })} role="img" aria-label={label} />}
 
 <style>
   .mini-map {
-    height: 240px;
-    background: #eef1f3;
+    height: 260px;
   }
 </style>
 
 <script>
-  declare const L: any;
+  import { atlasMap, cityIcon, cityLabel, L, route } from '../lib/atlas';
+
+  type Pt = { name: string; nameAr: string; lat: number; lng: number; approx: boolean; roles: string };
   document.querySelectorAll<HTMLElement>('[data-mini-map]').forEach((el) => {
-    const pts = JSON.parse(el.dataset.miniMap ?? '[]') as { name: string; lat: number; lng: number; approx: boolean; roles: string }[];
-    const map = L.map(el, { zoomControl: false, attributionControl: true, scrollWheelZoom: false });
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-      attribution: 'Tiles © Esri · al-Ṯurayyā',
-      maxZoom: 9,
-    }).addTo(map);
+    const { points: pts, rtl } = JSON.parse(el.dataset.miniMap ?? '{}') as { points: Pt[]; rtl: boolean };
+    const map = atlasMap(el, { scrollWheelZoom: false, attributionControl: true, minZoom: 2 });
+    if (pts.length > 1) route(pts.map((p) => [p.lat, p.lng])).addTo(map);
     const layer = L.featureGroup(
       pts.map((p) =>
-        L.circleMarker([p.lat, p.lng], { radius: 6, weight: 2, color: '#1d5047', fillColor: '#1d5047', fillOpacity: p.approx ? 0.25 : 0.8, dashArray: p.approx ? '3 3' : null })
-          .bindTooltip(`${p.name} · ${p.roles}`, { direction: 'top', offset: [0, -6] }),
+        L.marker([p.lat, p.lng], { icon: cityIcon(3, { approx: p.approx }) }).bindTooltip(`${cityLabel(p.name, p.nameAr, rtl)}<span>${p.roles}</span>`, {
+          permanent: pts.length <= 4,
+          direction: 'bottom',
+          offset: [0, 6],
+          className: 'city-name',
+        }),
       ),
     ).addTo(map);
     if (pts.length === 1) map.setView([pts[0].lat, pts[0].lng], 5);
-    else map.fitBounds(layer.getBounds().pad(0.4), { maxZoom: 6 });
+    else map.fitBounds(layer.getBounds().pad(0.5), { maxZoom: 6 });
   });
 </script>
