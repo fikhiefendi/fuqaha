@@ -127,4 +127,14 @@ const works = defineCollection({
   }),
 });
 
-export const collections = { posts, places, scholars, works };
+// Fixed pages (about, contribute, licence) in pages/<lang>/<slug>.md.
+const pages = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
+  schema: z.object({
+    title: z.string(),
+    lead: z.string(),
+    photo: z.string().optional(),
+  }),
+});
+
+export const collections = { posts, places, scholars, works, pages };

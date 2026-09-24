@@ -3,7 +3,8 @@ import Base from '../../../layouts/Base.astro';
 import PageHead from '../../../components/PageHead.astro';
 import { photo } from '../../../lib/images';
 import { getScholars, lifeShort, scholarCentury, centuryLabel } from '../../../lib/scholars';
-import { langPaths, useT, type Lang } from '../../../i18n/ui';
+import { getCollection } from 'astro:content';
+import { langPaths, pick, useT, type Lang } from '../../../i18n/ui';
 import { href } from '../../../lib/url';
 
 export const getStaticPaths = langPaths;
@@ -13,6 +14,24 @@ const t = useT(lang);
 const scholars = await getScholars();
 const rows = scholars.map((s) => ({ s, c: scholarCentury(s) }));
 const centuries = [...new Set(rows.map((r) => r.c).filter((c): c is number => !!c))].sort((a, b) => a - b);
+
+const places = new Map((await getCollection('places')).map((p) => [p.id, pick(p.data.name, lang) ?? p.id]));
+const collator = new Intl.Collator(lang === 'ar' ? 'ar' : lang === 'en' ? 'en' : 'tr');
+const cityCount = new Map<string, number>();
+for (const { s } of rows) {
+  const id = s.data.death.place;
+  if (id && places.has(id)) cityCount.set(id, (cityCount.get(id) ?? 0) + 1);
+}
+const cities = [...cityCount].sort((a, b) => collator.compare(places.get(a[0])!, places.get(b[0])!));
+
+// First letter of the name as read on this page (Arabic ignores hamza forms).
+const letterOf = (s: (typeof rows)[number]['s']) => {
+  const name = lang === 'ar' ? s.data.name.ar : s.data.name[lang];
+  const ch = name.replace(/^[^\p{L}]+/u, '').charAt(0);
+  return lang === 'ar' ? ch.replace(/[أإآ]/, 'ا') : ch.toLocaleUpperCase(lang === 'tr' ? 'tr' : 'en');
+};
+const letters = [...new Set(rows.map(({ s }) => letterOf(s)))].sort(collator.compare);
+const sortName = (s: (typeof rows)[number]['s']) => (lang === 'ar' ? s.data.name.ar : s.data.name[lang]);
 ---
 
 <Base lang={lang} title={t('nav.scholars')} description={t('scholars.lead')}>
@@ -31,13 +50,40 @@ const centuries = [...new Set(rows.map((r) => r.c).filter((c): c is number => !!
           {centuries.map((c) => <option value={c}>{centuryLabel(c, lang)}</option>)}
         </select>
       </label>
+      <label>
+        <span>{t('scholars.city')}</span>
+        <select name="city">
+          <option value="">{t('scholars.allCities')}</option>
+          {cities.map(([id, n]) => <option value={id}>{places.get(id)} ({n})</option>)}
+        </select>
+      </label>
+      <label>
+        <span>{t('scholars.sort')}</span>
+        <select name="sort">
+          <option value="order">{t('scholars.sortOrder')}</option>
+          <option value="death">{t('scholars.sortDeath')}</option>
+          <option value="name">{t('scholars.sortName')}</option>
+        </select>
+      </label>
       <p class="count" aria-live="polite"><strong data-count>{rows.length}</strong> {t('scholars.count')}</p>
+      <fieldset class="letters">
+        <legend class="visually-hidden">{t('scholars.letters')}</legend>
+        <label class="letter"><input type="radio" name="l" value="" checked /><span>{t('scholars.allLetters')}</span></label>
+        {letters.map((l) => <label class="letter"><input type="radio" name="l" value={l} /><span>{l}</span></label>)}
+      </fieldset>
     </form>
+    <p class="to-network"><a href={href(lang, 'network/')}>{t('network.pageTitle')} →</a></p>
 
     <ol class="list">
       {
         rows.map(({ s, c }) => (
-          <li data-c={c ?? ''} data-q={`${s.data.name.tr} ${s.data.name.en} ${s.data.name.ar} ${s.data.fullNameAr ?? ''}`.toLocaleLowerCase('tr')}>
+          <li
+            data-c={c ?? ''}
+            data-city={s.data.death.place ?? ''}
+            data-l={letterOf(s)}
+            data-death={s.data.death.hijri ?? 9999}
+            data-name={sortName(s)}
+            data-q={`${s.data.name.tr} ${s.data.name.en} ${s.data.name.ar} ${s.data.fullNameAr ?? ''}`.toLocaleLowerCase('tr')}>
             <a href={href(lang, `scholars/${s.id}/`)}>
               <span class="ar" lang="ar">{s.data.name.ar}</span>
               {lang !== 'ar' && <span class="name">{s.data.name[lang]}</span>}
@@ -67,8 +113,59 @@ const centuries = [...new Set(rows.map((r) => r.c).filter((c): c is number => !!
   }
   @media (min-width: 760px) {
     .filters {
-      grid-template-columns: 2fr 1fr auto;
+      grid-template-columns: 2fr 1fr 1fr 1fr auto;
     }
+  }
+  .letters {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 0;
+    padding: 12px 0 0;
+    border: 0;
+    border-block-start: 1px solid var(--rule);
+  }
+  .letter {
+    display: block;
+    cursor: pointer;
+  }
+  .letter input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .letter span {
+    display: grid;
+    place-items: center;
+    min-width: 32px;
+    height: 32px;
+    padding-inline: 8px;
+    border: 1px solid transparent;
+    font: 500 0.9rem var(--sans);
+    color: var(--ink);
+  }
+  :root[lang='ar'] .letter span {
+    font: 700 1.1rem var(--arabic);
+  }
+  .letter:hover span {
+    border-color: var(--rule);
+    background: var(--surface);
+  }
+  .letter input:checked + span {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+  .letter input:focus-visible + span {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .to-network {
+    margin-block: -12px 20px;
+    font-size: 0.88rem;
+  }
+  .to-network a {
+    color: var(--accent);
   }
   label {
     display: grid;
@@ -82,7 +179,7 @@ const centuries = [...new Set(rows.map((r) => r.c).filter((c): c is number => !!
     width: 100%;
     padding: 11px 12px;
     border: 1px solid var(--rule);
-    background: #fff;
+    background: var(--surface);
     font: inherit;
     font-size: 0.95rem;
     color: var(--ink);
@@ -143,6 +240,7 @@ const centuries = [...new Set(rows.map((r) => r.c).filter((c): c is number => !!
 
 <script>
   const form = document.querySelector<HTMLFormElement>('[data-filters]');
+  const list = document.querySelector<HTMLOListElement>('.list');
   const items = [...document.querySelectorAll<HTMLLIElement>('.list li')];
   const count = document.querySelector('[data-count]');
   const none = document.querySelector<HTMLElement>('[data-none]');
@@ -157,28 +255,44 @@ const centuries = [...new Set(rows.map((r) => r.c).filter((c): c is number => !!
       .replace(/ى/g, 'ي')
       .replace(/ة/g, 'ه');
   const keys = items.map((li) => fold(li.dataset.q ?? ''));
+  const collator = new Intl.Collator(document.documentElement.lang);
+  const sorters: Record<string, (a: HTMLLIElement, b: HTMLLIElement) => number> = {
+    order: (a, b) => items.indexOf(a) - items.indexOf(b),
+    death: (a, b) => Number(a.dataset.death) - Number(b.dataset.death),
+    name: (a, b) => collator.compare(a.dataset.name ?? '', b.dataset.name ?? ''),
+  };
+  const FIELDS = ['q', 'c', 'city', 'sort', 'l'];
   const apply = () => {
-    if (!form) return;
+    if (!form || !list) return;
     const data = new FormData(form);
-    const q = fold(String(data.get('q') ?? '').trim());
-    const c = String(data.get('c') ?? '');
+    const v = (k: string) => String(data.get(k) ?? '').trim();
+    const q = fold(v('q'));
     let shown = 0;
     items.forEach((li, i) => {
-      const ok = (!q || keys[i].includes(q)) && (!c || li.dataset.c === c);
+      const ok =
+        (!q || keys[i].includes(q)) &&
+        (!v('c') || li.dataset.c === v('c')) &&
+        (!v('city') || li.dataset.city === v('city')) &&
+        (!v('l') || li.dataset.l === v('l'));
       li.hidden = !ok;
       if (ok) shown++;
     });
+    list.append(...[...items].sort(sorters[v('sort') || 'order']));
     if (count) count.textContent = String(shown);
     if (none) none.hidden = shown > 0;
     const params = new URLSearchParams();
-    if (q) params.set('q', String(data.get('q')));
-    if (c) params.set('c', c);
+    FIELDS.forEach((k) => v(k) && !(k === 'sort' && v(k) === 'order') && params.set(k, v(k)));
     history.replaceState(null, '', params.size ? `?${params}` : location.pathname);
   };
   const init = new URLSearchParams(location.search);
   if (form) {
-    (form.elements.namedItem('q') as HTMLInputElement).value = init.get('q') ?? '';
-    (form.elements.namedItem('c') as HTMLSelectElement).value = init.get('c') ?? '';
+    FIELDS.forEach((k) => {
+      const value = init.get(k);
+      if (!value) return;
+      const el = form.elements.namedItem(k);
+      if (el instanceof RadioNodeList) el.value = value;
+      else if (el) (el as HTMLInputElement).value = value;
+    });
     form.addEventListener('input', apply);
     apply();
   }

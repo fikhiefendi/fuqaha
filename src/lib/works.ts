@@ -1,6 +1,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { pick, type Lang } from '../i18n/ui';
 import { WORK_TYPES } from '../site.config';
+import { toBibtex, type Rec } from './cite';
 
 export type Work = CollectionEntry<'works'>;
 
@@ -39,22 +40,30 @@ export function isnad(w: Work, lang: Lang): string {
   return `${authors}. ${d.title}. ${[where, d.publisher].filter(Boolean).join(', ')}, ${year}.`;
 }
 
-export function bibtex(w: Work): string {
+/** Plain record for export formats. */
+export function record(w: Work): Rec {
   const d = w.data;
-  const kind = d.type === 'tez-doktora' ? 'phdthesis' : d.type === 'tez-yl' ? 'mastersthesis' : d.type === 'makale' ? 'article' : 'book';
-  const f: [string, string | number | undefined][] = [
-    ['author', d.authors.join(' and ')],
-    ['title', d.title],
-    ['school', d.university],
-    ['address', d.city],
-    ['year', d.year],
-    ['journal', d.journal],
-    ['publisher', d.publisher],
-    ['language', d.language],
-  ];
-  const body = f
-    .filter(([, v]) => v !== undefined && v !== '')
-    .map(([k, v]) => `  ${k} = {${v}}`)
-    .join(',\n');
-  return `@${kind}{${w.id.replace(/-/g, '_')},\n${body}\n}`;
+  return {
+    id: w.id,
+    type: d.type,
+    title: d.title,
+    authors: d.authors,
+    editors: d.editors,
+    language: d.language,
+    year: d.year,
+    university: d.university,
+    city: d.city,
+    publisher: d.publisher,
+    journal: d.journal,
+    volume: d.volume,
+    issue: d.issue,
+    pages: d.pages,
+    url: d.url,
+    doi: d.doi,
+    topics: d.topics,
+  };
+}
+
+export function bibtex(w: Work): string {
+  return toBibtex(record(w));
 }

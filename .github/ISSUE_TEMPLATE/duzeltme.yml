@@ -1,0 +1,25 @@
+name: Düzeltme / Correction / تصويب
+description: Bir kayıttaki hatayı bildirin · Report an error in an entry · أبلغ عن خطأ
+title: "[Düzeltme] "
+labels: ["düzeltme"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Sayfa bağlantısı / Page link / رابط الصفحة
+      placeholder: https://fikhiefendi.github.io/fuqaha/tr/scholars/...
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Hata nedir? / What is wrong? / ما الخطأ؟
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Doğrusu ve kaynağı / Correction and source / الصواب ومصدره
+      description: Mümkünse kitap, cilt ve sayfa belirtin. · Give book, volume and page if possible. · اذكر الكتاب والجزء والصفحة إن أمكن.
+    validations:
+      required: true

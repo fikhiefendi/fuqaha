@@ -26,8 +26,8 @@ const { kicker, title, lead, back, photo, lang = 'tr' } = Astro.props;
     )
   }
   <div class="wrap inner">
-    {back && <a href={back.href} class="back">← {back.label}</a>}
-    {kicker && <span class="kicker">{kicker}</span>}
+    {back && <a href={back.href} class="back" data-pagefind-ignore>← {back.label}</a>}
+    {kicker && <span class="kicker" data-pagefind-ignore>{kicker}</span>}
     <h1>{title}</h1>
     {lead && <p class="lead">{lead}</p>}
     <slot />
@@ -67,10 +67,10 @@ const { kicker, title, lead, back, photo, lang = 'tr' } = Astro.props;
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, var(--soft), rgb(243 238 228 / 0.2) 45%, transparent);
+    background: linear-gradient(to right, var(--soft), color-mix(in srgb, var(--soft) 20%, transparent) 45%, transparent);
   }
   :root[dir='rtl'] .photo::after {
-    background: linear-gradient(to left, var(--soft), rgb(243 238 228 / 0.2) 45%, transparent);
+    background: linear-gradient(to left, var(--soft), color-mix(in srgb, var(--soft) 20%, transparent) 45%, transparent);
   }
   .photo-caption {
     position: absolute;

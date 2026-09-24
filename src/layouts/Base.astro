@@ -1,45 +1,100 @@
 ---
+import '@fontsource-variable/source-serif-4/opsz.css';
+import '@fontsource-variable/source-serif-4/opsz-italic.css';
+import '@fontsource/ibm-plex-sans/400.css';
+import '@fontsource/ibm-plex-sans/400-italic.css';
+import '@fontsource/ibm-plex-sans/500.css';
+import '@fontsource/ibm-plex-sans/600.css';
+import '@fontsource/ibm-plex-sans-arabic/400.css';
+import '@fontsource/ibm-plex-sans-arabic/500.css';
+import '@fontsource/ibm-plex-sans-arabic/600.css';
+import '@fontsource/amiri/400.css';
+import '@fontsource/amiri/700.css';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE } from '../site.config';
 import { LANG_META, LOCALES, useT, type Lang } from '../i18n/ui';
 import { switchLang, url } from '../lib/url';
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { photo } from '../lib/images';
 
 interface Props {
   lang: Lang;
   title?: string;
   description?: string;
   home?: boolean;
+  /** Include this page's main content in the site search, under this type. */
+  index?: 'scholar' | 'work' | 'post';
+  /** Picture used when the page is shared on social media. */
+  image?: ImageMetadata;
+  /** schema.org description of the page's subject. */
+  jsonld?: Record<string, unknown>;
+  ogType?: 'website' | 'article' | 'profile';
 }
 
-const { lang, title, description, home = false } = Astro.props;
+const { lang, title, description, home = false, index, image, jsonld, ogType = 'website' } = Astro.props;
 const t = useT(lang);
 const fullTitle = title ? `${title} — ${SITE.name}` : `${SITE.name} — ${t('tagline')}`;
+const desc = description ?? t('tagline');
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const share = await getImage({ src: image ?? photo('ulughbeg').src, width: 1200, height: 630, fit: 'cover', format: 'jpg', quality: 80 });
+const shareUrl = new URL(share.src, Astro.site).href;
+const ld = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE.name,
+    alternateName: SITE.nameAr,
+    url: new URL(url(''), Astro.site).href,
+    inLanguage: ['tr', 'en', 'ar'],
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${new URL(url(`${lang}/search/`), Astro.site).href}?q={query}`,
+      'query-input': 'required name=query',
+    },
+  },
+  ...(jsonld ? [{ '@context': 'https://schema.org', ...jsonld }] : []),
+];
 ---
 
 <!doctype html>
 <html lang={lang} dir={LANG_META[lang].dir}>
   <head>
     <meta charset="utf-8" />
+    <script is:inline>
+      try {
+        const saved = localStorage.getItem('theme');
+        const dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      } catch {}
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
-    <meta name="description" content={description ?? t('tagline')} />
-    <meta property="og:title" content={fullTitle} />
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title ?? SITE.name} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content={{ tr: 'tr_TR', en: 'en_GB', ar: 'ar_AR' }[lang]} />
+    <meta property="og:image" content={shareUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="sitemap" href={url('sitemap-index.xml')} />
+    <meta name="theme-color" content="#1d5047" />
+    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
     <link rel="icon" type="image/svg+xml" href={url('favicon.svg')} />
-    {LOCALES.map((l) => <link rel="alternate" hreflang={l} href={switchLang(Astro.url.pathname, l)} />)}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap"
-    />
+    {LOCALES.map((l) => <link rel="alternate" hreflang={l} href={new URL(switchLang(Astro.url.pathname, l), Astro.site).href} />)}
+    <link rel="alternate" hreflang="x-default" href={new URL(switchLang(Astro.url.pathname, 'tr'), Astro.site).href} />
     <slot name="head" />
   </head>
   <body>
     <Header lang={lang} home={home} />
-    <main>
+    <main data-pagefind-body={index ? '' : undefined} data-pagefind-filter={index ? `${t('bib.type')}:${t(`search.type.${index}`)}` : undefined}>
       <slot />
     </main>
     <Footer lang={lang} />

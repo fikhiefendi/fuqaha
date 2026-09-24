@@ -2,9 +2,10 @@
 import Base from '../../../layouts/Base.astro';
 import PageHead from '../../../components/PageHead.astro';
 import { photo } from '../../../lib/images';
-import { getWorks, displayName, typeLabel, languageName } from '../../../lib/works';
+import { getWorks, displayName, typeLabel, languageName, record } from '../../../lib/works';
+import { coins } from '../../../lib/cite';
 import { langPaths, pick, useT, type Lang } from '../../../i18n/ui';
-import { href } from '../../../lib/url';
+import { href, url } from '../../../lib/url';
 import { WORK_TYPES } from '../../../site.config';
 
 export const getStaticPaths = langPaths;
@@ -82,12 +83,20 @@ const fold = (s: string) => s.toLocaleLowerCase('tr');
         <p aria-live="polite"><strong data-count>{works.length}</strong> {t('bib.count')}</p>
         <button type="reset" class="reset">{t('bib.reset')}</button>
       </div>
+      <div class="export" data-export={url('data/bibliography.json')}>
+        <span>{t('bib.export')}:</span>
+        <button type="button" data-format="bib">BibTeX</button>
+        <button type="button" data-format="ris">RIS</button>
+        <button type="button" data-format="csv">CSV</button>
+        <span class="meta">{t('bib.exportNote')}</span>
+      </div>
     </form>
 
     <ol class="list" data-list>
       {
         works.map((w) => (
           <li
+            data-id={w.id}
             data-type={w.data.type}
             data-lang={w.data.language}
             data-uni={w.data.university ?? ''}
@@ -108,6 +117,7 @@ const fold = (s: string) => s.toLocaleLowerCase('tr');
                   .join(' · ')}
               </span>
             </a>
+            <span class="Z3988" title={coins(record(w))} />
           </li>
         ))
       }
@@ -148,7 +158,7 @@ const fold = (s: string) => s.toLocaleLowerCase('tr');
     width: 100%;
     padding: 10px 12px;
     border: 1px solid var(--rule);
-    background: #fff;
+    background: var(--surface);
     font: inherit;
     font-size: 0.92rem;
     color: var(--ink);
@@ -216,12 +226,40 @@ const fold = (s: string) => s.toLocaleLowerCase('tr');
   .none {
     padding: 24px 0;
   }
+  .export {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 10px;
+    padding-block-start: 12px;
+    border-block-start: 1px solid var(--rule);
+    font-size: 0.85rem;
+  }
+  .export button {
+    padding: 6px 14px;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--accent);
+    font: 500 0.82rem var(--sans);
+    cursor: pointer;
+  }
+  .export button:hover {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+  .export .meta {
+    flex-basis: 100%;
+  }
   .source {
     margin-block-start: 28px;
   }
 </style>
 
 <script>
+  import { toBibtex, toCsv, toRis, type Rec } from '../../../lib/cite';
+
   const form = document.querySelector<HTMLFormElement>('[data-filters]');
   const list = document.querySelector<HTMLOListElement>('[data-list]');
   const items = [...(list?.querySelectorAll<HTMLLIElement>('li') ?? [])];
@@ -272,6 +310,25 @@ const fold = (s: string) => s.toLocaleLowerCase('tr');
     FIELDS.forEach((k) => v(k) && !(k === 'sort' && v(k) === 'year') && params.set(k, v(k)));
     history.replaceState(null, '', params.size ? `?${params}` : location.pathname);
   };
+
+  let cache: Rec[] | undefined;
+  const exporter = document.querySelector<HTMLElement>('[data-export]');
+  exporter?.querySelectorAll<HTMLButtonElement>('[data-format]').forEach((b) =>
+    b.addEventListener('click', async () => {
+      cache ??= (await (await fetch(exporter.dataset.export!)).json()) as Rec[];
+      const shown = new Set(items.filter((li) => !li.hidden).map((li) => li.dataset.id));
+      const order = new Map(items.filter((li) => !li.hidden).map((li, i) => [li.dataset.id, i]));
+      const recs = cache.filter((r) => shown.has(r.id)).sort((a, b) => order.get(a.id)! - order.get(b.id)!);
+      const format = b.dataset.format!;
+      const text = format === 'bib' ? recs.map(toBibtex).join('\n\n') : format === 'ris' ? recs.map(toRis).join('\r\n') : toCsv(recs);
+      const type = { bib: 'application/x-bibtex', ris: 'application/x-research-info-systems', csv: 'text/csv' }[format];
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([text], { type: `${type};charset=utf-8` }));
+      a.download = `fuqaha-bibliyografya.${format}`;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }),
+  );
 
   if (form) {
     const init = new URLSearchParams(location.search);

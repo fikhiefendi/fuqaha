@@ -13,9 +13,11 @@
   --accent: #1d5047;
   --accent-dark: #133a33;
   --rubric: #a23f2a;
+  --on-accent: #ffffff;
   --shadow: 33 29 23;
+  color-scheme: light;
 
-  --serif-latin: 'Source Serif 4', Georgia, serif;
+  --serif-latin: 'Source Serif 4 Variable', 'Source Serif 4', Georgia, serif;
   --serif: var(--serif-latin);
   --sans: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
   --arabic: 'Amiri', 'Noto Naskh Arabic', serif;
@@ -24,6 +26,40 @@
   --wide: 1200px;
   --measure: 70ch;
   --header-h: 84px;
+}
+
+/* Dark theme: follows the system unless the reader picked a theme. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+  --bg: #14120e;
+    --surface: #1c1915;
+    --soft: #1f1c17;
+    --ink: #f0e9dc;
+    --text: #cfc6b6;
+    --muted: #a0968a;
+    --rule: #353028;
+    --accent: #7cc0ae;
+    --accent-dark: #9ad3c3;
+    --on-accent: #0f231f;
+    --rubric: #e38a70;
+    --shadow: 0 0 0;
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --bg: #14120e;
+  --surface: #1c1915;
+  --soft: #1f1c17;
+  --ink: #f0e9dc;
+  --text: #cfc6b6;
+  --muted: #a0968a;
+  --rule: #353028;
+  --accent: #7cc0ae;
+  --accent-dark: #9ad3c3;
+  --on-accent: #0f231f;
+  --rubric: #e38a70;
+  --shadow: 0 0 0;
+  color-scheme: dark;
 }
 
 :root[lang='ar'] {
@@ -101,7 +137,7 @@ svg {
   }
 }
 
-/* Navy square-cornered button, used throughout */
+/* Rounded accent button with a trailing arrow */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -109,7 +145,7 @@ svg {
   gap: 8px;
   padding: 12px 22px;
   background: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
   font: 500 0.9rem/1 var(--sans);
   border: 0;
   border-radius: 999px;
@@ -147,7 +183,7 @@ svg {
   width: 38px;
   height: 38px;
   background: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
   border: 0;
   cursor: pointer;
 }

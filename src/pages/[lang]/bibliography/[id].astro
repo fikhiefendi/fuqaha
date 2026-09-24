@@ -1,7 +1,9 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import PageHead from '../../../components/PageHead.astro';
-import { bibtex, displayName, getWorks, isnad, languageName, typeLabel } from '../../../lib/works';
+import { bibtex, displayName, getWorks, isnad, languageName, record, typeLabel } from '../../../lib/works';
+import { coins, toRis } from '../../../lib/cite';
+import { photo } from '../../../lib/images';
 import { LOCALES, useT, type Lang } from '../../../i18n/ui';
 import { href } from '../../../lib/url';
 
@@ -31,9 +33,22 @@ const rows: [string, string][] = [
   [t('bib.language'), languageName(d.language, lang)],
   [t('bib.topic'), d.topics.join(', ')],
 ].filter(([, v]) => v) as [string, string][];
+const jsonld = {
+  '@type': d.type.startsWith('tez') ? 'Thesis' : d.type === 'makale' ? 'ScholarlyArticle' : 'Book',
+  name: d.title,
+  author: d.authors.map((a) => ({ '@type': 'Person', name: displayName(a) })),
+  datePublished: d.year ? String(d.year) : undefined,
+  inLanguage: d.language,
+  inSupportOf: d.type.startsWith('tez') ? typeLabel(w, lang) : undefined,
+  sourceOrganization: d.university ? { '@type': 'CollegeOrUniversity', name: d.university } : undefined,
+  publisher: d.publisher ? { '@type': 'Organization', name: d.publisher } : undefined,
+  keywords: d.topics.length ? d.topics.join(', ') : undefined,
+  sameAs: d.url ?? (d.doi ? `https://doi.org/${d.doi}` : undefined),
+  url: new URL(Astro.url.pathname, Astro.site).href,
+};
 ---
 
-<Base lang={lang} title={d.title} description={`${d.authors.map(displayName).join(', ')} — ${d.university ?? ''}`}>
+<Base lang={lang} title={d.title} description={`${d.authors.map(displayName).join(', ')} — ${d.university ?? ''}`} index="work" image={photo('kharaj').src} jsonld={jsonld}>
   <PageHead kicker={typeLabel(w, lang)} title={d.title} back={{ href: href(lang, 'bibliography/'), label: t('bib.back') }}>
     <p class="by">{d.authors.map(displayName).join(', ')}</p>
   </PageHead>
@@ -44,7 +59,7 @@ const rows: [string, string][] = [
         {
           rows.map(([k, v]) => (
             <div>
-              <dt>{k}</dt>
+              <dt data-pagefind-ignore>{k}</dt>
               <dd>{v}</dd>
             </div>
           ))
@@ -61,7 +76,7 @@ const rows: [string, string][] = [
       }
     </div>
 
-    <aside class="cite">
+    <aside class="cite" data-pagefind-ignore>
       <h2>{t('bib.cite')}</h2>
       <div class="cite-box">
         <p class="label">ISNAD</p>
@@ -69,16 +84,22 @@ const rows: [string, string][] = [
         <button type="button" class="btn small plain" data-copy data-done={t('bib.copied')}>{t('bib.copy')}</button>
       </div>
       <div class="cite-box">
+        <p class="label">RIS (Zotero, EndNote, Mendeley)</p>
+        <pre data-copy-src>{toRis(record(w))}</pre>
+        <button type="button" class="btn small plain" data-copy data-done={t('bib.copied')}>{t('bib.copy')}</button>
+      </div>
+      <div class="cite-box">
         <p class="label">BibTeX</p>
         <pre data-copy-src>{bibtex(w)}</pre>
         <button type="button" class="btn small plain" data-copy data-done={t('bib.copied')}>{t('bib.copy')}</button>
       </div>
+      <span class="Z3988" title={coins(record(w))}></span>
     </aside>
   </div>
 
   {
     related.length > 0 && (
-      <section class="wrap related">
+      <section class="wrap related" data-pagefind-ignore>
         <h2>{t('bib.sameUniversity')}</h2>
         <ul>
           {related.map((r) => (

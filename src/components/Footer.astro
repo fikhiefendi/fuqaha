@@ -29,7 +29,10 @@ const heads = {
     </div>
     <div>
       <h3>{heads[0]}</h3>
-      <ul>{NAV.slice(0, 4).map((item) => <li><a href={href(lang, item.path)}>{t(item.key)}</a></li>)}</ul>
+      <ul>
+        {NAV.slice(0, 4).map((item) => <li><a href={href(lang, item.path)}>{t(item.key)}</a></li>)}
+        <li><a href={href(lang, 'network/')}>{t('network.pageTitle')}</a></li>
+      </ul>
     </div>
     <div>
       <h3>{heads[1]}</h3>
@@ -38,6 +41,7 @@ const heads = {
         <li><a href={href(lang, 'contribute/')}>{t('contribute.title')}</a></li>
         <li><a href={href(lang, 'search/')}>{t('nav.search')}</a></li>
         <li><a href={href(lang, 'credits/')}>{t('credits.title')}</a></li>
+        <li><a href={href(lang, 'license/')}>{t('nav.license')}</a></li>
       </ul>
     </div>
     <div>

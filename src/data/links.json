@@ -1,0 +1,1235 @@
+{
+ "abdulaziz-b-abdurrezzak-el-merginani": {
+  "students": {
+   "1": "semsuleimme-mahmud-b-abdulaziz-el-ozcendi"
+  }
+ },
+ "abdulcebbar-b-abdulkerim-el-hivari": {
+  "teachers": {
+   "1": "kadilkudat-ebu-abdullah-muhammed-b-ali-ed-damgani-el-kebir"
+  }
+ },
+ "abdulevvel-b-burhaneddin-ali-el-merginani": {
+  "teachers": {
+   "0": "seyyid-celaleddin-el-kurlani-el-harezmi"
+  }
+ },
+ "abdulkerim-b-abdunnur-el-halebi": {
+  "teachers": {
+   "0": "ebu-bekir-muhammed-b-ishak-el-kelabazi"
+  }
+ },
+ "abdulkerim-b-ebu-hanife-el-endaki": {
+  "teachers": {
+   "0": "semsuleimme-abdulaziz-b-ahmed-el-hulvani"
+  }
+ },
+ "abdulkerim-b-musa-el-pezdevi": {
+  "teachers": {
+   "0": "imamul-huda-ebu-mansur-muhammed-b-muhammed-el-maturidi"
+  }
+ },
+ "abdurrahman-b-muhammed-el-haraki-en-nisaburi": {
+  "teachers": {
+   "0": "kadi-cemaleddin-ebu-nasr-ahmed-b-abdurrahman-er-rigdemuni"
+  }
+ },
+ "ahmed-b-abdullah-el-kirimi": {
+  "teachers": {
+   "0": "hafizuddin-muhammed-b-muhammed-el-bezzazi-el-kerderi",
+   "1": "serefeddin-b-kemal-el-kirimi"
+  }
+ },
+ "ahmed-b-musa-el-kessi": {
+  "teachers": {
+   "0": "necmeddin-ebu-hafs-omer-b-muhammed-en-nesefi"
+  }
+ },
+ "alaeddin-abdulaziz-b-ahmed-el-buhari": {
+  "students": {
+   "0": "kivameddin-muhammed-b-muhammed-el-kaki"
+  }
+ },
+ "alaeddin-ali-b-osman-ibnut-turkmani-el-mardini": {
+  "students": {
+   "0": "muhyiddin-ebu-muhammed-abdulkadir-b-muhammed-el-kuresi"
+  }
+ },
+ "alaeddin-ali-el-arabi": {
+  "teachers": {
+   "1": "hizir-bey-b-celaleddin"
+  }
+ },
+ "alaeddin-ali-es-sirafi": {
+  "teachers": {
+   "0": "seyyid-celaleddin-el-kurlani-el-harezmi"
+  }
+ },
+ "alaeddin-ebu-bekir-muhammed-b-ahmed-es-semerkandi": {
+  "teachers": {
+   "1": "sadrulislam-ebul-yusr-muhammed-b-muhammed-el-pezdevi"
+  }
+ },
+ "alaeddin-ebul-feth-muhammed-b-abdulhamid-el-esmendi": {
+  "students": {
+   "0": "cemalulislam-ebul-muzaffer-esad-b-muhammed-el-kerabisi"
+  }
+ },
+ "ata-b-hamza-es-sugdi": {
+  "students": {
+   "0": "necmeddin-ebu-hafs-omer-b-muhammed-en-nesefi"
+  }
+ },
+ "bahaeddin-ebul-meali-muhammed-b-ahmed-el-isbicabi": {
+  "students": {
+   "0": "cemaleddin-ubeydullah-b-ibrahim-el-mahbubi"
+  }
+ },
+ "bedreddin-haherzade-muhammed-b-mahmud-el-kerderi": {
+  "teachers": {
+   "0": "semsuleimme-muhammed-b-abdussettar-el-kerderi"
+  }
+ },
+ "bedreddin-yusuf-b-abdullah-el-ezrai": {
+  "teachers": {
+   "1": "cemaleddin-ebul-mehamid-mahmud-b-ahmed-el-hasiri"
+  }
+ },
+ "burhaneddin-ahmed-b-esad-el-buhari": {
+  "students": {
+   "0": "kivameddin-emir-katib-el-itkani"
+  },
+  "teachers": {
+   "0": "hamiduddin-ali-b-muhammed-ed-darir-er-rami-i"
+  }
+ },
+ "burhaneddin-ali-b-ebu-bekir-el-merginani": {
+  "students": {
+   "3": "semsuleimme-muhammed-b-abdussettar-el-kerderi",
+   "5": "burhanulislam-ez-zernuci"
+  },
+  "teachers": {
+   "0": "necmeddin-ebu-hafs-omer-b-muhammed-en-nesefi"
+  }
+ },
+ "burhaneddin-ebu-abdullah-muhammed-b-el-hasan-el-kasani": {
+  "students": {
+   "0": "esrefuddin-ebul-fazl-esref-b-necib",
+   "1": "burhanuleimme-semseddin-muhammed-b-abdulkerim-et-turkistani"
+  },
+  "teachers": {
+   "0": "necmeddin-ebu-hafs-omer-b-muhammed-en-nesefi"
+  }
+ },
+ "burhaneddin-ebul-muvaffak-mesud-b-suca-el-emevi": {
+  "students": {
+   "1": "serefeddin-davud-b-arslan"
+  },
+  "teachers": {
+   "0": "ebul-hasan-ali-b-el-hasan-el-burhan-el-belhi"
+  }
+ },
+ "burhanuleimme-burhaneddin-el-kebir-abdulaziz-b-omer-b-maze": {
+  "teachers": {
+   "0": "semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi"
+  }
+ },
+ "celaleddin-muhammed-b-ahmed-es-saidi-el-iydi": {
+  "teachers": {
+   "0": "husameddin-muhammed-b-muhammed-el-ahsikesi",
+   "1": "hamiduddin-ali-b-muhammed-ed-darir-er-rami-i"
+  }
+ },
+ "celaleddin-omer-b-muhammed-el-habbazi": {
+  "students": {
+   "0": "ebul-abbas-ahmed-b-mesud-el-konevi"
+  }
+ },
+ "cemaleddin-abdullah-b-yusuf-ez-zeylai": {
+  "teachers": {
+   "0": "fahreddin-ebu-muhammed-osman-b-ali-ez-zeylai"
+  }
+ },
+ "cemaleddin-ebul-mehamid-mahmud-b-ahmed-el-hasiri": {
+  "students": {
+   "0": "kadilkudat-sadreddin-ebur-rebi-suleyman-b-vehb"
+  }
+ },
+ "cemaleddin-ubeydullah-b-ibrahim-el-mahbubi": {
+  "students": {
+   "2": "hamiduddin-ali-b-muhammed-ed-darir-er-rami-i"
+  },
+  "teachers": {
+   "0": "ruknulislam-imamzade-muhammed-b-ebu-bekir-el-cugi",
+   "1": "semsuleimme-imaduddin-omer-b-bekr-ez-zerenceri"
+  }
+ },
+ "davud-b-agilbek-er-rumi-el-bedrut-tavil": {
+  "teachers": {
+   "0": "celaleddin-omer-b-muhammed-el-habbazi"
+  }
+ },
+ "ebu-abdullah-muhammed-b-abdurrahman-ez-zahid-el-buhari": {
+  "teachers": {
+   "0": "kadi-cemaleddin-ebu-nasr-ahmed-b-abdurrahman-er-rigdemuni"
+  }
+ },
+ "ebu-abdullah-muhammed-b-seleme-el-belhi": {
+  "teachers": {
+   "1": "ebu-suleyman-musa-b-suleyman-el-cuzcani"
+  }
+ },
+ "ebu-abdullah-muhammed-b-semaa-et-temimi": {
+  "students": {
+   "1": "ebu-ali-abdullah-b-cafer-er-razi"
+  }
+ },
+ "ebu-abdullah-muhammed-b-yahya-el-curcani": {
+  "teachers": {
+   "0": "ebu-bekir-ahmed-b-ali-er-razi-el-cessas"
+  }
+ },
+ "ebu-ali-ed-dekkak": {
+  "students": {
+   "0": "kadi-ebu-said-ahmed-b-el-huseyin-el-berdai"
+  },
+  "teachers": {
+   "0": "ebu-sehl-musa-b-nasr-er-razi"
+  }
+ },
+ "ebu-ali-er-razi": {
+  "students": {
+   "0": "ebu-abdullah-muhammed-b-suca-es-selci"
+  }
+ },
+ "ebu-amr-ahmed-b-muhammed-et-taberi": {
+  "teachers": {
+   "0": "kadi-ebu-said-ahmed-b-el-huseyin-el-berdai"
+  }
+ },
+ "ebu-bekir-ahmed-b-ali-ez-zahir-el-belhi": {
+  "teachers": {
+   "0": "necmeddin-ebu-hafs-omer-b-muhammed-en-nesefi",
+   "1": "bahaeddin-ebul-meali-muhammed-b-ahmed-el-isbicabi"
+  }
+ },
+ "ebu-bekir-ahmed-b-ishak-el-cuzcani": {
+  "teachers": {
+   "0": "ebu-suleyman-musa-b-suleyman-el-cuzcani"
+  }
+ },
+ "ebu-bekir-muhammed-b-ahmed-el-iskaf-el-belhi": {
+  "students": {
+   "1": "ebu-cafer-muhammed-b-abdullah-el-hinduvani"
+  }
+ },
+ "ebu-bekir-muhammed-b-ahmed-el-kazzaz-el-belhi": {
+  "students": {
+   "0": "zahiruddin-ebul-feth-abdurresid-el-velvalici"
+  }
+ },
+ "ebu-bekir-muhammed-b-el-hasan-en-nesefi": {
+  "teachers": {
+   "0": "semsuleimme-abdulaziz-b-ahmed-el-hulvani"
+  }
+ },
+ "ebu-cafer-el-usruseni": {
+  "students": {
+   "0": "kadi-ebu-zeyd-ubeydullah-b-omer-ed-debusi"
+  },
+  "teachers": {
+   "0": "imam-ebu-bekir-muhammed-b-el-fazl-el-kemari-el-buhari"
+  }
+ },
+ "ebu-cafer-muhammed-b-abdullah-el-hinduvani": {
+  "students": {
+   "0": "fakih-ebul-leys-nasr-b-muhammed-es-semerkandi"
+  }
+ },
+ "ebu-ibrahim-ismail-b-ahmed-es-saffar": {
+  "teachers": {
+   "0": "ebu-nasr-ahmed-b-ishak-b-sis-es-saffar",
+   "1": "ebu-yakub-yusuf-b-mansur-es-seyyari"
+  }
+ },
+ "ebu-ishak-ibrahim-b-ismail-es-saffar": {
+  "students": {
+   "0": "fahreddin-kadihan-el-hasan-b-mansur-el-ozcendi"
+  },
+  "teachers": {
+   "2": "ebu-yakub-yusuf-b-mansur-es-seyyari"
+  }
+ },
+ "ebu-ishak-muhammed-b-mansur-en-nevkadi": {
+  "students": {
+   "0": "ebu-yakub-yusuf-b-mansur-es-seyyari"
+  },
+  "teachers": {
+   "0": "ebu-cafer-muhammed-b-abdullah-el-hinduvani"
+  }
+ },
+ "ebu-isme-b-ebul-leys-el-buhari": {
+  "teachers": {
+   "0": "imamul-huda-ebu-mansur-muhammed-b-muhammed-el-maturidi"
+  }
+ },
+ "ebu-muhammed-abdullah-b-el-fazl-el-hayzahazi": {
+  "teachers": {
+   "0": "imam-ebu-bekir-muhammed-b-el-fazl-el-kemari-el-buhari"
+  }
+ },
+ "ebu-muhammed-ismail-b-el-hasan": {
+  "teachers": {
+   "0": "imam-ebu-bekir-muhammed-b-el-fazl-el-kemari-el-buhari"
+  }
+ },
+ "ebu-nasr-ahmed-b-el-abbas-el-iyazi": {
+  "students": {
+   "1": "ebu-bekir-muhammed-b-ahmed-el-iyazi"
+  },
+  "teachers": {
+   "0": "ebu-bekir-ahmed-b-ishak-el-cuzcani"
+  }
+ },
+ "ebu-nasr-muhammed-b-muhammed-b-sehl-en-nisaburi": {
+  "teachers": {
+   "0": "kadil-haremeyn-ahmed-b-muhammed-en-nisaburi"
+  }
+ },
+ "ebu-sad-abdulmecid-b-ismail-el-kaysi-el-herevi": {
+  "teachers": {
+   "0": "fahrulislam-ebul-hasan-ali-b-muhammed-el-pezdevi"
+  }
+ },
+ "ebu-sehl-ez-zeccaci": {
+  "students": {
+   "0": "ebu-bekir-ahmed-b-ali-er-razi-el-cessas"
+  }
+ },
+ "ebu-sehl-musa-b-nasr-er-razi": {
+  "students": {
+   "0": "kadi-ebu-said-ahmed-b-el-huseyin-el-berdai"
+  }
+ },
+ "ebu-sufyan-veki-b-el-cerrah-el-kufi": {
+  "students": {
+   "1": "kadi-yahya-b-eksem"
+  }
+ },
+ "ebu-suleyman-musa-b-suleyman-el-cuzcani": {
+  "students": {
+   "0": "ebu-bekir-ahmed-b-ishak-el-cuzcani"
+  }
+ },
+ "ebu-yakub-yusuf-b-mansur-es-seyyari": {
+  "teachers": {
+   "0": "ebu-ishak-muhammed-b-mansur-en-nevkadi"
+  }
+ },
+ "ebul-abbas-ahmed-b-ibrahim-es-seruci": {
+  "students": {
+   "0": "alaeddin-ali-b-belban-el-farisi",
+   "1": "alaeddin-ali-b-osman-ibnut-turkmani-el-mardini"
+  }
+ },
+ "ebul-abbas-ahmed-b-mesud-el-konevi": {
+  "teachers": {
+   "0": "celaleddin-omer-b-muhammed-el-habbazi"
+  }
+ },
+ "ebul-abbas-ahmed-b-muhammed-el-birti": {
+  "teachers": {
+   "0": "ebu-suleyman-musa-b-suleyman-el-cuzcani",
+   "1": "kadi-yahya-b-eksem"
+  }
+ },
+ "ebul-abbas-cafer-b-muhammed-el-mustagfiri-en-nesefi": {
+  "students": {
+   "0": "kadi-ebu-mansur-muhammed-b-abdulcebbar-es-semani"
+  }
+ },
+ "ebul-fazl-muhammed-b-yusuf-el-gaznevi-el-bagdadi": {
+  "teachers": {
+   "0": "tacuddin-ebul-mefahir-abdulgafur-b-lokman-el-kerderi"
+  }
+ },
+ "ebul-feth-nasir-b-abdusseyyid-el-mutarrizi": {
+  "teachers": {
+   "1": "muvaffakuddin-ahtab-harezm-el-muvaffak-b-ahmed"
+  }
+ },
+ "ebul-hasan-ali-b-abdullah-el-hatibi": {
+  "teachers": {
+   "0": "semsuleimme-abdulaziz-b-ahmed-el-hulvani"
+  }
+ },
+ "ebul-hasan-ali-b-el-hasan-el-burhan-el-belhi": {
+  "students": {
+   "0": "zahiruddin-ebul-feth-abdurresid-el-velvalici"
+  },
+  "teachers": {
+   "0": "burhanuleimme-burhaneddin-el-kebir-abdulaziz-b-omer-b-maze"
+  }
+ },
+ "ebul-hasan-ali-b-mevdud-el-kesani": {
+  "teachers": {
+   "0": "rukneddin-mesud-b-el-huseyin-el-kesani"
+  }
+ },
+ "ebul-hasan-ali-b-said-er-rustugfeni": {
+  "teachers": {
+   "0": "imamul-huda-ebu-mansur-muhammed-b-muhammed-el-maturidi"
+  }
+ },
+ "ebul-hasan-ubeydullah-b-el-huseyin-el-kerhi": {
+  "teachers": {
+   "0": "kadi-ebu-said-ahmed-b-el-huseyin-el-berdai"
+  }
+ },
+ "ebul-heysem-utbe-b-hayseme-en-nisaburi": {
+  "students": {
+   "0": "kadi-ebul-ala-said-b-muhammed-el-istivai"
+  },
+  "teachers": {
+   "0": "kadil-haremeyn-ahmed-b-muhammed-en-nisaburi"
+  }
+ },
+ "ebul-huseyin-muhammed-b-ahmed-ed-dellal-ez-zaferani": {
+  "teachers": {
+   "0": "ebu-bekir-ahmed-b-ali-er-razi-el-cessas"
+  }
+ },
+ "ebul-huseyin-muhammed-b-ahmed-el-kemari-el-vasiti": {
+  "teachers": {
+   "0": "ebu-bekir-ahmed-b-ali-er-razi-el-cessas"
+  }
+ },
+ "ebul-kasim-et-tenuhi": {
+  "teachers": {
+   "0": "hamiduddin-ali-b-muhammed-ed-darir-er-rami-i"
+  }
+ },
+ "ebul-kasim-ishak-b-muhammed-el-hakim-es-semerkandi": {
+  "teachers": {
+   "0": "imamul-huda-ebu-mansur-muhammed-b-muhammed-el-maturidi"
+  }
+ },
+ "ebul-kasim-mesud-b-muhammed-el-harezmi": {
+  "teachers": {
+   "0": "ebu-bekir-muhammed-b-musa-el-harezmi"
+  }
+ },
+ "ebul-meali-muhammed-b-nasr-el-amiri-el-hatib": {
+  "teachers": {
+   "0": "sadrulislam-ebul-yusr-muhammed-b-muhammed-el-pezdevi",
+   "1": "fahrulislam-ebul-hasan-ali-b-muhammed-el-pezdevi"
+  }
+ },
+ "ebul-mehamid-mahmud-b-muhammed-el-lului-el-buhari": {
+  "teachers": {
+   "0": "burhanulislam-ez-zernuci",
+   "2": "bedreddin-haherzade-muhammed-b-mahmud-el-kerderi",
+   "3": "hamiduddin-ali-b-muhammed-ed-darir-er-rami-i"
+  }
+ },
+ "ebul-mueyyed-muhammed-b-ahmed-el-mayimurgi-en-nesefi": {
+  "students": {
+   "0": "necmeddin-ebu-hafs-omer-b-muhammed-en-nesefi"
+  }
+ },
+ "ebussuud-efendi-muhammed-b-muhammed-el-imadi": {
+  "teachers": {
+   "0": "muhyiddin-muhammed-el-imadi-el-iskilibi"
+  }
+ },
+ "ekmeleddin-muhammed-b-muhammed-el-baberti": {
+  "students": {
+   "0": "es-seyyid-es-serif-ali-b-muhammed-el-curcani",
+   "1": "molla-fenari-semseddin-muhammed-b-hamza"
+  },
+  "teachers": {
+   "0": "kivameddin-muhammed-b-muhammed-el-kaki"
+  }
+ },
+ "el-bedrul-ebyaz-yusuf-b-el-huseyin-el-halebi": {
+  "teachers": {
+   "0": "ebul-hasan-ali-b-el-hasan-el-burhan-el-belhi"
+  }
+ },
+ "el-hakim-el-hasan-b-nasr-el-kesseni": {
+  "teachers": {
+   "0": "rukneddin-mesud-b-el-huseyin-el-kesani"
+  }
+ },
+ "el-hakim-el-katib-abdurrahman-b-muhammed": {
+  "teachers": {
+   "0": "imam-ebu-bekir-muhammed-b-el-fazl-el-kemari-el-buhari"
+  }
+ },
+ "el-hasan-b-ebu-malik": {
+  "students": {
+   "0": "ebu-abdullah-muhammed-b-suca-es-selci"
+  }
+ },
+ "el-hasan-b-ziyad-el-lului-el-kufi": {
+  "students": {
+   "1": "ebu-abdullah-muhammed-b-suca-es-selci"
+  }
+ },
+ "el-melikul-muazzam-serefeddin-isa-b-el-melikul-adil": {
+  "teachers": {
+   "0": "cemaleddin-ebul-mehamid-mahmud-b-ahmed-el-hasiri"
+  }
+ },
+ "es-seyyid-es-serif-ali-b-muhammed-el-curcani": {
+  "students": {
+   "0": "fahreddin-i-acemi",
+   "1": "seyyid-ali-el-acemi",
+   "2": "fethullah-es-sirvani"
+  },
+  "teachers": {
+   "2": "ekmeleddin-muhammed-b-muhammed-el-baberti"
+  }
+ },
+ "esrefuddin-ebul-fazl-esref-b-necib": {
+  "teachers": {
+   "0": "semsuleimme-muhammed-b-abdussettar-el-kerderi"
+  }
+ },
+ "fahreddin-ebu-talib-ahmed-b-ali-el-hemedani-ibnul-fasih": {
+  "teachers": {
+   "0": "husameddin-el-huseyin-b-ali-es-signaki"
+  }
+ },
+ "fahreddin-i-acemi": {
+  "teachers": {
+   "0": "es-seyyid-es-serif-ali-b-muhammed-el-curcani"
+  }
+ },
+ "fahreddin-kadihan-el-hasan-b-mansur-el-ozcendi": {
+  "students": {
+   "0": "cemaleddin-ebul-mehamid-mahmud-b-ahmed-el-hasiri",
+   "1": "semsuleimme-muhammed-b-abdussettar-el-kerderi"
+  },
+  "teachers": {
+   "0": "zahiruddin-el-kebir-ebul-mehasin-el-hasan-b-ali-el-merginani"
+  }
+ },
+ "fahreddin-muhammed-b-muhammed-el-mayimurgi": {
+  "teachers": {
+   "0": "semsuleimme-muhammed-b-abdussettar-el-kerderi"
+  }
+ },
+ "fahreddin-osman-b-ibrahim-el-mardini": {
+  "students": {
+   "2": "muhyiddin-ebu-muhammed-abdulkadir-b-muhammed-el-kuresi"
+  }
+ },
+ "fahrul-kudat-ebu-bekir-muhammed-b-el-huseyin-el-ersabendi": {
+  "teachers": {
+   "0": "kadi-alaeddin-ali-el-mervezi"
+  }
+ },
+ "fahrul-mesayih-ali-b-abdullah-el-imrani": {
+  "teachers": {
+   "0": "carullah-ebul-kasim-mahmud-b-omer-ez-zemahseri"
+  }
+ },
+ "fahrulislam-ebul-hasan-ali-b-muhammed-el-pezdevi": {
+  "students": {
+   "0": "ebul-meali-muhammed-b-nasr-el-amiri-el-hatib"
+  }
+ },
+ "fakih-ebul-leys-nasr-b-muhammed-es-semerkandi": {
+  "teachers": {
+   "0": "ebu-cafer-muhammed-b-abdullah-el-hinduvani"
+  }
+ },
+ "fethullah-es-sirvani": {
+  "teachers": {
+   "0": "es-seyyid-es-serif-ali-b-muhammed-el-curcani"
+  }
+ },
+ "hace-muhammed-parsa-el-buhari": {
+  "teachers": {
+   "0": "hafizuddin-ebu-tahir-muhammed-b-muhammed-et-tahiri"
+  }
+ },
+ "hafizuddin-ebu-tahir-muhammed-b-muhammed-et-tahiri": {
+  "students": {
+   "0": "hace-muhammed-parsa-el-buhari"
+  },
+  "teachers": {
+   "0": "sadrusseria-el-asgar-ubeydullah-b-mesud-el-mahbubi"
+  }
+ },
+ "hafizuddin-ebul-berekat-abdullah-b-ahmed-en-nesefi": {
+  "students": {
+   "0": "husameddin-el-huseyin-b-ali-es-signaki"
+  },
+  "teachers": {
+   "0": "semsuleimme-muhammed-b-abdussettar-el-kerderi",
+   "1": "hamiduddin-ali-b-muhammed-ed-darir-er-rami-i",
+   "2": "bedreddin-haherzade-muhammed-b-mahmud-el-kerderi"
+  }
+ },
+ "hafizuddin-el-kebir-ebul-fazl-muhammed-b-muhammed-el-buhari": {
+  "students": {
+   "0": "husameddin-el-huseyin-b-ali-es-signaki",
+   "1": "burhaneddin-ahmed-b-esad-el-buhari",
+   "3": "semseddin-ebul-ala-mahmud-b-ebu-bekir-el-kelabazi-el-feradi"
+  },
+  "teachers": {
+   "0": "semsuleimme-muhammed-b-abdussettar-el-kerderi",
+   "1": "cemaleddin-ubeydullah-b-ibrahim-el-mahbubi"
+  }
+ },
+ "hafizuddin-muhammed-b-muhammed-el-bezzazi-el-kerderi": {
+  "students": {
+   "0": "serefeddin-b-kemal-el-kirimi"
+  },
+  "teachers": {
+   "0": "nasiruddin-muhammed-b-sihab-el-kerderi"
+  }
+ },
+ "halil-el-cenderi": {
+  "teachers": {
+   "0": "alaeddin-esved"
+  }
+ },
+ "hamid-b-mahmud-b-makil-en-nisaburi": {
+  "teachers": {
+   "0": "ziyad-b-abdurrahman"
+  }
+ },
+ "hamiduddin-ali-b-muhammed-ed-darir-er-rami-i": {
+  "students": {
+   "0": "hafizuddin-ebul-berekat-abdullah-b-ahmed-en-nesefi",
+   "2": "celaleddin-muhammed-b-ahmed-es-saidi-el-iydi"
+  },
+  "teachers": {
+   "0": "semsuleimme-muhammed-b-abdussettar-el-kerderi",
+   "1": "cemaleddin-ubeydullah-b-ibrahim-el-mahbubi"
+  }
+ },
+ "hamiduddin-b-efdaluddin": {
+  "students": {
+   "0": "muhyiddin-celebi-muhammed-b-ali-el-fenari"
+  }
+ },
+ "hatibzade-muhyiddin-muhammed": {
+  "students": {
+   "1": "muhyiddin-celebi-muhammed-b-ali-el-fenari"
+  },
+  "teachers": {
+   "1": "alaeddin-ali-et-tusi"
+  }
+ },
+ "hayreddin-halil-b-kasim": {
+  "teachers": {
+   "1": "fahreddin-i-acemi"
+  }
+ },
+ "hilal-b-yahya-er-rey-el-basri": {
+  "students": {
+   "0": "kadi-bekkar-b-kuteybe-el-basri"
+  }
+ },
+ "humameddin-ahmed-b-mahmud-el-hasiri": {
+  "teachers": {
+   "0": "cemaleddin-ebul-mehamid-mahmud-b-ahmed-el-hasiri"
+  }
+ },
+ "husameddin-el-huseyin-b-ali-es-signaki": {
+  "students": {
+   "0": "kivameddin-muhammed-b-muhammed-el-kaki",
+   "1": "seyyid-celaleddin-el-kurlani-el-harezmi"
+  },
+  "teachers": {
+   "0": "hafizuddin-el-kebir-ebul-fazl-muhammed-b-muhammed-el-buhari",
+   "1": "fahreddin-muhammed-b-muhammed-el-mayimurgi"
+  }
+ },
+ "husameddin-muhammed-b-osman-el-aliyabadi": {
+  "students": {
+   "0": "zeyneddin-ebul-feth-abdurrahim-b-imaduddin-el-merginani"
+  },
+  "teachers": {
+   "0": "mecduddin-muhammed-b-mahmud-el-usruseni"
+  }
+ },
+ "ibrahim-b-muhammed-ed-dihistani": {
+  "students": {
+   "0": "abdulmelik-b-ibrahim-el-hemedani"
+  }
+ },
+ "iftiharuddin-tahir-b-ahmed-el-buhari": {
+  "teachers": {
+   "1": "kivameddin-ebul-mehamid-hammad-b-ibrahim-es-saffar",
+   "2": "zahiruddin-el-kebir-ebul-mehasin-el-hasan-b-ali-el-merginani"
+  }
+ },
+ "ilyas-b-yahya-b-hamza-er-rumi": {
+  "teachers": {
+   "0": "hace-muhammed-parsa-el-buhari"
+  }
+ },
+ "imaduddin-b-hidaye-sahibi": {
+  "students": {
+   "0": "zeyneddin-ebul-feth-abdurrahim-b-imaduddin-el-merginani"
+  }
+ },
+ "imaduddin-ebul-kasim-el-huseyin-b-ali-el-lamisi": {
+  "teachers": {
+   "0": "ebu-bekir-muhammed-b-el-hasan-en-nesefi"
+  }
+ },
+ "imaduddin-ebul-mehamid-mahmud-b-ahmed": {
+  "students": {
+   "0": "semsuleimme-muhammed-b-abdussettar-el-kerderi"
+  }
+ },
+ "imam-ebu-bekir-muhammed-b-el-fazl-el-kemari-el-buhari": {
+  "students": {
+   "0": "kadi-ebu-ali-el-huseyin-b-hizir-en-nesefi"
+  }
+ },
+ "imam-muhammed-b-el-hasan-es-seybani": {
+  "students": {
+   "2": "ebu-suleyman-musa-b-suleyman-el-cuzcani",
+   "3": "ebu-sehl-musa-b-nasr-er-razi",
+   "7": "kadi-ebu-musa-isa-b-eban"
+  }
+ },
+ "imamul-huda-ebu-mansur-muhammed-b-muhammed-el-maturidi": {
+  "students": {
+   "2": "abdulkerim-b-musa-el-pezdevi"
+  }
+ },
+ "ishak-b-sis-es-saffar": {
+  "students": {
+   "0": "ebu-nasr-ahmed-b-ishak-b-sis-es-saffar"
+  }
+ },
+ "ismail-b-abdussadik-el-hatib-el-beyari": {
+  "students": {
+   "0": "sadrulislam-ebul-yusr-muhammed-b-muhammed-el-pezdevi"
+  },
+  "teachers": {
+   "0": "abdulkerim-b-musa-el-pezdevi"
+  }
+ },
+ "kadi-abdulaziz-b-osman-en-nesefi": {
+  "teachers": {
+   "0": "burhanuleimme-burhaneddin-el-kebir-abdulaziz-b-omer-b-maze"
+  }
+ },
+ "kadi-alaeddin-ali-el-mervezi": {
+  "teachers": {
+   "0": "kadi-ebu-zeyd-ubeydullah-b-omer-ed-debusi"
+  }
+ },
+ "kadi-bekkar-b-kuteybe-el-basri": {
+  "teachers": {
+   "0": "hilal-b-yahya-er-rey-el-basri"
+  }
+ },
+ "kadi-cemaleddin-ebu-nasr-ahmed-b-abdurrahman-er-rigdemuni": {
+  "teachers": {
+   "0": "kadi-ebu-zeyd-ubeydullah-b-omer-ed-debusi"
+  }
+ },
+ "kadi-cemaleddin-ebu-nasr-hamid-b-muhammed-er-rigdemuni": {
+  "teachers": {
+   "1": "kadi-cemaleddin-ebu-nasr-ahmed-b-abdurrahman-er-rigdemuni"
+  }
+ },
+ "kadi-ebu-ali-el-huseyin-b-hizir-en-nesefi": {
+  "students": {
+   "0": "semsuleimme-abdulaziz-b-ahmed-el-hulvani"
+  },
+  "teachers": {
+   "0": "imam-ebu-bekir-muhammed-b-el-fazl-el-kemari-el-buhari"
+  }
+ },
+ "kadi-ebu-bekir-ahmed-b-muhammed-ed-damgani": {
+  "teachers": {
+   "2": "kadi-ebu-said-ahmed-b-el-huseyin-el-berdai"
+  }
+ },
+ "kadi-ebu-bekir-muhammed-b-ali-ez-zerenceri": {
+  "teachers": {
+   "0": "semsuleimme-abdulaziz-b-ahmed-el-hulvani"
+  }
+ },
+ "kadi-ebu-cafer-muhammed-b-ahmed-en-nesefi": {
+  "teachers": {
+   "0": "ebu-bekir-ahmed-b-ali-er-razi-el-cessas"
+  }
+ },
+ "kadi-ebu-hazim-abdulhamid-b-abdulaziz": {
+  "students": {
+   "1": "ebu-tahir-muhammed-b-muhammed-ed-debbas"
+  },
+  "teachers": {
+   "0": "kadi-ebu-musa-isa-b-eban",
+   "1": "kadi-bekr-b-muhammed-el-ammi"
+  }
+ },
+ "kadi-ebu-sabit-el-hasan-b-ali-el-pezdevi": {
+  "teachers": {
+   "0": "sadrulislam-ebul-yusr-muhammed-b-muhammed-el-pezdevi"
+  }
+ },
+ "kadi-ebu-said-ahmed-b-el-huseyin-el-berdai": {
+  "students": {
+   "1": "ebu-tahir-muhammed-b-muhammed-ed-debbas",
+   "2": "ebu-amr-ahmed-b-muhammed-et-taberi"
+  }
+ },
+ "kadi-fahreddin-bedi-b-mansur-el-kazbini": {
+  "students": {
+   "0": "necmeddin-ebur-reca-muhtar-b-mahmud-ez-zahidi"
+  },
+  "teachers": {
+   "0": "necmuleimme-el-buhari"
+  }
+ },
+ "kadi-sedid-ebu-abdullah-muhammed-es-saigi": {
+  "teachers": {
+   "0": "fahrul-kudat-ebu-bekir-muhammed-b-el-huseyin-el-ersabendi"
+  }
+ },
+ "kadil-haremeyn-ahmed-b-muhammed-en-nisaburi": {
+  "teachers": {
+   "0": "ebu-tahir-muhammed-b-muhammed-ed-debbas"
+  }
+ },
+ "kadilkudat-cemaleddin-ebu-sad-el-mutahhar-b-el-huseyin-el-yezdi": {
+  "students": {
+   "0": "rukneddin-ebu-bekir-muhammed-b-abdurresid-el-kirmani"
+  }
+ },
+ "kadilkudat-sadeddin-ibnud-deyri": {
+  "teachers": {
+   "0": "kadilkudat-semseddin-muhammed-b-abdullah-ed-deyri-el-makdisi"
+  }
+ },
+ "kadilkudat-sadreddin-ebur-rebi-suleyman-b-vehb": {
+  "teachers": {
+   "0": "cemaleddin-ebul-mehamid-mahmud-b-ahmed-el-hasiri"
+  }
+ },
+ "kadilkudat-semseddin-muhammed-b-abdullah-ed-deyri-el-makdisi": {
+  "students": {
+   "0": "kadilkudat-sadeddin-ibnud-deyri"
+  }
+ },
+ "kadizade-kasim-er-rumi": {
+  "students": {
+   "0": "esad-b-naci-bey"
+  }
+ },
+ "kara-yakub-b-idris-en-nigdevi": {
+  "teachers": {
+   "0": "molla-fenari-semseddin-muhammed-b-hamza"
+  }
+ },
+ "kivameddin-ebul-mehamid-hammad-b-ibrahim-es-saffar": {
+  "students": {
+   "0": "burhanulislam-ez-zernuci"
+  }
+ },
+ "kivameddin-emir-katib-el-itkani": {
+  "teachers": {
+   "0": "burhaneddin-ahmed-b-esad-el-buhari"
+  }
+ },
+ "kivameddin-muhammed-b-muhammed-el-kaki": {
+  "teachers": {
+   "1": "husameddin-el-huseyin-b-ali-es-signaki"
+  }
+ },
+ "kutbuddinzade-muhammed-el-izniki": {
+  "teachers": {
+   "0": "molla-fenari-semseddin-muhammed-b-hamza"
+  }
+ },
+ "mecduddin-ebul-leys-ahmed-b-omer-en-nesefi": {
+  "teachers": {
+   "0": "necmeddin-ebu-hafs-omer-b-muhammed-en-nesefi"
+  }
+ },
+ "mecduddin-muhammed-b-mahmud-el-usruseni": {
+  "students": {
+   "0": "husameddin-muhammed-b-osman-el-aliyabadi"
+  },
+  "teachers": {
+   "2": "nasiruddin-ebul-kasim-muhammed-b-yusuf-el-huseyni-es-semerkandi",
+   "3": "zahiruddin-ebu-bekir-muhammed-b-ahmed-el-buhari-el-muhtesib"
+  }
+ },
+ "mecduleimme-ebu-bekir-muhammed-b-abdullah-es-serhakti": {
+  "students": {
+   "0": "ziyaeddin-muhammed-b-el-huseyin-el-bendenici"
+  }
+ },
+ "molla-fenari-semseddin-muhammed-b-hamza": {
+  "students": {
+   "0": "molla-yegan-semseddin-muhammed-b-ademhan"
+  },
+  "teachers": {
+   "0": "alaeddin-esved",
+   "1": "cemaleddin-muhammed-b-muhammed-el-aksarayi",
+   "2": "ekmeleddin-muhammed-b-muhammed-el-baberti"
+  }
+ },
+ "molla-husrev-muhammed-b-feramurz": {
+  "students": {
+   "1": "hasan-celebi-b-muhammed-sah-el-fenari",
+   "2": "hasan-b-abdussamed-es-samsuni"
+  }
+ },
+ "molla-yegan-semseddin-muhammed-b-ademhan": {
+  "teachers": {
+   "0": "molla-fenari-semseddin-muhammed-b-hamza"
+  }
+ },
+ "muhammed-b-tahir-es-sugdi-el-lebbadi": {
+  "teachers": {
+   "0": "sadrulislam-ebul-yusr-muhammed-b-muhammed-el-pezdevi"
+  }
+ },
+ "muhyiddin-ebu-muhammed-abdulkadir-b-muhammed-el-kuresi": {
+  "teachers": {
+   "0": "alaeddin-ali-b-osman-ibnut-turkmani-el-mardini"
+  }
+ },
+ "muhyiddin-muhammed-b-suleyman-el-kafiyeci": {
+  "teachers": {
+   "0": "molla-fenari-semseddin-muhammed-b-hamza",
+   "3": "hafizuddin-muhammed-b-muhammed-el-bezzazi-el-kerderi"
+  }
+ },
+ "muvaffakuddin-ahtab-harezm-el-muvaffak-b-ahmed": {
+  "teachers": {
+   "0": "necmeddin-ebu-hafs-omer-b-muhammed-en-nesefi",
+   "1": "carullah-ebul-kasim-mahmud-b-omer-ez-zemahseri"
+  }
+ },
+ "nasiruddin-muhammed-b-ahmed-el-konevi-ibnur-rabve": {
+  "teachers": {
+   "1": "alaeddin-ali-b-belban-el-farisi"
+  }
+ },
+ "nasiruddin-muhammed-b-sihab-el-kerderi": {
+  "students": {
+   "0": "hafizuddin-muhammed-b-muhammed-el-bezzazi-el-kerderi"
+  },
+  "teachers": {
+   "0": "seyyid-celaleddin-el-kurlani-el-harezmi"
+  }
+ },
+ "necmeddin-ebu-hafs-omer-b-muhammed-en-nesefi": {
+  "teachers": {
+   "0": "sadrulislam-ebul-yusr-muhammed-b-muhammed-el-pezdevi"
+  }
+ },
+ "necmeddin-ebu-tahir-munsin-nazar-el-hafsi": {
+  "students": {
+   "0": "ebul-mueyyed-muhammed-b-mahmud-el-harezmi-el-hatib"
+  }
+ },
+ "necmeddin-ebur-reca-muhtar-b-mahmud-ez-zahidi": {
+  "teachers": {
+   "0": "burhanuleimme-semseddin-muhammed-b-abdulkerim-et-turkistani"
+  }
+ },
+ "necmeddin-omer-b-ahmed-el-kahustuvani": {
+  "students": {
+   "0": "semseddin-ebul-ala-mahmud-b-ebu-bekir-el-kelabazi-el-feradi"
+  }
+ },
+ "nureddin-ahmed-b-mahmud-es-sabuni": {
+  "students": {
+   "0": "semsuleimme-muhammed-b-abdussettar-el-kerderi"
+  }
+ },
+ "nusayr-b-yahya-el-belhi": {
+  "teachers": {
+   "0": "ebu-suleyman-musa-b-suleyman-el-cuzcani"
+  }
+ },
+ "radiyyuddin-abdullah-b-el-muzaffer": {
+  "students": {
+   "1": "kadilkudat-bedreddin-mahmud-b-ahmed-el-ayni"
+  },
+  "teachers": {
+   "0": "necmeddin-ebur-reca-muhtar-b-mahmud-ez-zahidi"
+  }
+ },
+ "radiyyuddin-en-nisaburi-munsin-nazar": {
+  "students": {
+   "0": "ruknulislam-imamzade-muhammed-b-ebu-bekir-el-cugi"
+  }
+ },
+ "rukneddin-ebu-hamid-muhammed-b-muhammed-el-amidi-es-semerkandi": {
+  "teachers": {
+   "0": "radiyyuddin-en-nisaburi-munsin-nazar"
+  }
+ },
+ "rukneddin-mesud-b-el-huseyin-el-kesani": {
+  "teachers": {
+   "0": "semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi"
+  }
+ },
+ "rukneddin-zirek-muhammed": {
+  "teachers": {
+   "0": "sinan-pasa-yusuf-b-hizir-bey"
+  }
+ },
+ "ruknuleimme-abdulkerim-b-muhammed": {
+  "teachers": {
+   "0": "sadrulislam-ebul-yusr-muhammed-b-muhammed-el-pezdevi"
+  }
+ },
+ "ruknulislam-ebul-fazl-abdurrahman-b-muhammed-el-kirmani": {
+  "students": {
+   "0": "tacuddin-ebul-mefahir-abdulgafur-b-lokman-el-kerderi",
+   "2": "bedreddin-omer-b-abdulkerim-el-verseki"
+  },
+  "teachers": {
+   "0": "fahrul-kudat-ebu-bekir-muhammed-b-el-huseyin-el-ersabendi"
+  }
+ },
+ "ruknulislam-imamzade-muhammed-b-ebu-bekir-el-cugi": {
+  "students": {
+   "0": "burhanulislam-ez-zernuci"
+  },
+  "teachers": {
+   "0": "mecduleimme-ebu-bekir-muhammed-b-abdullah-es-serhakti",
+   "1": "semsuleimme-ebul-fazl-bekr-b-muhammed-ez-zerenceri",
+   "2": "radiyyuddin-en-nisaburi-munsin-nazar"
+  }
+ },
+ "sadreddin-ebu-abdullah-muhammed-b-abbad-el-hilati": {
+  "teachers": {
+   "0": "cemaleddin-ebul-mehamid-mahmud-b-ahmed-el-hasiri"
+  }
+ },
+ "sadrul-eimme-ebul-meali-ahmed-b-muhammed-el-pezdevi": {
+  "teachers": {
+   "1": "ebul-muin-meymun-b-muhammed-el-mekhuli-en-nesefi"
+  }
+ },
+ "sadrulislam-ebul-yusr-muhammed-b-muhammed-el-pezdevi": {
+  "students": {
+   "0": "necmeddin-ebu-hafs-omer-b-muhammed-en-nesefi"
+  },
+  "teachers": {
+   "1": "ebu-yakub-yusuf-b-mansur-es-seyyari"
+  }
+ },
+ "sadrusseria-el-ekber-semseddin-ahmed-b-ubeydullah-el-mahbubi": {
+  "teachers": {
+   "0": "cemaleddin-ubeydullah-b-ibrahim-el-mahbubi"
+  }
+ },
+ "sehabeddin-mahmud-b-abdulkahir-er-razi": {
+  "teachers": {
+   "0": "cemaleddin-ebul-mehamid-mahmud-b-ahmed-el-hasiri"
+  }
+ },
+ "semseddin-ebul-ala-mahmud-b-ebu-bekir-el-kelabazi-el-feradi": {
+  "teachers": {
+   "1": "hamiduddin-ali-b-muhammed-ed-darir-er-rami-i",
+   "3": "kadilkudat-sadreddin-ebur-rebi-suleyman-b-vehb"
+  }
+ },
+ "semseddin-mahmud-b-ahmed-el-larendi": {
+  "teachers": {
+   "0": "kadilkudat-sadreddin-ebur-rebi-suleyman-b-vehb"
+  }
+ },
+ "semseddin-muhammed-b-suleyman-ed-dimaski": {
+  "teachers": {
+   "0": "kadilkudat-sadreddin-ebur-rebi-suleyman-b-vehb"
+  }
+ },
+ "semsuleimme-abdulaziz-b-ahmed-el-hulvani": {
+  "students": {
+   "0": "semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi",
+   "1": "semsuleimme-ebul-fazl-bekr-b-muhammed-ez-zerenceri",
+   "2": "fahrulislam-ebul-hasan-ali-b-muhammed-el-pezdevi",
+   "3": "sadrulislam-ebul-yusr-muhammed-b-muhammed-el-pezdevi"
+  },
+  "teachers": {
+   "0": "kadi-ebu-ali-el-huseyin-b-hizir-en-nesefi"
+  }
+ },
+ "semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi": {
+  "teachers": {
+   "0": "semsuleimme-abdulaziz-b-ahmed-el-hulvani"
+  }
+ },
+ "semsuleimme-ebul-fazl-bekr-b-muhammed-ez-zerenceri": {
+  "teachers": {
+   "0": "semsuleimme-abdulaziz-b-ahmed-el-hulvani"
+  }
+ },
+ "semsuleimme-imaduddin-omer-b-bekr-ez-zerenceri": {
+  "students": {
+   "0": "cemaleddin-ubeydullah-b-ibrahim-el-mahbubi",
+   "1": "semsuleimme-muhammed-b-abdussettar-el-kerderi"
+  }
+ },
+ "semsuleimme-mahmud-b-abdulaziz-el-ozcendi": {
+  "students": {
+   "0": "zahiruddin-el-kebir-ebul-mehasin-el-hasan-b-ali-el-merginani"
+  },
+  "teachers": {
+   "0": "semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi"
+  }
+ },
+ "semsuleimme-muhammed-b-abdussettar-el-kerderi": {
+  "students": {
+   "1": "hamiduddin-ali-b-muhammed-ed-darir-er-rami-i"
+  }
+ },
+ "serefeddin-b-kemal-el-kirimi": {
+  "teachers": {
+   "0": "hafizuddin-muhammed-b-muhammed-el-bezzazi-el-kerderi"
+  }
+ },
+ "serefeddin-ebu-hafs-omer-b-muhammed-el-ukayli": {
+  "students": {
+   "1": "semsuleimme-muhammed-b-abdussettar-el-kerderi"
+  },
+  "teachers": {
+   "0": "es-sadrus-sehid-husameddin-omer-b-abdulaziz-b-maze",
+   "1": "kadi-cemaleddin-ebu-nasr-hamid-b-muhammed-er-rigdemuni"
+  }
+ },
+ "serefur-ruesa-muhammed-b-muhammed-el-harezmi": {
+  "students": {
+   "0": "burhanuleimme-burhaneddin-el-kebir-abdulaziz-b-omer-b-maze"
+  }
+ },
+ "seyh-edebali": {
+  "teachers": {
+   "1": "kadi-fahreddin-bedi-b-mansur-el-kazbini",
+   "2": "kadilkudat-sadreddin-ebur-rebi-suleyman-b-vehb"
+  }
+ },
+ "seyhulislam-alaeddin-mahmud-b-ubeydullah-el-harisi-el-mervezi": {
+  "teachers": {
+   "0": "kadi-abdulaziz-b-osman-en-nesefi"
+  }
+ },
+ "seyyid-ali-el-acemi": {
+  "teachers": {
+   "0": "es-seyyid-es-serif-ali-b-muhammed-el-curcani"
+  }
+ },
+ "seyyid-celaleddin-el-kurlani-el-harezmi": {
+  "students": {
+   "1": "tahir-b-islam-el-harezmi-sad-gidbus"
+  },
+  "teachers": {
+   "0": "husameddin-el-huseyin-b-ali-es-signaki"
+  }
+ },
+ "seyyid-ibrahim": {
+  "teachers": {
+   "1": "hasan-b-abdussamed-es-samsuni"
+  }
+ },
+ "sibt-ibnul-cevzi-semseddin-yusuf-b-kizoglu": {
+  "teachers": {
+   "1": "cemaleddin-ebul-mehamid-mahmud-b-ahmed-el-hasiri"
+  }
+ },
+ "siraceddin-ebu-yakub-yusuf-b-muhammed-es-sekkaki": {
+  "teachers": {
+   "0": "seyhulislam-alaeddin-sedid-b-muhammed-el-hannati",
+   "1": "seyhulislam-alaeddin-mahmud-b-ubeydullah-el-harisi-el-mervezi"
+  }
+ },
+ "siraceddin-muhammed-b-ahmed-b-abdulmecid": {
+  "teachers": {
+   "0": "semsuleimme-muhammed-b-abdussettar-el-kerderi"
+  }
+ },
+ "tacuddin-ebul-mefahir-abdulgafur-b-lokman-el-kerderi": {
+  "teachers": {
+   "0": "ruknulislam-ebul-fazl-abdurrahman-b-muhammed-el-kirmani"
+  }
+ },
+ "tacuddin-mahmud-b-abid-es-sarhadi": {
+  "teachers": {
+   "0": "cemaleddin-ebul-mehamid-mahmud-b-ahmed-el-hasiri"
+  }
+ },
+ "tacusseria-mahmud-b-ahmed-el-mahbubi": {
+  "students": {
+   "0": "sadrusseria-el-asgar-ubeydullah-b-mesud-el-mahbubi"
+  }
+ },
+ "tahir-b-islam-el-harezmi-sad-gidbus": {
+  "teachers": {
+   "0": "seyyid-celaleddin-el-kurlani-el-harezmi"
+  }
+ },
+ "yakub-el-asgar-el-karamani": {
+  "teachers": {
+   "0": "molla-fenari-semseddin-muhammed-b-hamza"
+  }
+ },
+ "zahid-yahya-b-ali-ez-zenduvisti": {
+  "teachers": {
+   "0": "ebu-hafs-es-sefkerdi",
+   "2": "ebu-muhammed-abdullah-b-el-fazl-el-hayzahazi"
+  }
+ },
+ "zahiruddin-ebu-bekir-muhammed-b-ahmed-el-buhari-el-muhtesib": {
+  "teachers": {
+   "1": "zahiruddin-el-kebir-ebul-mehasin-el-hasan-b-ali-el-merginani"
+  }
+ },
+ "zahiruddin-el-kebir-ebul-mehasin-el-hasan-b-ali-el-merginani": {
+  "teachers": {
+   "0": "burhanuleimme-burhaneddin-el-kebir-abdulaziz-b-omer-b-maze",
+   "1": "semsuleimme-mahmud-b-abdulaziz-el-ozcendi"
+  }
+ },
+ "zahiruddin-muhammed-b-omer-en-nuhabadi": {
+  "teachers": {
+   "0": "semsuleimme-muhammed-b-abdussettar-el-kerderi"
+  }
+ },
+ "zenbilli-ali-cemali-efendi": {
+  "teachers": {
+   "0": "nureddin-hamza-el-karamani"
+  }
+ },
+ "zeyneddin-ebul-feth-abdurrahim-b-imaduddin-el-merginani": {
+  "teachers": {
+   "1": "husameddin-muhammed-b-osman-el-aliyabadi"
+  }
+ },
+ "zeynul-mesayih-ebul-fazl-muhammed-b-ebul-kasim-el-bakkali": {
+  "teachers": {
+   "0": "carullah-ebul-kasim-mahmud-b-omer-ez-zemahseri"
+  }
+ },
+ "zeynuleimme-muhammed-b-ebu-bekir-habirul-vebri-el-harezmi": {
+  "teachers": {
+   "0": "kadi-ebu-bekir-muhammed-b-ali-ez-zerenceri"
+  }
+ },
+ "ziyad-b-abdurrahman": {
+  "teachers": {
+   "0": "ebu-suleyman-musa-b-suleyman-el-cuzcani"
+  }
+ }
+}

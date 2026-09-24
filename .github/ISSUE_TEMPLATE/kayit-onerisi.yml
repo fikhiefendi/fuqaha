@@ -1,0 +1,41 @@
+name: Kayıt önerisi / Suggest a record / اقتراح سجل
+description: Bibliyografyaya bir çalışma önerin · Suggest a work for the bibliography · اقترح عملًا للببليوغرافيا
+title: "[Öneri] "
+labels: ["öneri"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Tür / Type / النوع
+      options: [Doktora tezi, Yüksek lisans tezi, Makale, Kitap, Tahkik, Çeviri, Bildiri, Ansiklopedi maddesi]
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Başlık / Title / العنوان
+    validations:
+      required: true
+  - type: input
+    id: authors
+    attributes:
+      label: Yazar(lar) / Author(s) / المؤلف
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Üniversite, dergi veya yayınevi · University, journal or publisher · الجامعة أو المجلة أو الناشر
+  - type: input
+    id: year
+    attributes:
+      label: Yıl / Year / السنة
+  - type: input
+    id: link
+    attributes:
+      label: Bağlantı veya DOI / Link or DOI / رابط أو DOI
+  - type: textarea
+    id: bibtex
+    attributes:
+      label: BibTeX veya RIS (isteğe bağlı) / BibTeX or RIS (optional)
+      render: bibtex

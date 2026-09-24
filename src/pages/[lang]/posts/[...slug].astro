@@ -27,7 +27,15 @@ const cover = postImage(entry, lang);
 const dir = LANG_META[post.lang].dir;
 ---
 
-<Base lang={lang} title={entry.data.title} description={entry.data.summary}>
+<Base
+  lang={lang}
+  title={entry.data.title}
+  description={entry.data.summary}
+  index="post"
+  image={cover?.src}
+  ogType="article"
+  jsonld={{ '@type': 'Article', headline: entry.data.title, description: entry.data.summary, datePublished: entry.data.date.toISOString().slice(0, 10), inLanguage: post.lang }}
+>
   <PageHead title={entry.data.title} lead={entry.data.summary} back={{ href: href(lang, 'posts/'), label: t('post.back') }}>
     <p class="date">
       {formatDate(entry.data.date, lang)}

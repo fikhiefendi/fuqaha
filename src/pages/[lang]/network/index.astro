@@ -1,0 +1,322 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import { EDGES } from '../../../lib/network';
+import { centuryLabel, getScholars, lifeShort } from '../../../lib/scholars';
+import { langPaths, useT, type Lang } from '../../../i18n/ui';
+import { href } from '../../../lib/url';
+
+export const getStaticPaths = langPaths;
+
+const lang = Astro.params.lang as Lang;
+const t = useT(lang);
+const scholars = await getScholars();
+const linked = new Set(EDGES.flat());
+const nodes = scholars
+  .filter((s) => linked.has(s.id))
+  .map((s) => ({
+    id: s.id,
+    name: lang === 'ar' ? s.data.name.ar : s.data.name[lang],
+    life: lifeShort(s, lang),
+    year: s.data.death.hijri ?? (s.data.birth?.hijri ? s.data.birth.hijri + 60 : null),
+    href: href(lang, `scholars/${s.id}/`),
+  }));
+const years = nodes.map((n) => n.year).filter((y): y is number => y !== null);
+const ticks: [number, string][] = [];
+for (let c = Math.floor(Math.min(...years) / 100); c <= Math.floor(Math.max(...years) / 100); c++) {
+  ticks.push([c * 100, centuryLabel(c + 1, lang)]);
+}
+const num = new Intl.NumberFormat(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB' : 'tr-TR');
+const payload = { nodes, edges: EDGES, ticks, rtl: lang === 'ar' };
+---
+
+<Base lang={lang} title={t('network.pageTitle')} description={t('network.pageLead')}>
+  <PageHead title={t('network.pageTitle')} lead={t('network.pageLead')} />
+
+  <div class="wrap page">
+    <div class="bar">
+      <label class="find">
+        <span class="visually-hidden">{t('network.search')}</span>
+        <input type="search" list="net-names" placeholder={t('network.search')} data-find autocomplete="off" />
+        <datalist id="net-names">{nodes.map((n) => <option value={n.name} />)}</datalist>
+      </label>
+      <p class="meta">
+        <strong>{num.format(nodes.length)}</strong> {t('network.nodes')} · <strong>{num.format(EDGES.length)}</strong> {t('network.edges')}
+      </p>
+    </div>
+
+    <div class="stage" data-stage>
+      <svg data-svg role="img" aria-label={t('network.pageTitle')}></svg>
+      <div class="zoom">
+        <button type="button" data-zoom="1.4" aria-label="+">+</button>
+        <button type="button" data-zoom="0.7" aria-label="−">−</button>
+      </div>
+      <div class="tip" data-tip hidden></div>
+    </div>
+
+    <p class="method meta">{t('network.method')}</p>
+
+    <noscript>
+      <ul>
+        {nodes.map((n) => <li><a href={n.href}>{n.name}</a></li>)}
+      </ul>
+    </noscript>
+  </div>
+
+  <script type="application/json" id="net-data" set:html={JSON.stringify(payload)} />
+</Base>
+
+<style>
+  .page {
+    padding-block-end: 72px;
+  }
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 24px;
+    margin-block-end: 16px;
+  }
+  .find input {
+    width: min(360px, 80vw);
+    padding: 10px 14px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink);
+    font: inherit;
+  }
+  .bar strong {
+    color: var(--accent);
+  }
+  .stage {
+    position: relative;
+    height: min(78vh, 860px);
+    min-height: 520px;
+    border: 1px solid var(--rule);
+    background: var(--surface);
+    overflow: hidden;
+  }
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+  }
+  svg:active {
+    cursor: grabbing;
+  }
+  .stage :global(.edge) {
+    stroke: var(--muted);
+    stroke-opacity: 0.35;
+    fill: none;
+  }
+  .stage :global(.edge.on) {
+    stroke: var(--rubric);
+    stroke-opacity: 0.9;
+    stroke-width: 1.6;
+  }
+  .stage :global(.node circle) {
+    fill: var(--accent);
+    stroke: var(--surface);
+    stroke-width: 1.5;
+    cursor: pointer;
+  }
+  .stage :global(.node.dim) {
+    opacity: 0.18;
+  }
+  .stage :global(.edge.dim) {
+    stroke-opacity: 0.06;
+  }
+  .stage :global(.node.focus circle) {
+    fill: var(--rubric);
+  }
+  .stage :global(.node text) {
+    font: 500 11px var(--sans);
+    fill: var(--ink);
+    paint-order: stroke;
+    stroke: var(--surface);
+    stroke-width: 3px;
+    pointer-events: none;
+  }
+  .stage :global(.tick line) {
+    stroke: var(--rule);
+  }
+  .stage :global(.tick text) {
+    font: 500 11px var(--sans);
+    fill: var(--muted);
+  }
+  .zoom {
+    position: absolute;
+    inset-block-start: 12px;
+    inset-inline-end: 12px;
+    display: grid;
+    gap: 4px;
+  }
+  .zoom button {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--rule);
+    background: var(--bg);
+    color: var(--ink);
+    font: 500 1.1rem/1 var(--sans);
+    cursor: pointer;
+  }
+  .zoom button:hover {
+    border-color: var(--accent);
+  }
+  .tip {
+    position: absolute;
+    z-index: 2;
+    max-width: 260px;
+    padding: 8px 12px;
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 0.82rem;
+    line-height: 1.4;
+    pointer-events: none;
+  }
+  .method {
+    max-width: 80ch;
+    margin-block-start: 16px;
+  }
+</style>
+
+<script>
+  import * as d3 from 'd3';
+
+  type Node = { id: string; name: string; life: string; year: number | null; href: string; x?: number; y?: number; deg?: number };
+  const data = JSON.parse(document.getElementById('net-data')!.textContent!) as {
+    nodes: Node[];
+    edges: [string, string][];
+    ticks: [number, string][];
+    rtl: boolean;
+  };
+  const stage = document.querySelector<HTMLElement>('[data-stage]')!;
+  const tip = document.querySelector<HTMLElement>('[data-tip]')!;
+  const svg = d3.select<SVGSVGElement, unknown>('[data-svg]');
+  const W = stage.clientWidth;
+  const H = stage.clientHeight;
+  svg.attr('viewBox', `0 0 ${W} ${H}`);
+
+  const byId = new Map(data.nodes.map((n) => [n.id, n]));
+  const links = data.edges.filter(([a, b]) => byId.has(a) && byId.has(b)).map(([source, target]) => ({ source, target }));
+  links.forEach((l) => {
+    byId.get(l.source)!.deg = (byId.get(l.source)!.deg ?? 0) + 1;
+    byId.get(l.target)!.deg = (byId.get(l.target)!.deg ?? 0) + 1;
+  });
+  const years = data.nodes.map((n) => n.year).filter((y): y is number => y !== null);
+  const y = d3.scaleLinear().domain([d3.min(years)! - 20, d3.max(years)! + 20]).range([40, H * 2.2]);
+  const r = (n: Node) => 3.5 + Math.sqrt(n.deg ?? 1) * 1.8;
+
+  const root = svg.append('g');
+  const axis = root.append('g');
+  data.ticks.forEach(([year, label]) => {
+    const g = axis.append('g').attr('class', 'tick').attr('transform', `translate(0 ${y(year)})`);
+    g.append('line').attr('x1', -4000).attr('x2', 8000);
+    g.append('text').attr('x', 8).attr('y', -6).text(label);
+  });
+
+  const edge = root
+    .append('g')
+    .selectAll('line')
+    .data(links)
+    .join('line')
+    .attr('class', 'edge');
+  const node = root
+    .append('g')
+    .selectAll<SVGGElement, Node>('g')
+    .data(data.nodes)
+    .join('g')
+    .attr('class', 'node');
+  node.append('circle').attr('r', r);
+  node
+    .append('text')
+    .attr('dx', (n) => (data.rtl ? -(r(n) + 4) : r(n) + 4))
+    .attr('dy', '0.35em')
+    .attr('text-anchor', data.rtl ? 'end' : 'start')
+    .text((n) => ((n.deg ?? 0) >= 4 ? n.name : ''));
+
+  const sim = d3
+    .forceSimulation(data.nodes as d3.SimulationNodeDatum[])
+    .force('link', d3.forceLink(links).id((d) => (d as Node).id).distance(40).strength(0.4))
+    .force('charge', d3.forceManyBody().strength(-60))
+    .force('x', d3.forceX(W / 2).strength(0.04))
+    .force('y', d3.forceY((d) => ((d as Node).year !== null ? y((d as Node).year!) : H)).strength((d) => ((d as Node).year !== null ? 0.9 : 0.05)))
+    .force('collide', d3.forceCollide((d) => r(d as Node) + 2))
+    .stop();
+  for (let i = 0; i < 320; i++) sim.tick();
+
+  const draw = () => {
+    edge
+      .attr('x1', (l) => (l.source as unknown as Node).x!)
+      .attr('y1', (l) => (l.source as unknown as Node).y!)
+      .attr('x2', (l) => (l.target as unknown as Node).x!)
+      .attr('y2', (l) => (l.target as unknown as Node).y!);
+    node.attr('transform', (n) => `translate(${n.x} ${n.y})`);
+  };
+  draw();
+
+  const zoom = d3
+    .zoom<SVGSVGElement, unknown>()
+    .scaleExtent([0.2, 4])
+    .filter((e) => (e.type !== 'wheel' || e.ctrlKey || e.metaKey) && !e.button)
+    .on('zoom', (e) => root.attr('transform', e.transform.toString()));
+  svg.call(zoom);
+  svg.call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(0.75));
+  document.querySelectorAll<HTMLButtonElement>('[data-zoom]').forEach((b) =>
+    b.addEventListener('click', () => svg.transition().duration(300).call(zoom.scaleBy, Number(b.dataset.zoom))),
+  );
+
+  const neighbours = (id: string) => {
+    const set = new Set([id]);
+    links.forEach((l) => {
+      const a = (l.source as unknown as Node).id;
+      const b = (l.target as unknown as Node).id;
+      if (a === id) set.add(b);
+      if (b === id) set.add(a);
+    });
+    return set;
+  };
+  const highlight = (id: string | null) => {
+    const near = id ? neighbours(id) : null;
+    node.classed('dim', (n) => !!near && !near.has(n.id)).classed('focus', (n) => n.id === id);
+    node.select('text').text((n) => ((n.deg ?? 0) >= 4 || (near && near.has(n.id)) ? n.name : ''));
+    edge
+      .classed('on', (l) => !!id && ((l.source as unknown as Node).id === id || (l.target as unknown as Node).id === id))
+      .classed('dim', (l) => !!id && (l.source as unknown as Node).id !== id && (l.target as unknown as Node).id !== id);
+  };
+  let pinned: string | null = null;
+
+  node
+    .on('mouseenter', (e, n) => {
+      highlight(n.id);
+      tip.hidden = false;
+      tip.textContent = [n.name, n.life].filter(Boolean).join(' · ');
+      const box = stage.getBoundingClientRect();
+      tip.style.left = `${Math.min(e.clientX - box.left + 12, box.width - 270)}px`;
+      tip.style.top = `${e.clientY - box.top + 12}px`;
+    })
+    .on('mouseleave', () => {
+      tip.hidden = true;
+      highlight(pinned);
+    })
+    .on('click', (_, n) => (location.href = n.href));
+
+  const focus = (id: string) => {
+    const n = byId.get(id);
+    if (!n) return;
+    pinned = id;
+    highlight(id);
+    const k = 1.6;
+    svg.transition().duration(700).call(zoom.transform, d3.zoomIdentity.translate(W / 2 - n.x! * k, H / 2 - n.y! * k).scale(k));
+  };
+  const find = document.querySelector<HTMLInputElement>('[data-find]')!;
+  find.addEventListener('change', () => {
+    const hit = data.nodes.find((n) => n.name === find.value.trim());
+    if (hit) focus(hit.id);
+  });
+  const start = new URLSearchParams(location.search).get('focus');
+  if (start) focus(start);
+</script>

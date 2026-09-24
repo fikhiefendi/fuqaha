@@ -1,8 +1,79 @@
 ---
-import Placeholder from '../../../components/Placeholder.astro';
-import { langPaths, type Lang } from '../../../i18n/ui';
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import { langPaths, useT, type Lang } from '../../../i18n/ui';
+import { url } from '../../../lib/url';
 
 export const getStaticPaths = langPaths;
+
+const lang = Astro.params.lang as Lang;
+const t = useT(lang);
 ---
 
-<Placeholder lang={Astro.params.lang as Lang} title="nav.search" lead="search.lead" />
+<Base lang={lang} title={t('nav.search')} description={t('search.lead')}>
+  <PageHead title={t('nav.search')} lead={t('search.hint')} />
+
+  <div class="wrap page">
+    <div id="search" data-search data-bundle={url('pagefind/')} data-placeholder={t('search.placeholder')}></div>
+    <p class="dev meta" hidden data-dev>{t('search.devNote')}</p>
+  </div>
+</Base>
+
+<style>
+  .page {
+    min-height: 50vh;
+    padding-block-end: 80px;
+    --pagefind-ui-scale: 0.9;
+    --pagefind-ui-primary: var(--accent);
+    --pagefind-ui-text: var(--ink);
+    --pagefind-ui-background: var(--surface);
+    --pagefind-ui-border: var(--rule);
+    --pagefind-ui-tag: var(--soft);
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 0;
+    --pagefind-ui-font: var(--sans);
+  }
+  .page :global(.pagefind-ui__result-title) {
+    font-family: var(--serif);
+  }
+  .page :global(.pagefind-ui__result-link) {
+    color: var(--ink);
+  }
+  .page :global(.pagefind-ui__result-link:hover) {
+    color: var(--accent);
+  }
+  .page :global(mark) {
+    background: color-mix(in srgb, var(--rubric) 22%, transparent);
+    color: inherit;
+  }
+</style>
+
+<script>
+  const host = document.querySelector<HTMLElement>('[data-search]')!;
+  const bundle = host.dataset.bundle!;
+  const css = document.createElement('link');
+  css.rel = 'stylesheet';
+  css.href = `${bundle}pagefind-ui.css`;
+  document.head.append(css);
+
+  const script = document.createElement('script');
+  script.src = `${bundle}pagefind-ui.js`;
+  script.onload = () => {
+    // @ts-expect-error PagefindUI is a global set by the script above
+    const ui = new PagefindUI({
+      element: '#search',
+      bundlePath: bundle,
+      showSubResults: false,
+      showImages: false,
+      resetStyles: false,
+      translations: { placeholder: host.dataset.placeholder },
+      autofocus: true,
+    });
+    const q = new URLSearchParams(location.search).get('q');
+    if (q) ui.triggerSearch(q);
+  };
+  script.onerror = () => {
+    document.querySelector<HTMLElement>('[data-dev]')!.hidden = false;
+  };
+  document.head.append(script);
+</script>

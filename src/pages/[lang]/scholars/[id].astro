@@ -7,20 +7,23 @@ import { scholarPlaces } from '../../../lib/mapdata';
 import { centuryLabel, dateLong, getScholars, scholarCentury, scholarSummary } from '../../../lib/scholars';
 import { LOCALES, pick, useT, type Lang, type UIKey } from '../../../i18n/ui';
 import { href } from '../../../lib/url';
-import { MADHHABS } from '../../../site.config';
+import { MADHHABS, SITE } from '../../../site.config';
+import { neighbours, refLink } from '../../../lib/network';
+import { backdrop } from '../../../lib/images';
+import { miladi } from '../../../lib/hijri';
 
 export async function getStaticPaths() {
   const scholars = await getScholars();
   return LOCALES.flatMap((lang) =>
     scholars.map((s, i) => ({
       params: { lang, id: s.id },
-      props: { s, prev: scholars[i - 1], next: scholars[i + 1] },
+      props: { s, prev: scholars[i - 1], next: scholars[i + 1], all: scholars },
     })),
   );
 }
 
 const lang = Astro.params.lang as Lang;
-const { s, prev, next } = Astro.props;
+const { s, prev, next, all } = Astro.props;
 const t = useT(lang);
 const d = s.data;
 const { Content } = await render(s);
@@ -50,9 +53,46 @@ const points = [...scholarPlaces(s)]
     };
   });
 const title = lang === 'ar' ? d.name.ar : d.name[lang];
+
+const byId = new Map(all.map((x) => [x.id, x]));
+const nameOf = (id: string) => {
+  const x = byId.get(id)!;
+  return lang === 'ar' ? x.data.name.ar : x.data.name[lang];
+};
+const net = neighbours(s.id);
+const lists = [
+  { key: 'scholar.teachers', role: 'teachers', items: d.teachers },
+  { key: 'scholar.students', role: 'students', items: d.students },
+  { key: 'scholar.works', role: undefined, items: d.works.map((w) => w.ar) },
+] as const;
+
+const permalink = new URL(href(lang, `scholars/${s.id}/`), Astro.site).href;
+const ldPlace = (id?: string) => {
+  const p = id ? places.get(id) : undefined;
+  return p && { '@type': 'Place', name: pick(p.name, lang), geo: { '@type': 'GeoCoordinates', latitude: p.lat, longitude: p.lng } };
+};
+const ceYear = (h?: number) => (h ? miladi(h).slice(0, 4).replace(/\D.*$/, '') : undefined);
+const jsonld = {
+  '@type': 'Person',
+  name: title,
+  alternateName: [...new Set([d.name.ar, d.name.tr, d.name.en])].filter((n) => n !== title),
+  description: scholarSummary(s, lang),
+  url: permalink,
+  birthDate: ceYear(d.birth?.hijri),
+  deathDate: ceYear(d.death.hijri),
+  birthPlace: ldPlace(d.birth?.place),
+  deathPlace: ldPlace(d.death.place),
+  knowsAbout: lang === 'ar' ? 'الفقه الحنفي' : lang === 'en' ? 'Hanafi jurisprudence' : 'Hanefî fıkhı',
+  subjectOf: { '@type': 'Book', name: src.book, author: { '@type': 'Person', name: src.author } },
+};
+const siteName = lang === 'ar' ? SITE.nameAr : SITE.name;
+const srcRef =
+  lang === 'ar'
+    ? `${src.author}، ${src.book}، ص ${src.page}${src.entry ? `، رقم ${src.entry}` : ''}`
+    : `${src.authorTr ?? src.author}, ${src.bookTr ?? src.book}, ${lang === 'en' ? 'p.' : 's.'} ${src.page}${src.entry ? `, ${lang === 'en' ? 'no.' : 'nr.'} ${src.entry}` : ''}`;
 ---
 
-<Base lang={lang} title={title} description={scholarSummary(s, lang)}>
+<Base lang={lang} title={title} description={scholarSummary(s, lang)} index="scholar" image={backdrop(s.id).src} jsonld={jsonld} ogType="profile">
   <PageHead title={title} back={{ href: href(lang, 'scholars/'), label: t('scholar.back') }}>
     {lang !== 'ar' && <p class="ar-name" lang="ar" dir="rtl">{d.name.ar}</p>}
     {d.fullNameAr && <p class="full" lang="ar" dir="rtl">{d.fullNameAr}</p>}
@@ -72,15 +112,16 @@ const title = lang === 'ar' ? d.name.ar : d.name[lang];
       {
         (d.teachers.length > 0 || d.students.length > 0 || d.works.length > 0) && (
           <section class="lists">
-            {[['scholar.teachers', d.teachers], ['scholar.students', d.students], ['scholar.works', d.works.map((w) => w.ar)]].map(
-              ([key, list]) =>
-                (list as string[]).length > 0 && (
+            {lists.map(
+              ({ key, role, items }) =>
+                items.length > 0 && (
                   <div>
-                    <h3>{t(key as UIKey)}</h3>
+                    <h3>{t(key)}</h3>
                     <ul lang="ar" dir="rtl">
-                      {(list as string[]).map((x) => (
-                        <li>{x}</li>
-                      ))}
+                      {items.map((x, i) => {
+                        const to = role && refLink(s.id, role, i);
+                        return <li>{to ? <a href={href(lang, `scholars/${to}/`)}>{x}</a> : x}</li>;
+                      })}
                     </ul>
                   </div>
                 ),
@@ -89,6 +130,52 @@ const title = lang === 'ar' ? d.name.ar : d.name[lang];
           </section>
         )
       }
+
+      {
+        (net.teachers.length > 0 || net.students.length > 0) && (
+          <section class="chain" data-pagefind-ignore>
+            <h2>{t('network.title')}</h2>
+            <p class="meta">{t('network.lead')}</p>
+            <div class="chain-grid">
+              {net.teachers.length > 0 && (
+                <div class="tier">
+                  <span class="tier-label">{t('scholar.teachers')}</span>
+                  {net.teachers.map((id) => <a href={href(lang, `scholars/${id}/`)}>{nameOf(id)}</a>)}
+                </div>
+              )}
+              <div class="tier self">
+                <span>{title}</span>
+              </div>
+              {net.students.length > 0 && (
+                <div class="tier">
+                  <span class="tier-label">{t('scholar.students')}</span>
+                  {net.students.map((id) => <a href={href(lang, `scholars/${id}/`)}>{nameOf(id)}</a>)}
+                </div>
+              )}
+            </div>
+            <a href={`${href(lang, 'network/')}?focus=${s.id}`} class="to-map">{t('network.open')} →</a>
+          </section>
+        )
+      }
+
+      <section class="cite" data-pagefind-ignore>
+        <h2>{t('cite.title')}</h2>
+        <div class="cite-box">
+          <p class="label">ISNAD</p>
+          <p class="ref" data-copy-src>
+            “{title}”. <em>{siteName}</em>. {srcRef}. {t('cite.accessed')} <span data-today={lang}></span>. {permalink}
+          </p>
+          <button type="button" class="btn small plain" data-copy data-done={t('bib.copied')}>{t('bib.copy')}</button>
+        </div>
+        <div class="cite-box">
+          <p class="label">Chicago</p>
+          <p class="ref" data-copy-src>
+            “{title}.” In <em>{siteName}</em>. {lang === 'en' ? 'Based on' : lang === 'ar' ? 'عن' : 'Kaynak:'} {srcRef}. {lang === 'tr' ? 'Erişim' : lang === 'ar' ? 'اطُّلع عليه في' : 'Accessed'} <span data-today={lang}></span>. {permalink}.
+          </p>
+          <button type="button" class="btn small plain" data-copy data-done={t('bib.copied')}>{t('bib.copy')}</button>
+        </div>
+        <p class="meta permalink">{t('cite.permalink')}: <a href={permalink}>{permalink}</a></p>
+      </section>
     </div>
 
     <aside class="side">
@@ -96,7 +183,7 @@ const title = lang === 'ar' ? d.name.ar : d.name[lang];
         {
           facts.map(([k, v]) => (
             <div>
-              <dt>{k}</dt>
+              <dt data-pagefind-ignore>{k}</dt>
               <dd>{v || '—'}</dd>
             </div>
           ))
@@ -135,7 +222,7 @@ const title = lang === 'ar' ? d.name.ar : d.name[lang];
     </aside>
   </div>
 
-  <nav class="wrap pager" aria-label="pager">
+  <nav class="wrap pager" aria-label="pager" data-pagefind-ignore>
     {prev ? <a href={href(lang, `scholars/${prev.id}/`)} class="prev">← <span lang="ar">{prev.data.name.ar}</span></a> : <span />}
     {next && <a href={href(lang, `scholars/${next.id}/`)} class="next"><span lang="ar">{next.data.name.ar}</span> →</a>}
   </nav>
@@ -217,6 +304,90 @@ const title = lang === 'ar' ? d.name.ar : d.name[lang];
   .lists li + li {
     margin-block-start: 4px;
   }
+  .lists a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+  }
+
+  .chain,
+  .cite {
+    margin-block-start: 44px;
+    padding-block-start: 28px;
+    border-block-start: 1px solid var(--rule);
+  }
+  .chain h2,
+  .cite h2 {
+    margin-block-end: 6px;
+  }
+  .chain-grid {
+    display: grid;
+    gap: 10px;
+    margin-block: 18px 12px;
+  }
+  .tier {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 14px;
+    background: var(--soft);
+  }
+  .tier-label {
+    flex-basis: 100%;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+  .tier a {
+    padding: 5px 12px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--surface);
+    font-size: 0.88rem;
+    color: var(--ink);
+  }
+  .tier a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .tier.self {
+    justify-content: center;
+    background: none;
+    padding-block: 2px;
+  }
+  .tier.self span {
+    padding: 7px 16px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--on-accent);
+    font-weight: 600;
+  }
+  .cite-box {
+    display: grid;
+    gap: 10px;
+    justify-items: start;
+    margin-block-start: 14px;
+    padding: 18px;
+    background: var(--soft);
+  }
+  .cite-box .label {
+    font: 600 0.72rem var(--sans);
+    letter-spacing: 0.1em;
+    color: var(--rubric);
+  }
+  .cite-box .ref {
+    font-size: 0.92rem;
+    color: var(--ink);
+    overflow-wrap: anywhere;
+  }
+  .permalink {
+    margin-block-start: 12px;
+    overflow-wrap: anywhere;
+  }
+  .permalink a {
+    color: var(--accent);
+  }
 
   .side {
     display: grid;
@@ -226,13 +397,13 @@ const title = lang === 'ar' ? d.name.ar : d.name[lang];
   .facts {
     margin: 0;
     background: var(--accent);
-    color: #fff;
+    color: var(--on-accent);
     padding: 22px;
   }
   .facts div + div {
     margin-block-start: 14px;
     padding-block-start: 14px;
-    border-block-start: 1px solid rgb(255 255 255 / 0.18);
+    border-block-start: 1px solid color-mix(in srgb, var(--on-accent) 20%, transparent);
   }
   dt {
     font-size: 0.72rem;
@@ -296,3 +467,23 @@ const title = lang === 'ar' ? d.name.ar : d.name[lang];
     font: 700 1.05rem var(--arabic);
   }
 </style>
+
+<script>
+  const today = (lang: string) =>
+    new Intl.DateTimeFormat({ tr: 'tr-TR', en: 'en-GB', ar: 'ar' }[lang] ?? 'tr-TR', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date());
+  document.querySelectorAll<HTMLElement>('[data-today]').forEach((el) => (el.textContent = today(el.dataset.today ?? 'tr')));
+  document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const src = btn.parentElement?.querySelector('[data-copy-src]');
+      if (!src) return;
+      try {
+        await navigator.clipboard.writeText((src.textContent ?? '').replace(/\s+/g, ' ').trim());
+        const label = btn.textContent;
+        btn.textContent = btn.dataset.done ?? '✓';
+        setTimeout(() => (btn.textContent = label), 1500);
+      } catch {
+        /* clipboard unavailable: text stays selectable */
+      }
+    });
+  });
+</script>

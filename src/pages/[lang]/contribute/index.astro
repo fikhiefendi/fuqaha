@@ -1,8 +1,8 @@
 ---
-import Placeholder from '../../../components/Placeholder.astro';
+import StaticPage from '../../../components/StaticPage.astro';
 import { langPaths, type Lang } from '../../../i18n/ui';
 
 export const getStaticPaths = langPaths;
 ---
 
-<Placeholder lang={Astro.params.lang as Lang} title="contribute.title" lead="contribute.lead" />
+<StaticPage lang={Astro.params.lang as Lang} slug="contribute" />

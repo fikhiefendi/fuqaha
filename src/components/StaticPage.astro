@@ -1,0 +1,59 @@
+---
+// Renders a fixed page (about, contribute, licence) from src/content/pages.
+import { getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHead from './PageHead.astro';
+import { photo, type PhotoId } from '../lib/images';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  slug: string;
+}
+const { lang, slug } = Astro.props;
+const entry = (await getEntry('pages', `${lang}/${slug}`)) ?? (await getEntry('pages', `tr/${slug}`))!;
+const { Content } = await render(entry);
+const p = entry.data.photo ? photo(entry.data.photo as PhotoId) : undefined;
+---
+
+<Base lang={lang} title={entry.data.title} description={entry.data.lead}>
+  <PageHead title={entry.data.title} lead={entry.data.lead} photo={p} lang={lang} />
+  <article class="wrap page">
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</Base>
+
+<style>
+  .page {
+    padding-block-end: 88px;
+  }
+  .prose :global(h2) {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .prose :global(h2::before) {
+    content: '';
+    flex: 0 0 22px;
+    height: 2px;
+    background: var(--rubric);
+  }
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+  .prose :global(th),
+  .prose :global(td) {
+    padding: 8px 10px;
+    border-block-end: 1px solid var(--rule);
+    text-align: start;
+    vertical-align: top;
+  }
+  .prose :global(th) {
+    color: var(--ink);
+    font-weight: 600;
+  }
+</style>

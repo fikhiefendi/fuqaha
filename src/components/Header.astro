@@ -41,6 +41,10 @@ const path = Astro.url.pathname;
           ><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg
         >
       </a>
+      <button type="button" class="icon theme" data-theme-toggle aria-label={t('theme.toggle')} title={t('theme.toggle')}>
+        <svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg>
+        <svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4"></path></svg>
+      </button>
       <span class="slash" aria-hidden="true">/</span>
       <details class="lang">
         <summary aria-label="Language">
@@ -172,6 +176,20 @@ const path = Astro.url.pathname;
   .slash {
     opacity: 0.6;
   }
+  .theme {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  .theme .sun,
+  :global(:root[data-theme='dark']) .theme .moon {
+    display: none;
+  }
+  :global(:root[data-theme='dark']) .theme .sun {
+    display: block;
+  }
   .lang {
     position: relative;
   }
@@ -192,7 +210,7 @@ const path = Astro.url.pathname;
     top: calc(100% + 8px);
     min-width: 140px;
     padding: 6px 0;
-    background: #fff;
+    background: var(--surface);
     box-shadow: 0 10px 30px rgb(0 0 0 / 0.15);
     color: var(--ink);
   }
@@ -243,7 +261,7 @@ const path = Astro.url.pathname;
       align-items: stretch;
       gap: 0;
       padding: 8px 16px 16px;
-      background: #fff;
+      background: var(--surface);
       color: var(--ink);
       box-shadow: 0 12px 24px rgb(0 0 0 / 0.1);
       display: none;
@@ -280,6 +298,17 @@ const path = Astro.url.pathname;
     const open = nav?.classList.toggle('open') ?? false;
     burger.setAttribute('aria-expanded', String(open));
     header?.classList.toggle('scrolled', open || window.scrollY > 40);
+  });
+
+  document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
+    const root = document.documentElement;
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try {
+      localStorage.setItem('theme', next);
+    } catch {
+      /* private mode: the choice lasts for this page only */
+    }
   });
 
   // Close the language menu when clicking elsewhere.
