@@ -1,0 +1,233 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroSlider from '../../components/HeroSlider.astro';
+import DiamondSection from '../../components/DiamondSection.astro';
+import Cover from '../../components/Cover.astro';
+import { formatDate, getFeatured, getPosts } from '../../lib/entries';
+import { getScholars, lifeShort } from '../../lib/scholars';
+import { getWorks } from '../../lib/works';
+import { langPaths, pick, useT, type Lang } from '../../i18n/ui';
+import { href } from '../../lib/url';
+import { WORK_TYPES } from '../../site.config';
+
+export const getStaticPaths = langPaths;
+
+const lang = Astro.params.lang as Lang;
+const t = useT(lang);
+
+const featured = await getFeatured(lang, 5);
+const posts = (await getPosts(lang)).slice(0, 3);
+const [lead, ...side] = posts;
+const all = await getScholars();
+const scholars = [...all.filter((s) => s.data.featured), ...all.filter((s) => !s.data.featured)].slice(0, 12);
+const works = await getWorks();
+const countOf = (k: string) => works.filter((w) => w.data.type === k).length;
+// Types with records first, then the rest as "in preparation".
+const types = Object.entries(WORK_TYPES)
+  .map(([key, label]) => ({ key, label, n: countOf(key) }))
+  .sort((a, b) => b.n - a.n)
+  .slice(0, 6);
+const num = new Intl.NumberFormat(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB' : 'tr-TR');
+---
+
+<Base lang={lang} home>
+  <HeroSlider lang={lang} items={featured} />
+
+  <section class="section" id="main-sections">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>{t('home.posts')}</h2>
+        <a href={href(lang, 'posts/')} class="btn small">{t('home.postsAll')}</a>
+      </div>
+
+      <div class="news">
+        {
+          lead && (
+            <article class="news-lead">
+              <a href={href(lang, `posts/${lead.slug}/`)} class="thumb" tabindex="-1" aria-hidden="true">
+                <Cover seed={lead.slug} image={lead.entry.data.cover} alt={lead.entry.data.coverAlt} />
+              </a>
+              <div class="news-body">
+                <h3 lang={lead.lang}>
+                  <a href={href(lang, `posts/${lead.slug}/`)}>{lead.entry.data.title}</a>
+                </h3>
+                <p lang={lead.lang}>{lead.entry.data.summary}</p>
+                <span class="date">
+                  <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" /><path d="M8 4.5V8l2.5 1.5" fill="none" stroke="currentColor" /></svg>
+                  {formatDate(lead.entry.data.date, lang)}
+                </span>
+                <a href={href(lang, `posts/${lead.slug}/`)} class="btn small">{t('readMore')}</a>
+              </div>
+            </article>
+          )
+        }
+        <div class="news-side">
+          {
+            side.map((p) => (
+              <article class="news-item">
+                <a href={href(lang, `posts/${p.slug}/`)} class="thumb" tabindex="-1" aria-hidden="true">
+                  <Cover seed={p.slug} image={p.entry.data.cover} alt={p.entry.data.coverAlt} />
+                </a>
+                <div class="news-body">
+                  <h3 lang={p.lang}>
+                    <a href={href(lang, `posts/${p.slug}/`)}>{p.entry.data.title}</a>
+                  </h3>
+                  <p lang={p.lang}>{p.entry.data.summary}</p>
+                  <span class="date">
+                    <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" /><path d="M8 4.5V8l2.5 1.5" fill="none" stroke="currentColor" /></svg>
+                    {formatDate(p.entry.data.date, lang)}
+                  </span>
+                  <a href={href(lang, `posts/${p.slug}/`)} class="btn small">{t('readMore')}</a>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <DiamondSection
+    title={t('nav.scholars')}
+    lead={t('home.scholarsLead')}
+    seed="alimler-bolumu"
+    button={{ href: href(lang, 'scholars/'), label: t('home.scholarsAll') }}
+    soft
+  >
+    {
+      scholars.map((s) => (
+        <a href={href(lang, `scholars/${s.id}/`)} class="mini-card">
+          <span class="mini-ar" lang="ar">
+            {s.data.name.ar}
+          </span>
+          {lang !== 'ar' && <span class="mini-title">{s.data.name[lang]}</span>}
+          <span class="meta">{lifeShort(s, lang)}</span>
+        </a>
+      ))
+    }
+  </DiamondSection>
+
+  <DiamondSection
+    title={t('nav.bibliography')}
+    lead={t('home.worksLead')}
+    seed="bibliyografya-bolumu"
+    button={{ href: href(lang, 'bibliography/'), label: t('home.worksAll') }}
+    flip
+  >
+    {
+      types.map(({ key, label, n }) => (
+        <a href={href(lang, n ? `bibliography/?type=${key}` : 'bibliography/')} class="mini-card">
+          {n > 0 && <span class="mini-count">{num.format(n)}</span>}
+          <span class="mini-title">{pick(label, lang)}</span>
+          <span class="meta">{n > 0 ? t('bib.count') : t('soon')}</span>
+        </a>
+      ))
+    }
+  </DiamondSection>
+</Base>
+
+<style>
+  .news {
+    display: grid;
+    gap: 28px;
+  }
+  @media (min-width: 900px) {
+    .news {
+      grid-template-columns: 1.15fr 1fr;
+    }
+  }
+  .thumb {
+    display: block;
+    overflow: hidden;
+    background: var(--soft);
+  }
+  .thumb :global(.cover) {
+    transition: transform 0.6s ease;
+  }
+  article:hover .thumb :global(.cover) {
+    transform: scale(1.05);
+  }
+  .news-lead .thumb {
+    aspect-ratio: 16 / 9;
+  }
+  .news-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .news-lead .news-body {
+    padding-block-start: 22px;
+  }
+  .news-body h3 {
+    font-size: 1.25rem;
+  }
+  .news-lead h3 {
+    font-size: 1.5rem;
+  }
+  .news-body h3 a:hover {
+    color: var(--navy);
+  }
+  .news-body p {
+    font-size: 0.9rem;
+    text-align: justify;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  :lang(ar) {
+    line-height: 1.8;
+  }
+  .news-side {
+    display: grid;
+    gap: 28px;
+    align-content: start;
+  }
+  .news-item {
+    display: grid;
+    grid-template-columns: minmax(140px, 42%) 1fr;
+    gap: 20px;
+  }
+  .news-item .thumb {
+    aspect-ratio: 4 / 5;
+  }
+  @media (max-width: 560px) {
+    .news-item {
+      grid-template-columns: 1fr;
+    }
+    .news-item .thumb {
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  .mini-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    min-height: 150px;
+    padding: 22px;
+    background: #fff;
+    box-shadow: 0 10px 30px -18px rgb(21 53 79 / 0.45);
+    transition:
+      transform 0.25s,
+      box-shadow 0.25s;
+  }
+  .mini-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 36px -18px rgb(21 53 79 / 0.55);
+  }
+  .mini-ar {
+    font: 700 1.2rem/1.6 var(--arabic);
+    color: var(--navy);
+  }
+  .mini-count {
+    font: 900 1.9rem/1 'Merriweather', serif;
+    color: var(--navy);
+  }
+  .mini-title {
+    font: 700 0.98rem/1.4 var(--serif);
+    color: var(--ink);
+  }
+</style>

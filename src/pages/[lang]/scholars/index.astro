@@ -1,0 +1,184 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import { getScholars, lifeShort, scholarCentury, centuryLabel } from '../../../lib/scholars';
+import { langPaths, useT, type Lang } from '../../../i18n/ui';
+import { href } from '../../../lib/url';
+
+export const getStaticPaths = langPaths;
+
+const lang = Astro.params.lang as Lang;
+const t = useT(lang);
+const scholars = await getScholars();
+const rows = scholars.map((s) => ({ s, c: scholarCentury(s) }));
+const centuries = [...new Set(rows.map((r) => r.c).filter((c): c is number => !!c))].sort((a, b) => a - b);
+---
+
+<Base lang={lang} title={t('nav.scholars')} description={t('scholars.lead')}>
+  <PageHead title={t('nav.scholars')} lead={t('scholars.sourceNote')} />
+
+  <div class="wrap page">
+    <form class="filters" role="search" data-filters onsubmit="return false">
+      <label>
+        <span>{t('scholars.searchLabel')}</span>
+        <input type="search" name="q" placeholder={t('scholars.searchPlaceholder')} autocomplete="off" />
+      </label>
+      <label>
+        <span>{t('scholars.century')}</span>
+        <select name="c">
+          <option value="">{t('scholars.allCenturies')}</option>
+          {centuries.map((c) => <option value={c}>{centuryLabel(c, lang)}</option>)}
+        </select>
+      </label>
+      <p class="count" aria-live="polite"><strong data-count>{rows.length}</strong> {t('scholars.count')}</p>
+    </form>
+
+    <ol class="list">
+      {
+        rows.map(({ s, c }) => (
+          <li data-c={c ?? ''} data-q={`${s.data.name.tr} ${s.data.name.en} ${s.data.name.ar} ${s.data.fullNameAr ?? ''}`.toLocaleLowerCase('tr')}>
+            <a href={href(lang, `scholars/${s.id}/`)}>
+              <span class="ar" lang="ar">{s.data.name.ar}</span>
+              {lang !== 'ar' && <span class="name">{s.data.name[lang]}</span>}
+              <span class="meta">
+                {[lifeShort(s, lang), c ? centuryLabel(c, lang) : ''].filter(Boolean).join(' · ')}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+    <p class="none" hidden data-none>{t('scholars.none')}</p>
+  </div>
+</Base>
+
+<style>
+  .page {
+    padding-block-end: 80px;
+  }
+  .filters {
+    display: grid;
+    gap: 16px;
+    align-items: end;
+    margin-block-end: 28px;
+    padding: 20px;
+    background: var(--soft);
+  }
+  @media (min-width: 760px) {
+    .filters {
+      grid-template-columns: 2fr 1fr auto;
+    }
+  }
+  label {
+    display: grid;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  input,
+  select {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid var(--rule);
+    background: #fff;
+    font: inherit;
+    font-size: 0.95rem;
+    color: var(--ink);
+    border-radius: 0;
+  }
+  input:focus,
+  select:focus {
+    outline: 2px solid var(--navy);
+    outline-offset: -1px;
+  }
+  .count {
+    font-size: 0.85rem;
+    padding-block-end: 10px;
+  }
+  .count strong {
+    color: var(--navy);
+    font-size: 1.1rem;
+  }
+  .list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0 28px;
+  }
+  @media (min-width: 900px) {
+    .list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .list li {
+    border-block-end: 1px solid var(--rule);
+  }
+  .list a {
+    display: grid;
+    gap: 2px;
+    padding-block: 14px;
+  }
+  .list a:hover .name,
+  .list a:hover .ar {
+    color: var(--navy);
+  }
+  .ar {
+    font: 700 1.15rem/1.6 var(--arabic);
+    color: var(--ink);
+  }
+  .name {
+    font: 700 0.95rem/1.4 var(--serif);
+    color: var(--ink);
+  }
+  :root[lang='ar'] .ar {
+    font-size: 1.3rem;
+  }
+  .none {
+    padding: 24px 0;
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-filters]');
+  const items = [...document.querySelectorAll<HTMLLIElement>('.list li')];
+  const count = document.querySelector('[data-count]');
+  const none = document.querySelector<HTMLElement>('[data-none]');
+  // Match without diacritics so "ebu hanife" finds "Ebû Hanîfe".
+  const fold = (s: string) =>
+    s
+      .toLocaleLowerCase('tr')
+      .normalize('NFD')
+      .replace(/[̀-ًͯ-ٰٟ']/g, '')
+      .replace(/[ıİ]/g, 'i')
+      .replace(/[أإآ]/g, 'ا')
+      .replace(/ى/g, 'ي')
+      .replace(/ة/g, 'ه');
+  const keys = items.map((li) => fold(li.dataset.q ?? ''));
+  const apply = () => {
+    if (!form) return;
+    const data = new FormData(form);
+    const q = fold(String(data.get('q') ?? '').trim());
+    const c = String(data.get('c') ?? '');
+    let shown = 0;
+    items.forEach((li, i) => {
+      const ok = (!q || keys[i].includes(q)) && (!c || li.dataset.c === c);
+      li.hidden = !ok;
+      if (ok) shown++;
+    });
+    if (count) count.textContent = String(shown);
+    if (none) none.hidden = shown > 0;
+    const params = new URLSearchParams();
+    if (q) params.set('q', String(data.get('q')));
+    if (c) params.set('c', c);
+    history.replaceState(null, '', params.size ? `?${params}` : location.pathname);
+  };
+  const init = new URLSearchParams(location.search);
+  if (form) {
+    (form.elements.namedItem('q') as HTMLInputElement).value = init.get('q') ?? '';
+    (form.elements.namedItem('c') as HTMLSelectElement).value = init.get('c') ?? '';
+    form.addEventListener('input', apply);
+    apply();
+  }
+</script>

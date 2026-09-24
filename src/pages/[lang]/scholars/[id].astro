@@ -1,0 +1,298 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import MiniMap from '../../../components/MiniMap.astro';
+import { scholarPlaces } from '../../../lib/mapdata';
+import { centuryLabel, dateLong, getScholars, scholarCentury, scholarSummary } from '../../../lib/scholars';
+import { LOCALES, pick, useT, type Lang, type UIKey } from '../../../i18n/ui';
+import { href } from '../../../lib/url';
+import { MADHHABS } from '../../../site.config';
+
+export async function getStaticPaths() {
+  const scholars = await getScholars();
+  return LOCALES.flatMap((lang) =>
+    scholars.map((s, i) => ({
+      params: { lang, id: s.id },
+      props: { s, prev: scholars[i - 1], next: scholars[i + 1] },
+    })),
+  );
+}
+
+const lang = Astro.params.lang as Lang;
+const { s, prev, next } = Astro.props;
+const t = useT(lang);
+const d = s.data;
+const { Content } = await render(s);
+const places = new Map((await getCollection('places')).map((p) => [p.id, p.data]));
+const placeName = (id?: string) => (id ? (pick(places.get(id)?.name, lang) ?? id) : undefined);
+
+const c = scholarCentury(s);
+const birth = dateLong(d.birth, lang);
+const death = dateLong(d.death, lang);
+const facts: [string, string][] = [
+  [t('scholar.birth'), [birth, placeName(d.birth?.place)].filter(Boolean).join(' — ')],
+  [t('scholar.death'), [death ?? t('scholar.unknown'), placeName(d.death.place)].filter(Boolean).join(' — ')],
+  [lang === 'ar' ? 'المذهب' : lang === 'en' ? 'School' : 'Mezhep', pick(MADHHABS[d.madhhab], lang) ?? ''],
+  [t('scholars.century'), c ? centuryLabel(c, lang) : '—'],
+];
+const src = d.sources[0];
+const points = [...scholarPlaces(s)]
+  .filter(([pid]) => places.has(pid))
+  .map(([pid, roles]) => {
+    const p = places.get(pid)!;
+    return {
+      name: placeName(pid) ?? pid,
+      lat: p.lat,
+      lng: p.lng,
+      approx: p.coordSource !== 'thurayya',
+      roles: [...roles].map((r) => t(`role.${r}` as UIKey)).join(', '),
+    };
+  });
+const title = lang === 'ar' ? d.name.ar : d.name[lang];
+---
+
+<Base lang={lang} title={title} description={scholarSummary(s, lang)}>
+  <PageHead title={title} back={{ href: href(lang, 'scholars/'), label: t('scholar.back') }}>
+    {lang !== 'ar' && <p class="ar-name" lang="ar" dir="rtl">{d.name.ar}</p>}
+    {d.fullNameAr && <p class="full" lang="ar" dir="rtl">{d.fullNameAr}</p>}
+  </PageHead>
+
+  <div class="wrap layout">
+    <div class="main">
+      {lang !== 'ar' && <p class="summary">{scholarSummary(s, lang)}</p>}
+
+      <section class="text">
+        <h2>{t('scholar.text')}</h2>
+        <div class="prose ar-text" lang="ar" dir="rtl">
+          <Content />
+        </div>
+      </section>
+
+      {
+        (d.teachers.length > 0 || d.students.length > 0 || d.works.length > 0) && (
+          <section class="lists">
+            {[['scholar.teachers', d.teachers], ['scholar.students', d.students], ['scholar.works', d.works.map((w) => w.ar)]].map(
+              ([key, list]) =>
+                (list as string[]).length > 0 && (
+                  <div>
+                    <h3>{t(key as UIKey)}</h3>
+                    <ul lang="ar" dir="rtl">
+                      {(list as string[]).map((x) => (
+                        <li>{x}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ),
+            )}
+            {t('scholar.namesNote') && <p class="meta note">{t('scholar.namesNote')}</p>}
+          </section>
+        )
+      }
+    </div>
+
+    <aside class="side">
+      <dl class="facts">
+        {
+          facts.map(([k, v]) => (
+            <div>
+              <dt>{k}</dt>
+              <dd>{v || '—'}</dd>
+            </div>
+          ))
+        }
+      </dl>
+
+      {
+        points.length > 0 && (
+          <div class="box map-box">
+            <h3>{t('scholar.places')}</h3>
+            <MiniMap points={points} label={t('scholar.places')} />
+            <ul class="places">
+              {points.map((p) => (
+                <li>
+                  <span>{p.name}</span>
+                  <span class="meta">{p.roles}</span>
+                </li>
+              ))}
+            </ul>
+            <a href={href(lang, 'map/')} class="to-map">{t('map.scholarPlaces')} →</a>
+          </div>
+        )
+      }
+
+      <div class="box source">
+        <h3>{t('scholar.source')}</h3>
+        <p lang="ar" dir="rtl" class="book">{src.book}</p>
+        {lang !== 'ar' && src.bookTr && <p><em>{src.bookTr}</em></p>}
+        <p>{lang === 'ar' ? src.author : (src.authorTr ?? src.author)}</p>
+        {src.edition && <p class="meta">{src.edition}</p>}
+        <p class="meta">
+          {t('scholar.page')} {src.page}
+          {src.entry && <> · {t('scholar.entry')} {src.entry}</>}
+        </p>
+      </div>
+    </aside>
+  </div>
+
+  <nav class="wrap pager" aria-label="pager">
+    {prev ? <a href={href(lang, `scholars/${prev.id}/`)} class="prev">← <span lang="ar">{prev.data.name.ar}</span></a> : <span />}
+    {next && <a href={href(lang, `scholars/${next.id}/`)} class="next"><span lang="ar">{next.data.name.ar}</span> →</a>}
+  </nav>
+</Base>
+
+<style>
+  .ar-name {
+    margin-block-start: 10px;
+    font: 700 1.6rem/1.5 var(--arabic);
+    color: var(--navy);
+    text-align: start;
+  }
+  .full {
+    margin-block-start: 6px;
+    font: 400 1.1rem/1.7 var(--arabic);
+    color: var(--text);
+    text-align: start;
+  }
+  :root:not([dir='rtl']) .ar-name,
+  :root:not([dir='rtl']) .full {
+    text-align: left;
+  }
+  .layout {
+    display: grid;
+    gap: 40px;
+    padding-block-end: 48px;
+  }
+  @media (min-width: 960px) {
+    .layout {
+      grid-template-columns: 1fr 340px;
+      gap: 56px;
+    }
+  }
+  .summary {
+    font: 400 1.12rem/1.8 var(--serif);
+    color: var(--ink);
+    margin-block-end: 36px;
+    padding-inline-start: 18px;
+    border-inline-start: 3px solid var(--gold);
+  }
+  h2 {
+    font-size: 1.2rem;
+    margin-block-end: 16px;
+  }
+  .ar-text {
+    max-width: none;
+    font-family: var(--arabic);
+    text-align: justify;
+  }
+  .ar-text :global(strong) {
+    color: var(--navy);
+  }
+  .lists {
+    display: grid;
+    gap: 24px;
+    margin-block-start: 44px;
+    padding-block-start: 28px;
+    border-block-start: 1px solid var(--rule);
+  }
+  @media (min-width: 700px) {
+    .lists {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .note {
+      grid-column: 1 / -1;
+    }
+  }
+  h3 {
+    font-size: 0.95rem;
+    margin-block-end: 10px;
+  }
+  .lists ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font: 400 1.08rem/1.7 var(--arabic);
+    color: var(--ink);
+  }
+  .lists li + li {
+    margin-block-start: 4px;
+  }
+
+  .side {
+    display: grid;
+    gap: 20px;
+    align-content: start;
+  }
+  .facts {
+    margin: 0;
+    background: var(--navy);
+    color: #fff;
+    padding: 22px;
+  }
+  .facts div + div {
+    margin-block-start: 14px;
+    padding-block-start: 14px;
+    border-block-start: 1px solid rgb(255 255 255 / 0.18);
+  }
+  dt {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+  :root[lang='ar'] dt {
+    letter-spacing: 0;
+    font-size: 0.85rem;
+  }
+  dd {
+    margin: 4px 0 0;
+    font: 700 1rem/1.5 var(--serif);
+  }
+  .box {
+    padding: 22px;
+    background: var(--soft);
+  }
+  .map-box :global(.mini-map) {
+    margin-block-end: 12px;
+  }
+  .to-map {
+    display: inline-block;
+    margin-block-start: 10px;
+    font-size: 0.82rem;
+    color: var(--navy);
+  }
+  .places {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .places li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding-block: 6px;
+    border-block-end: 1px solid var(--rule);
+    color: var(--ink);
+  }
+  .source p + p {
+    margin-block-start: 4px;
+  }
+  .book {
+    font: 700 1.15rem/1.6 var(--arabic);
+    color: var(--ink);
+  }
+  :root:not([dir='rtl']) .book {
+    text-align: left;
+  }
+  .pager {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding-block: 24px 72px;
+    border-block-start: 1px solid var(--rule);
+  }
+  .pager a {
+    color: var(--navy);
+    font: 700 1.05rem var(--arabic);
+  }
+</style>

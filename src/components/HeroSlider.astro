@@ -1,0 +1,280 @@
+---
+// Full-screen home hero: large background images that crossfade, with the
+// headline on one side and square pager dots stacked on the other.
+import Cover from './Cover.astro';
+import { type FeatureItem } from '../lib/entries';
+import { LANG_META, useT, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  items: FeatureItem[];
+  interval?: number;
+}
+const { lang, items, interval = 7000 } = Astro.props;
+const t = useT(lang);
+---
+
+<section class="hero" aria-roledescription="carousel" aria-label={t('slider.label')} data-hero data-interval={interval}>
+  {
+    items.map((item, i) => (
+      <article
+        class="slide"
+        data-active={i === 0 ? '' : undefined}
+        aria-roledescription="slide"
+        aria-label={`${i + 1} / ${items.length}`}
+        aria-hidden={i === 0 ? undefined : 'true'}
+      >
+        <div class="bg">
+          <Cover seed={item.seed} image={item.image} alt={item.imageAlt} label={item.label} eager={i === 0} />
+        </div>
+        <div class="wrap content">
+          <span class="kicker">{item.kicker}</span>
+          <h2 lang={item.titleLang} dir={LANG_META[item.titleLang].dir}>
+            {item.title}
+          </h2>
+          {item.summary && <p>{item.summary}</p>}
+          <a href={item.href} class="btn" tabindex={i === 0 ? undefined : '-1'}>
+            {t('details')}
+          </a>
+        </div>
+      </article>
+    ))
+  }
+
+  {
+    items.length > 1 && (
+      <div class="dots" role="tablist">
+        {items.map((item, i) => (
+          <button
+            type="button"
+            role="tab"
+            data-go={i}
+            aria-selected={i === 0 ? 'true' : 'false'}
+            aria-label={`${i + 1}: ${item.title}`}
+          />
+        ))}
+      </div>
+    )
+  }
+
+  <a href="#main-sections" class="mouse" aria-label="↓"><span></span></a>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    display: grid;
+    height: 100vh;
+    min-height: 560px;
+    max-height: 980px;
+    overflow: hidden;
+    background: var(--navy-dark);
+    color: #fff;
+  }
+  .slide {
+    grid-area: 1 / 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 1s ease,
+      visibility 0s linear 1s;
+  }
+  .slide[data-active] {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease;
+  }
+  .bg {
+    position: absolute;
+    inset: 0;
+  }
+  .bg :global(.cover) {
+    transform: scale(1.08);
+    transition: transform 9s ease-out;
+  }
+  .slide[data-active] .bg :global(.cover) {
+    transform: scale(1);
+  }
+  /* Darken the image for legible white text */
+  .bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right, rgb(12 24 34 / 0.78), rgb(12 24 34 / 0.35) 60%, rgb(12 24 34 / 0.2)),
+      linear-gradient(to top, rgb(12 24 34 / 0.5), transparent 40%);
+  }
+  :root[dir='rtl'] .bg::after {
+    background:
+      linear-gradient(to left, rgb(12 24 34 / 0.78), rgb(12 24 34 / 0.35) 60%, rgb(12 24 34 / 0.2)),
+      linear-gradient(to top, rgb(12 24 34 / 0.5), transparent 40%);
+  }
+  .content {
+    position: relative;
+    padding-block-start: var(--header-h);
+  }
+  .content > * {
+    max-width: 560px;
+  }
+  .kicker {
+    display: inline-block;
+    margin-block-end: 14px;
+    padding-block-end: 6px;
+    border-block-end: 2px solid var(--gold);
+    font: 700 0.75rem var(--sans);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  :root[lang='ar'] .kicker {
+    letter-spacing: 0;
+    font-size: 0.9rem;
+  }
+  h2 {
+    color: #fff;
+    font-size: clamp(2rem, 5vw, 3.3rem);
+    line-height: 1.25;
+  }
+  h2:lang(ar) {
+    font-family: var(--arabic);
+    line-height: 1.6;
+  }
+  p {
+    margin-block: 18px 30px;
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: rgb(255 255 255 / 0.88);
+    text-align: justify;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .dots {
+    position: absolute;
+    inset-inline-end: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .dots button {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: 0;
+    background: rgb(255 255 255 / 0.55);
+    cursor: pointer;
+    transition:
+      background 0.2s,
+      transform 0.2s;
+  }
+  .dots button[aria-selected='true'] {
+    background: #fff;
+    transform: rotate(45deg) scale(1.2);
+  }
+
+  /* Scroll hint */
+  .mouse {
+    position: absolute;
+    inset-block-end: 28px;
+    left: 50%;
+    width: 26px;
+    height: 42px;
+    margin-left: -13px;
+    border: 2px solid rgb(255 255 255 / 0.7);
+    border-radius: 14px;
+  }
+  .mouse span {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 3px;
+    height: 8px;
+    margin-left: -1.5px;
+    border-radius: 2px;
+    background: #fff;
+    animation: wheel 1.8s infinite;
+  }
+  @keyframes wheel {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    30% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+  }
+  @media (max-width: 700px) {
+    .dots {
+      inset-inline-end: 14px;
+    }
+    .content > * {
+      max-width: calc(100% - 28px);
+    }
+    .mouse {
+      display: none;
+    }
+    p {
+      text-align: start;
+    }
+  }
+</style>
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>('[data-hero]')) {
+    const slides = [...root.querySelectorAll<HTMLElement>('.slide')];
+    const dots = [...root.querySelectorAll<HTMLButtonElement>('[data-go]')];
+    const interval = Number(root.dataset.interval) || 7000;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const rtl = document.documentElement.dir === 'rtl';
+    let current = 0;
+    let timer: number | undefined;
+
+    const show = (i: number) => {
+      current = (i + slides.length) % slides.length;
+      slides.forEach((s, n) => {
+        const on = n === current;
+        s.toggleAttribute('data-active', on);
+        on ? s.removeAttribute('aria-hidden') : s.setAttribute('aria-hidden', 'true');
+        s.querySelectorAll('a').forEach((a) => (on ? a.removeAttribute('tabindex') : a.setAttribute('tabindex', '-1')));
+      });
+      dots.forEach((d, n) => d.setAttribute('aria-selected', String(n === current)));
+    };
+    const stop = () => window.clearInterval(timer);
+    const start = () => {
+      stop();
+      if (!reduced && slides.length > 1) timer = window.setInterval(() => show(current + 1), interval);
+    };
+
+    dots.forEach((d) =>
+      d.addEventListener('click', () => {
+        show(Number(d.dataset.go));
+        start();
+      }),
+    );
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+    root.addEventListener('focusin', stop);
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+
+    let x0 = 0;
+    root.addEventListener('pointerdown', (e) => (x0 = e.clientX));
+    root.addEventListener('pointerup', (e) => {
+      const dx = e.clientX - x0;
+      if (Math.abs(dx) < 50) return;
+      show(current + ((rtl ? dx > 0 : dx < 0) ? 1 : -1));
+      start();
+    });
+
+    start();
+  }
+</script>

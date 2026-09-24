@@ -1,0 +1,8 @@
+---
+import Placeholder from '../../../components/Placeholder.astro';
+import { langPaths, type Lang } from '../../../i18n/ui';
+
+export const getStaticPaths = langPaths;
+---
+
+<Placeholder lang={Astro.params.lang as Lang} title="nav.search" lead="search.lead" />

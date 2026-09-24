@@ -1,0 +1,36 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { LOCALES, useT } from '../i18n/ui';
+import { href } from '../lib/url';
+
+const t = useT('tr');
+---
+
+<Base lang="tr" title={t('notFound.title')}>
+  <div class="wrap">
+    <PageHead kicker="404" title={t('notFound.title')} lead={t('notFound.text')}>
+      <p class="links">
+        {
+          LOCALES.map((l) => (
+            <a href={href(l)} lang={l}>
+              {useT(l)('home')} →
+            </a>
+          ))
+        }
+      </p>
+    </PageHead>
+  </div>
+</Base>
+
+<style>
+  .links {
+    display: flex;
+    gap: 24px;
+    margin-block-start: 24px;
+  }
+  .links a {
+    color: var(--rubric);
+    font-weight: 500;
+  }
+</style>

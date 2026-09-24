@@ -1,0 +1,604 @@
+{
+ "medine": {
+  "uri": "MADINA_396E244N_S",
+  "lat": 24.47782,
+  "lng": 39.60908,
+  "name": "al-Madīnaŧ",
+  "dist_km": 1
+ },
+ "mekke": {
+  "uri": "MAKKA_398E213N_S",
+  "lat": 21.39132,
+  "lng": 39.83612,
+  "name": "Makkaŧ",
+  "dist_km": 4
+ },
+ "taif": {
+  "uri": "TAIF_404E212N_S",
+  "lat": 21.21629,
+  "lng": 40.40566,
+  "name": "al-Ṭāʾif",
+  "dist_km": 6
+ },
+ "kufe": {
+  "uri": "KUFA_443E320N_S",
+  "lat": 32.03808,
+  "lng": 44.39355,
+  "name": "al-Kūfaŧ",
+  "dist_km": 1
+ },
+ "basra": {
+  "uri": "BASRA_477E304N_S",
+  "lat": 30.40147,
+  "lng": 47.71735,
+  "name": "al-Baṣraŧ",
+  "dist_km": 13
+ },
+ "bagdat": {
+  "uri": "BAGHDAD_443E333N_S",
+  "lat": 33.35932,
+  "lng": 44.35693,
+  "name": "Baġdād",
+  "dist_km": 5
+ },
+ "vasit": {
+  "uri": "WASIT_463E321N_S",
+  "lat": 32.19497,
+  "lng": 46.32308,
+  "name": "Wāsiṭ",
+  "dist_km": 2
+ },
+ "medain": {
+  "uri": "MADAIN_445E330N_S",
+  "lat": 33.09075,
+  "lng": 44.59672,
+  "name": "al-Madāʾīn",
+  "dist_km": 2
+ },
+ "dimask": {
+  "uri": "DIMASHQ_363E335N_S",
+  "lat": 33.51843,
+  "lng": 36.30199,
+  "name": "Dimašq",
+  "dist_km": 1
+ },
+ "halep": {
+  "uri": "HALAB_371E361N_S",
+  "lat": 36.19828,
+  "lng": 37.17518,
+  "name": "Ḥalab",
+  "dist_km": 2
+ },
+ "baalbek": {
+  "uri": "BALABAKK_361E340N_S",
+  "lat": 34.01251,
+  "lng": 36.19213,
+  "name": "Baʿlabakk",
+  "dist_km": 1
+ },
+ "kudus": {
+  "uri": "BAYTMAQDIS_352E317N_S",
+  "lat": 31.77768,
+  "lng": 35.20345,
+  "name": "Bayt al-Maqdis",
+  "dist_km": 3
+ },
+ "remle": {
+  "uri": "RAMLA_348E319N_S",
+  "lat": 31.92484,
+  "lng": 34.86436,
+  "name": "al-Ramlaŧ",
+  "dist_km": 1
+ },
+ "gazze": {
+  "uri": "GHAZZA_344E314N_S",
+  "lat": 31.49664,
+  "lng": 34.45664,
+  "name": "Ġazzaŧ",
+  "dist_km": 1
+ },
+ "tarsus": {
+  "uri": "TARSUS_349E369N_S",
+  "lat": 36.90807,
+  "lng": 34.95529,
+  "name": "Ṭarsūs",
+  "dist_km": 6
+ },
+ "mardin": {
+  "uri": "MARDIN_407E373N_S",
+  "lat": 37.30186,
+  "lng": 40.71117,
+  "name": "Mārdīn",
+  "dist_km": 2
+ },
+ "musul": {
+  "uri": "MAWSIL_431E363N_S",
+  "lat": 36.32809,
+  "lng": 43.127,
+  "name": "al-Mawṣil",
+  "dist_km": 1
+ },
+ "rakka": {
+  "uri": "RAQQA_390E359N_S",
+  "lat": 35.9493,
+  "lng": 39.05128,
+  "name": "al-Raqqaŧ",
+  "dist_km": 4
+ },
+ "suruc": {
+  "uri": "SARUJ_384E369N_S",
+  "lat": 36.9791,
+  "lng": 38.43806,
+  "name": "Sarūǧ",
+  "dist_km": 1
+ },
+ "fustat": {
+  "uri": "FUSTAT_312E300N_S",
+  "lat": 30.04325,
+  "lng": 31.24964,
+  "name": "Fusṭāṭ",
+  "dist_km": 4
+ },
+ "kahire": {
+  "uri": "QAHIRA_312E300N_S",
+  "lat": 30.05778,
+  "lng": 31.24168,
+  "name": "al-Qāhiraŧ",
+  "dist_km": 2
+ },
+ "iskenderiye": {
+  "uri": "ISKANDARIYYA_299E311N_S",
+  "lat": 31.1949,
+  "lng": 29.90981,
+  "name": "al-Iskandariyyaŧ",
+  "dist_km": 1
+ },
+ "taha": {
+  "uri": "TAHA_306E282N_S",
+  "lat": 28.27313,
+  "lng": 30.69125,
+  "name": "Ṭaḥā",
+  "dist_km": 21
+ },
+ "kayrevan": {
+  "uri": "QAYRAWAN_101E357N_S",
+  "lat": 35.70049,
+  "lng": 10.14137,
+  "name": "al-Qayrawān",
+  "dist_km": 5
+ },
+ "kurtuba": {
+  "uri": "QURTUBA_047W379N_S",
+  "lat": 37.91898,
+  "lng": -4.78135,
+  "name": "Qurṭubaŧ",
+  "dist_km": 3
+ },
+ "malatya": {
+  "uri": "MALATIN_383E383N_S",
+  "lat": 38.35806,
+  "lng": 38.35767,
+  "name": "Malaṭīn",
+  "dist_km": 4
+ },
+ "berdaa": {
+  "uri": "BARDHAA_472E404N_S",
+  "lat": 40.45334,
+  "lng": 47.23624,
+  "name": "Barḏaʿaŧ",
+  "dist_km": 13
+ },
+ "tebriz": {
+  "uri": "TABRIZ_463E380N_S",
+  "lat": 38.06387,
+  "lng": 46.33121,
+  "name": "Tabrīz",
+  "dist_km": 4
+ },
+ "meraga": {
+  "uri": "MARAGHA_462E373N_S",
+  "lat": 37.34276,
+  "lng": 46.24758,
+  "name": "Marāġaŧ",
+  "dist_km": 5
+ },
+ "rey": {
+  "uri": "RAYY_515E356N_S",
+  "lat": 35.62754,
+  "lng": 51.50831,
+  "name": "al-Rayy",
+  "dist_km": 8
+ },
+ "isfahan": {
+  "uri": "ISBAHAN_516E326N_S",
+  "lat": 32.66855,
+  "lng": 51.65,
+  "name": "Iṣbahān",
+  "dist_km": 2
+ },
+ "ramhurmuz": {
+  "uri": "RAMHURMUZ_496E312N_S",
+  "lat": 31.28576,
+  "lng": 49.60131,
+  "name": "Rām Hurmuz",
+  "dist_km": 1
+ },
+ "siraz": {
+  "uri": "SHIRAZ_525E296N_S",
+  "lat": 29.61884,
+  "lng": 52.52867,
+  "name": "Šīrāz",
+  "dist_km": 6
+ },
+ "kirman": {
+  "uri": "BARDASIR_571E303N_S",
+  "lat": 30.30962,
+  "lng": 57.10475,
+  "name": "Bardasīr",
+  "dist_km": 4
+ },
+ "yezd": {
+  "uri": "YAZD_543E319N_S",
+  "lat": 31.90975,
+  "lng": 54.34286,
+  "name": "Yazd",
+  "dist_km": 2
+ },
+ "taberistan": {
+  "uri": "AMUL_524E364N_S",
+  "lat": 36.42256,
+  "lng": 52.40859,
+  "name": "Āmul",
+  "dist_km": 7
+ },
+ "curcan": {
+  "uri": "JURJAN_549E373N_R",
+  "lat": 37.33269,
+  "lng": 54.99028,
+  "name": "Ǧurǧān",
+  "dist_km": 18
+ },
+ "esterabad": {
+  "uri": "ASTARABADH_544E367N_S",
+  "lat": 36.7886,
+  "lng": 54.47005,
+  "name": "Astārabāḏ",
+  "dist_km": 7
+ },
+ "nisabur": {
+  "uri": "NAYSABUR_587E361N_S",
+  "lat": 36.12138,
+  "lng": 58.79841,
+  "name": "Naysābūr",
+  "dist_km": 10
+ },
+ "merv": {
+  "uri": "MARW_621E376N_S",
+  "lat": 37.67193,
+  "lng": 62.10386,
+  "name": "Marw",
+  "dist_km": 8
+ },
+ "belh": {
+  "uri": "BALKH_668E367N_S",
+  "lat": 36.78497,
+  "lng": 66.88305,
+  "name": "Balḫ",
+  "dist_km": 3
+ },
+ "herat": {
+  "uri": "HARA_621E343N_S",
+  "lat": 34.33419,
+  "lng": 62.15235,
+  "name": "Harāŧ",
+  "dist_km": 5
+ },
+ "serahs": {
+  "uri": "SARAKHS_611E365N_S",
+  "lat": 36.51694,
+  "lng": 61.18671,
+  "name": "Saraḫs",
+  "dist_km": 4
+ },
+ "beyhak": {
+  "uri": "BAYHAQ_576E360N_R",
+  "lat": 36.08485,
+  "lng": 57.6484,
+  "name": "Bayhaq",
+  "dist_km": 15
+ },
+ "cam": {
+  "uri": "BUZJAN_606E351N_S",
+  "lat": 35.17917,
+  "lng": 60.61524,
+  "name": "al-Būzǧān",
+  "dist_km": 7
+ },
+ "cuzcan": {
+  "uri": "JUZJAN_651E357N_R",
+  "lat": 35.7211,
+  "lng": 65.10068,
+  "name": "Ǧūzǧān",
+  "dist_km": 120
+ },
+ "velvalic": {
+  "uri": "WARWALIJ_688E367N_S",
+  "lat": 36.78174,
+  "lng": 68.89729,
+  "name": "Warwālīǧ",
+  "dist_km": 7
+ },
+ "bistam": {
+  "uri": "BISTAM_550E364N_S",
+  "lat": 36.45952,
+  "lng": 55.07205,
+  "name": "Bisṭām",
+  "dist_km": 7
+ },
+ "damgan": {
+  "uri": "DAMGHAN_543E361N_S",
+  "lat": 36.13093,
+  "lng": 54.37503,
+  "name": "al-Damġān",
+  "dist_km": 5
+ },
+ "kumis": {
+  "uri": "SIMNAN_534E354N_S",
+  "lat": 35.49513,
+  "lng": 53.40856,
+  "name": "Simnān",
+  "dist_km": 10
+ },
+ "gazne": {
+  "uri": "GHAZNA_684E335N_S",
+  "lat": 33.56409,
+  "lng": 68.40733,
+  "name": "Ġaznaŧ",
+  "dist_km": 2
+ },
+ "sistan": {
+  "uri": "ZARANJ_616E307N_S",
+  "lat": 30.7594,
+  "lng": 61.61613,
+  "name": "Zaranǧ",
+  "dist_km": 32
+ },
+ "harezm": {
+  "uri": "JURJANIYYA_592E424N_S",
+  "lat": 42.45632,
+  "lng": 59.21993,
+  "name": "al-Ǧurǧāniyyaŧ",
+  "dist_km": 15
+ },
+ "buhara": {
+  "uri": "BUKHARA_644E398N_S",
+  "lat": 39.85224,
+  "lng": 64.46489,
+  "name": "Buḫāraŧ",
+  "dist_km": 9
+ },
+ "semerkant": {
+  "uri": "SAMARQAND_670E396N_S",
+  "lat": 39.67905,
+  "lng": 67.03225,
+  "name": "Samarqand",
+  "dist_km": 6
+ },
+ "nesef": {
+  "uri": "NASAF_658E388N_S",
+  "lat": 38.86245,
+  "lng": 65.8104,
+  "name": "Nasaf",
+  "dist_km": 2
+ },
+ "kes": {
+  "uri": "KISHSH_668E390N_S",
+  "lat": 39.03102,
+  "lng": 66.84071,
+  "name": "Kišš",
+  "dist_km": 3
+ },
+ "kermine": {
+  "uri": "KARMIINIYYA_654E401N_S",
+  "lat": 40.14581,
+  "lng": 65.40937,
+  "name": "Karmiīniyyaŧ",
+  "dist_km": 4
+ },
+ "tirmiz": {
+  "uri": "TIRMIDH_673E372N_S",
+  "lat": 37.27697,
+  "lng": 67.32394,
+  "name": "al-Tirmīḏ",
+  "dist_km": 7
+ },
+ "sas": {
+  "uri": "BINKATH_694E412N_S",
+  "lat": 41.22621,
+  "lng": 69.41991,
+  "name": "Binkaṯ",
+  "dist_km": 17
+ },
+ "usrusene": {
+  "uri": "BUNJIKATH_676E394N_S",
+  "lat": 39.46899,
+  "lng": 67.65863,
+  "name": "Būnǧikaṯ",
+  "dist_km": 105
+ },
+ "fergana": {
+  "uri": "FARGHANA_720E403N_R",
+  "lat": 40.33989,
+  "lng": 72.02839,
+  "name": "Farġānaŧ",
+  "dist_km": 84
+ },
+ "mergilan": {
+  "uri": "MARGHINAN_717E405N_S",
+  "lat": 40.50359,
+  "lng": 71.76105,
+  "name": "Marġīnan",
+  "dist_km": 5
+ },
+ "ozcend": {
+  "uri": "UZJAND_733E408N_S",
+  "lat": 40.81074,
+  "lng": 73.39026,
+  "name": "Ūzǧand",
+  "dist_km": 9
+ },
+ "kasan": {
+  "uri": "KASAN_716E412N_S",
+  "lat": 41.24406,
+  "lng": 71.64288,
+  "name": "Kāsān",
+  "dist_km": 8
+ },
+ "farab": {
+  "uri": "FARAB_682E427N_R",
+  "lat": 42.7449,
+  "lng": 68.29439,
+  "name": "Fārāb",
+  "dist_km": 12
+ },
+ "isficab": {
+  "uri": "ISBIJAB_697E422N_S",
+  "lat": 42.23062,
+  "lng": 69.75409,
+  "name": "Isbīǧāb",
+  "dist_km": 8
+ },
+ "hit": {
+  "uri": "HIT_428E336N_S",
+  "lat": 33.6437,
+  "lng": 42.80628,
+  "name": "Hīt",
+  "dist_km": 2
+ },
+ "ukbera": {
+  "uri": "UKBARA_442E338N_S",
+  "lat": 33.85526,
+  "lng": 44.22504,
+  "name": "ʿUkbarā",
+  "dist_km": 10
+ },
+ "ahvaz": {
+  "uri": "AHWAZ_486E313N_S",
+  "lat": 31.32986,
+  "lng": 48.69059,
+  "name": "al-Ahwāz",
+  "dist_km": 2
+ },
+ "ezriat": {
+  "uri": "ADHRIAT_360E326N_S",
+  "lat": 32.61046,
+  "lng": 36.09087,
+  "name": "Aḏriʿāt",
+  "dist_km": 2
+ },
+ "hama": {
+  "uri": "HAMA_367E351N_S",
+  "lat": 35.12587,
+  "lng": 36.76872,
+  "name": "Ḥamāŧ",
+  "dist_km": 1
+ },
+ "hims": {
+  "uri": "HIMS_367E347N_S",
+  "lat": 34.73793,
+  "lng": 36.72425,
+  "name": "Ḥimṣ",
+  "dist_km": 2
+ },
+ "sencar": {
+  "uri": "SINJAR_418E363N_S",
+  "lat": 36.32446,
+  "lng": 41.89101,
+  "name": "Sinǧār",
+  "dist_km": 1
+ },
+ "cuhfe": {
+  "uri": "JUHFA_391E226N_S",
+  "lat": 22.60833,
+  "lng": 39.12422,
+  "name": "al-Ǧuḥfaŧ",
+  "dist_km": 10
+ },
+ "ahlat": {
+  "uri": "AKHLAT_425E387N_S",
+  "lat": 38.76551,
+  "lng": 42.51044,
+  "name": "Aḫlāṭ",
+  "dist_km": 2
+ },
+ "hemedan": {
+  "uri": "HAMADHAN_485E347N_S",
+  "lat": 34.77554,
+  "lng": 48.57908,
+  "name": "Hamaḏān",
+  "dist_km": 6
+ },
+ "siraf": {
+  "uri": "SIRAF_523E276N_S",
+  "lat": 27.69666,
+  "lng": 52.34306,
+  "name": "Sīrāf",
+  "dist_km": 4
+ },
+ "tus": {
+  "uri": "TUS_594E364N_S",
+  "lat": 36.42208,
+  "lng": 59.49915,
+  "name": "Ṭūs",
+  "dist_km": 7
+ },
+ "debusiye": {
+  "uri": "DABUSIYA_660E399N_S",
+  "lat": 39.93282,
+  "lng": 66.0174,
+  "name": "Dabūsiyaŧ",
+  "dist_km": 28
+ },
+ "beykend": {
+  "uri": "BAYKAND_640E395N_S",
+  "lat": 39.55752,
+  "lng": 64.07172,
+  "name": "Baykand",
+  "dist_km": 25
+ },
+ "kesaniye": {
+  "uri": "KUSHANI_664E400N_S",
+  "lat": 40.00888,
+  "lng": 66.49906,
+  "name": "Kušānī",
+  "dist_km": 14
+ },
+ "sugd": {
+  "uri": "SUGHD_659E394N_R",
+  "lat": 39.41449,
+  "lng": 65.93205,
+  "name": "al-Ṣuġd",
+  "dist_km": 128
+ },
+ "kus": {
+  "uri": "QUS_327E259N_S",
+  "lat": 25.91848,
+  "lng": 32.74342,
+  "name": "Qūṣ",
+  "dist_km": 2
+ },
+ "taraz": {
+  "uri": "TARAZ_714E428N_S",
+  "lat": 42.83695,
+  "lng": 71.44044,
+  "name": "Ṭarāz",
+  "dist_km": 9
+ },
+ "hucend": {
+  "uri": "KHUJANDA_696E402N_S",
+  "lat": 40.24606,
+  "lng": 69.63107,
+  "name": "Ḫuǧandaŧ",
+  "dist_km": 4
+ }
+}

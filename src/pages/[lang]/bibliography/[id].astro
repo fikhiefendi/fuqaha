@@ -1,0 +1,232 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import { bibtex, displayName, getWorks, isnad, languageName, typeLabel } from '../../../lib/works';
+import { LOCALES, useT, type Lang } from '../../../i18n/ui';
+import { href } from '../../../lib/url';
+
+export async function getStaticPaths() {
+  const works = await getWorks();
+  return LOCALES.flatMap((lang) =>
+    works.map((w) => ({
+      params: { lang, id: w.id },
+      props: {
+        w,
+        related: works.filter((o) => o.id !== w.id && o.data.university && o.data.university === w.data.university).slice(0, 6),
+      },
+    })),
+  );
+}
+
+const lang = Astro.params.lang as Lang;
+const { w, related } = Astro.props;
+const t = useT(lang);
+const d = w.data;
+const rows: [string, string][] = [
+  [t('bib.type'), typeLabel(w, lang)],
+  [t('bib.author'), d.authors.map(displayName).join(', ')],
+  [t('bib.university'), d.university ?? ''],
+  [t('bib.city'), d.city ?? ''],
+  [t('bib.year'), d.year ? String(d.year) : t('bib.noYear')],
+  [t('bib.language'), languageName(d.language, lang)],
+  [t('bib.topic'), d.topics.join(', ')],
+].filter(([, v]) => v) as [string, string][];
+---
+
+<Base lang={lang} title={d.title} description={`${d.authors.map(displayName).join(', ')} — ${d.university ?? ''}`}>
+  <PageHead kicker={typeLabel(w, lang)} title={d.title} back={{ href: href(lang, 'bibliography/'), label: t('bib.back') }}>
+    <p class="by">{d.authors.map(displayName).join(', ')}</p>
+  </PageHead>
+
+  <div class="wrap layout">
+    <div>
+      <dl class="table">
+        {
+          rows.map(([k, v]) => (
+            <div>
+              <dt>{k}</dt>
+              <dd>{v}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      {
+        d.url && (
+          <p class="link">
+            <a href={d.url} rel="noopener" target="_blank">
+              {d.url}
+            </a>
+          </p>
+        )
+      }
+    </div>
+
+    <aside class="cite">
+      <h2>{t('bib.cite')}</h2>
+      <div class="cite-box">
+        <p class="label">ISNAD</p>
+        <p class="ref" data-copy-src>{isnad(w, lang)}</p>
+        <button type="button" class="btn small" data-copy data-done={t('bib.copied')}>{t('bib.copy')}</button>
+      </div>
+      <div class="cite-box">
+        <p class="label">BibTeX</p>
+        <pre data-copy-src>{bibtex(w)}</pre>
+        <button type="button" class="btn small" data-copy data-done={t('bib.copied')}>{t('bib.copy')}</button>
+      </div>
+    </aside>
+  </div>
+
+  {
+    related.length > 0 && (
+      <section class="wrap related">
+        <h2>{t('bib.sameUniversity')}</h2>
+        <ul>
+          {related.map((r) => (
+            <li>
+              <a href={href(lang, `bibliography/${r.id}/`)}>
+                <span class="r-title">{r.data.title}</span>
+                <span class="meta">
+                  {[r.data.authors.map(displayName).join(', '), r.data.year].filter(Boolean).join(' · ')}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+</Base>
+
+<style>
+  .by {
+    margin-block-start: 12px;
+    font: 700 1rem var(--sans);
+    color: var(--navy);
+  }
+  .layout {
+    display: grid;
+    gap: 40px;
+    padding-block-end: 48px;
+  }
+  @media (min-width: 960px) {
+    .layout {
+      grid-template-columns: 1fr 400px;
+      gap: 56px;
+    }
+  }
+  .table {
+    margin: 0;
+  }
+  .table div {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 16px;
+    padding-block: 14px;
+    border-block-end: 1px solid var(--rule);
+  }
+  dt {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--muted);
+  }
+  dd {
+    margin: 0;
+    color: var(--ink);
+  }
+  .link {
+    margin-block-start: 18px;
+    word-break: break-all;
+  }
+  .link a {
+    color: var(--navy);
+    text-decoration: underline;
+  }
+  .cite h2 {
+    font-size: 1.1rem;
+    margin-block-end: 14px;
+  }
+  .cite-box {
+    display: grid;
+    gap: 10px;
+    justify-items: start;
+    padding: 18px;
+    background: var(--soft);
+  }
+  .cite-box + .cite-box {
+    margin-block-start: 14px;
+  }
+  .label {
+    font: 700 0.7rem var(--sans);
+    letter-spacing: 0.1em;
+    color: var(--gold);
+  }
+  .ref {
+    font-size: 0.9rem;
+    color: var(--ink);
+    direction: ltr;
+    text-align: left;
+  }
+  pre {
+    margin: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    font: 0.78rem/1.5 ui-monospace, Menlo, monospace;
+    color: var(--ink);
+    direction: ltr;
+    text-align: left;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .related {
+    padding-block: 32px 72px;
+    border-block-start: 1px solid var(--rule);
+  }
+  .related h2 {
+    font-size: 1.2rem;
+    margin-block-end: 12px;
+  }
+  .related ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0 28px;
+  }
+  @media (min-width: 860px) {
+    .related ul {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .related li {
+    border-block-end: 1px solid var(--rule);
+  }
+  .related a {
+    display: grid;
+    gap: 2px;
+    padding-block: 12px;
+  }
+  .r-title {
+    font: 700 0.95rem/1.45 'Merriweather', serif;
+    color: var(--ink);
+  }
+  .related a:hover .r-title {
+    color: var(--navy);
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const src = btn.parentElement?.querySelector('[data-copy-src]');
+      if (!src) return;
+      try {
+        await navigator.clipboard.writeText(src.textContent ?? '');
+        const label = btn.textContent;
+        btn.textContent = btn.dataset.done ?? '✓';
+        setTimeout(() => (btn.textContent = label), 1500);
+      } catch {
+        /* clipboard unavailable: text stays selectable */
+      }
+    });
+  });
+</script>

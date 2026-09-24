@@ -1,0 +1,176 @@
+---
+// Section with a large diamond-shaped image beside a title and a horizontal
+// row of white cards that slides over the image.
+import Cover from './Cover.astro';
+
+interface Props {
+  title: string;
+  lead: string;
+  seed: string;
+  button: { href: string; label: string };
+  /** Put the diamond on the other side. */
+  flip?: boolean;
+  soft?: boolean;
+}
+const { title, lead, seed, button, flip = false, soft = false } = Astro.props;
+---
+
+<section class="diamond-section" class:list={{ flip, soft }}>
+  <div class="diamond" aria-hidden="true">
+    <div class="diamond-inner">
+      <Cover seed={seed} />
+    </div>
+  </div>
+  <div class="wrap layout">
+    <div class="body">
+      <header>
+        <h2>{title}</h2>
+        <p>{lead}</p>
+      </header>
+      <div class="track" data-track>
+        <slot />
+      </div>
+      <div class="foot">
+        <div class="arrows">
+          <button type="button" class="arrow ghost" data-scroll="-1" aria-label="←">
+            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10H4m5-5-5 5 5 5" fill="none" stroke="currentColor" stroke-width="1.5"></path></svg>
+          </button>
+          <button type="button" class="arrow ghost" data-scroll="1" aria-label="→">
+            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"></path></svg>
+          </button>
+        </div>
+        <a href={button.href} class="btn">{button.label}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .diamond-section {
+    position: relative;
+    overflow: hidden;
+    padding-block: 110px;
+  }
+  .diamond-section.soft {
+    background: var(--soft);
+  }
+  .diamond {
+    position: absolute;
+    top: 50%;
+    inset-inline-start: 6%;
+    width: 440px;
+    height: 440px;
+    transform: translateY(-50%) rotate(45deg);
+    overflow: hidden;
+    box-shadow: 0 30px 60px -30px rgb(21 53 79 / 0.6);
+  }
+  .flip .diamond {
+    inset-inline-start: auto;
+    inset-inline-end: 6%;
+  }
+  .diamond-inner {
+    position: absolute;
+    inset: -30%;
+    transform: rotate(-45deg);
+  }
+  .diamond-inner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgb(31 74 110 / 0.55), rgb(21 53 79 / 0.8));
+  }
+
+  .layout {
+    position: relative;
+    z-index: 1;
+  }
+  .body {
+    margin-inline-start: 38%;
+  }
+  .flip .body {
+    margin-inline-start: 0;
+    margin-inline-end: 38%;
+  }
+  header h2 {
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+  }
+  header p {
+    margin-block-start: 6px;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .track {
+    display: flex;
+    gap: 18px;
+    margin-block: 34px 26px;
+    margin-inline-start: -140px;
+    padding: 6px 4px 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .flip .track {
+    margin-inline-start: 0;
+    margin-inline-end: -140px;
+  }
+  .track::-webkit-scrollbar {
+    display: none;
+  }
+  .track > :global(*) {
+    flex: 0 0 230px;
+    scroll-snap-align: start;
+  }
+
+  .foot {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .arrows {
+    display: flex;
+    gap: 4px;
+  }
+
+  @media (max-width: 900px) {
+    .diamond-section {
+      padding-block: 64px;
+    }
+    .diamond {
+      width: 240px;
+      height: 240px;
+      top: 90px;
+      inset-inline-start: auto;
+      inset-inline-end: -60px;
+      opacity: 0.35;
+    }
+    .flip .diamond {
+      inset-inline-end: -60px;
+    }
+    .body,
+    .flip .body {
+      margin: 0;
+    }
+    .track,
+    .flip .track {
+      margin-inline: 0;
+    }
+  }
+</style>
+
+<script>
+  for (const section of document.querySelectorAll<HTMLElement>('.diamond-section')) {
+    const track = section.querySelector<HTMLElement>('[data-track]');
+    const rtl = document.documentElement.dir === 'rtl';
+    section.querySelectorAll<HTMLButtonElement>('[data-scroll]').forEach((b) =>
+      b.addEventListener('click', () => {
+        if (!track) return;
+        const card = track.firstElementChild as HTMLElement | null;
+        const step = (card?.offsetWidth ?? 240) + 18;
+        const dir = Number(b.dataset.scroll) * (rtl ? -1 : 1);
+        track.scrollBy({ left: dir * step, behavior: 'smooth' });
+      }),
+    );
+  }
+</script>

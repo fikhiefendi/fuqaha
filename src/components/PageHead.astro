@@ -1,0 +1,54 @@
+---
+// Title band at the top of inner pages, with an optional breadcrumb link.
+interface Props {
+  kicker?: string;
+  title: string;
+  lead?: string;
+  back?: { href: string; label: string };
+}
+const { kicker, title, lead, back } = Astro.props;
+---
+
+<header class="page-head">
+  <div class="wrap">
+    {back && <a href={back.href} class="back">← {back.label}</a>}
+    {kicker && <span class="kicker">{kicker}</span>}
+    <h1>{title}</h1>
+    {lead && <p class="lead">{lead}</p>}
+    <slot />
+  </div>
+</header>
+
+<style>
+  .page-head {
+    padding-block: 56px 40px;
+    background: var(--soft);
+    border-block-end: 1px solid var(--rule);
+    margin-block-end: 48px;
+  }
+  .back {
+    display: inline-block;
+    margin-block-end: 14px;
+    font-size: 0.82rem;
+    color: var(--navy);
+  }
+  :root[dir='rtl'] .back {
+    unicode-bidi: plaintext;
+  }
+  .kicker {
+    display: block;
+    margin-block-end: 8px;
+    font: 700 0.72rem var(--sans);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+  }
+  .lead {
+    margin-block-start: 12px;
+    max-width: 70ch;
+    font-size: 1rem;
+  }
+</style>

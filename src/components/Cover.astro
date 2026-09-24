@@ -1,0 +1,158 @@
+---
+// Cover image for an entry. Uses the entry's own image when it has one;
+// otherwise draws a geometric khātam pattern whose colours and layout
+// are derived from `seed`, so every entry gets a stable, distinct cover.
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  seed: string;
+  image?: ImageMetadata;
+  alt?: string;
+  /** Arabic text set inside the central medallion (e.g. a jurist's name). */
+  label?: string;
+  class?: string;
+  eager?: boolean;
+}
+
+const { seed, image, alt = '', label, class: className, eager = false } = Astro.props;
+
+function hash(s: string) {
+  let h = 2166136261;
+  for (const c of s) h = Math.imul(h ^ c.codePointAt(0)!, 16777619);
+  return h >>> 0;
+}
+
+const PALETTES = [
+  { bg: '#2d5446', line: '#cdbb8d', fill: '#264739' }, // green & gold
+  { bg: '#9e2b1e', line: '#f0d6bf', fill: '#8a2418' }, // rubric red
+  { bg: '#233a5c', line: '#cdb78a', fill: '#1d3150' }, // indigo
+  { bg: '#1f1d1a', line: '#b89b64', fill: '#171613' }, // lampblack
+  { bg: '#e8e0cd', line: '#9e2b1e', fill: '#efe8d8' }, // paper & red
+  { bg: '#b0823a', line: '#fbf1dc', fill: '#a07534' }, // ochre
+];
+
+const h = hash(seed);
+const p = PALETTES[h % PALETTES.length];
+const tile = 70 + (h >> 3) % 4 * 14; // 70–112
+const angle = [0, 0, 22.5, 45][(h >> 6) % 4];
+const cx = 1600 * [0.28, 0.5, 0.72, 0.62][(h >> 9) % 4];
+const cy = 1000 * [0.5, 0.46, 0.54][(h >> 12) % 3];
+const uid = `c${h.toString(36)}${Math.random().toString(36).slice(2, 6)}`;
+
+// Eight points on a circle: two squares (0° and 45°) make the khātam.
+const star = (x: number, y: number, r: number) => {
+  const sq = (off: number) =>
+    [0, 1, 2, 3]
+      .map((i) => {
+        const a = ((off + i * 90) * Math.PI) / 180;
+        return `${(x + r * Math.cos(a)).toFixed(2)},${(y + r * Math.sin(a)).toFixed(2)}`;
+      })
+      .join(' ');
+  return [sq(0), sq(45)];
+};
+
+const T = 100;
+const R = 26;
+const d = R * Math.SQRT1_2;
+const centres: [number, number][] = [
+  [50, 50],
+  [0, 0],
+  [100, 0],
+  [0, 100],
+  [100, 100],
+];
+const links = [
+  `M${50 + R} 50H100M0 50H${50 - R}`,
+  `M50 ${50 + R}V100M50 0V${50 - R}`,
+  `M${50 + d} ${50 + d}L${100 - d} ${100 - d}M${50 - d} ${50 - d}L${d} ${d}`,
+  `M${50 + d} ${50 - d}L${100 - d} ${d}M${50 - d} ${50 + d}L${d} ${100 - d}`,
+  `M${R} 0H${T - R}M${R} 100H${T - R}M0 ${R}V${T - R}M100 ${R}V${T - R}`,
+].join('');
+
+const big = 250;
+---
+
+{
+  image ? (
+    <Image
+      src={image}
+      alt={alt}
+      class:list={['cover', className]}
+      widths={[480, 800, 1200, 1600]}
+      sizes="(min-width: 900px) 60vw, 100vw"
+      loading={eager ? 'eager' : 'lazy'}
+    />
+  ) : (
+    <svg
+      class:list={['cover', className]}
+      viewBox="0 0 1600 1000"
+      preserveAspectRatio="xMidYMid slice"
+      role={alt ? 'img' : undefined}
+      aria-label={alt || undefined}
+      aria-hidden={alt ? undefined : 'true'}
+    >
+      <defs>
+        <pattern
+          id={`${uid}-p`}
+          width={T}
+          height={T}
+          patternUnits="userSpaceOnUse"
+          patternTransform={`scale(${tile / T}) rotate(${angle})`}
+        >
+          <g fill="none" stroke={p.line} stroke-width="1.4" stroke-opacity="0.55">
+            {centres.map(([x, y]) => star(x, y, R).map((pts) => <polygon points={pts} />))}
+            <path d={links} />
+            <circle cx="50" cy="50" r="6" />
+          </g>
+        </pattern>
+        <filter id={`${uid}-g`}>
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
+          <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.09 0" />
+        </filter>
+        <radialGradient id={`${uid}-v`} cx="50%" cy="50%" r="75%">
+          <stop offset="60%" stop-color="#000" stop-opacity="0" />
+          <stop offset="100%" stop-color="#000" stop-opacity="0.22" />
+        </radialGradient>
+      </defs>
+      <rect width="1600" height="1000" fill={p.bg} />
+      <rect width="1600" height="1000" fill={`url(#${uid}-p)`} />
+      <g transform={`translate(${cx} ${cy})`}>
+        <circle r={big * 1.18} fill={p.bg} />
+        {star(0, 0, big * 1.08).map((pts) => (
+          <polygon points={pts} fill={p.fill} stroke={p.line} stroke-width="2" />
+        ))}
+        {star(0, 0, big * 0.98).map((pts) => (
+          <polygon points={pts} fill="none" stroke={p.line} stroke-width="1" stroke-opacity="0.6" />
+        ))}
+        <circle r={big * 0.62} fill={p.bg} stroke={p.line} stroke-width="2" />
+        <circle r={big * 0.57} fill="none" stroke={p.line} stroke-width="1" stroke-opacity="0.6" />
+        {label ? (
+          <text
+            text-anchor="middle"
+            dominant-baseline="central"
+            fill={p.line}
+            font-family="Amiri, serif"
+            font-weight="700"
+            font-size={label.length > 12 ? 58 : 76}
+            direction="rtl"
+          >
+            {label}
+          </text>
+        ) : (
+          star(0, 0, big * 0.34).map((pts) => <polygon points={pts} fill="none" stroke={p.line} stroke-width="2" />)
+        )}
+      </g>
+      <rect width="1600" height="1000" fill={`url(#${uid}-v)`} />
+      <rect width="1600" height="1000" filter={`url(#${uid}-g)`} />
+    </svg>
+  )
+}
+
+<style>
+  .cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>

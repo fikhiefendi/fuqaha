@@ -1,0 +1,160 @@
+---
+import { SITE } from '../site.config';
+import { LANG_META, LOCALES, NAV, useT, type Lang } from '../i18n/ui';
+import { href } from '../lib/url';
+import Mark from './Mark.astro';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useT(lang);
+const year = new Date().getFullYear();
+const heads = {
+  tr: ['Bölümler', 'Site', 'Diller'],
+  en: ['Sections', 'Site', 'Languages'],
+  ar: ['الأقسام', 'الموقع', 'اللغات'],
+}[lang];
+---
+
+<footer>
+  <div class="wrap cols">
+    <div class="about">
+      <a href={href(lang)} class="brand">
+        <span class="mark"><Mark size={24} /></span>
+        <span>{SITE.name.toUpperCase()}</span>
+      </a>
+      <p>{t('tagline')}</p>
+    </div>
+    <div>
+      <h3>{heads[0]}</h3>
+      <ul>{NAV.slice(0, 4).map((item) => <li><a href={href(lang, item.path)}>{t(item.key)}</a></li>)}</ul>
+    </div>
+    <div>
+      <h3>{heads[1]}</h3>
+      <ul>
+        <li><a href={href(lang, 'about/')}>{t('nav.about')}</a></li>
+        <li><a href={href(lang, 'contribute/')}>{t('contribute.title')}</a></li>
+        <li><a href={href(lang, 'search/')}>{t('nav.search')}</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>{heads[2]}</h3>
+      <ul>{LOCALES.map((l) => <li><a href={href(l)} lang={l}>{LANG_META[l].name}</a></li>)}</ul>
+    </div>
+  </div>
+  <div class="wrap bottom">
+    <p>© {year} {SITE.name}</p>
+    <p class="note">{t('footer.note')}</p>
+  </div>
+</footer>
+
+<a href="#" class="to-top" aria-label="↑" data-to-top>
+  <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 10 5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.6"></path></svg>
+</a>
+
+<style>
+  footer {
+    border-block-start: 1px solid var(--rule);
+    padding-block: 56px 24px;
+    font-size: 0.85rem;
+  }
+  .cols {
+    display: grid;
+    gap: 32px;
+  }
+  @media (min-width: 820px) {
+    .cols {
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    }
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink);
+    font: 700 1.05rem 'Merriweather', serif;
+    letter-spacing: 0.1em;
+  }
+  .mark {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid var(--ink);
+  }
+  .about p {
+    margin-block-start: 14px;
+    max-width: 34ch;
+  }
+  h3 {
+    font-size: 0.95rem;
+    margin-block-end: 14px;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li + li {
+    margin-block-start: 8px;
+  }
+  li a:hover {
+    color: var(--navy);
+  }
+  .bottom {
+    display: grid;
+    gap: 8px;
+    margin-block-start: 40px;
+    padding-block-start: 20px;
+    border-block-start: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 0.78rem;
+  }
+  .note {
+    max-width: 90ch;
+  }
+
+  /* Diamond "back to top" button */
+  .to-top {
+    position: fixed;
+    inset-block-end: 22px;
+    inset-inline-end: 22px;
+    z-index: 900;
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 1.5px solid var(--navy);
+    background: #fff;
+    color: var(--navy);
+    transform: rotate(45deg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .to-top svg {
+    transform: rotate(-45deg);
+  }
+  .to-top.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .to-top:hover {
+    background: var(--navy);
+    color: #fff;
+  }
+</style>
+
+<script>
+  const btn = document.querySelector<HTMLAnchorElement>('[data-to-top]');
+  if (btn) {
+    const sync = () => btn.classList.toggle('show', window.scrollY > 600);
+    sync();
+    window.addEventListener('scroll', sync, { passive: true });
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+</script>

@@ -1,0 +1,21 @@
+---
+// Root: send visitors to their browser's language (Turkish by default).
+import { url } from '../lib/url';
+const fallback = url('tr/');
+---
+
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fuqaha</title>
+    <meta http-equiv="refresh" content={`0; url=${fallback}`} />
+    <link rel="canonical" href={fallback} />
+    <script is:inline define:vars={{ base: url('') }}>
+      const pref = (navigator.languages || [navigator.language]).map((l) => l.slice(0, 2));
+      const lang = pref.find((l) => ['tr', 'en', 'ar'].includes(l)) || 'tr';
+      location.replace(base + lang + '/');
+    </script>
+  </head>
+  <body></body>
+</html>

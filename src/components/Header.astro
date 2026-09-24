@@ -1,0 +1,294 @@
+---
+import { SITE } from '../site.config';
+import { LANG_META, LOCALES, NAV, useT, type Lang } from '../i18n/ui';
+import { href, switchLang } from '../lib/url';
+import Mark from './Mark.astro';
+
+interface Props {
+  lang: Lang;
+  /** On the home page the header sits transparently over the hero. */
+  home: boolean;
+}
+const { lang, home } = Astro.props;
+const t = useT(lang);
+const path = Astro.url.pathname;
+---
+
+<header class="site-header" class:list={{ overlay: home }} data-header>
+  <div class="wrap bar">
+    <a href={href(lang)} class="logo" aria-label={SITE.name}>
+      <span class="logo-mark"><Mark size={30} /></span>
+      <span class="logo-text">
+        <span class="logo-name">{SITE.name.toUpperCase()}</span>
+        <span class="logo-sub" lang="ar">{SITE.nameAr}</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label={t('menu')} id="site-nav">
+      {
+        NAV.map((item) => {
+          const target = href(lang, item.path);
+          return (
+            <a href={target} aria-current={path.startsWith(target) ? 'page' : undefined}>
+              {t(item.key)}
+            </a>
+          );
+        })
+      }
+    </nav>
+
+    <div class="tools">
+      <a href={href(lang, 'search/')} class="icon" aria-label={t('nav.search')}>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"
+          ><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg
+        >
+      </a>
+      <span class="slash" aria-hidden="true">/</span>
+      <details class="lang">
+        <summary aria-label="Language">
+          {LANG_META[lang].short}
+          <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="m2 3.5 3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"></path></svg>
+        </summary>
+        <div class="lang-menu">
+          {
+            LOCALES.map((l) => (
+              <a href={switchLang(path, l)} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined}>
+                {LANG_META[l].name}
+              </a>
+            ))
+          }
+        </div>
+      </details>
+      <button class="burger" type="button" aria-controls="site-nav" aria-expanded="false" aria-label={t('menu')}>
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+    box-shadow: 0 1px 0 var(--rule);
+    transition:
+      background 0.3s,
+      box-shadow 0.3s;
+  }
+  /* Transparent over the home hero until the page scrolls */
+  .site-header.overlay {
+    position: fixed;
+    inset-inline: 0;
+    background: transparent;
+    box-shadow: none;
+    color: #fff;
+  }
+  .site-header.overlay.scrolled {
+    background: #fff;
+    color: var(--ink);
+    box-shadow: 0 2px 16px rgb(0 0 0 / 0.08);
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    height: var(--header-h);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink);
+  }
+  .overlay:not(.scrolled) .logo {
+    color: #fff;
+  }
+  .logo-mark {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border: 1.5px solid currentColor;
+  }
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .logo-name {
+    font: 700 1.35rem/1 'Merriweather', serif;
+    letter-spacing: 0.12em;
+  }
+  .logo-sub {
+    margin-block-start: 6px;
+    padding: 2px 6px 4px;
+    border: 1px solid currentColor;
+    font: 700 0.85rem/1 var(--arabic);
+    text-align: center;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-inline-start: auto;
+  }
+  .nav a {
+    position: relative;
+    padding: 10px 14px;
+    font: 700 0.76rem/1 var(--sans);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: inherit;
+    opacity: 0.92;
+  }
+  :root[lang='ar'] .nav a {
+    letter-spacing: 0;
+    font-size: 0.95rem;
+  }
+  .nav a:hover,
+  .nav a[aria-current='page'] {
+    opacity: 1;
+    color: var(--navy);
+  }
+  .overlay:not(.scrolled) .nav a:hover {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+
+  .tools {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font: 700 0.8rem var(--sans);
+  }
+  .icon {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+  }
+  .slash {
+    opacity: 0.6;
+  }
+  .lang {
+    position: relative;
+  }
+  .lang summary {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    list-style: none;
+    padding: 6px 2px;
+  }
+  .lang summary::-webkit-details-marker {
+    display: none;
+  }
+  .lang-menu {
+    position: absolute;
+    inset-inline-end: 0;
+    top: calc(100% + 8px);
+    min-width: 140px;
+    padding: 6px 0;
+    background: #fff;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.15);
+    color: var(--ink);
+  }
+  .lang-menu a {
+    display: block;
+    padding: 8px 16px;
+    font: 500 0.88rem var(--sans);
+  }
+  .lang-menu a[lang='ar'] {
+    font-family: var(--arabic-ui);
+  }
+  .lang-menu a:hover,
+  .lang-menu a[aria-current] {
+    background: var(--soft);
+    color: var(--navy);
+  }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 38px;
+    height: 38px;
+    padding: 0 8px;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+  }
+  .burger span {
+    height: 2px;
+    background: currentColor;
+  }
+
+  @media (max-width: 1020px) {
+    .burger {
+      display: flex;
+    }
+    .tools {
+      margin-inline-start: auto;
+    }
+    .nav {
+      position: absolute;
+      inset-inline: 0;
+      top: var(--header-h);
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 8px 16px 16px;
+      background: #fff;
+      color: var(--ink);
+      box-shadow: 0 12px 24px rgb(0 0 0 / 0.1);
+      display: none;
+    }
+    .nav.open {
+      display: flex;
+    }
+    .nav a {
+      padding: 14px 4px;
+      border-block-end: 1px solid var(--rule);
+      font-size: 0.85rem;
+    }
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+    }
+    .logo-name {
+      font-size: 1.15rem;
+    }
+  }
+</style>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-header]');
+  if (header?.classList.contains('overlay')) {
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  const burger = document.querySelector<HTMLButtonElement>('.burger');
+  const nav = document.getElementById('site-nav');
+  burger?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('open') ?? false;
+    burger.setAttribute('aria-expanded', String(open));
+    header?.classList.toggle('scrolled', open || window.scrollY > 40);
+  });
+
+  // Close the language menu when clicking elsewhere.
+  document.addEventListener('click', (e) => {
+    const lang = document.querySelector<HTMLDetailsElement>('.lang');
+    if (lang?.open && !lang.contains(e.target as Node)) lang.open = false;
+  });
+</script>

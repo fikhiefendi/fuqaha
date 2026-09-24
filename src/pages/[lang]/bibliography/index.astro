@@ -1,0 +1,285 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import { getWorks, displayName, typeLabel, languageName } from '../../../lib/works';
+import { langPaths, pick, useT, type Lang } from '../../../i18n/ui';
+import { href } from '../../../lib/url';
+import { WORK_TYPES } from '../../../site.config';
+
+export const getStaticPaths = langPaths;
+
+const lang = Astro.params.lang as Lang;
+const t = useT(lang);
+const works = await getWorks();
+const collator = new Intl.Collator('tr');
+const uniq = (xs: (string | undefined)[]) => [...new Set(xs.filter((x): x is string => !!x))].sort(collator.compare);
+const types = Object.keys(WORK_TYPES).filter((k) => works.some((w) => w.data.type === k));
+const languages = uniq(works.map((w) => w.data.language));
+const universities = uniq(works.map((w) => w.data.university));
+const topics = uniq(works.flatMap((w) => w.data.topics));
+const years = works.map((w) => w.data.year).filter((y): y is number => !!y);
+const minYear = Math.min(...years);
+const maxYear = Math.max(...years);
+const fold = (s: string) => s.toLocaleLowerCase('tr');
+---
+
+<Base lang={lang} title={t('nav.bibliography')} description={t('bibliography.lead')}>
+  <PageHead title={t('nav.bibliography')} lead={t('bibliography.lead')} />
+
+  <div class="wrap page">
+    <form class="filters" data-filters onsubmit="return false">
+      <label class="wide">
+        <span>{t('bib.search')}</span>
+        <input type="search" name="q" placeholder={t('bib.searchPlaceholder')} autocomplete="off" />
+      </label>
+      <label>
+        <span>{t('bib.type')}</span>
+        <select name="type">
+          <option value="">{t('bib.allTypes')}</option>
+          {types.map((k) => <option value={k}>{pick(WORK_TYPES[k as keyof typeof WORK_TYPES], lang)}</option>)}
+        </select>
+      </label>
+      <label>
+        <span>{t('bib.language')}</span>
+        <select name="lang">
+          <option value="">{t('bib.allLanguages')}</option>
+          {languages.map((l) => <option value={l}>{languageName(l, lang)}</option>)}
+        </select>
+      </label>
+      <label>
+        <span>{t('bib.university')}</span>
+        <select name="uni">
+          <option value="">{t('bib.allUniversities')}</option>
+          {universities.map((u) => <option value={u}>{u.replace(/, .*$/, '')}</option>)}
+        </select>
+      </label>
+      <label>
+        <span>{t('bib.topic')}</span>
+        <select name="topic">
+          <option value="">{t('bib.allTopics')}</option>
+          {topics.map((x) => <option value={x}>{x}</option>)}
+        </select>
+      </label>
+      <label>
+        <span>{t('bib.yearFrom')}</span>
+        <input type="number" name="from" min={minYear} max={maxYear} placeholder={String(minYear)} inputmode="numeric" />
+      </label>
+      <label>
+        <span>{t('bib.yearTo')}</span>
+        <input type="number" name="to" min={minYear} max={maxYear} placeholder={String(maxYear)} inputmode="numeric" />
+      </label>
+      <label>
+        <span>{t('bib.sort')}</span>
+        <select name="sort">
+          <option value="year">{t('bib.sortYear')}</option>
+          <option value="yearAsc">{t('bib.sortYearAsc')}</option>
+          <option value="author">{t('bib.sortAuthor')}</option>
+          <option value="title">{t('bib.sortTitle')}</option>
+        </select>
+      </label>
+      <div class="summary">
+        <p aria-live="polite"><strong data-count>{works.length}</strong> {t('bib.count')}</p>
+        <button type="reset" class="reset">{t('bib.reset')}</button>
+      </div>
+    </form>
+
+    <ol class="list" data-list>
+      {
+        works.map((w) => (
+          <li
+            data-type={w.data.type}
+            data-lang={w.data.language}
+            data-uni={w.data.university ?? ''}
+            data-topics={w.data.topics.join('|')}
+            data-year={w.data.year ?? ''}
+            data-author={fold(w.data.authors[0])}
+            data-title={fold(w.data.title)}
+            data-q={fold(`${w.data.title} ${w.data.authors.join(' ')} ${w.data.university ?? ''} ${w.data.city ?? ''} ${w.data.topics.join(' ')}`)}
+          >
+            <a href={href(lang, `bibliography/${w.id}/`)}>
+              <span class="kicker">{typeLabel(w, lang)}</span>
+              <span class="title" lang={w.data.language}>
+                {w.data.title}
+              </span>
+              <span class="meta">
+                {[w.data.authors.map(displayName).join(', '), w.data.university, w.data.city, w.data.year ?? t('bib.noYear')]
+                  .filter(Boolean)
+                  .join(' · ')}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+    <p class="none" hidden data-none>{t('bib.none')}</p>
+    <p class="source meta">{t('bib.source')}</p>
+  </div>
+</Base>
+
+<style>
+  .page {
+    padding-block-end: 80px;
+  }
+  .filters {
+    display: grid;
+    gap: 14px 16px;
+    margin-block-end: 28px;
+    padding: 20px;
+    background: var(--soft);
+  }
+  @media (min-width: 760px) {
+    .filters {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .wide {
+      grid-column: span 2;
+    }
+  }
+  label {
+    display: grid;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  input,
+  select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--rule);
+    background: #fff;
+    font: inherit;
+    font-size: 0.92rem;
+    color: var(--ink);
+    border-radius: 0;
+  }
+  input:focus,
+  select:focus {
+    outline: 2px solid var(--navy);
+    outline-offset: -1px;
+  }
+  .summary {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 12px;
+    padding-block-end: 8px;
+    font-size: 0.85rem;
+  }
+  .summary strong {
+    color: var(--navy);
+    font-size: 1.1rem;
+  }
+  .reset {
+    border: 0;
+    background: none;
+    color: var(--navy);
+    font: 500 0.82rem var(--sans);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  .list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .list li {
+    border-block-end: 1px solid var(--rule);
+  }
+  .list a {
+    display: grid;
+    gap: 4px;
+    padding-block: 16px;
+  }
+  .list a:hover .title {
+    color: var(--navy);
+  }
+  .kicker {
+    font: 700 0.68rem var(--sans);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  :root[lang='ar'] .kicker {
+    letter-spacing: 0;
+    font-size: 0.82rem;
+  }
+  .title {
+    font: 700 1.02rem/1.45 var(--serif);
+    color: var(--ink);
+  }
+  .title:lang(tr),
+  .title:lang(en) {
+    font-family: 'Merriweather', Georgia, serif;
+  }
+  .none {
+    padding: 24px 0;
+  }
+  .source {
+    margin-block-start: 28px;
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-filters]');
+  const list = document.querySelector<HTMLOListElement>('[data-list]');
+  const items = [...(list?.querySelectorAll<HTMLLIElement>('li') ?? [])];
+  const count = document.querySelector('[data-count]');
+  const none = document.querySelector<HTMLElement>('[data-none]');
+  const fold = (s: string) =>
+    s
+      .toLocaleLowerCase('tr')
+      .normalize('NFD')
+      .replace(/[̀-ͯ']/g, '')
+      .replace(/[ıİ]/g, 'i');
+  const keys = items.map((li) => fold(li.dataset.q ?? ''));
+  const collator = new Intl.Collator('tr');
+  const sorters: Record<string, (a: HTMLLIElement, b: HTMLLIElement) => number> = {
+    year: (a, b) => Number(b.dataset.year || 0) - Number(a.dataset.year || 0),
+    yearAsc: (a, b) => Number(a.dataset.year || 9999) - Number(b.dataset.year || 9999),
+    author: (a, b) => collator.compare(a.dataset.author ?? '', b.dataset.author ?? ''),
+    title: (a, b) => collator.compare(a.dataset.title ?? '', b.dataset.title ?? ''),
+  };
+  const FIELDS = ['q', 'type', 'lang', 'uni', 'topic', 'from', 'to', 'sort'];
+
+  const apply = () => {
+    if (!form || !list) return;
+    const d = new FormData(form);
+    const v = (k: string) => String(d.get(k) ?? '').trim();
+    const q = fold(v('q'));
+    const from = Number(v('from')) || 0;
+    const to = Number(v('to')) || 0;
+    let shown = 0;
+    items.forEach((li, i) => {
+      const y = Number(li.dataset.year || 0);
+      const ok =
+        (!q || q.split(/\s+/).every((w) => keys[i].includes(w))) &&
+        (!v('type') || li.dataset.type === v('type')) &&
+        (!v('lang') || li.dataset.lang === v('lang')) &&
+        (!v('uni') || li.dataset.uni === v('uni')) &&
+        (!v('topic') || (li.dataset.topics ?? '').split('|').includes(v('topic'))) &&
+        (!from || (y && y >= from)) &&
+        (!to || (y && y <= to));
+      li.hidden = !ok;
+      if (ok) shown++;
+    });
+    const sorted = [...items].sort(sorters[v('sort') || 'year']);
+    list.append(...sorted);
+    if (count) count.textContent = String(shown);
+    if (none) none.hidden = shown > 0;
+    const params = new URLSearchParams();
+    FIELDS.forEach((k) => v(k) && !(k === 'sort' && v(k) === 'year') && params.set(k, v(k)));
+    history.replaceState(null, '', params.size ? `?${params}` : location.pathname);
+  };
+
+  if (form) {
+    const init = new URLSearchParams(location.search);
+    FIELDS.forEach((k) => {
+      const el = form.elements.namedItem(k) as HTMLInputElement | HTMLSelectElement | null;
+      if (el && init.get(k)) el.value = init.get(k)!;
+    });
+    form.addEventListener('input', apply);
+    form.addEventListener('reset', () => setTimeout(apply));
+    apply();
+  }
+</script>

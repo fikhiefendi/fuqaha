@@ -1,0 +1,69 @@
+---
+import { render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import Cover from '../../../components/Cover.astro';
+import { formatDate, getPosts } from '../../../lib/entries';
+import { LANG_META, LOCALES, useT, type Lang } from '../../../i18n/ui';
+import { href } from '../../../lib/url';
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const lang of LOCALES) {
+    for (const post of await getPosts(lang)) {
+      paths.push({ params: { lang, slug: post.slug }, props: { post } });
+    }
+  }
+  return paths;
+}
+
+const lang = Astro.params.lang as Lang;
+const { post } = Astro.props;
+const t = useT(lang);
+const { entry } = post;
+const { Content } = await render(entry);
+// When a translation is missing, the original is shown in its own direction.
+const dir = LANG_META[post.lang].dir;
+---
+
+<Base lang={lang} title={entry.data.title} description={entry.data.summary}>
+  <PageHead title={entry.data.title} lead={entry.data.summary} back={{ href: href(lang, 'posts/'), label: t('post.back') }}>
+    <p class="date">
+      {formatDate(entry.data.date, lang)}
+      {entry.data.tags.length > 0 && <> · {entry.data.tags.join(', ')}</>}
+    </p>
+  </PageHead>
+
+  <article class="wrap article">
+    <figure class="hero">
+      <Cover seed={post.slug} image={entry.data.cover} alt={entry.data.coverAlt} eager />
+    </figure>
+    {post.fallback && <p class="notice">{t('post.fallback')}</p>}
+    <div class="prose" lang={post.lang} dir={dir}>
+      <Content />
+    </div>
+  </article>
+</Base>
+
+<style>
+  .date {
+    margin-block-start: 14px;
+  }
+  .article {
+    padding-block-end: 80px;
+  }
+  .hero {
+    margin: 0 0 40px;
+    aspect-ratio: 21 / 8;
+    overflow: hidden;
+    background: var(--soft);
+  }
+  .notice {
+    max-width: var(--measure);
+    margin-block-end: 28px;
+    padding: 12px 16px;
+    border-inline-start: 3px solid var(--navy);
+    background: var(--soft);
+    font-size: 0.9rem;
+  }
+</style>

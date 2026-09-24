@@ -1,0 +1,88 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHead from '../../../components/PageHead.astro';
+import Cover from '../../../components/Cover.astro';
+import { formatDate, getPosts } from '../../../lib/entries';
+import { langPaths, useT, type Lang } from '../../../i18n/ui';
+import { href } from '../../../lib/url';
+
+export const getStaticPaths = langPaths;
+
+const lang = Astro.params.lang as Lang;
+const t = useT(lang);
+const posts = await getPosts(lang);
+---
+
+<Base lang={lang} title={t('nav.posts')} description={t('posts.lead')}>
+  <PageHead title={t('nav.posts')} lead={t('posts.lead')} />
+  <div class="wrap list">
+    {
+      posts.map((p) => (
+        <article class="row">
+          <a href={href(lang, `posts/${p.slug}/`)} class="thumb" tabindex="-1" aria-hidden="true">
+            <Cover seed={p.slug} image={p.entry.data.cover} alt={p.entry.data.coverAlt} />
+          </a>
+          <div class="body">
+            <span class="date">
+              <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3" width="12" height="11" fill="none" stroke="currentColor" /><path d="M2 6.5h12M5 1.5v3M11 1.5v3" stroke="currentColor" /></svg>
+              {formatDate(p.entry.data.date, lang)}
+            </span>
+            <h2 lang={p.lang}>
+              <a href={href(lang, `posts/${p.slug}/`)}>{p.entry.data.title}</a>
+            </h2>
+            <p lang={p.lang}>{p.entry.data.summary}</p>
+            <a href={href(lang, `posts/${p.slug}/`)} class="btn small">{t('readMore')}</a>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</Base>
+
+<style>
+  .list {
+    display: grid;
+    gap: 28px;
+    padding-block-end: 72px;
+  }
+  .row {
+    display: grid;
+    background: var(--soft);
+  }
+  @media (min-width: 760px) {
+    .row {
+      grid-template-columns: 300px 1fr;
+    }
+  }
+  .thumb {
+    display: block;
+    min-height: 200px;
+    overflow: hidden;
+  }
+  .thumb :global(.cover) {
+    transition: transform 0.6s;
+  }
+  .row:hover .thumb :global(.cover) {
+    transform: scale(1.05);
+  }
+  .body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 26px 28px;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  h2 a:hover {
+    color: var(--navy);
+  }
+  p {
+    font-size: 0.92rem;
+    text-align: justify;
+  }
+  .btn {
+    margin-block-start: 8px;
+  }
+</style>
