@@ -1,0 +1,166 @@
+---
+// Section with a photograph framed in a pointed arch beside a title and a
+// horizontally scrolling row of cards.
+import { Image } from 'astro:assets';
+import type { Photo } from '../lib/images';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  lead: string;
+  photo: Photo;
+  button: { href: string; label: string };
+  /** Put the arch on the other side. */
+  flip?: boolean;
+  soft?: boolean;
+}
+const { lang, title, lead, photo, button, flip = false, soft = false } = Astro.props;
+---
+
+<section class="arch-section" class:list={{ flip, soft }}>
+  <div class="wrap layout">
+    <figure class="arch">
+      <div class="frame">
+        <Image src={photo.src} alt={photo.caption[lang]} widths={[400, 700, 1000]} sizes="(min-width: 900px) 360px, 70vw" loading="lazy" />
+      </div>
+      <figcaption>{photo.caption[lang]}</figcaption>
+    </figure>
+    <div class="body">
+      <header class="rubric-rule">
+        <h2>{title}</h2>
+        <p>{lead}</p>
+      </header>
+      <div class="track" data-track>
+        <slot />
+      </div>
+      <div class="foot">
+        <a href={button.href} class="btn">{button.label}</a>
+        <div class="arrows">
+          <button type="button" class="arrow ghost" data-scroll="-1" aria-label="←">
+            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10H4m5-5-5 5 5 5" fill="none" stroke="currentColor" stroke-width="1.5"></path></svg>
+          </button>
+          <button type="button" class="arrow ghost" data-scroll="1" aria-label="→">
+            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .arch-section {
+    padding-block: 96px;
+    overflow: hidden;
+  }
+  .arch-section.soft {
+    background: var(--soft);
+  }
+  .layout {
+    display: grid;
+    gap: 56px;
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .layout {
+      grid-template-columns: 340px minmax(0, 1fr);
+    }
+    .flip .layout {
+      grid-template-columns: minmax(0, 1fr) 340px;
+    }
+    .flip .arch {
+      order: 2;
+    }
+  }
+
+  .arch {
+    margin: 0;
+  }
+  /* Pointed (two-centred) arch, as in a madrasa window */
+  .frame {
+    aspect-ratio: 5 / 7;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 140' preserveAspectRatio='none'%3E%3Cpath d='M0 140V58C0 28 22 10 50 0c28 10 50 28 50 58v82z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 140' preserveAspectRatio='none'%3E%3Cpath d='M0 140V58C0 28 22 10 50 0c28 10 50 28 50 58v82z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+    background: var(--rule);
+  }
+  .frame :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  figcaption {
+    margin-block-start: 12px;
+    font: italic 400 0.78rem/1.5 var(--sans);
+    color: var(--muted);
+  }
+
+  header h2 {
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+  }
+  header p {
+    margin-block-start: 8px;
+    font-size: 0.98rem;
+    color: var(--text);
+  }
+
+  .track {
+    display: flex;
+    gap: 16px;
+    margin-block: 32px 28px;
+    padding: 4px 2px 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .track::-webkit-scrollbar {
+    display: none;
+  }
+  .track > :global(*) {
+    flex: 0 0 220px;
+    scroll-snap-align: start;
+  }
+
+  .foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  }
+  .arrows {
+    display: flex;
+    gap: 6px;
+  }
+  .arrows .arrow {
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+  }
+  .arrows .arrow:hover {
+    background: var(--surface);
+  }
+
+  @media (max-width: 899px) {
+    .arch-section {
+      padding-block: 64px;
+    }
+    .arch {
+      max-width: 190px;
+    }
+  }
+</style>
+
+<script>
+  for (const section of document.querySelectorAll<HTMLElement>('.arch-section')) {
+    const track = section.querySelector<HTMLElement>('[data-track]');
+    const rtl = document.documentElement.dir === 'rtl';
+    section.querySelectorAll<HTMLButtonElement>('[data-scroll]').forEach((b) =>
+      b.addEventListener('click', () => {
+        if (!track) return;
+        const card = track.firstElementChild as HTMLElement | null;
+        const step = (card?.offsetWidth ?? 220) + 16;
+        const dir = Number(b.dataset.scroll) * (rtl ? -1 : 1);
+        track.scrollBy({ left: dir * step, behavior: 'smooth' });
+      }),
+    );
+  }
+</script>

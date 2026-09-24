@@ -1,8 +1,9 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import PageHead from '../../../components/PageHead.astro';
+import { photo } from '../../../lib/images';
 import Cover from '../../../components/Cover.astro';
-import { formatDate, getPosts } from '../../../lib/entries';
+import { formatDate, getPosts, postImage } from '../../../lib/entries';
 import { langPaths, useT, type Lang } from '../../../i18n/ui';
 import { href } from '../../../lib/url';
 
@@ -14,13 +15,13 @@ const posts = await getPosts(lang);
 ---
 
 <Base lang={lang} title={t('nav.posts')} description={t('posts.lead')}>
-  <PageHead title={t('nav.posts')} lead={t('posts.lead')} />
+  <PageHead title={t('nav.posts')} lead={t('posts.lead')} photo={photo('library')} lang={lang} />
   <div class="wrap list">
     {
       posts.map((p) => (
         <article class="row">
           <a href={href(lang, `posts/${p.slug}/`)} class="thumb" tabindex="-1" aria-hidden="true">
-            <Cover seed={p.slug} image={p.entry.data.cover} alt={p.entry.data.coverAlt} />
+            <Cover seed={p.slug} image={postImage(p.entry, lang)?.src} alt={postImage(p.entry, lang)?.alt} />
           </a>
           <div class="body">
             <span class="date">
@@ -76,7 +77,7 @@ const posts = await getPosts(lang);
     font-size: 1.3rem;
   }
   h2 a:hover {
-    color: var(--navy);
+    color: var(--accent);
   }
   p {
     font-size: 0.92rem;

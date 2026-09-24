@@ -1,4 +1,5 @@
 ---
+photo: multaqa
 title: A bibliography of fiqh in every language
 date: 2026-09-23
 summary: What the bibliography covers, how entries are organised, and how to suggest a new work.

@@ -1,6 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import PageHead from '../../../components/PageHead.astro';
+import { photo } from '../../../lib/images';
 import { getScholars, lifeShort, scholarCentury, centuryLabel } from '../../../lib/scholars';
 import { langPaths, useT, type Lang } from '../../../i18n/ui';
 import { href } from '../../../lib/url';
@@ -15,7 +16,7 @@ const centuries = [...new Set(rows.map((r) => r.c).filter((c): c is number => !!
 ---
 
 <Base lang={lang} title={t('nav.scholars')} description={t('scholars.lead')}>
-  <PageHead title={t('nav.scholars')} lead={t('scholars.sourceNote')} />
+  <PageHead title={t('nav.scholars')} lead={t('scholars.sourceNote')} photo={photo('registan')} lang={lang} />
 
   <div class="wrap page">
     <form class="filters" role="search" data-filters onsubmit="return false">
@@ -89,7 +90,7 @@ const centuries = [...new Set(rows.map((r) => r.c).filter((c): c is number => !!
   }
   input:focus,
   select:focus {
-    outline: 2px solid var(--navy);
+    outline: 2px solid var(--accent);
     outline-offset: -1px;
   }
   .count {
@@ -97,7 +98,7 @@ const centuries = [...new Set(rows.map((r) => r.c).filter((c): c is number => !!
     padding-block-end: 10px;
   }
   .count strong {
-    color: var(--navy);
+    color: var(--accent);
     font-size: 1.1rem;
   }
   .list {
@@ -122,7 +123,7 @@ const centuries = [...new Set(rows.map((r) => r.c).filter((c): c is number => !!
   }
   .list a:hover .name,
   .list a:hover .ar {
-    color: var(--navy);
+    color: var(--accent);
   }
   .ar {
     font: 700 1.15rem/1.6 var(--arabic);

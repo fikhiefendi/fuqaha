@@ -1,4 +1,5 @@
 ---
+photo: multaqa
 title: Her dilde bir fıkıh bibliyografyası
 date: 2026-09-23
 summary: Bibliyografya bölümü neleri kapsıyor, kayıtlar nasıl düzenleniyor ve yeni bir çalışma nasıl önerilir.

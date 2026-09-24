@@ -1,16 +1,31 @@
 ---
-// Title band at the top of inner pages, with an optional breadcrumb link.
+// Title band at the top of inner pages, with an optional breadcrumb link and
+// an optional photograph that fades into the band on the far side.
+import { Image } from 'astro:assets';
+import type { Photo } from '../lib/images';
+import type { Lang } from '../i18n/ui';
+
 interface Props {
   kicker?: string;
   title: string;
   lead?: string;
   back?: { href: string; label: string };
+  photo?: Photo;
+  lang?: Lang;
 }
-const { kicker, title, lead, back } = Astro.props;
+const { kicker, title, lead, back, photo, lang = 'tr' } = Astro.props;
 ---
 
-<header class="page-head">
-  <div class="wrap">
+<header class="page-head" class:list={{ 'has-photo': photo }}>
+  {
+    photo && (
+      <div class="photo">
+        <Image src={photo.src} alt="" widths={[600, 1000, 1400]} sizes="(min-width: 900px) 50vw, 100vw" loading="eager" />
+        <span class="photo-caption">{photo.caption[lang]}</span>
+      </div>
+    )
+  }
+  <div class="wrap inner">
     {back && <a href={back.href} class="back">← {back.label}</a>}
     {kicker && <span class="kicker">{kicker}</span>}
     <h1>{title}</h1>
@@ -21,34 +36,106 @@ const { kicker, title, lead, back } = Astro.props;
 
 <style>
   .page-head {
-    padding-block: 56px 40px;
+    position: relative;
+    padding-block: 56px 44px;
     background: var(--soft);
     border-block-end: 1px solid var(--rule);
     margin-block-end: 48px;
+    overflow: hidden;
+  }
+  .page-head.has-photo {
+    padding-block: 84px 64px;
+  }
+  .inner {
+    position: relative;
+  }
+  .has-photo .inner > * {
+    max-width: min(640px, 55%);
+  }
+  .photo {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-end: 0;
+    width: 50%;
+  }
+  .photo :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--soft), rgb(243 238 228 / 0.2) 45%, transparent);
+  }
+  :root[dir='rtl'] .photo::after {
+    background: linear-gradient(to left, var(--soft), rgb(243 238 228 / 0.2) 45%, transparent);
+  }
+  .photo-caption {
+    position: absolute;
+    z-index: 1;
+    inset-block-end: 10px;
+    inset-inline-end: 16px;
+    max-width: 40ch;
+    font: italic 400 0.72rem/1.4 var(--sans);
+    color: #fff;
+    text-align: end;
+    text-shadow: 0 1px 4px rgb(0 0 0 / 0.7);
   }
   .back {
     display: inline-block;
     margin-block-end: 14px;
-    font-size: 0.82rem;
-    color: var(--navy);
+    font-size: 0.85rem;
+    color: var(--accent);
   }
   :root[dir='rtl'] .back {
     unicode-bidi: plaintext;
   }
   .kicker {
-    display: block;
-    margin-block-end: 8px;
-    font: 700 0.72rem var(--sans);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-block-end: 10px;
+    font: 500 0.8rem var(--sans);
+    letter-spacing: 0.04em;
+    color: var(--rubric);
+  }
+  .kicker::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: currentColor;
   }
   h1 {
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  :root[lang='ar'] h1 {
+    letter-spacing: 0;
   }
   .lead {
-    margin-block-start: 12px;
-    max-width: 70ch;
-    font-size: 1rem;
+    margin-block-start: 14px;
+    max-width: 62ch;
+    font-size: 1.05rem;
+  }
+
+  @media (max-width: 760px) {
+    .photo {
+      position: relative;
+      width: auto;
+      height: 180px;
+      margin-block: -84px 24px;
+    }
+    .photo::after {
+      background: linear-gradient(to top, var(--soft), transparent 60%);
+    }
+    .has-photo .inner > * {
+      max-width: none;
+    }
+    .photo-caption {
+      display: none;
+    }
   }
 </style>

@@ -1,4 +1,5 @@
 ---
+photo: mabsut
 title: Biyografileri kaynaklardan nasıl aktarıyoruz?
 date: 2026-09-22
 summary: Tabakât kitaplarından yapılan her aktarımda metin, atıf ve sayfa numarası nasıl korunuyor; hangi bilgiye neden güveniyoruz.

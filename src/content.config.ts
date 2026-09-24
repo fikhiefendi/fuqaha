@@ -21,6 +21,8 @@ const posts = defineCollection({
       tags: z.array(z.string()).default([]),
       cover: image().optional(),
       coverAlt: z.string().optional(),
+      /** Id of an image in src/lib/images.ts, used when there is no cover. */
+      photo: z.string().optional(),
       featured: z.boolean().default(true),
       draft: z.boolean().default(false),
     }),

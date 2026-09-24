@@ -1,6 +1,6 @@
 ---
-// Full-screen home hero: large background images that crossfade, with the
-// headline on one side and square pager dots stacked on the other.
+// Full-screen home hero: photographs that crossfade, headline on one side,
+// a numbered pager with a progress rule and the photo's caption at the foot.
 import Cover from './Cover.astro';
 import { type FeatureItem } from '../lib/entries';
 import { LANG_META, useT, type Lang } from '../i18n/ui';
@@ -12,9 +12,10 @@ interface Props {
 }
 const { lang, items, interval = 7000 } = Astro.props;
 const t = useT(lang);
+const pad = (n: number) => String(n).padStart(2, '0');
 ---
 
-<section class="hero" aria-roledescription="carousel" aria-label={t('slider.label')} data-hero data-interval={interval}>
+<section class="hero" aria-roledescription="carousel" aria-label={t('slider.label')} data-hero data-interval={interval} style={`--interval:${interval}ms`}>
   {
     items.map((item, i) => (
       <article
@@ -25,39 +26,52 @@ const t = useT(lang);
         aria-hidden={i === 0 ? undefined : 'true'}
       >
         <div class="bg">
-          <Cover seed={item.seed} image={item.image} alt={item.imageAlt} label={item.label} eager={i === 0} />
+          <Cover
+            seed={item.seed}
+            image={item.image ?? item.photo?.src}
+            alt={item.imageAlt ?? item.photo?.caption[lang]}
+            label={item.label}
+            eager={i === 0}
+          />
         </div>
         <div class="wrap content">
           <span class="kicker">{item.kicker}</span>
+          {item.label && item.kind === 'scholar' && (
+            <p class="ar-name" lang="ar" dir="rtl">
+              {item.label}
+            </p>
+          )}
           <h2 lang={item.titleLang} dir={LANG_META[item.titleLang].dir}>
             {item.title}
           </h2>
-          {item.summary && <p>{item.summary}</p>}
+          {item.summary && <p class="summary">{item.summary}</p>}
           <a href={item.href} class="btn" tabindex={i === 0 ? undefined : '-1'}>
             {t('details')}
           </a>
         </div>
+        {item.photo && <p class="caption">{item.photo.caption[lang]}</p>}
       </article>
     ))
   }
 
   {
     items.length > 1 && (
-      <div class="dots" role="tablist">
-        {items.map((item, i) => (
-          <button
-            type="button"
-            role="tab"
-            data-go={i}
-            aria-selected={i === 0 ? 'true' : 'false'}
-            aria-label={`${i + 1}: ${item.title}`}
-          />
-        ))}
+      <div class="wrap pager">
+        <span class="count" aria-hidden="true">
+          <b data-current>01</b> / {pad(items.length)}
+        </span>
+        <span class="progress" aria-hidden="true">
+          <span data-bar />
+        </span>
+        <button type="button" class="step" data-step="-1" aria-label={t('slider.prev')}>
+          <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10H4m5-5-5 5 5 5" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+        </button>
+        <button type="button" class="step" data-step="1" aria-label={t('slider.next')}>
+          <svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+        </button>
       </div>
     )
   }
-
-  <a href="#main-sections" class="mouse" aria-label="↓"><span></span></a>
 </section>
 
 <style>
@@ -65,10 +79,10 @@ const t = useT(lang);
     position: relative;
     display: grid;
     height: 100vh;
-    min-height: 560px;
-    max-height: 980px;
+    min-height: 580px;
+    max-height: 960px;
     overflow: hidden;
-    background: var(--navy-dark);
+    background: #16130f;
     color: #fff;
   }
   .slide {
@@ -79,152 +93,178 @@ const t = useT(lang);
     opacity: 0;
     visibility: hidden;
     transition:
-      opacity 1s ease,
-      visibility 0s linear 1s;
+      opacity 1.1s ease,
+      visibility 0s linear 1.1s;
   }
   .slide[data-active] {
     opacity: 1;
     visibility: visible;
-    transition: opacity 1s ease;
+    transition: opacity 1.1s ease;
   }
   .bg {
     position: absolute;
     inset: 0;
   }
   .bg :global(.cover) {
-    transform: scale(1.08);
-    transition: transform 9s ease-out;
+    transform: scale(1.06);
+    transition: transform 10s ease-out;
   }
   .slide[data-active] .bg :global(.cover) {
     transform: scale(1);
   }
-  /* Darken the image for legible white text */
+  /* Warm dark wash so white type stays legible on any photograph */
   .bg::after {
     content: '';
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(to right, rgb(12 24 34 / 0.78), rgb(12 24 34 / 0.35) 60%, rgb(12 24 34 / 0.2)),
-      linear-gradient(to top, rgb(12 24 34 / 0.5), transparent 40%);
+      linear-gradient(to right, rgb(22 17 11 / 0.9), rgb(22 17 11 / 0.62) 50%, rgb(22 17 11 / 0.3)),
+      linear-gradient(to top, rgb(22 17 11 / 0.75), transparent 45%);
   }
   :root[dir='rtl'] .bg::after {
     background:
-      linear-gradient(to left, rgb(12 24 34 / 0.78), rgb(12 24 34 / 0.35) 60%, rgb(12 24 34 / 0.2)),
-      linear-gradient(to top, rgb(12 24 34 / 0.5), transparent 40%);
+      linear-gradient(to left, rgb(22 17 11 / 0.9), rgb(22 17 11 / 0.62) 50%, rgb(22 17 11 / 0.3)),
+      linear-gradient(to top, rgb(22 17 11 / 0.75), transparent 45%);
   }
   .content {
     position: relative;
-    padding-block-start: var(--header-h);
+    padding-block: var(--header-h) 90px;
   }
   .content > * {
-    max-width: 560px;
+    max-width: 600px;
   }
   .kicker {
-    display: inline-block;
-    margin-block-end: 14px;
-    padding-block-end: 6px;
-    border-block-end: 2px solid var(--gold);
-    font: 700 0.75rem var(--sans);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-block-end: 16px;
+    font: 500 0.82rem var(--sans);
+    letter-spacing: 0.04em;
+    color: rgb(255 255 255 / 0.85);
   }
-  :root[lang='ar'] .kicker {
-    letter-spacing: 0;
-    font-size: 0.9rem;
+  .kicker::before {
+    content: '';
+    width: 28px;
+    height: 2px;
+    background: #d9765c;
+  }
+  .ar-name {
+    margin-block-end: 6px;
+    font: 700 clamp(1.4rem, 2.6vw, 2rem) / 1.5 var(--arabic);
+    color: #ecd9b0;
   }
   h2 {
     color: #fff;
-    font-size: clamp(2rem, 5vw, 3.3rem);
-    line-height: 1.25;
+    font-size: clamp(2rem, 4.6vw, 3.4rem);
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.01em;
   }
   h2:lang(ar) {
     font-family: var(--arabic);
+    font-weight: 700;
     line-height: 1.6;
+    letter-spacing: 0;
   }
-  p {
+  .summary {
     margin-block: 18px 30px;
-    font-size: 1.02rem;
+    font-size: 1.05rem;
     line-height: 1.7;
-    color: rgb(255 255 255 / 0.88);
-    text-align: justify;
+    color: rgb(255 255 255 / 0.86);
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+  .btn {
+    background: #fff;
+    color: var(--ink);
+  }
+  .btn:hover {
+    background: #ecd9b0;
+  }
 
-  .dots {
+  .caption {
     position: absolute;
+    inset-block-end: 30px;
     inset-inline-end: 32px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .dots button {
-    width: 10px;
-    height: 10px;
-    padding: 0;
-    border: 0;
-    background: rgb(255 255 255 / 0.55);
-    cursor: pointer;
-    transition:
-      background 0.2s,
-      transform 0.2s;
-  }
-  .dots button[aria-selected='true'] {
-    background: #fff;
-    transform: rotate(45deg) scale(1.2);
+    max-width: 38ch;
+    font: italic 400 0.76rem/1.45 var(--sans);
+    color: rgb(255 255 255 / 0.7);
+    text-align: end;
   }
 
-  /* Scroll hint */
-  .mouse {
+  .pager {
     position: absolute;
-    inset-block-end: 28px;
-    left: 50%;
-    width: 26px;
-    height: 42px;
-    margin-left: -13px;
-    border: 2px solid rgb(255 255 255 / 0.7);
-    border-radius: 14px;
+    inset-block-end: 26px;
+    inset-inline: 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    pointer-events: none;
   }
-  .mouse span {
+  .pager > * {
+    pointer-events: auto;
+  }
+  .count {
+    font: 400 0.85rem var(--sans);
+    font-variant-numeric: tabular-nums;
+    color: rgb(255 255 255 / 0.7);
+  }
+  .count b {
+    font-weight: 600;
+    color: #fff;
+  }
+  .progress {
+    position: relative;
+    width: 120px;
+    height: 2px;
+    background: rgb(255 255 255 / 0.25);
+    overflow: hidden;
+  }
+  .progress span {
     position: absolute;
-    top: 8px;
-    left: 50%;
-    width: 3px;
-    height: 8px;
-    margin-left: -1.5px;
-    border-radius: 2px;
+    inset: 0;
     background: #fff;
-    animation: wheel 1.8s infinite;
+    transform: scaleX(0);
+    transform-origin: left;
   }
-  @keyframes wheel {
-    0% {
-      opacity: 0;
-      transform: translateY(0);
-    }
-    30% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      transform: translateY(12px);
+  :root[dir='rtl'] .progress span {
+    transform-origin: right;
+  }
+  .progress span.run {
+    animation: fill var(--interval) linear forwards;
+  }
+  @keyframes fill {
+    to {
+      transform: scaleX(1);
     }
   }
-  @media (max-width: 700px) {
-    .dots {
-      inset-inline-end: 14px;
-    }
-    .content > * {
-      max-width: calc(100% - 28px);
-    }
-    .mouse {
+  .step {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgb(255 255 255 / 0.4);
+    border-radius: 50%;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .step:hover {
+    background: rgb(255 255 255 / 0.15);
+  }
+  :root[dir='rtl'] .step svg {
+    transform: scaleX(-1);
+  }
+
+  @media (max-width: 760px) {
+    .caption {
       display: none;
     }
-    p {
-      text-align: start;
+    .content > * {
+      max-width: 100%;
     }
   }
 </style>
@@ -232,38 +272,50 @@ const t = useT(lang);
 <script>
   for (const root of document.querySelectorAll<HTMLElement>('[data-hero]')) {
     const slides = [...root.querySelectorAll<HTMLElement>('.slide')];
-    const dots = [...root.querySelectorAll<HTMLButtonElement>('[data-go]')];
+    const current = root.querySelector<HTMLElement>('[data-current]');
+    const bar = root.querySelector<HTMLElement>('[data-bar]');
     const interval = Number(root.dataset.interval) || 7000;
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const rtl = document.documentElement.dir === 'rtl';
-    let current = 0;
+    let index = 0;
     let timer: number | undefined;
 
+    const restartBar = (run: boolean) => {
+      if (!bar) return;
+      bar.classList.remove('run');
+      void bar.offsetWidth;
+      bar.classList.toggle('run', run);
+    };
     const show = (i: number) => {
-      current = (i + slides.length) % slides.length;
+      index = (i + slides.length) % slides.length;
       slides.forEach((s, n) => {
-        const on = n === current;
+        const on = n === index;
         s.toggleAttribute('data-active', on);
         on ? s.removeAttribute('aria-hidden') : s.setAttribute('aria-hidden', 'true');
         s.querySelectorAll('a').forEach((a) => (on ? a.removeAttribute('tabindex') : a.setAttribute('tabindex', '-1')));
       });
-      dots.forEach((d, n) => d.setAttribute('aria-selected', String(n === current)));
+      if (current) current.textContent = String(index + 1).padStart(2, '0');
     };
-    const stop = () => window.clearInterval(timer);
+    const stop = () => {
+      window.clearInterval(timer);
+      restartBar(false);
+    };
     const start = () => {
       stop();
-      if (!reduced && slides.length > 1) timer = window.setInterval(() => show(current + 1), interval);
+      if (reduced || slides.length < 2) return;
+      restartBar(true);
+      timer = window.setInterval(() => {
+        show(index + 1);
+        restartBar(true);
+      }, interval);
     };
 
-    dots.forEach((d) =>
-      d.addEventListener('click', () => {
-        show(Number(d.dataset.go));
+    root.querySelectorAll<HTMLButtonElement>('[data-step]').forEach((b) =>
+      b.addEventListener('click', () => {
+        show(index + Number(b.dataset.step));
         start();
       }),
     );
-    root.addEventListener('mouseenter', stop);
-    root.addEventListener('mouseleave', start);
-    root.addEventListener('focusin', stop);
     document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
 
     let x0 = 0;
@@ -271,7 +323,7 @@ const t = useT(lang);
     root.addEventListener('pointerup', (e) => {
       const dx = e.clientX - x0;
       if (Math.abs(dx) < 50) return;
-      show(current + ((rtl ? dx > 0 : dx < 0) ? 1 : -1));
+      show(index + ((rtl ? dx > 0 : dx < 0) ? 1 : -1));
       start();
     });
 

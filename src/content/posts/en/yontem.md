@@ -1,4 +1,5 @@
 ---
+photo: mabsut
 title: How we transcribe biographies from the sources
 date: 2026-09-22
 summary: How text, citation and page number are preserved in every transcription from the ṭabaqāt works, and why we trust what we trust.

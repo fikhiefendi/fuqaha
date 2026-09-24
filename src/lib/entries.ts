@@ -3,6 +3,7 @@ import type { ImageMetadata } from 'astro';
 import { LOCALES, pick, useT, type Lang } from '../i18n/ui';
 import { href } from './url';
 import { scholarSummary } from './scholars';
+import { backdrop, photo, type Photo, type PhotoId } from './images';
 
 export type LocalPost = {
   slug: string;
@@ -44,8 +45,18 @@ export type FeatureItem = {
   seed: string;
   image?: ImageMetadata;
   imageAlt?: string;
+  /** Registered photo shown behind the slide, with its caption. */
+  photo?: Photo;
   label?: string;
 };
+
+/** The image to show for a post: its own cover, else its registered photo. */
+export function postImage(entry: CollectionEntry<'posts'>, lang: Lang) {
+  if (entry.data.cover) return { src: entry.data.cover, alt: entry.data.coverAlt ?? '' };
+  if (!entry.data.photo) return undefined;
+  const p = photo(entry.data.photo as PhotoId);
+  return { src: p.src, alt: p.caption[lang], photo: p };
+}
 
 export async function getFeatured(lang: Lang, limit = 5): Promise<FeatureItem[]> {
   const t = useT(lang);
@@ -60,8 +71,9 @@ export async function getFeatured(lang: Lang, limit = 5): Promise<FeatureItem[]>
       date: p.entry.data.date,
       href: href(lang, `posts/${p.slug}/`),
       seed: p.slug,
-      image: p.entry.data.cover,
-      imageAlt: p.entry.data.coverAlt,
+      image: postImage(p.entry, lang)?.src,
+      imageAlt: postImage(p.entry, lang)?.alt,
+      photo: postImage(p.entry, lang)?.photo,
     }));
   const scholars = (await getCollection('scholars', ({ data }) => data.featured)).map<FeatureItem>((s) => ({
     kind: 'scholar',
@@ -73,6 +85,7 @@ export async function getFeatured(lang: Lang, limit = 5): Promise<FeatureItem[]>
     href: href(lang, `scholars/${s.id}/`),
     seed: s.id,
     label: s.data.name.ar,
+    photo: backdrop(s.id),
   }));
   const works = (await getCollection('works', ({ data }) => (data as { featured?: boolean }).featured === true)).map<FeatureItem>((w) => ({
     kind: 'work',
@@ -83,6 +96,7 @@ export async function getFeatured(lang: Lang, limit = 5): Promise<FeatureItem[]>
     date: w.data.addedAt,
     href: href(lang, `bibliography/${w.id}/`),
     seed: w.id,
+    photo: backdrop(w.id),
   }));
   // Alternate the newest essays with featured jurists and works.
   const lists = [posts, scholars, works].map((l) => l.sort((a, b) => b.date.valueOf() - a.date.valueOf()));

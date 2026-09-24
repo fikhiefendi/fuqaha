@@ -1,4 +1,5 @@
 ---
+photo: library
 title: 'Fuqaha: an archive on the trail of the jurists'
 date: 2026-09-21
 summary: An attempt to bring together, with their sources, the lives of the jurists, the cities they lived in, and scholarship on Islamic law in every language.

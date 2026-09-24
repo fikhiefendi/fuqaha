@@ -21,8 +21,9 @@ const heads = {
   <div class="wrap cols">
     <div class="about">
       <a href={href(lang)} class="brand">
-        <span class="mark"><Mark size={24} /></span>
-        <span>{SITE.name.toUpperCase()}</span>
+        <span class="mark"><Mark size={28} /></span>
+        <span>{SITE.name}</span>
+        <span class="brand-ar" lang="ar">{SITE.nameAr}</span>
       </a>
       <p>{t('tagline')}</p>
     </div>
@@ -36,6 +37,7 @@ const heads = {
         <li><a href={href(lang, 'about/')}>{t('nav.about')}</a></li>
         <li><a href={href(lang, 'contribute/')}>{t('contribute.title')}</a></li>
         <li><a href={href(lang, 'search/')}>{t('nav.search')}</a></li>
+        <li><a href={href(lang, 'credits/')}>{t('credits.title')}</a></li>
       </ul>
     </div>
     <div>
@@ -44,17 +46,17 @@ const heads = {
     </div>
   </div>
   <div class="wrap bottom">
-    <p>© {year} {SITE.name}</p>
     <p class="note">{t('footer.note')}</p>
+    <p class="row">
+      <span>© {year} {SITE.name}</span>
+      <a href="#top" class="to-top" data-to-top>{t('toTop')} ↑</a>
+    </p>
   </div>
 </footer>
 
-<a href="#" class="to-top" aria-label="↑" data-to-top>
-  <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 10 5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.6"></path></svg>
-</a>
-
 <style>
   footer {
+    background: var(--soft);
     border-block-start: 1px solid var(--rule);
     padding-block: 56px 24px;
     font-size: 0.85rem;
@@ -73,15 +75,17 @@ const heads = {
     align-items: center;
     gap: 10px;
     color: var(--ink);
-    font: 700 1.05rem 'Merriweather', serif;
-    letter-spacing: 0.1em;
+    font: 600 1.3rem var(--serif-latin);
   }
   .mark {
     display: grid;
     place-items: center;
-    width: 36px;
-    height: 36px;
-    border: 1.5px solid var(--ink);
+    color: var(--rubric);
+  }
+  .brand-ar {
+    padding-inline-start: 10px;
+    border-inline-start: 1px solid var(--rule);
+    font: 700 1.15rem var(--arabic);
   }
   .about p {
     margin-block-start: 14px;
@@ -100,7 +104,7 @@ const heads = {
     margin-block-start: 8px;
   }
   li a:hover {
-    color: var(--navy);
+    color: var(--accent);
   }
   .bottom {
     display: grid;
@@ -115,46 +119,22 @@ const heads = {
     max-width: 90ch;
   }
 
-  /* Diamond "back to top" button */
+  .row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
   .to-top {
-    position: fixed;
-    inset-block-end: 22px;
-    inset-inline-end: 22px;
-    z-index: 900;
-    display: grid;
-    place-items: center;
-    width: 42px;
-    height: 42px;
-    border: 1.5px solid var(--navy);
-    background: #fff;
-    color: var(--navy);
-    transform: rotate(45deg);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
-  }
-  .to-top svg {
-    transform: rotate(-45deg);
-  }
-  .to-top.show {
-    opacity: 1;
-    pointer-events: auto;
+    color: var(--ink);
   }
   .to-top:hover {
-    background: var(--navy);
-    color: #fff;
+    color: var(--rubric);
   }
 </style>
 
 <script>
-  const btn = document.querySelector<HTMLAnchorElement>('[data-to-top]');
-  if (btn) {
-    const sync = () => btn.classList.toggle('show', window.scrollY > 600);
-    sync();
-    window.addEventListener('scroll', sync, { passive: true });
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
+  document.querySelector('[data-to-top]')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 </script>

@@ -1,6 +1,7 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import PageHead from '../../../components/PageHead.astro';
+import { photo } from '../../../lib/images';
 import { getWorks, displayName, typeLabel, languageName } from '../../../lib/works';
 import { langPaths, pick, useT, type Lang } from '../../../i18n/ui';
 import { href } from '../../../lib/url';
@@ -24,7 +25,7 @@ const fold = (s: string) => s.toLocaleLowerCase('tr');
 ---
 
 <Base lang={lang} title={t('nav.bibliography')} description={t('bibliography.lead')}>
-  <PageHead title={t('nav.bibliography')} lead={t('bibliography.lead')} />
+  <PageHead title={t('nav.bibliography')} lead={t('bibliography.lead')} photo={photo('multaqa')} lang={lang} />
 
   <div class="wrap page">
     <form class="filters" data-filters onsubmit="return false">
@@ -155,7 +156,7 @@ const fold = (s: string) => s.toLocaleLowerCase('tr');
   }
   input:focus,
   select:focus {
-    outline: 2px solid var(--navy);
+    outline: 2px solid var(--accent);
     outline-offset: -1px;
   }
   .summary {
@@ -167,13 +168,13 @@ const fold = (s: string) => s.toLocaleLowerCase('tr');
     font-size: 0.85rem;
   }
   .summary strong {
-    color: var(--navy);
+    color: var(--accent);
     font-size: 1.1rem;
   }
   .reset {
     border: 0;
     background: none;
-    color: var(--navy);
+    color: var(--accent);
     font: 500 0.82rem var(--sans);
     cursor: pointer;
     text-decoration: underline;
@@ -192,13 +193,13 @@ const fold = (s: string) => s.toLocaleLowerCase('tr');
     padding-block: 16px;
   }
   .list a:hover .title {
-    color: var(--navy);
+    color: var(--accent);
   }
   .kicker {
     font: 700 0.68rem var(--sans);
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--rubric);
   }
   :root[lang='ar'] .kicker {
     letter-spacing: 0;
@@ -210,7 +211,7 @@ const fold = (s: string) => s.toLocaleLowerCase('tr');
   }
   .title:lang(tr),
   .title:lang(en) {
-    font-family: 'Merriweather', Georgia, serif;
+    font-family: var(--serif-latin);
   }
   .none {
     padding: 24px 0;

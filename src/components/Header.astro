@@ -17,11 +17,9 @@ const path = Astro.url.pathname;
 <header class="site-header" class:list={{ overlay: home }} data-header>
   <div class="wrap bar">
     <a href={href(lang)} class="logo" aria-label={SITE.name}>
-      <span class="logo-mark"><Mark size={30} /></span>
-      <span class="logo-text">
-        <span class="logo-name">{SITE.name.toUpperCase()}</span>
-        <span class="logo-sub" lang="ar">{SITE.nameAr}</span>
-      </span>
+      <span class="logo-mark"><Mark size={34} /></span>
+      <span class="logo-name">{SITE.name}</span>
+      <span class="logo-sub" lang="ar">{SITE.nameAr}</span>
     </a>
 
     <nav class="nav" aria-label={t('menu')} id="site-nav">
@@ -71,7 +69,7 @@ const path = Astro.url.pathname;
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: #fff;
+    background: var(--bg);
     box-shadow: 0 1px 0 var(--rule);
     transition:
       background 0.3s,
@@ -86,9 +84,9 @@ const path = Astro.url.pathname;
     color: #fff;
   }
   .site-header.overlay.scrolled {
-    background: #fff;
+    background: var(--bg);
     color: var(--ink);
-    box-shadow: 0 2px 16px rgb(0 0 0 / 0.08);
+    box-shadow: 0 1px 0 var(--rule);
   }
 
   .bar {
@@ -110,55 +108,53 @@ const path = Astro.url.pathname;
   .logo-mark {
     display: grid;
     place-items: center;
-    width: 46px;
-    height: 46px;
-    border: 1.5px solid currentColor;
+    color: var(--rubric);
   }
-  .logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
+  .overlay:not(.scrolled) .logo-mark {
+    color: inherit;
   }
   .logo-name {
-    font: 700 1.35rem/1 'Merriweather', serif;
-    letter-spacing: 0.12em;
+    font: 600 1.55rem/1 var(--serif-latin);
+    letter-spacing: 0.01em;
   }
   .logo-sub {
-    margin-block-start: 6px;
-    padding: 2px 6px 4px;
-    border: 1px solid currentColor;
-    font: 700 0.85rem/1 var(--arabic);
-    text-align: center;
+    padding-inline-start: 12px;
+    border-inline-start: 1px solid currentColor;
+    font: 700 1.35rem/1.2 var(--arabic);
+    opacity: 0.85;
   }
 
   .nav {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
     margin-inline-start: auto;
   }
   .nav a {
     position: relative;
-    padding: 10px 14px;
-    font: 700 0.76rem/1 var(--sans);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    padding: 10px 12px;
+    font: 500 0.95rem/1 var(--sans);
     color: inherit;
-    opacity: 0.92;
+  }
+  .nav a::after {
+    content: '';
+    position: absolute;
+    inset-inline: 12px;
+    bottom: 2px;
+    height: 2px;
+    background: var(--rubric);
+    transform: scaleX(0);
+    transition: transform 0.25s;
+  }
+  .nav a:hover::after,
+  .nav a[aria-current='page']::after {
+    transform: scaleX(1);
+  }
+  .overlay:not(.scrolled) .nav a::after {
+    background: #fff;
   }
   :root[lang='ar'] .nav a {
-    letter-spacing: 0;
-    font-size: 0.95rem;
-  }
-  .nav a:hover,
-  .nav a[aria-current='page'] {
-    opacity: 1;
-    color: var(--navy);
-  }
-  .overlay:not(.scrolled) .nav a:hover {
-    color: #fff;
-    text-decoration: underline;
-    text-underline-offset: 6px;
+    font-size: 1.02rem;
   }
 
   .tools {
@@ -211,7 +207,7 @@ const path = Astro.url.pathname;
   .lang-menu a:hover,
   .lang-menu a[aria-current] {
     background: var(--soft);
-    color: var(--navy);
+    color: var(--accent);
   }
 
   .burger {

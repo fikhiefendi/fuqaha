@@ -3,7 +3,7 @@ import { render } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import PageHead from '../../../components/PageHead.astro';
 import Cover from '../../../components/Cover.astro';
-import { formatDate, getPosts } from '../../../lib/entries';
+import { formatDate, getPosts, postImage } from '../../../lib/entries';
 import { LANG_META, LOCALES, useT, type Lang } from '../../../i18n/ui';
 import { href } from '../../../lib/url';
 
@@ -22,6 +22,7 @@ const { post } = Astro.props;
 const t = useT(lang);
 const { entry } = post;
 const { Content } = await render(entry);
+const cover = postImage(entry, lang);
 // When a translation is missing, the original is shown in its own direction.
 const dir = LANG_META[post.lang].dir;
 ---
@@ -36,7 +37,8 @@ const dir = LANG_META[post.lang].dir;
 
   <article class="wrap article">
     <figure class="hero">
-      <Cover seed={post.slug} image={entry.data.cover} alt={entry.data.coverAlt} eager />
+      <div class="frame"><Cover seed={post.slug} image={cover?.src} alt={cover?.alt} eager /></div>
+      {cover?.photo && <figcaption>{cover.photo.caption[lang]}</figcaption>}
     </figure>
     {post.fallback && <p class="notice">{t('post.fallback')}</p>}
     <div class="prose" lang={post.lang} dir={dir}>
@@ -54,15 +56,22 @@ const dir = LANG_META[post.lang].dir;
   }
   .hero {
     margin: 0 0 40px;
+  }
+  .frame {
     aspect-ratio: 21 / 8;
     overflow: hidden;
     background: var(--soft);
+  }
+  figcaption {
+    margin-block-start: 10px;
+    font: italic 400 0.8rem/1.5 var(--sans);
+    color: var(--muted);
   }
   .notice {
     max-width: var(--measure);
     margin-block-end: 28px;
     padding: 12px 16px;
-    border-inline-start: 3px solid var(--navy);
+    border-inline-start: 3px solid var(--accent);
     background: var(--soft);
     font-size: 0.9rem;
   }

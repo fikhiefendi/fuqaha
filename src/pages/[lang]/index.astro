@@ -1,9 +1,12 @@
 ---
 import Base from '../../layouts/Base.astro';
 import HeroSlider from '../../components/HeroSlider.astro';
-import DiamondSection from '../../components/DiamondSection.astro';
+import ArchSection from '../../components/ArchSection.astro';
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import Cover from '../../components/Cover.astro';
-import { formatDate, getFeatured, getPosts } from '../../lib/entries';
+import { formatDate, getFeatured, getPosts, postImage } from '../../lib/entries';
+import { photo } from '../../lib/images';
 import { getScholars, lifeShort } from '../../lib/scholars';
 import { getWorks } from '../../lib/works';
 import { langPaths, pick, useT, type Lang } from '../../i18n/ui';
@@ -27,6 +30,8 @@ const types = Object.entries(WORK_TYPES)
   .map(([key, label]) => ({ key, label, n: countOf(key) }))
   .sort((a, b) => b.n - a.n)
   .slice(0, 6);
+const placeCount = (await getCollection('places')).length;
+const idrisi = photo('idrisi');
 const num = new Intl.NumberFormat(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB' : 'tr-TR');
 ---
 
@@ -45,7 +50,7 @@ const num = new Intl.NumberFormat(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB'
           lead && (
             <article class="news-lead">
               <a href={href(lang, `posts/${lead.slug}/`)} class="thumb" tabindex="-1" aria-hidden="true">
-                <Cover seed={lead.slug} image={lead.entry.data.cover} alt={lead.entry.data.coverAlt} />
+                <Cover seed={lead.slug} image={postImage(lead.entry, lang)?.src} alt={postImage(lead.entry, lang)?.alt} />
               </a>
               <div class="news-body">
                 <h3 lang={lead.lang}>
@@ -66,7 +71,7 @@ const num = new Intl.NumberFormat(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB'
             side.map((p) => (
               <article class="news-item">
                 <a href={href(lang, `posts/${p.slug}/`)} class="thumb" tabindex="-1" aria-hidden="true">
-                  <Cover seed={p.slug} image={p.entry.data.cover} alt={p.entry.data.coverAlt} />
+                  <Cover seed={p.slug} image={postImage(p.entry, lang)?.src} alt={postImage(p.entry, lang)?.alt} />
                 </a>
                 <div class="news-body">
                   <h3 lang={p.lang}>
@@ -87,10 +92,11 @@ const num = new Intl.NumberFormat(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB'
     </div>
   </section>
 
-  <DiamondSection
+  <ArchSection
+    lang={lang}
     title={t('nav.scholars')}
     lead={t('home.scholarsLead')}
-    seed="alimler-bolumu"
+    photo={photo('mabsut')}
     button={{ href: href(lang, 'scholars/'), label: t('home.scholarsAll') }}
     soft
   >
@@ -105,12 +111,31 @@ const num = new Intl.NumberFormat(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB'
         </a>
       ))
     }
-  </DiamondSection>
+  </ArchSection>
 
-  <DiamondSection
+  <section class="map-band">
+    <Image src={idrisi.src} alt="" widths={[800, 1400, 2000]} sizes="100vw" class="map-bg" loading="lazy" />
+    <div class="wrap map-inner">
+      <div class="map-text">
+        <span class="map-kicker">{t('nav.map')}</span>
+        <h2>{t('home.mapTitle')}</h2>
+        <p>{t('home.mapLead')}</p>
+        <a href={href(lang, 'map/')} class="btn">{t('home.mapOpen')}</a>
+      </div>
+      <dl class="stats">
+        <div><dt>{t('home.statScholars')}</dt><dd>{num.format(all.length)}</dd></div>
+        <div><dt>{t('home.statPlaces')}</dt><dd>{num.format(placeCount)}</dd></div>
+        <div><dt>{t('home.statWorks')}</dt><dd>{num.format(works.length)}</dd></div>
+      </dl>
+    </div>
+    <p class="map-caption">{idrisi.caption[lang]}</p>
+  </section>
+
+  <ArchSection
+    lang={lang}
     title={t('nav.bibliography')}
     lead={t('home.worksLead')}
-    seed="bibliyografya-bolumu"
+    photo={photo('kharaj')}
     button={{ href: href(lang, 'bibliography/'), label: t('home.worksAll') }}
     flip
   >
@@ -123,7 +148,7 @@ const num = new Intl.NumberFormat(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB'
         </a>
       ))
     }
-  </DiamondSection>
+  </ArchSection>
 </Base>
 
 <style>
@@ -166,11 +191,10 @@ const num = new Intl.NumberFormat(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB'
     font-size: 1.5rem;
   }
   .news-body h3 a:hover {
-    color: var(--navy);
+    color: var(--accent);
   }
   .news-body p {
-    font-size: 0.9rem;
-    text-align: justify;
+    font-size: 0.92rem;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -204,30 +228,133 @@ const num = new Intl.NumberFormat(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB'
   .mini-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 6px;
-    min-height: 150px;
-    padding: 22px;
-    background: #fff;
-    box-shadow: 0 10px 30px -18px rgb(21 53 79 / 0.45);
+    min-height: 168px;
+    padding: 20px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-block-start: 3px solid var(--accent);
     transition:
       transform 0.25s,
-      box-shadow 0.25s;
+      box-shadow 0.25s,
+      border-color 0.25s;
   }
   .mini-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 36px -18px rgb(21 53 79 / 0.55);
+    transform: translateY(-3px);
+    border-block-start-color: var(--rubric);
+    box-shadow: 0 16px 30px -20px rgb(var(--shadow) / 0.5);
   }
   .mini-ar {
     font: 700 1.2rem/1.6 var(--arabic);
-    color: var(--navy);
+    color: var(--accent);
   }
   .mini-count {
-    font: 900 1.9rem/1 'Merriweather', serif;
-    color: var(--navy);
+    font: 600 2.1rem/1 var(--serif-latin);
+    color: var(--accent);
   }
   .mini-title {
     font: 700 0.98rem/1.4 var(--serif);
     color: var(--ink);
+  }
+
+  .map-band {
+    position: relative;
+    overflow: hidden;
+    padding-block: 110px 90px;
+    background: #16130f;
+    color: #fff;
+  }
+  .map-band :global(.map-bg) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+  }
+  .map-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to right, rgb(22 17 11 / 0.88), rgb(22 17 11 / 0.55) 55%, rgb(22 17 11 / 0.25));
+  }
+  :root[dir='rtl'] .map-band::before {
+    background: linear-gradient(to left, rgb(22 17 11 / 0.88), rgb(22 17 11 / 0.55) 55%, rgb(22 17 11 / 0.25));
+  }
+  .map-inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 48px;
+    align-items: end;
+  }
+  @media (min-width: 900px) {
+    .map-inner {
+      grid-template-columns: 1.2fr 1fr;
+    }
+  }
+  .map-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font: 500 0.82rem var(--sans);
+    letter-spacing: 0.04em;
+    color: rgb(255 255 255 / 0.8);
+  }
+  .map-kicker::before {
+    content: '';
+    width: 28px;
+    height: 2px;
+    background: #d9765c;
+  }
+  .map-text h2 {
+    margin-block: 14px 12px;
+    color: #fff;
+    font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+    font-weight: 600;
+  }
+  .map-text p {
+    max-width: 46ch;
+    margin-block-end: 28px;
+    color: rgb(255 255 255 / 0.85);
+  }
+  .map-text .btn {
+    background: #fff;
+    color: var(--ink);
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0;
+    border-block-start: 1px solid rgb(255 255 255 / 0.3);
+  }
+  .stats div {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 4px;
+    padding-block-start: 18px;
+  }
+  .stats dd {
+    margin: 0;
+    font: 600 clamp(2rem, 4vw, 3rem) / 1 var(--serif-latin);
+    font-variant-numeric: lining-nums;
+    color: #fff;
+  }
+  :root[lang='ar'] .stats dd {
+    font-family: var(--arabic);
+  }
+  .stats dt {
+    font-size: 0.85rem;
+    color: rgb(255 255 255 / 0.75);
+  }
+  .map-caption {
+    position: absolute;
+    z-index: 2;
+    inset-block-end: 18px;
+    inset-inline-end: 32px;
+    font: italic 400 0.74rem var(--sans);
+    color: rgb(255 255 255 / 0.6);
   }
 </style>

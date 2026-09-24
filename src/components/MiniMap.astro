@@ -35,7 +35,7 @@ const { points, label } = Astro.props;
     }).addTo(map);
     const layer = L.featureGroup(
       pts.map((p) =>
-        L.circleMarker([p.lat, p.lng], { radius: 6, weight: 2, color: '#1f4a6e', fillColor: '#1f4a6e', fillOpacity: p.approx ? 0.25 : 0.8, dashArray: p.approx ? '3 3' : null })
+        L.circleMarker([p.lat, p.lng], { radius: 6, weight: 2, color: '#1d5047', fillColor: '#1d5047', fillOpacity: p.approx ? 0.25 : 0.8, dashArray: p.approx ? '3 3' : null })
           .bindTooltip(`${p.name} · ${p.roles}`, { direction: 'top', offset: [0, -6] }),
       ),
     ).addTo(map);

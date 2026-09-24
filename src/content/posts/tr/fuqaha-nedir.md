@@ -1,4 +1,5 @@
 ---
+photo: library
 title: 'Fuqaha: fakihlerin izini süren bir arşiv'
 date: 2026-09-21
 summary: Fakihlerin hayatlarını, yaşadıkları şehirleri ve fıkıh üzerine her dilde yapılmış çalışmaları, kaynaklarıyla birlikte tek bir yerde toplama denemesi.
