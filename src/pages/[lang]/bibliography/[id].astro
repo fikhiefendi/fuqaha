@@ -15,18 +15,26 @@ export async function getStaticPaths() {
   const scholars = new Map((await getScholars()).map((s) => [s.id, s]));
   const paths = [];
   for (const w of works) {
+    // Automatically harvested theses get a Turkish page only; en/ar redirect to it.
+    const auto = w.data.origin === 'otomatik';
+    if (auto) for (const lang of LOCALES) if (lang !== 'tr') paths.push({ params: { lang, id: w.id }, props: { w, redirect: true } });
     const similar = (await similarTo(w)).map((x) => ({ w: byId.get(x.id)!, score: x.score }));
     const advisor = sameAdvisor(w, works).slice(0, 8);
     const skip = new Set([w.id, ...similar.map((x) => x.w.id), ...advisor.map((x) => x.id)]);
     const related = works.filter((o) => !skip.has(o.id) && o.data.university && universityName(o.data.university) === universityName(w.data.university)).slice(0, 6);
     const jurists = scholarsOf(w.id).map((id) => scholars.get(id)!).filter(Boolean);
-    for (const lang of LOCALES) paths.push({ params: { lang, id: w.id }, props: { w, related, similar, advisor, jurists } });
+    for (const lang of LOCALES) {
+      if (auto && lang !== 'tr') continue;
+      paths.push({ params: { lang, id: w.id }, props: { w, related, similar, advisor, jurists, redirect: false } });
+    }
   }
   return paths;
 }
 
+if (Astro.props.redirect) return Astro.redirect(href('tr', `bibliography/${Astro.props.w.id}/`));
+
 const lang = Astro.params.lang as Lang;
-const { w, related, similar, advisor, jurists } = Astro.props;
+const { w, related, similar, advisor, jurists } = Astro.props as Required<typeof Astro.props>;
 const num = new Intl.NumberFormat(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB' : 'tr-TR');
 const t = useT(lang);
 const d = w.data;

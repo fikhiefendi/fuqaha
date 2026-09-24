@@ -52,7 +52,7 @@ export function languageName(code: string, lang: Lang): string {
 export function isnad(w: Work, lang: Lang): string {
   const d = w.data;
   const authors = d.authors.join(' - ');
-  const kind = typeLabel(w, 'tr');
+  const kind = d.type === 'tez-doktora' ? 'Doktora Tezi' : d.type === 'tez-yl' ? 'Yüksek Lisans Tezi' : typeLabel(w, 'tr');
   const where = [d.city, d.university].filter(Boolean).join(': ');
   const year = d.year ?? (lang === 'tr' ? 'ts.' : 'n.d.');
   if (d.type.startsWith('tez')) return `${authors}. ${d.title}. ${where}, ${kind}, ${year}.`;

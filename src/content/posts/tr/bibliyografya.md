@@ -19,6 +19,10 @@ Bibliyografya bölümü bu çalışmaları tek bir listede topluyor.
 
 Her kaydın dili, yılı, yayın yeri ve konuları belirtilir. Çalışma belirli bir fakih hakkındaysa, o fakihin sayfasına bağlanır.
 
+## YÖK tezleri nasıl ekleniyor?
+
+Türkiye'de yapılmış fıkıh, İslam hukuku, fıkıh usulü, fıkıh tarihi, mukayeseli hukuk ve İslam iktisadı tezleri YÖK Ulusal Tez Merkezi verisinden haftada iki kez otomatik olarak taranır. Tezler önce ana bilim dalı ve bilim dalına, sonra başlık, anahtar kelime ve özetlerindeki terimlere göre ayıklanır. Emin olunamayan tezler elle incelenir. Otomatik eklenen kayıtlarda YÖK'teki künye, özet ve tam metin bağlantısı yer alır.
+
 ## Nasıl süzülür?
 
 Liste türe, dile, yıl aralığına, mezhebe ve konuya göre daraltılabilir. Arama, çalışmanın orijinal başlığında ve çevirisinde birlikte yapılır; Arapça bir başlığı Türkçe anahtar kelimeyle de bulabilirsiniz.

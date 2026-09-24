@@ -129,6 +129,14 @@ const works = defineCollection({
     /** Link to the full text (e.g. the PDF on the YÖK National Thesis Centre). */
     fullText: z.url().optional(),
     abstract: z.string().optional(),
+    /** Thesis number in the YÖK National Thesis Centre; used to match records on automatic imports. */
+    yokId: z.number().int().optional(),
+    /**
+     * 'otomatik': added by the thesis harvester (tools/tezci). Such records get a Turkish
+     * detail page only; the English and Arabic addresses redirect to it (keeps the site
+     * well under the GitHub Pages size limit).
+     */
+    origin: z.enum(['elle', 'otomatik']).default('elle'),
     addedAt: z.coerce.date(),
   }),
 });
