@@ -1,0 +1,17 @@
+type: "tez-doktora"
+title: "Borsa İstanbul'da İslami Hisse Senedi Endeksi Oluşturulmasına Yönelik Bir Yaklaşım Önerisi"
+titleTranslation: {"en": "A proposal for creating an Islamic stock index in Borsa İstanbul"}
+authors: ["Buğan, Mehmet Fatih"]
+language: "tr"
+year: 2018
+university: "Gaziantep Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "Gaziantep"
+department: "İşletme Ana Bilim Dalı / İşletme Bilim Dalı"
+advisors: ["Arif Özaydın"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=z5SOdLNoLuT4OelDmln4hg"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=as2oTjW5jfr9IKSvmCdJYh33GfHvDx3q3xqVq_jF4Jz-UyueMrZ8_92khd4cTZpV"
+abstract: "İslami hisse senedi, İslami hisse senedi taraması neticesinde şer'i uygunluğa sahip hisse senetlerini ifade etmektedir. İslami hisse senedi taraması, sektörel tarama ve finansal oran taraması olmak üzere iki aşamadan oluşmaktadır. İslami hisse senedi taraması esnasında kullanılacak kriterler, uluslararası derecelendirme kuruluşları ve endeks sağlayıcıların şer'i danışma kurulları tarafından belirlenmektedir. Uygulamada, farklı şer'i kurulların farklı kriterleri benimsediği görülmüştür. Söz konusu kriterler arasında en belirgin fark, finansal oran taraması esnasında kullanılan finansal oranların paydasında yer alan şirket değerinin defter değeri ve piyasa değeri mi olacağı ile ilgilidir. Bu çalışmada, ilk olarak şirket değeri olarak defter değeri ve piyasa değeri (12, 24 ve 36 aylık ortalama piyasa değeri) kullanımının oluşturduğu etki incelenmiştir. Bu kapsamda BİST Tüm endeksinde yer alan 40 sektörden 330 şirketin 2008Q1-2018Q2 dönemleri mali tablo verilerinden yararlanılmış ve İslami hisse senedi taraması gerçekleştirilmiştir. İkinci olarak, ihtiyatlılık ve liberal yaklaşımları benimsenerek iki yeni model önerilmiştir. Buna göre ihtiyatlılık gereği sektörel bazda minimum bölen değeri, liberal yaklaşımda ise sektörel bazda maksimum bölen değeri şirket değeri olarak kabul edilmiş ve iki yeni portföy oluşturulacak şekilde İslami hisse senedi taraması gerçekleştirilmiştir. Bu kapsamda dört farklı bölen değeri ve iki yeni model önerisi doğrultusunda altı farklı portföy oluşturulmuş ve bu portföylerden İslami hisse senedi endeksleri oluşturulmuştur. Son olarak, İslami hisse senedi piyasalarının konvansiyonel hisse senedi piyasalarından ayrıştığı yönündeki ayrıştırma hipotezi test edilmiştir. Bu kapsamda konvansiyonel hisse senedi piyasalarını temsilen BİST100 endeksi kullanılmıştır. İslami hisse senedi endeksleri ile BİST100 endeski arasında MV-GARCH modeli kurulmuş ve modelden dinamik koşullu korelasyon katsayıları (DCC) elde edilmiştir. Genel olarak çalışmadan elde edilen bulgular, İslami hisse senedi tarama kriterleri arasında ciddi farklılıklar olduğu, bu farklılıkların portföylerin sektörel dağılımında ve portföyde yer alan şirket kompozisyonu üzerinde ciddi farklılıklara yol açtığı ancak söz konusu farklılıkların bütüncül bir yaklaşımla elde edilen endekslerin getiri serileri ile konvansiyonel piyasalar arasındaki ayrışma hipotezinin geçerliliği üzerinde anlamlı bir etkisinin olmadığı yönünde olmuştur."
+yokId: 532769
+origin: otomatik
+addedAt: 2026-09-24

@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "Türkiye'de Kâr Payı ile Enflasyon Arasındaki İlişkinin Fisher Hipotezi Çerçevesinde Değerlendirilmesi"
+titleTranslation: {"en": "Evaluating the relationship between dividend rates and inflation in the context of the Fisher Hypothesis"}
+authors: ["Ergene, Leyla"]
+language: "tr"
+year: 2021
+university: "Sakarya Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "Sakarya"
+department: "İslam İktisadı ve Finansı Ana Bilim Dalı"
+advisors: ["Nurullah Altıntaş"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=NUkUXbljAKsiPwaTPIMZjg"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=8tbPippmWV_b-Irrn9YEAlwdh5KaotdSFFwY6eJWKniT2rWk-5RxRsXRJsWxQ7us"
+abstract: "Bu çalışmada, Türkiye'de Fisher Hipotezi'nin geçerliliğinin nedensellik ilişkisi temelinde test edilmesi ve Fisher hipotezi bağlamında katılım hesaplarına ödenen kâr payı oranları ile enflasyon arasındaki ilişkinin incelenmesi amaçlanmıştır. 2004:01-2021:02 dönemine ait aylık verileri kapsayan çalışmada, enflasyon oranları (TÜFE) ile bankalarca TL üzerinden açılan mevduatlara uygulanan ağırlıklı ortalama faiz oranları ve Katılım Bankalarınca TL üzerinden açılan katılım hesaplarına ödenen ortalama kâr payı oranları arasındaki ilişki ekonometrik zaman serileri analizi yöntemleri kullanılarak araştırılmıştır. Analizler için uygulanacak nedensellik testi yöntemlerinin belirlenebilmesi için, öncelikle ADF Birim Kök Testi ve ayrıca, serilerde yapısal kırılmaların olduğu tespit edildiği için, yapısal kırılmaları dikkate alan Zivot-Andrews Birim Kök Testi ve Lee-Strazicich Birim Kök Testi de uygulanarak serilerin durağanlıkları araştırılmıştır. Durağanlık testleri sonucunda, seriler arasındaki nedensellik ilişkisi Toda-Yamamoto Nedensellik Testi ve Breitung-Candelon Frekans Alanı Nedensellik Testi ile analiz edilmiştir. Çalışmada, TCMB EVDS, TKBB ve TÜİK veri tabanlarından elde edilen ikincil veriler kullanılmıştır. Yapılan analizler sonucunda, incelenen dönemde Türkiye için Fisher hipotezinin geçerli olduğu ve enflasyondan faize doğru tek yönlü nedensellik ilişkisinin olduğu bulgusuna ulaşılmıştır. Frekans alanı nedensellik testi sonuçlarına göre ise, enflasyondan faize doğru uzun dönem nedensellik ilişkisi tespit edilmiştir. Bu durum, enflasyonun uzun dönemde faizi kalıcı olarak etkilediği anlamına gelmektedir. Fisher hipotezi bağlamında, enflasyon ve kâr payı arasındaki ilişkinin analizi sonucunda ise, enflasyondan kâr payına doğru tek yönlü nedensellik ilişkisinin olduğu bulgusuna ulaşılmıştır. Frekans alanı nedensellik testi sonucunda, enflasyondan kâr payına doğru hem uzun hem de kısa dönemde nedensellik ilişkisi tespit edilmiştir. Bu durum, enflasyonun hem kalıcı hem de geçici olarak kâr payını etkilediği anlamına gelmektedir."
+yokId: 676433
+origin: otomatik
+addedAt: 2026-09-24

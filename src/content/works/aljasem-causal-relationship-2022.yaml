@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "The Causal Relationship Between Bitcoin, Islamic Stocks, and Oil Prices: Evidence from the Quantiles-based Granger Causality Test"
+titleTranslation: {"tr": "Bitcoin, İslam Pay Senetleri ve petrol fiyatları arasındaki nedensel ilişki: Kantil temelli Granger Nedensellik Testinden kanıtlar"}
+authors: ["Aljasem, Salah Alddin"]
+language: "en"
+year: 2022
+university: "Gaziantep Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "Gaziantep"
+department: "Uluslararası Ticaret ve Finansman Ana Bilim Dalı"
+advisors: ["Mehmet Fatih Buğan", "Eray Gemici"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=1NE2rdiHcsFX3AYrPt0AAw"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=kScA8XnrRb0WogX-qPGFkr8PNuk7amQYXKXHwp3Kh9HU0Tat2IdywVfcBis-3QAD"
+abstract: "Varlık sınıflarının genişlemesi ve sağlık, ekonomik ve jeopolitik krizler, yatırımcıların varlıklarını uluslararası piyasalarda çeşitlendirmelerini gerekli kılmıştır. Bu tez, Bitcoin (BTC), İslami Pay Senetleri (DJI) ve petrol fiyatları (WTI) arasındaki nedensel ilişkiyi araştırmayı amaçlamaktadır. Bu amaçla, öncelikle 18 Ağustos 2011- 10 Aralık 2021 dönemi için Artırılmış Dickey-Fuller (ADF) ve Philips Perron (PP) Testleri kullanılarak veri serilerinin durağanlığı kontrol edilmiştir. Daha sonra, Vektör Otoregresif (VAR) Modeli ve değişkenler arasındaki korelasyonların varlığını izlemek için çeşitli sağlamlık kontrolleri uygulandıktan sonra, incelenen seriler arasındaki ilişkinin yönünü ve gücünü belirlemek için Parametrik Olmayan Kantil Nedensellik Testi kullanılmıştır. Sonuçlar, değişkenler arasında iki yönlü varyans nedensellik olduğunu göstermiştir. Bu nedenselliğin gücü özellikle normal piyasa koşullarında artmakta ancak BTC'den İslami Pay Senetleri (DJI)'ye ve Petrol fiyatlarından (WTI) İslami Pay Senetlerine (DJI) olan nedensellik dışında üst kantillerde zayıftır. Ortalamada nedensellik açısından, İslami pay senetlerinden (DJI) petrol fiyatlarına (WTI) yalnızca orta kantilde tek yönlü bir nedensellik tespit edilmiştir."
+yokId: 736682
+origin: otomatik
+addedAt: 2026-09-24

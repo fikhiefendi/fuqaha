@@ -1,0 +1,17 @@
+type: "tez-doktora"
+title: "İnfak Kurumunun Gelir ve Servet Dağılımındaki Rolü: Türkiye İçin Bir Model Önerisi"
+titleTranslation: {"en": "The role of the infaq institution in distribution of income and wealth: A model proposal for Turkey"}
+authors: ["Tekin, Hüsnü"]
+language: "tr"
+year: 2021
+university: "İstanbul Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "İstanbul"
+department: "İslam İktisadı ve Finansı Ana Bilim Dalı"
+advisors: ["Mürteza Bedir"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=5FBCbI0NG-gkGjcx6cPY8Q"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=tqUiYt63sTQLTpozMJ92Qo3Tc-cH_MImBbiahshawysMOvMCKWaPFH6kGfqjelQm"
+abstract: "Gelir ve servet dağılımı adaletsizliğinin günümüzde geldiği seviye, bu adaletsizliğin nedenlerinin daha yüksek sesle sorgulanmasına neden olmuştur. Bu çalışmada, iktisat yazınında bahse konu adaletsizliğin başat faktörlerinden biri olarak öne sürülen kurum ve kurumsallaşma olguları ele alınarak, İslâm dininde öngörülen belli başlı iktisadi kurumlar ve İslâm medeniyetinde bu kapsamda ortaya çıkmış olan pozitif iktisadi kurumlar üzerinde durulacaktır. Bu çerçevede, İslâm dininde, zekât, sadaka ve vakıf gibi hayır ve dayanışma kurumlarının bir nevi çatı kavramı olarak ifade edilen infak kurumunun gelir ve servetin yeniden dağılımındaki rolüne odaklanılmaktadır. Bu amaçla, Türkiye'de infak faaliyetlerinin dijital teknolojilerden de faydalanmak suretiyle şeffaflık, hesap verilebilirlik ve etkinlik prensipleri çerçevesinde kurumsallaşmasına yönelik somut bir model önerisi ortaya konulmakta ve önerilen infak platformu modelinin gelir ve servet dağılımı adaletsizliğini gidermedeki rolü tespit edilmeye çalışılmaktır. Bu amaçla, Python programlama dili ile oluşturulan simülasyon modeli yardımı ile Türkiye'de infak kurumunun potansiyelini gerçekleştirecek şekilde teşekkülü halinde gelir ve servet dağılımı üzerindeki etkileri çeşitli simülasyon deneyleri ile analiz edilmeye çalışılmıştır. Simülasyon sonuçları, Türkiye'de infak kurumunun önerilen model çerçevesinde kurumsal bir nitelik kazanması durumunda gelir ve servet dağılımı adaletsizliğinde yıllara yaygın olarak önemli iyileşmelerin olacağına işaret etmektedir."
+yokId: 692383
+origin: otomatik
+addedAt: 2026-09-24

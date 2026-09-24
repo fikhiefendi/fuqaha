@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "KOVID-19 Pandemi Döneminde Türkiye'de Geleneksel Bankalarla Katılım Bankalarının Performans Analizi"
+titleTranslation: {"en": "The performance analysis of traditional banks and participation banks during the COVID-19 pandemic period in Turkey"}
+authors: ["Güllü, Ümran"]
+language: "tr"
+year: 2024
+university: "Afyon Kocatepe Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "Afyonkarahisar"
+department: "İşletme Ana Bilim Dalı / Katılım Bankacılığı Bilim Dalı"
+advisors: ["Abdullah Keskin"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=ZPCzz6p7gknFsxDA0rOpUQ"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=htlyhJG97gjBTPjAeWRhPgIfVEFECxerQ1Fq1qc7CGUteG7L1nm7F6yvu1aYrne9"
+abstract: "Türkiye'de uzun zamandır faaliyetlerini sürdüren, aynı rekabet ortamını paylaşan katılım bankaları ve geleneksel bankalar finansal sistemin temelini oluşturmaktadır. Tasarrufların yatırıma dönüştürülerek reel sektörün finansmanında kilit rol oynayan bankacılık sektörünün performansının ölçülmesi ekonominin bütünü için önem taşımaktadır. Özellikle Türk bankacılık sektöründe payı giderek artan katılım bankalarının rakipleri karşısında performans analizinin yapılması sektöre ilişkin uygulanacak iktisat politikalarına öncü olması bakımından gerekliliktir. Bu anlamda çalışma katılım bankaları ile bankacılık sektöründe büyük bir paya sahip olan geleneksel bankaların 2018-2023 yılları Kovid-19 pandemi dönemindeki finansal performanslarının Veri Zarflama Analizi (VZA) yöntemi ile ölçülmesini amaçlamaktadır. VZA, doğrusal programlama modeline dayalı, parametrik olmayan, yaygın olarak kullanılan bir etkinlik analiz yöntemidir. Çalışmada, Türkiye'de faaliyet gösteren 13 geleneksel banka ile 6 katılım bankasının verileri, VZA yönteminde girdi ve çıktı olarak seçilmiştir. Veriler, ilgili bankaların bağımsız denetim raporları, faaliyet raporları ve Türkiye Bankalar Birliği, Türkiye Katılım Bankaları Birliği resmi internet sitesinden elde edilmiştir. Çalışmada, literatürde çok az sayıda çalışma olması sebebiyle, istatistiksel programlamada ve veri analizinde kullanımı günden güne yaygınlaşan R yazılım programı da kullanılmıştır. Etkinlik analizinde öncelik olarak ''EMS: Efficiency Measurement System User's Manual'' programı kullanılmıştır. Etkinlik ölçümünde ise ölçeğe göre sabit getiri, ölçeğe göre değişken getiri varsayımları altında girdi odaklı VZA kullanılmıştır. Çalışma sonucunda girdi odaklı ölçek sabit getirili modele göre, 1 katılım bankası, 5 geleneksel banka olmak üzere toplamda 6 banka, girdi odaklı ölçek değişken getiri modeline göre ise 3 katılım bankası, 7 geleneksel banka olmak üzere toplam 10 bankanın etkin olduğu sonucu elde edilmiştir."
+yokId: 937078
+origin: otomatik
+addedAt: 2026-09-24

@@ -1,0 +1,16 @@
+type: "tez-yl"
+title: "Artificial İntelligence Based Analysis of Vital Signs Forimprovement of Healthcare Services Using Mimic-iii Waveformdatabase"
+titleTranslation: {"tr": "Mimic-iii dalga formu verı̇ tabanı kullanılarak sağlıkhı̇zmetlerı̇nı̇n ı̇yı̇leştı̇rı̇lmesı̇ ı̇çı̇n hayatı̇ belı̇rtı̇lerı̇n yapay zekatabanlı analı̇zı̇"}
+authors: ["Olcay, Fırat Fuat"]
+language: "en"
+year: 2025
+university: "Türk-Alman Üniversitesi, Fen Bilimleri Enstitüsü"
+department: "Bilgisayar Mühendisliği Ana Bilim Dalı"
+advisors: ["Dilek Göksel Duru"]
+topics: ["İslam iktisadı", "Şahıs çalışmaları"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=veN3qMROQEM6U3y85QkuAQ"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=5T1_CZ5-UGb9QCmoURec4FVHL2DhzweHShAMGOucUNBlAnSyKZd0Xg5Fag4yJ1xe"
+abstract: "Yapay zeka (YZ) ve makine öğrenimi (MÖ) tekniklerinin yaygın kullanımı, özellikle girişimsel olmayan yaşamsal belirtilerin analizinde sağlık hizmetlerinde köklü değişimlere yol açmıştır. Bu çalışma, MIMIC-III Waveform Veritabanı'ndan elde edilen kalp ritmi, nabız, solunum hızı ve kandaki oksijen doygunluğu (SpO₂) gibi fizyolojik zaman serisi verilerinin etkin bir şekilde analiz edilmesi sorununu ele almaktadır. Bu problemin önemi, erken teşhis süreçlerinin iyileştirilmesi, invaziv izleme cihazlarına olan bağımlılığın azaltılması ve yoğun bakım ünitesi (YBÜ) ile ilgili klinik kararların doğruluğunun artırılması potansiyelinden kaynaklanmaktadır. Bu tezin amacı, yaşamsal belirtiler arasındaki ilişkileri ortaya çıkarabilen, anomalileri tespit edebilen ve hastaları bulundukları YBÜ türlerine göre otomatik olarak sınıflandırabilen bir sistem geliştirmektir. Yöntem olarak, iki saatlik zaman serilerinin ön işlenmesi ve bölütlenmesi, sinyal dönüşümleri (örneğin Fourier dönüşümü ve spektral analiz), öznitelik mühendisliği ve çeşitli makine öğrenimi ve derin öğrenme modellerinin (lojistik regresyon, rastgele orman, XGBoost ve LSTM ağları) eğitilmesi süreçleri uygulanmıştır. Başlangıçtaki korelasyon ve varyans analizleri, özellikle nabız ve kalp ritmi arasında güçlü bir bağıntı olduğunu ve YBÜ türlerine özgü belirgin farklılıklar bulunduğunu ortaya koymuştur. Test edilen modeller arasında CNN-BiLSTM, sınıflandırma doğruluğu açısından en iyi performansı göstermiştir. Elde edilen sonuçlar, korelasyon bilgisi ile zaman serisi modellemenin birleştirilmesinin sınıflandırma başarımını anlamlı ölçüde artırdığını ve veri odaklı klinik karar destek sistemlerinin geliştirilmesine katkı sunduğunu göstermektedir. Tez, yaşamsal belirti bağıntılarının YZ teknikleriyle etkili biçimde kullanılabileceğini ve bu sayede sağlık analizlerinin doğruluğunun artırılabileceğini ortaya koymaktadır."
+yokId: 1011452
+origin: otomatik
+addedAt: 2026-09-24

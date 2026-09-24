@@ -5,4 +5,11 @@ language: tr
 year: 1999
 university: "Ondokuz Mayıs Üniversitesi, Sosyal Bilimler Enstitüsü"
 city: "Samsun"
+titleTranslation: {"en": "Theory of maslaha according to Izzuddin b. Abdisselam"}
+department: "Temel İslam Bilimleri Ana Bilim Dalı"
+advisors: ["Muhsin Koçak"]
+topics: ["Fıkıh usulü"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=zGv9hWdWuSPjplmmaSsl7A"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=1pwTzRXnomYf6jwqVORfUTQh9YvUFgM1pfhKbYYckL_Ma_2FZ1a5I-OmWaZpKyXs"
+yokId: 87235
 addedAt: 2026-09-24

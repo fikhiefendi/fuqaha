@@ -1,0 +1,17 @@
+type: "tez-doktora"
+title: "Türk Bankacılık Sektöründeki Katılım Bankalarının Finansal İstikrarının Stres Testi Yöntemi ile Analizi"
+titleTranslation: {"en": "Analysis of financial stability of participation banks in Turkish banking sector by stress testing method"}
+authors: ["Akkuş, Hilmi Tunahan"]
+language: "tr"
+year: 2017
+university: "Balıkesir Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "Balıkesir"
+department: "İşletme Ana Bilim Dalı / Muhasebe Finansman Bilim Dalı"
+advisors: ["Şakir Sakarya"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=f3vYCKBNH909bD2-2fniUw"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=q3-d9QtLoVA2OMExHSkJpQU3J7rlM4oITYDjFn7rRSXyuURyRCQcISVUAP0OaZyn"
+abstract: "Güncel çalışmalarda riski daha hassas ölçebilmek için riske maruz değer modellerinin sıklıkla kullanıldığı görülmektedir. Bu ölçüm tekniklerini tamamlamak amacıyla geliştirilen önemli yöntemlerden biri de stres testleridir. Stres testi, bir varlığın ya da portföyün risklilik düzeyinin faiz oranlarındaki ani artış, GSYH'nin önemli oranda küçülmesi, enflasyonun aşırı yükselmesi, döviz kurunun önemli oranda artması gibi istisnai olarak ortaya çıkan ancak gerçekleşmesi olası olaylar karşısındaki duyarlılıklarının ölçülmesi amacıyla kullanılan bir tekniktir. Bu çalışmada Türk bankacılık sektöründeki katılım bankalarında analize uygun üç bankanın ve katılım bankacılığı sektörünün 2005:Q1 - 2016:Q2 dönemine ait veriler kredi riski açısından analiz edilmiştir. Analizde temerrüt süreci Wilson'un CreditPortfolioView yaklaşımıyla modellenmiştir. Modellemede literatüre uyularak bağımlı değişken olarak bankaların takipteki kredilerinin toplam kredilere oranı kullanılmış, takip oranlarını en iyi açıklayan bağımsız değişkenler olarak da GSYH, katılım bankaları üç aylık ortalama kar payı oranları, petrol fiyatları, dolar kuru ve enflasyon (TÜFE) oranları bulunmuştur. Takipteki kredi oranlarını açıklayan bağımsız değişkenlerin gelecekteki değerlerinin tahmin edilmesi için Sims tarafından yapılan çalışmalar sonucunda ortaya çıkarılan vektör otoregresif (VAR) model tercih edilmiştir. Çalışmada ayrıca beklenen ve beklenmeyen kayıp dağılımlarının tahmini için Monte Carlo simülasyon yöntemi kullanılmıştır. Çalışmanın sonunda Türk bankacılık sektöründeki katılım bankalarının finansal istikrar açısından potansiyel şoklara karşı yeterli sermaye yeterlilik rasyolarına sahip oldukları dolayısıyla dayanıklı oldukları sonucuna ulaşılmıştır."
+yokId: 464635
+origin: otomatik
+addedAt: 2026-09-24

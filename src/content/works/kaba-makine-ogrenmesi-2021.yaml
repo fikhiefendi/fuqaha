@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "Makine Öğrenmesi Yöntemleri ile Faizsiz Finansman Sektöründe Müşteri Kayıp Tahmini: Churn Analizi"
+titleTranslation: {"en": "Customer loss forecast in the interest free finance sectorwith machine learning methods: Churn analysis"}
+authors: ["Kaba, Ayşegül"]
+language: "tr"
+year: 2021
+university: "Mimar Sinan Güzel Sanatlar Üniversitesi, Fen Bilimleri Enstitüsü"
+city: "İstanbul"
+department: "İstatistik Ana Bilim Dalı / İstatistik Bilim Dalı"
+advisors: ["Barış Aşıkgil"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=1HmNYIYjj4WG3MNx7TM_QA"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=v7BkNnnepTnbhn8rNR77LXcJvS7JGYDSf0JwP1yXwfLUeY1ghiOPhYbcw3HtMz9A"
+abstract: "Avrupa'nın birçok ülkesinde uygulamada olan faizsiz finans sisteminin tercih edilmesinde, ihtiyaçların hızlı ve kolay karşılanabilmesi en önemli sebepler arasındadır. Gayrimenkul, taşıt ve iş yeri satışını kolaylaştırmak için oluşturulan faizsiz finans sistemi dünyada olduğu gibi Türkiye'de de giderek yaygınlaşmaktadır ve rekabet her gün artmaktadır. Günümüz iş dünyasında faizsiz finans sistemine öncülük yapan ve sektörde kendine yer edinmeye çalışan firmaların sürekliliği sağlayabilmesi için sistemden ayrılacak müşterilerin tahmini (Churn Analizi) oldukça önemlidir. Makine öğrenme uygulamaları da bu konuda aktif bir şekilde kullanılmaktadır. Sektörün hızlı bir gelişme sürecinde olması ve firmalar arası rekabetin büyüklüğü nedeniyle ayrılacak müşterilerin analiz ve tahmini faizsiz finans sektöründe yoğun bir şekilde yapılmaktadır. Bu çalışmanın amacı, faizsiz finans sisteminde yaşanılan kayıpları incelemek ve en iyi kayıp tahminini veren modeli oluşturmaktır. Çalışma, faizsiz finans sektöründeki öncü firmanın 2020 yılına ait verilerini içermektedir. Çalışmada kullanılan veri kümesi 18507 müşteriye ait olup, 14 etkin özellik içeren değişkenlerden oluşmaktadır. Makine öğrenmesi yöntemleri ile modeli kurmadan önce müşteri kaybına sebep olabileceği düşünülen değişkenler, keşifsel veri analizi ile incelenmiştir. Müşteri kaybına sebep olabileceği düşünülen veriler ve Churn değişkeni ile model oluşturulmadan önce veri kümesi %75-%25 oranında bölünerek Lojistik regresyon (LR), K en yakın komşu (KNN) ve Destek vektör kümeleri (SVM) ile en iyi performans veren model incelenmiştir."
+yokId: 684087
+origin: otomatik
+addedAt: 2026-09-24

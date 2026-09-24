@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "Tarihî Suç Coğrafyası: İstanbul Şer'iye Sicillerinin Yapay Zekâ ile Analizi"
+titleTranslation: {"en": "The historical geography of crime: analyzing Istanbul sharia court records with artificial intelligence"}
+authors: ["Özdemir, Alperen"]
+language: "tr"
+year: 2025
+university: "Burdur Mehmet Akif Ersoy Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "Burdur"
+department: "Coğrafya Ana Bilim Dalı"
+advisors: ["İlker Yiğit"]
+topics: ["Fıkıh tarihi"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=GH8C5aUPTdKo4nY_hdi9kg"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=V-oEQd0LkkqRGCXNzJWCTdSlgjvU3LHzMWrEb5bW1mdUvvKJryTbztPs9OD1R0kz"
+abstract: "Bu çalışma, Osmanlı dönemi İstanbul'unun tarihî suç coğrafyasını, şer'iye sicillerinden türetilen kayıtların yapay zekâ destekli çözümlemesi ve Tarihsel Coğrafî Bilgi Sistemleri (TCBS) üzerinden mekânsal değerlendirmesiyle ortaya koyar. Veri kümesi, www.kadisicilleri.org'da yer alan İstanbul'a ait 100 cilt şer'iye sicilindeki 54.593 hükmün tamamından yapay zekâ destekli ön işleme ile ayıklanan 2.653 suç kaydını kapsamaktadır. Metinlerden Python tabanlı betikler ve OpenAI destekli doğal dil işleme (NER/tematik kodlama) yoluyla yapılandırılmış bilgi çıkarılmış; çıktılar doğruluk açısından manuel kontrollerle teyit edilmiştir. Elde edilen veriler ArcGIS Pro'da katmanlaştırılarak nicel haritalar üretilmiş, suç türlerinin mekânsal kümelenmeleri ve yoğunluk örüntüleri analiz edilmiştir. Bulgular, Suriçi'nin idarî-ticari çekirdeği ile Tophane–Haliç liman-tersane hattında alan başına riskin belirginleştiğini; içki başta olmak üzere dine/toplumsal düzene ilişkin fiillerin liman hinterlandında yoğunlaştığını; vücut dokunulmazlığına karşı fiillerde ise İstanbul Mahkemesi ve Tophane'nin yüksek yoğunluk değerleri üretirken, geniş yetki alanı nedeniyle Üsküdar'ın yüksek mutlak sayı fakat düşük yoğunluk sergilediğini göstermektedir. İdarî çekirdekte (Bâb-ı Âli çevresi) görevi kötüye kullanma ve rüşvet kayıtlarının yığılması, bürokratik merkeziliğin etkisini teyit eder. Genel olarak“çekirdek–kıyı koridoru–çevre”hiyerarşisi farklı suç tiplerinde yeniden üretilmekte; örüntüler Rutin Faaliyetler ve“crime of place/hot spots”yaklaşımlarıyla uyumlu bir çerçeve sunmaktadır. Yöntemsel olarak, klasik tarihî kaynakların yapay zekâ-NLP ve TCBS entegrasyonuyla sistematik, hızlı ve yeniden üretilebilir biçimde analiz edilebileceğine yönelik bir çerçeve sunulmuştur."
+yokId: 973546
+origin: otomatik
+addedAt: 2026-09-24

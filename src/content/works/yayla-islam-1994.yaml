@@ -5,4 +5,9 @@ language: tr
 year: 1994
 university: "Marmara Üniversitesi, Sosyal Bilimler Enstitüsü"
 city: "İstanbul"
+department: "İslam Hukuku Ana Bilim Dalı"
+advisors: ["Hayreddin Karaman"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=p8abqbnNCrE3nIWWZXFyHA"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=EEdeQgIdFRxX5NbvVau-AgHqqv7eeOwuE_JolFEbjLinxpupuc0KsTechZZlcXIc"
+yokId: 30911
 addedAt: 2026-09-24

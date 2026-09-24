@@ -1,0 +1,17 @@
+type: "tez-doktora"
+title: "İslami Finans Sisteminde Sukuk: Türkiye'de Sukuk Fiyatlarının Yapay Sinir Ağı Modeli ile Tahmini"
+titleTranslation: {"en": "Sukuk in Islamic financial system: forecasting sukuk prices in Turkey with artificial neural network model"}
+authors: ["Çetin, Dilşad Tülgen"]
+language: "tr"
+year: 2020
+university: "Burdur Mehmet Akif Ersoy Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "Burdur"
+department: "İşletme Ana Bilim Dalı"
+advisors: ["Osman Tuğay", "Nevzat Aypek"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=QSnOsvAWiUF55cuqipWu1Q"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=9MiDp3x86xrwjpi5-14w-S3OxjsSz-IuwmcELNFK6T9FRMMnr4iXpdP-StvB9939"
+abstract: "Temelinde ticaret, adalet ve hakkaniyet olan İslami finans, son on yılda tüm dünyada hızlı bir gelişim göstermektedir. İslami finans sistemi içinde İslami sermaye piyasalarının en yaygın ürünü olarak nitelendirilen sukuk, en hızlı büyüyen varlık sınıfı olarak dikkat çekmektedir. 2001 yılındaki ihraçlardan sonra hızlı bir büyüme sağlayan sukuk, ilk yıllarda başta Malezya olmak üzere Asya ülkelerinde ihraç edilirken, 2010'lu yıllarda tüm dünyada yaygınlaşmaya başlamıştır. Türkiye, ilk kurumsal sukuk ihracını 2010 yılında, ilk hazine sukuk ihracını ise 2012 yılında gerçekleştirerek, yaptığı düzenlemelerle ve sağladığı teşviklerle küresel sukuk piyasalarında söz sahibi olmaya aday olmuştur. Bu tez çalışmasının amacı, dünya ve Türkiye finans piyasaları için yeni sayılabilecek sukuk konusunu tüm yönleriyle ele alarak literatüre katkı sağlamak ve Türkiye'de sukuk fiyatlarını yapay sinir ağı (YSA) modeli ile tahmin etmektir. Bu amaç doğrultusunda öncelikle, İslami finans sistemi ve sukuk konusu, kavramsal çerçevede incelenmiş, sukuk ihraç süreci, fiyatlama mekanizması ve türleri açıklanmış; dünyada ve Türkiye'de sukuk piyasalarının durumu ortaya konulmuştur. Türkiye'de sukuk fiyatlarını tahmin etmek amacıyla, çok katmanlı geri beslemeli YSA yapısı kullanılmış ve sonuç olarak binde 2,8 payıyla ve %99,82 başarı oranıyla sukuk kapanış fiyatları doğru tahmin edilmiştir. Sukuk fiyatlarının öngörülebilirliği, sukuk piyasalarının taşıdığı riski ve belirsizliği minimize etmek ve yatırımcılara kârı maksimize etmek veya zararı minimize etmek gibi önemli avantajlar sunmaktadır. Araştırmanın sonucu, YSA modelinin sukuk fiyatlarını tahmin etmede etkin bir model olduğunu kanıtlaması ve DXY, VIX, GPR, S&P MENA sukuk endeksleri ve Eurobond tahvil fiyatlarının sukuk fiyatlarını tahmin etmede belirleyici olduğunu ortaya koyması bakımından önem taşımaktadır. Çalışmanın, Türkiye'de sukuk fiyatlarını çok katmanlı geri beslemeli YSA modeli ile tahmin eden ilk çalışma olması açısından literatüre katkı sağlayacağı öngörülmektedir."
+yokId: 666829
+origin: otomatik
+addedAt: 2026-09-24

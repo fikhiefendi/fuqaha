@@ -1,0 +1,17 @@
+type: "tez-doktora"
+title: "A Comparison of Islamic vs Conventional İndices: A Wavelet Based Approach"
+titleTranslation: {"tr": "İslami ve konvansiyonel endekslerin Dalgacık yöntemi ile karşılaştırılması"}
+authors: ["Sungur, Necip Saygın"]
+language: "en"
+year: 2021
+university: "Yeditepe Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "İstanbul"
+department: "Finans Bilim Dalı"
+advisors: ["Hatice Gaye Gencer"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=49MkHtBhHXR1wuA_slA6rQ"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=v7BkNnnepTnbhn8rNR77LaYFzXPcQhlZpG9OTHA_j7P8BQ5aXg_ikokBz6gQNQv_"
+abstract: "Günümüzde İslami Finans ve İslami Yatırım Enstrümanları her geçen gün popülerliğini artırmakta ve hacimsel olarak ciddi büyüme göstermektedir. Bu nedenle 1970'lerden başlayarak bu alanda yapılan akademik çalışmalar hız kazanmış ve özellikle konvansiyonel enstrümanlar ile İslami finansal enstrümanları karşılaştıran çalışmalarda ciddi bir artış görülmeye başlamıştır. Bu artışın en önemli sebeplerinden bir tanesi yatırımcıları bu enstrümanlarda kullanılan Şer-i kuralların getiri davranışı ve motiflerine bir etki yapıp yapmadığını test etmek, eğer bir etki yapıyor ise bunun negatif yönlü (yatırımcıya zarar oluşturabilecek) veya pozitif yönlü (yatırımcıyı zarardan koruyacak ve/veya ilave getiri sağlayacak) şekilde olup olmadığı görmek istemeleridir. İslami endeksler üzerine yapılan karşılaştırmalı çalışmalar da bu araştırmaların bir parçası olarak karşımıza çıkmaktadır. Yakın zamanda bu modellerin daha iyi tahminlemesinde kullanılmak üzere dalgacık analiz modelleri de finansal zaman serilerini açıklamaya yönelik olarak kullanılmaya başlanmıştır. Bu çalışma ülke endeksleri ve onların İslami kurallara göre yeniden düzenlenmiş hallerini bir dalgacık modeli ile açıklama çalışması olacaktır. Bu şekilde her iki endeks tipi arasında zaman boyutu da kullanılarak fiyat tahminlemesi yapılıp yapılmayacağı araştırılmaktadır. Çalışmanın sonuçlarına baktığımızda aynı ülke hisse senetlerini baz alan Konvansiyonel ve İslami endeksler arasında çok yüksek tutarlılık (coherence) olduğu bu nedenle nerdeyse hiç veya çok az portföy çeşitlendirmesi/koruması sağladığı görülmüştür. Endekslere ait korelasyon ölçümleri ve Güç Dağılım Grafikleri de bu hipotezi destekler niteliktedir. Bununla birlikte finansal sektör hisselerinin ilgili ülke borsalarında baskın rol oynadığı Türkiye, İtalya ve İspanya gibi ülkelerde, mali kriter olarak kaldıraç faktörünün elenmesi ile İslami Hisse senetlerinin koruma yaratabilmekte olduğu da görülmektedir. Bununla birlikte çalışmanın bölgesel düzeyde ve örneğin sukuk gibi sabit getirili İslami enstrümanları da veri setine ekleyerek yapılması literatüre katkı sağlaması amacıyla önerilmektedir."
+yokId: 687533
+origin: otomatik
+addedAt: 2026-09-24

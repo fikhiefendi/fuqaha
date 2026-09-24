@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "An Essay on the İmpact of Shari'ah Compliance on Financial Anomalies: Evidence from the Turkish Stock Market"
+titleTranslation: {"tr": "Borsa istanbul'da şeri uyumluluğun piyasa anomalilerine etkisi"}
+authors: ["Abdallah, Ilıasu"]
+language: "en"
+year: 2022
+university: "Marmara Üniversitesi, İslam Ekonomisi ve Finansı Enstitüsü"
+city: "İstanbul"
+department: "İslam Ekonomisi ve Finansı Ana Bilim Dalı"
+advisors: ["Murat Yaş"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=qmDuwNlZQEvtl5z2MBMB3A"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=RsTBl6RWK25OBMIKtIgYYWQuIeKACqP6VtRJJfMHU1-qYO7A2VlAS-2XnPYwEwHc"
+abstract: "Bu çalışma, katılım endeksi (KAT30) ve geleneksel endeks (BIST30) olarak da bilinen Şeriat temelli bir endeksin hisse senedi getirilerini ve oynaklığını karşılaştırarak dini anormalliklerin Türkiye'deki BORSA İstanbul borsası üzerindeki etkisini incelemeyi amaçlamaktadır. Bu araştırmada, Ramazan ve Kurban Bayramı'nın hisse senetlerinin oynaklığını ve getirilerini nasıl etkilediğini incelemek için GARCH (1,1) modelini kullanmaktadır. Iki endeksin günlük hisse senedi getirileri, artıklardaki seri korelasyon ve değişen varyanslılığı kontrol etmek için ARMA (1,1)-GARCH (1,1) kullanılarak 9 yıllık bir süre boyunca tahmin edilmektedir. Hem BİST 30 hem de KAT 30 için oynaklıkta düşüş görülüyor ancak Ramazan ayında beklenen getirilerde herhangi bir etki görülmemektedir. Ayrıca Kurban Bayramı'nın KAT 30'un oynaklığını olumsuz etkilediği ve BIST 30'u etkilemediği görülmektedir. Öte yandan Kurban Bayramı'nın her iki endeksin beklenen getirileri üzerinde herhangi bir etkisi bulunmamaktadır. Sonuçlar, Şeriat endeksi yatırımcılarının geleneksel muadillerinden farklı davrandıkları, çünkü İslami ilkelere uyumla daha fazla ilgilendikleri ve yatırımlarından ek fayda sağlayabilecekleri sonucuna varmıştır. Bulgular, yatırımcıların yatırımlarını etkin bir şekilde zamanlama konusunda proaktif olmaları gerektiğini göstermektedir."
+yokId: 752196
+origin: otomatik
+addedAt: 2026-09-24

@@ -1,0 +1,17 @@
+type: "tez-doktora"
+title: "İslami ve Geleneksel Bankalarda Kurumsal Yönetim, Risk Yönetimi ve Finsansal Performans İlişkisi"
+titleTranslation: {"en": "The relationship between corporate governance, risk management and financial performance in Islamic and conventional banks"}
+authors: ["Demirci, Mustafa Nihat"]
+language: "tr"
+year: 2024
+university: "Necmettin Erbakan Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "Konya"
+department: "İşletme Ana Bilim Dalı / İşletme Bilim Dalı"
+advisors: ["Hüseyin Çetin"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=uFZn25olGaRu5a2TU66tPw"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=1pwTzRXnomYf6jwqVORfUTdPtuhUv5veCsX3BlgmICVkLm5AsG-UL9rcbjtfM5wd"
+abstract: "Finansal sistemin en önemli yapıtaşlarından biri olan bankalar, ekonomik büyümenin ve istikrarın sağlanmasında hayati önem taşımaktadır. Bu bakımdan, bankaların finansal performansına etki eden kurumsal yönetim ve risk düzeylerinin belirlenmesi ve analiz edilmesi tüm paydaşlar için oldukça önem arz eder. Bu çalışma, İslami ve geleneksel bankalarda kurumsal yönetim, risk yönetimi ve finansal performans arasındaki ilişkiyi araştırmayı ve bu değişkenleri kullanarak makine öğrenimi algoritmaları ile bankaların finansal başarısızlık riskini tahmin etmeyi amaçlamaktadır. Araştırmada, İslami bankacılığın en yoğun olduğu ülkelerden 32 İslami banka ve 85 geleneksel banka örneklem olarak seçilmiştir. Çeşitli finansal oranlar ve kurumsal yönetim değişkenleri, finansal performansı ve başarısızlık riskini tahmin etmek için makine öğrenimi algoritmaları kullanılarak analiz edilmiştir. Keşifsel veri analizi bulguları, İslami ve geleneksel bankalar arasında risk yönetimi, kurumsal yönetim ve finansal performans açısından önemli farklılıklar olduğunu ortaya koymuştur. Tahmin sonuçlarına göre, İslami ve geleneksel bankalarda başarıyı öngören modellerin farklılaştığı görülmüştür. En yüksek“doğruluk”ve“kesinlik”performansı gösteren algoritmalar karar ağaçları ve gradyan artırma makineleri, en iyi“geri çağırma”performansı gösterenler destek vektör makineleri ve gradyan artırma makineleri, en iyi“F1-skoru”performansı gösterenler ise gradyan artırma makineleri ve rastgele orman algoritmaları olmuştur. Bu araştırma, banka performansını tahmin etmek için kurumsal yönetim değişkenlerini finansal oranlarla entegre ederek mevcut literatüre katkıda bulunmakta ve bankalarda finansal istikrarı etkileyen faktörlerin daha kapsamlı bir şekilde anlaşılmasını sağlamaktadır. Ayrıca, bu çalışma bankacılıkta tahmine dayalı değerlendirmelerde makine öğrenimi algoritmalarının etkinliğini ortaya koymuştur."
+yokId: 879285
+origin: otomatik
+addedAt: 2026-09-24

@@ -5,4 +5,8 @@ language: tr
 year: 1995
 university: "Erciyes Üniversitesi, Sosyal Bilimler Enstitüsü"
 city: "Kayseri"
+advisors: ["Zahid Aksu"]
+topics: ["Fıkıh tarihi"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=_mtw06cFI1i2ifFzpm1EgA"
+yokId: 42774
 addedAt: 2026-09-24

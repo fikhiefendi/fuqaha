@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "The Predicton of Participation İndex of Istanbul Stock Exchange"
+titleTranslation: {"tr": "Borsa İstanbul katılım endeksi tahminlemesi"}
+authors: ["Özdemir, Enes"]
+language: "en"
+year: 2021
+university: "İstanbul Sabahattin Zaim Üniversitesi, Lisansüstü Eğitim Enstitüsü"
+city: "İstanbul"
+department: "İslam Ekonomisi ve Finansı Ana Bilim Dalı"
+advisors: ["Burhan Uluyol"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=dsGpEkRPk6IjqtyLZjo0GQ"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=tqUiYt63sTQLTpozMJ92Qs2hQI01Nq7b0gluRE6reXV2wakSRE-ToiOq3ItmOjQZ"
+abstract: "Finansal piyasaların popülaritesi geçtiğimiz son yüzyılda yüksek bir ivme ile yükselişini devam ettirmektedir. Teknolojinin sağladığı yenilikler sayesinde ilgi duyan her insan, artık kolaylıkla finansal pazarlara erişim sağlayabilmektedir. Bu finansal pazarların başını şüphesiz şirketlerin hisselerini değerlendirmek için kullandığı aracı kurum borsalar çekmektedir. Sermayedarları ve şirketleri bir araya getiren borsalar, yatırımcılar için potansiyeli yüksek kazanç yolu olarak görülmektedir. Özellikle Müslüman yatırımcıları da bu pazara çekmek için İslam Hukuk'una uygun endeksler belirlenmiştir. Borsa İstanbul çatı altında Katılım Endeksi bu amaca hizmet etmektedir. Yüksek gelir sağlama potansiyeline sahip olan borsa yatırımcılarını bu potansiyeli önceden kestirebilme içgüdüsünü perçinlemiştir. Zaman içerisinde birçok istatistiksel model geliştirilmiştir. Bu çalışma kapsamında farklı makine öğrenmesi algoritmaları kullanarak Katılım Endeksi tahminlemesi yapılmıştır. Modelleme için 2015-11-06 ile 2020-06-30 tarih aralığındaki Borsa İstanbul Katılım Endeksi kapanış verileri kullanılmış ve son 30 günlük fiyatlaması tahminlenmeye çalışılmıştır. Modelleme ve görselleştirme aşamalarında Python, Knime ve Microsoft Excel uygulamalarından istifade edilmiştir. Altı farklı model içerinde en iyi tahmini veren LSTM modeli olduğu görülmüştür. Makine öğrenmesiyle İslama uygun olan hisse senetleri tahminlemesi olması nedeniyle, bu çalışma bu alanda nadir bir çalışma olmuştur."
+yokId: 696023
+origin: otomatik
+addedAt: 2026-09-24

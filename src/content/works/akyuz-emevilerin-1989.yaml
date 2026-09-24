@@ -5,4 +5,9 @@ language: tr
 year: 1989
 university: "Marmara Üniversitesi, Sosyal Bilimler Enstitüsü"
 city: "İstanbul"
+advisors: ["Hayreddin Karaman"]
+topics: ["Fıkıh tarihi"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=XRAg9_4l1s2e1yQFQVSbZQ"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=E_eEUHQic_C-LvhxNQn1W0H3QtudFbH3JHM6fL77xOR6RX3fjGFCtjFNTc59zY93"
+yokId: 9117
 addedAt: 2026-09-24

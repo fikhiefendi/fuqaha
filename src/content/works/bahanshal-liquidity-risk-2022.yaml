@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "Liquidity Risk in Islamic Banks: A Machine Learning Approach"
+titleTranslation: {"tr": "İslam bankalarında likidite riski: Bir makine öğrenme yaklaşımı"}
+authors: ["Bahanshal, Halah Ahmed"]
+language: "en"
+year: 2022
+university: "Bahçeşehir Üniversitesi, Lisansüstü Eğitim Enstitüsü"
+city: "İstanbul"
+department: "Büyük Veri Analitiği ve Yönetimi Ana Bilim Dalı"
+advisors: ["Rustu Murat Demırer"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=8KozaUR0XKSd5JbbSqsxmA"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=RsTBl6RWK25OBMIKtIgYYXA0bI0DZXswvFdyePj_D7_wqjNpRHRcpJ3klttKqzGY"
+abstract: "Bu makalenin amacı, farklı makine öğrenimi teknikleri kullanarak İslami bankalardaki likidite riski pozisyonunu tahmin etmeye odaklanmaktır. Körfez İşbirliği Konseyi'nde faaliyet gösteren 18 İslami bankadan 10 Bankaya özgü değişken ve iki Makroekonomik değişken toplanmıştır. Bu yazıda, kümelemeyi denetimsiz bir öğrenme tekniği olarak ve hem Yapay Sinir Ağı (YSA) hem de Rastgele Orman Sınıflandırıcısını denetimli öğrenme tekniği olarak uyguladık. Sonuç olarak kredi-mevduat oranına göre, bir İslami bankada likidite pozisyonunu belirleyen en önemli faktörler toplam aktifler ve aktiflerin getirisidir."
+yokId: 757191
+origin: otomatik
+addedAt: 2026-09-24

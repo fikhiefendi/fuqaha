@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "Kaılım30 ve BIST100 Endekslerinin Faiz ve Döviz Kuru ile İlişkisi: Kantil Regresyon Yöntemi"
+titleTranslation: {"en": "The relationship of Participation30 and BIST100 indices with interest and exchange rate: Quantile regression method"}
+authors: ["Tekin, Nurbanu"]
+language: "tr"
+year: 2022
+university: "Sakarya Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "Sakarya"
+department: "İslam Ekonomisi ve Finansı Ana Bilim Dalı"
+advisors: ["Şakir Görmüş"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=l39S7dejbUjLSS1GDA2Cxg"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=kScA8XnrRb0WogX-qPGFkgHAkLTpSh7DAfZtocCfWXx8UnXZKxwBCgrC8ovU-588"
+abstract: "Durağan olmayan ve hassas bir ekonomik yapıya sahip olan Türkiye ve muadili olan diğer ülkelerde kalkınmanın temelini ne yazık ki reel sektörün aksine finans sektörü oluşturmaktadır. Finans sektörünün oldukça hacimli bir kısmı faizli işlemlerden oluşmakta ve bu faiz sistemi üzerine kurulu ekonomi uzun vadede beraberinde bir takım çıkmazları getirmektedir. Faizli finansın alternatifi olan İslami finansın son zamanlarda çıkarmış olduğu uygulamalardan biri olan İslami endekslere yönelik yapılan çeşitli araştırmalar zannedildiği gibi güvenilirlik anlamında kısıtlarının olmadığını ve faizli endekslere nazaran risklerinin daha az olduğunu söylüyor. Nitekim katılım finansı, katılım bankaları ve özel finans kurumları nezdinde incelendiğinde ekonomik krizlere beklenilenden çok daha olumlu tepkiler verdiği ortaya çıkarılmıştır. Günümüze gelindiğinde de aynı şeyin Katılım Endeksi için geçerli olup olmadığı merak konusudur. Şu ana dek güçlü olan iddialardan biri de İslami endekslerin mayası gereği yüksek faiz oranlarından etkilenmeyeceği dolayısıyla çoğunluğuna yüksek faizlerin yol açmış olduğu krizlerden de çok büyük darbe alamayacağı yönündedir. Bu çalışmada bu eksiklikler dikkate alınarak literatüre katkı amacıyla döviz kuru ve faizin Konvansiyonel-İslami endeksler üzerindeki etkisi karşılaştırmalı olarak incelenirken aynı zamanda kantil regresyon yöntemi ile de borsanın güçlü-normal-zayıf dönemlerinde döviz kuru ve faiz değişkenlerinden nasıl etkilendiği analiz edilmiştir. Kantil regresyon sonuçlarına göre : • Faiz değişkeni Katılım 30 endeksini ayı piyasası döneminde pozitif etkilerken normal dönemde negatif etkilemektedir. • BIST100 endeksinde ise faiz, ayı ve boğa piyasasında negatif etkiye sahiptir. • Döviz kuru yalnızca boğa piyasasında Katılım 30 endeksini negatif etkilemektedir. • Döviz kuru BIST100 endeksini bütün piyasalarda negatif etkilemektedir."
+yokId: 738587
+origin: otomatik
+addedAt: 2026-09-24

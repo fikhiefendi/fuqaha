@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "Investigation of Thermodynamic Properties of Favipiravir and Ribavirin Molecular Structures Used in the Treatment of Covid-19 and Their İnteraction with Dna Bases by DFT"
+titleTranslation: {"tr": "Covıd-19 tedavisinde kullanılan favipiravir ve ribavirin moleküler yapılarının termodinamik özelliklerinin ve dna bazları ile etkileşiminin DFT ile araştırılması"}
+authors: ["Al-obaıdı, Mustafa Fawzı Dawood"]
+language: "en"
+year: 2023
+university: "Çankırı Karatekin Üniversitesi, Fen Bilimleri Enstitüsü"
+city: "Çankırı"
+department: "Fen Bilimleri Ana Bilim Dalı / Fizik Bilim Dalı"
+advisors: ["Çiğdem Yüksektepe Ataol"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=JGWwIF6GsxL8_NDsjO5oLw"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=r4I1HnmXxFQovUpyAyUmxH3Tn0JG_TVIuD4VCLUGNvokZbAgXoazEvz80OyM7mgv"
+abstract: "SARS-CoV-2 tedavisinde kullanılan ve ayrıca son yıllarda insanların koranavirüs hastalığı (COVID-19) tedavisinde ihtiyaç duyduğu ilaçlardan favipiravirin ve ribavirinin moleküler yapılarının farklı özellikleri Yoğunluk Fonksiyonel Teorisi (YFT) B3LYP/6-311G(d, p) ve 6-311+G(d, p) yöntemleri kullanılarak araştırılmıştır. Favipiravir ve ribavirinin moleküler yapılarının geometrik optimizasyonu taban durumda, gaz ve su çözücü ortamlarında yapılmış, bağ parametreleri elde edilmiş ve bulunan teorik sonuçlar literatürdeki değerler ile karşılaştırılmıştır. Enerji hesaplamalarından, moleküler orbital enerji değerleri elde edilerek, her iki ortam için, elektron ilgisi, elektronegatiflik, kimyasal potansiyel, kimyasal sertlik, yumuşaklık, elektrofilisiti indeks gibi küresel reaktivite parametreleri elde edilmiştir. Küresel reaktivite değerleri kullanılarak ΔN (yük transfer) ve ECT (elektrofilisiti temelli yük transfer) gibi iki parametre yardımıyla adenin, guanin, sitozin ve timin DNA bazları ile favipiravir ve ribavirin moleküler yapıları arasındaki etkileşimler su ortamında araştırılmıştır. Optimize edilen favipiravin ve ribavirin moleküler yapıları kullanılarak her iki ortam için taban durumda frekans hesabı yapılmış ve moleküler yapıların entropi, entalpi, ısı sığası, sıfır nokta titreşim enerjisi ve Gibbs serbest enerji gibi termodinamik özellikleri araştırılmıştır."
+yokId: 785612
+origin: otomatik
+addedAt: 2026-09-24

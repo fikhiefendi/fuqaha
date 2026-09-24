@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "Katılım Bankacılığındaki Kredilendirme Süreçleri ve Tedarikçi Finansmanı Entegrasyon Süreçlerinin İncelenmesi"
+titleTranslation: {"en": "Examination of credit processes and supplier financing integration processes in participation banking"}
+authors: ["Çilburunoğlu, Habibe"]
+language: "tr"
+year: 2025
+university: "Bahçeşehir Üniversitesi, Lisansüstü Eğitim Enstitüsü"
+city: "İstanbul"
+department: "Bilgisayar Mühendisliği Ana Bilim Dalı / Bilgi Teknolojileri Bilim Dalı"
+advisors: ["Adnan Çorum"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=yxzYNwhm_JO9Cv_XhbnUnA"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=Xau5rw3KuCgEuy-FuJQtsI_LZ7ensrRdyaIahZA9hVLLHNg3CGb8k70K_9eFudSc"
+abstract: "Bu çalışmada katılım bankacılığı prensiplerine uygun olarak geliştirilen tedarikçi finansmanı sistemlerinin dijital dönüşüm süreci ele alınmaktadır. Geleneksel kredilendirme yöntemlerinden farklı olarak faizsiz finans ilkelerine dayanan katılım bankacılığı varlık temelli finansman modelleri (Murabaha, İcara, Mudaraba) üzerinden işletmelere finansman desteği sağlamaktadır. Tez kapsamında finansal teknolojilerdeki gelişmelerin etkisiyle bankacılık sistemlerinde yaşanan dijitalleşme süreci ve özellikle API (Application Programming Interface) tabanlı sistemlerin rolü değerlendirilmiştir. Tedarikçi finansmanı süreçleri sipariş oluşturulması, fatura düzenlenmesi, limit kontrolü, teminat yönetimi, ödeme planı oluşturulması ve ödeme gerçekleştirilmesi süreçlerinin API entegrasyonu ile nasıl dijitalleştirilebileceği analiz edilmiştir. Çalışmada satıcı ve alıcı taraflara özel API tasarımları gerçekleştirilmiş ve bu sistemlerin genel işleyiş kuralları, temel güvenlik yaklaşımları ve süreç akışları ele alınmıştır. Uygulama katmanında API mimarisi veri güvenliği ve erişim yönetimi gibi unsurlar detaylandırılarak güvenli bir finansal altyapı tasarımı amaçlanmıştır. Elde edilen sonuçlar API tabanlı tedarikçi finansmanı sistemi konusunda bir iş modeli sunmaktadır. Tasarlanan sistem süreçlerde otomasyon sağlayarak verimliliği artırmayı hedeflemektedir. Çalışma dijitalleşen bankacılık uygulamalarında rekabet gücünü artıracak yeni nesil tedarikçi finansmanı yaklaşımlarına katkı sunmayı hedeflemektedir."
+yokId: 958027
+origin: otomatik
+addedAt: 2026-09-24

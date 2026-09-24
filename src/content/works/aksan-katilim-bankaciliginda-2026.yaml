@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "Katılım Bankacılığında Kar-zarar Ortaklığı Modellerinin Risk Yönetimi Perspektifinden Değerlendirilmesi"
+titleTranslation: {"en": "Evaluation of profit-loss sharing models in participation banking from a risk management perspective"}
+authors: ["Akşan, Okan Can"]
+language: "tr"
+year: 2026
+university: "Bolu Abant İzzet Baysal Üniversitesi, Lisansüstü Eğitim Enstitüsü"
+city: "Bolu"
+department: "Bankacılık ve Finans Ana Bilim Dalı / Bankacılık ve Finans Bilim Dalı"
+advisors: ["Ahmet Emre Biber"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=QdIICJXc361rVKXMChWqQA"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=5T1_CZ5-UGb9QCmoURec4C2NPg7lYPaVBd2K44C4zFEN5X9QjovHr1NGqjLqgkgk"
+abstract: "Katılım bankacılığı, faizsiz finans ilkelerine dayanan yapısı ile geleneksel bankacılıktan ayrışan ve özellikle risk paylaşımına dayalı finansman yöntemleri ile öne çıkan bir bankacılık modelidirBu çalışmanın amacı, Türkiye'de faaliyet gösteren katılım bankalarında kar-zarar ortaklığı finansman oranının (KZO) belirleyicilerini ortaya koymak ve söz konusu finansman yapısının bankaların kârlılık göstergeleri üzerindeki etkisini analiz etmektir. Bu doğrultuda, 2020–2025 dönemine ait veriler kullanılarak panel veri analizi gerçekleştirilmiştir. Analiz kapsamında KZO bağımlı değişken olarak ele alınırken, sermaye yeterliliği (SYR), takipteki alacaklar oranı (TGA), banka büyüklüğü (ln(Aktif)) ve zaman trendi bağımsız değişkenler olarak modele dahil edilmiştir. Ayrıca, kamu ve özel bankalar arasındaki farklılıkları incelemek amacıyla kukla değişken kullanılmıştır. Elde edilen bulgular, KZO'nun en önemli belirleyicilerinin kredi kalitesi ve banka büyüklüğü olduğunu göstermektedir. Takipteki alacaklar oranının artmasının KZO üzerinde negatif ve anlamlı bir etkiye sahip olduğu tespit edilmiştir. Kârlılık modelleri kapsamında yapılan analizler, KZO'nun hem aktif kârlılığı (ROA) hem de özkaynak kârlılığı (ROE) üzerinde pozitif ve istatistiksel olarak anlamlı bir etkiye sahip olduğunu göstermektedir. Bu durum, kar-zarar ortaklığına dayalı finansman yöntemlerinin bankaların finansal performansını artırıcı bir rol oynadığını ortaya koymaktadır. Bununla birlikte, takipteki alacaklar oranının kârlılık üzerinde negatif etkisi bulunurken, banka büyüklüğünün kârlılığı artırdığı tespit edilmiştir. Model seçim testleri sonucunda, KZO modelinde sabit etkiler yaklaşımının daha uygun olduğu belirlenirken, kârlılık modellerinde rassal etkiler modelinin tercih edilmesi gerektiği sonucuna ulaşılmıştır. Tanılama testleri ise modellerde otokorelasyon ve değişen varyans sorunlarının bulunmadığını göstermektedir."
+yokId: 1018702
+origin: otomatik
+addedAt: 2026-09-24

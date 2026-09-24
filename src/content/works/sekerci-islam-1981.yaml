@@ -5,4 +5,9 @@ language: tr
 year: 1981
 university: "Atatürk Üniversitesi, Sosyal Bilimler Enstitüsü"
 city: "Erzurum"
+department: "İslam Hukuku Ana Bilim Dalı"
+advisors: ["Salih Tuğ"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=SGLrQ1TH_vc0oTxIuw1SVA"
+yokId: 347039
 addedAt: 2026-09-24

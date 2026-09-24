@@ -1,47 +1,262 @@
+LINK	imadi	ebussuud-efendi-muhammed-b-muhammed-el-imadi	abdurrahman-celal-muhammed-2010	Celâl B. Muhammed el-İmadî'nin (8.asır)“Gurerü'ş-Şürût ve Dürerü's-Sumût”adlı Eserinin Tanıtımı
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	abdurrahmanov-tusi-serahsi-2012	Tûsî ve Serahsî'nin Mebsut'ları Örneğinde Ca'ferî ve Hanefî Mezheplerine Göre Selem Akdi
+LINK	signaki	husameddin-el-huseyin-b-ali-es-signaki	abed-signaki-nihaye-2017	es-Siğnâkî'nin en-Nihaye Fî Şerhi'l-Hidâye (Zekat ve Oruç Bölümü) Adlı Eserinin Edisyon Kritiği ve Değerlendirilmesi
+LINK	zemahseri	carullah-ebul-kasim-mahmud-b-omer-ez-zemahseri	abubakar-zemahseri-ebussuud-2022	Zemahşerî ve Ebüssuûd Efendi'nin Müteşâbih Âyetlere Yaklaşımlarının Karşılaştırılması
+LINK	amasi	mueyyedzade-abdurrahman-b-ali-el-amasi	acar-sigara-hakkinda-2010	Sigara Hakkında İki Yazma Risâle: Abdülmelik el-İsâmî'nin “Risale Celile Fî Şurbi'd-Duhân”ve Mustafa B. Ali el-Âmâsî'nin “Risâle Fî Tahrîmi'd-Duhân”adlı Risâleleri
+LINK	turki	fahreddin-hace-hasan-muhammed-b-mustafa-et-turki	agar-kitabu-fikh-1989	Kitabu Fi'l-Fıkh Bi-Lisani't-Türki (İnceleme-metin-sözlük) (2 Cilt)
+LINK	tokadi	ahi-celebi-yusuf-b-cuneyd-et-tokadi	ahmed-ahmed-muhammed-2023	Ahmed B. Muhammed et-Tokâdî'nin Şerhu Telhîsi Usûli'l Fıkh Adlı Eserinin Tahlil ve Tahkiki
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	ak-cessas-muhtasaru-2024	Cessâs'ın Muhtasaru't-Tahâvi Şerhi ile Kudûrî'nin Muhtasaru'l-Kerhî Şerhi'nin Mukayesesi (İbadetler Bölümü)
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	ak-cessas-muhtasaru-2024	Cessâs'ın Muhtasaru't-Tahâvi Şerhi ile Kudûrî'nin Muhtasaru'l-Kerhî Şerhi'nin Mukayesesi (İbadetler Bölümü)
+LINK	kerhi	ebul-hasan-ubeydullah-b-el-huseyin-el-kerhi	ak-cessas-muhtasaru-2024	Cessâs'ın Muhtasaru't-Tahâvi Şerhi ile Kudûrî'nin Muhtasaru'l-Kerhî Şerhi'nin Mukayesesi (İbadetler Bölümü)
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	akbas-tahavi-hadis-2008	Ebû Ca'fer et-Tahâvî'nin Hadis Kültüründeki Yeri
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	akgul-muhammed-ahmed-1997	Muhammed B. Ahmed Serahsi`nin “El-Usul”adlı Eserindeki Merfu` Hadislerin Tahrici
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	akis-sire-kaynagi-2010	Bir Sire Kaynağı Olarak Serahsî'nin el-Mebsut Adlı Eseri
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	aktas-serahsi-adet-2002	Serahsi' de Örf ve Adet
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	aktas-serahsi-mebsut-2023	Serahsî'nin el-Mebsût Adlı Eserınde Örfe Bağlı İstihsân Uygulamaları
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	aktepe-cessas-ahkamu-2024	Cessâs'ın Ahkâmu'l-Kur'ân'ı Özelinde Hz. Peygambere (S.A.S.) Özgü Hüküm İçeren Âyetlerin Mukâyeseli Değerlendirmesi
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	akyurek-arap-dilinde-2022	Arap Dilinde Harf-i Cerler ve Ahkâm Ayetlerinde Manaya Etkisi: Tahâvî Örneği
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	akyurek-vacip-kavrami-2021	Vâcip Kavramı Bağlamında Cessâs'ın el-Fusûl'ü ve Ahkâmu'l-Kur'ân'ında Usûl-fürû Tutarlılığı
+LINK	makdisi	kadilkudat-semseddin-muhammed-b-abdullah-ed-deyri-el-makdisi	al-gburi-seyh-huseyin-2023	Şeyh Hüseyin el-Hüsseni el-Makdisi'nin "Bulüğur-Rıfali - Tâlibi Ahkâmı Zuhri'l-cum'a
+LINK	baberti	ekmeleddin-muhammed-b-muhammed-el-baberti	alhadethi-ekmeluddin-baberti-2023	“Ekmeluddin el-Baberti'nin el-İnaye Serhul Hidaye Adlı Eserinin Kefaletler Bölümündeki Fıkhi Görüşlerinin İncelenmesi ”
+LINK	kerhi	ebul-hasan-ubeydullah-b-el-huseyin-el-kerhi	almasamha-imam-hasen-2024	İmam Ebüʾl-Hasen el-Kerhî'nin Hanefî Mezhebindeki Konumu ve Fıkhî Görüşleri
 LINK	signaki	husameddin-el-huseyin-b-ali-es-signaki	alqudah-signaki-nihaye-2015	Es - Siğnâkî'nin "en - Nihaye fî Şerhi'l - hidâye" adlı eserinin edisyon kritiği ve değerlendirilmesi: Taharet ve namaz
+SKIP different laqab	izniki	kutbuddinzade-muhammed-el-izniki	altun-kutbuddin-izniki-2013	Kutbuddin İznikî'nin “Mukaddime”si ve Ömer Nasuhi Bilmen'in "Büyük İslam İlmihali'nin Mukayesesi
+LINK	malati	necmeddin-davud-b-mervan-el-malati	altunkaya-hamid-hamdi-2017	Hamîd Hamdî-i Vânî el-Malatî'nin Zübdetü'l-İrfân'ında Vahdet-i Vücûd Risalesi Transkribe, Tahlil ve Karşılaştırmalı Tedkiki
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	altuntas-cessas-ahkamu-2021	Cessâs'ın Ahkâmü'l-Kur'ân Adlı Eserinin Dilbilimsel Tefsir Açısından İncelenmesi
 LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	altuntas-ilk-nodate	İlk Dönem Hanefi Şerh Geleneği, Şerhu Muhtasaru Tahavi Örneği
+LINK	mevsili	mecduddin-ebul-fazl-abdullah-b-mahmud-el-mevsili	annamuhammedov-maveraunnehir-alimlerinden-2003	Maveraunnehir Alimlerinden Merginan'i'nin Bidayetü'l-Mubtedi Adlı Eseri ile Mevsıli'nin el-Muhtar Adlı Eserinin Mukayesesi
+LINK	tirmizi	ebu-bekir-ahmed-b-ali-el-verrak-et-tirmizi	arik-tirmizi-sunen-1994	Tirmizi'nin Sünen'inde Fukahanın Delil Almada İhtilaf Ettiği Hadisler
+LINK	bursevi	hocazade-muslihuddin-mustafa-b-yusuf-el-bursevi	asbay-mukatil-suleyman-2018	Mukâtil B. Süleyman ve İsmail Hakkı Bursevî Tefsirlerinin Mukayesesi (Ahkam Ayetleri Çerçevesinde)
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	aslan-serahsi-orneginde-2025	Serahsî Örneğinde Hukuk ile Ahlâk İlişkisi
 SKIP different laqab	izniki	kutbuddinzade-muhammed-el-izniki	atawula-kutbuddin-2007	Kutbuddin İznikî’nin “Mukaddime” Adlı Eserinin Tahkik ve Tahlili
 LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	atci-ebu-2018	Ebû Ca'fer et-Tahâvî'nin İbadetler ile İlgili Konularda Hanefî İmamlarına Muhâlif Görüşleri
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	atli-serahsi-mebsut-2022	Serahsî'nin el-Mebsût'u Çerçevesinde Mehirle İlgili Meseleler
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	atmaca-muzeni-tahavi-2006	Müzeni ve Tahavi`nin Muhtasarlarının Zekat Bölümlerinin Kaynak, Muhteva ve Metod Açısından Karşılaştırılması
+LINK	mevsili	mecduddin-ebul-fazl-abdullah-b-mahmud-el-mevsili	avci-mevsili-ihtiyar-2017	Mevsılî'nin el-İhtiyâr'ında Maslahat Düşüncesi
 LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	ayazgok-serahsinin-nodate	Serahsî'nin Kıyas Anlayışı
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	aydin-serahsi-mebsut-2023	Serahsî'nin El- Mebsût İsimli Eserinde Muâmelât Bahsi Bağlamında İmam Şâfiî'ye Yönelik Atıfların Tespit ve İncelenmesi
+LINK	kerabisi	cemalulislam-ebul-muzaffer-esad-b-muhammed-el-kerabisi	aygun-kerabisi-furuk-2022	Kerâbîsî'nin el-Furûk Adlı Eseri ve İçerik Analizi
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	ayni-ibadetler-baglaminda-2021	İbadetler Bağlamında Serahsî'nin Hanefî Mezhebindeki Tercihleri ve Gerekçeleri
 LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	azamatov-hanefi-2018	Hanefî Hukuk Ekolünde Maslahat Anlayışı (Serahsî Örneği)
 LINK	tokadi	ahi-celebi-yusuf-b-cuneyd-et-tokadi	badir-ahizayusuf-2022	Ahîzâde Yûsuf b. Cüneyd et-Tokâdî’nin (ö. 905/1500) Zahîratü’l-Ukbâ fî Şerhi Sadrişşerîati’l-Uzmâ Adlı Eserinin Tahkik ve Tahlili
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	based-serahsi-alisveris-2022	Serahsî'nin Alışveriş Bahislerindeki Tercihleri
 LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	bayram-ilk-nodate	İlk Dönem Hanefi Fakihlerinin Mezhep İçi Tercih ve Görüş Farklılıkları: Tahâvi ile Cessâs Örneği
 LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	bayram-ilk-nodate	İlk Dönem Hanefi Fakihlerinin Mezhep İçi Tercih ve Görüş Farklılıkları: Tahâvi ile Cessâs Örneği
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	beyatli-tahavi-serhu-2014	Tahâvî'nin Şerhu Meâni'l-Âsâr'ında Hanefî İmamlarından Ayrıldığı Konular; Kitâbu's-Salât Örneği
+LINK	zemahseri	carullah-ebul-kasim-mahmud-b-omer-ez-zemahseri	bilik-zemahseri-ruusu-2013	Zemahşerî'nin Ruusu'l-Mesail İsimli Eserinde İlm-i Hilaf (Kitabu'n-Nikah Örneği)
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	bilir-cessas-ahkamu-2021	Cessâs'ın Ahkâmü'l-Kur'ân'ında Bağlam
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	biyikoglu-cessas-herrasi-2025	Cessâs, Herrâsî ve Ebû Bekir İbnü'l-Arabî'nin Nesih Meselesine Yaklaşımları (Tefsirleri Bağlamında)
 LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	bolukbas-fukaha-nodate	Fukaha Metodunda İstinbat Metodlarının Ahkam Tefsirlerine Tatbiki (Cessâs (ö. 370) Örneğinde)
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	bostanci-serahsi-fikih-2022	Serahsî'nin Fıkıh Usûlünde Debûsî'den Farklı Yönlerinin Tespit ve Tahlili
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	bulut-tahavi-muhtasar-2014	Ebu Ca'fer et-Tahavi'nin Muhtasar'ındaki Tercihleri
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	butur-cessas-kadi-2019	Cessas ve Kâdı Abdulcebbar'ın Kıyas Anlayışlarının Karşılaştırılması
+SKIP different laqab	timurtasi	zahireddin-ebul-abbas-ahmed-b-ismail-et-timurtasi	caliskan-semsuddin-timurtasi-2026	Şemsüddîn et-Timurtâşî'nin Fakihliği ve İctihad Faaliyetleri
 LINK	zemahseri	carullah-ebul-kasim-mahmud-b-omer-ez-zemahseri	cambaz-zemahserinin-nodate	Zemahşeri'nin Fıkıhçılığı
+LINK	mekki	serefuleimme-burhaneddin-mahmud-et-tercumani-el-mekki	can-mekki-talib-2022	Mekkî B. Ebî Tâlib'in el-Hidâye İlâ Bulûği'n-Nihâye Adlı Tefsirinde Kırâat-anlam İlişkisi
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	cantepe-beyan-nesih-2021	Beyan ve Nesih Konularında Cessas'ın Şafii'ye Eleştirileri
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	catallar-klasik-donem-2010	Klasik Dönem Hanefî Fıkıh Usûlü Literatüründe Nesih Kavramı: Debûsî ve Serahsî Örneği
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	cavus-cessas-sabuni-2026	Cessâs ve Sâbûnî Özelinde İslâm Ticaret Hukukundaki Kavram ve Hükümlerin Mukayeseli Tahlili
+LINK	sabuni	nureddin-ahmed-b-mahmud-es-sabuni	cavus-cessas-sabuni-2026	Cessâs ve Sâbûnî Özelinde İslâm Ticaret Hukukundaki Kavram ve Hükümlerin Mukayeseli Tahlili
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	celebi-hadis-usulu-2026	Hadis Usulü Bağlamında el-Kifâye Fî İlmi'r-Rivâye ve Usûlü's-Serahsî Mukayesesi
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	celik-tahavi-beyhaki-2017	Tahâvî ve Beyhakî'de Hadis (Şerhu Meâni'l - Âsâr ve Ma'rifetu's - Sünen Örneği)
+LINK	mevsili	mecduddin-ebul-fazl-abdullah-b-mahmud-el-mevsili	cesme-mevsili-muhtar-2010	el-Mevsılî'nin el-Muhtar'ında Züfer'e Ait Görüşlerin Tahkiki
+LINK	sabuni	nureddin-ahmed-b-mahmud-es-sabuni	cetin-muhammed-sabuni-2015	Muhammed Ali es-Sâbûnî'nin “Revâiu'l-Beyân Tefsîru Âyâti'l-Ahkâm Mine'l-Kur'an”tefsiri Bağlamında Ahzâb Suresindeki Hükümlerin Mukayeseli İncelenmesi
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	cevik-hadislere-yaklasim-2024	Hadislere Yaklaşım Konusunda Tahâvî'nin Cessâs'a Etkisi Açısından Şerhu Meâni'l-âsâr ile Şerhu Muhtasari't-Tahâvî'nin Mukayesesi
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	cevik-hadislere-yaklasim-2024	Hadislere Yaklaşım Konusunda Tahâvî'nin Cessâs'a Etkisi Açısından Şerhu Meâni'l-âsâr ile Şerhu Muhtasari't-Tahâvî'nin Mukayesesi
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	cevik-hadislere-yaklasim-2024	Hadislere Yaklaşım Konusunda Tahâvî'nin Cessâs'a Etkisi Açısından Şerhu Meâni'l-âsâr ile Şerhu Muhtasari't-Tahâvî'nin Mukayesesi
 LINK	baberti	ekmeleddin-muhammed-b-muhammed-el-baberti	cibriz-hanefi-nodate	Hanefi Fukahâsından Ekmelüddin Bâbertî ve Fıkhî Görüşleri
 LINK	seruci	ebul-abbas-ahmed-b-ibrahim-es-seruci	cicek-ebul-abbas-nodate	Ebu'l-Abbas Şemseddin Serûcî'nin Hanefi Fıkhındaki Yeri
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	cicekli-imam-serahsi-2020	İmam Serahsi ve el-Mebsut'ta Kur'an İlimlerinin İmkân ve Sınırları
+LINK	bursevi	hocazade-muslihuddin-mustafa-b-yusuf-el-bursevi	cifci-ismail-hakki-2013	İsmâil Hakkı Bursevî'nin Furûk-ı Hakkı Adlı Eseri (İnceleme ve Tahkik)
+LINK	mekki	serefuleimme-burhaneddin-mahmud-et-tercumani-el-mekki	ciftci-mekki-sureler-2009	Mekkî Sureler Bağlamında Kur'an'da İnfak-zekat İlişkisi
 LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	ciftci-teori-pratik-nodate	Teori-Pratik İlişkisi Açısından Cessas'ta Fıkhî Düşünce
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	cil-ictihadda-hata-2010	İctihadda Hata ? İsabet Tartışması (Cessas'ın el-Fusul Fi'l-Usul Adlı Eseri Ekseninde)
+LINK	makdisi	kadilkudat-semseddin-muhammed-b-abdullah-ed-deyri-el-makdisi	ciner-makdisi-ahsenu-2018	el-Makdisî'nin Ahsenü't-Tekâsîm Fî Ma'rifeti'l-Ekâlîm İsimli Eserinin Değerlendirilmesi ve Türkçe Tercemesi
+LINK	sirvani	fethullah-es-sirvani	coklu-ahmet-hamdi-2017	Ahmet Hamdi Şirvani ve Türkçe Muhtasar Usulü Fıkıh İsimli Eserindeki Metodu
+LINK	mevsili	mecduddin-ebul-fazl-abdullah-b-mahmud-el-mevsili	coskun-mevsili-ihtiyar-2026	Mevsılî'nin el-İhtiyâr Li Ta'lîli'l-Muhtâr İsimli Eserinde İbadetler Özelinde Mezhep İçi Görüş Ayrılıkları
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	culha-serahsi-mebsut-2022	Serahsî'nin el-Mebsût İsimli Eserindeki İbadetler Bahsinde Geçen İmam Şâfiî'ye Ait Görüşlerin Tespit ve Tahkiki
 LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	dakkak-imam-2023	el-İmam Ebî Bekr El-Cessas el-Hanefî (ö. 370 Hicrî) ve el-İmam Ebî Bekr İbn El-Arabî El-Mâlikî (ö. 543 Hicrî)nin Ders el-Makâsıd Mukâyesesi
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	demir-cessas-ahkamu-2025	Cessâs'ın “Ahkâmü'l-Kur'ân”adlı Eserinde Aile Hukukuyla İlgili Şâfiî'ye Nispet Ettiği Görüşlerin Tahkiki
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	demir-serhu-muhtasari-2023	Şerhu Muhtasari't-Tahâvî Bağlamında İsbîcâbî'nin Nikah ve İbadetler Konusunda Fıkhî Görüşleri
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	demiray-serahsi-kazai-2001	Serahsi'de Kazai Hüküm-diyani Hüküm Ayrımı
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	demirbas-cessas-kurtubi-2026	Cessâs ve Kurtubî Tefsirinde Ahkâm Âyetlerinin Mukayeseli Değerlendirilmesi (İbadetler Örneği)
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	demirer-serahsi-usul-1996	Serahsi ve Usul`ül-Fıkh`ındaki Hadislerin Değerlendirmesi
+LINK	mevsili	mecduddin-ebul-fazl-abdullah-b-mahmud-el-mevsili	dirican-mevsili-muhtar-2006	el-Mevsili'nin el-Muhtar İsimli Eserindeki İmam Şafii'ye Ait Görüşlerin Tahkiki
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	dogan-cessas-nikahla-2019	Cessâs'ın Nikahla İlgili Ayetlere Yaklaşımı
+LINK	bursevi	hocazade-muslihuddin-mustafa-b-yusuf-el-bursevi	dokgoz-bursevi-ruhu-2020	Bursevî'nin Rûhu'l-Beyân Tefsirindeki Usûlî ve Fıkhî Görüşleri
 LINK	saymeri	kadi-ebu-abdullah-el-huseyin-b-ali-es-saymeri	doyduk-v-nodate	V. Hicrî Asır Hanefî Hukuk Metodolojisinde Irak-Semerkand Ayrışması (Ebû Zeyd Debûsi ve Ebû Abdillah es-Saymerî Örneği)
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	duman-cessas-fusul-2000	Cessas`ın 'El-Fusul Fi`l-Usul' Adlı Eserinde İllet Kavramı
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	duran-cessas-ahkamu-2022	Cessâs'ın “Ahkâmü'l Kur'ân”ve Kurtubî'nin “El-Câmi'u Li-Ahkâmi'l Kur'ân”adlı Eserlerinde Talâk Sûresi'nin Tefsiri
 SKIP namesake	ayintabi	sehabeddin-ahmed-b-ibrahim-el-ayintabi	duran-osmanli-nodate	Osmanlı Modernleşmesinin Başlangıç Çağında Uluslararası Hukuk: Ayıntabi Mehmed Münib Efendi ve Şerh-i Siyer-i Kebir Tercüme ve Haşiyesi
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	durmus-ahzab-suresi-2019	Ahzâb Sûresi Özelinde Cessâs ve Ibnu'l-Arabî'nin Ahkâmu'l-Kur'ân'ları Üzerine Mukayeseli Bir İnceleme
+LINK	sabuni	nureddin-ahmed-b-mahmud-es-sabuni	durna-muhammed-sabuni-2023	Muhammed Ali Sâbûnî'nin “Revâiʿu'l-Beyân Fî Tefsîri Ayâti'l-Ahkâm Mine'l-Kur'ân”tefsirinde Kıraatlere Yaklaşımı
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	eker-bekir-cessas-2023	Ebû Bekir el-Cessâs'ın Ahkâm'ul-Kur'ân'ında Arap Şiiriyle İstişhâd
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	eker-mebsut-baglaminda-2016	el-Mebsût Bağlamında Serahsî'nin Aile Hukukuyla İlgili Hadislere Yaklaşımı
+LINK	kafiyeci	muhyiddin-muhammed-b-suleyman-el-kafiyeci	elcundi-kafiyeci-hulasatu-2019	Kâfiyeci'nin Hulâsatü'l-Akvâl Fî Hadîsi “Inneme'l-aʻmâlü Bi'n-Niyyât”adlı Eserinin Tahkik ve Değerlendirilmesi
+LINK	kerhi	ebul-hasan-ubeydullah-b-el-huseyin-el-kerhi	encakar-kerhi-muhtasar-2013	Kerhî'nin Muhtasar'ının Hanefî Muhtasar Geleneğine Etkisi: Kudûrî'nin Muhtasar'ının “İcâre”bölümü Çerçevesinde
+LINK	zenduvisti	zahid-yahya-b-ali-ez-zenduvisti	er-hanefi-fakihi-2022	Hanefi Fakihi Hüseyn Bin Yahya Zendüvisti'nin Fıkıhtaki Yeri
 SKIP kunya	muzaffer	radiyyuddin-abdullah-b-el-muzaffer	erdem-ebul-muzaffer-2022	Ebu'l-Muzaffer es-Sem‘ânî’nin "el-Kavâtıu'l-Edillesi’nde Ebû Zeyd ed-Debûsî’ye Yönelttiği Tenkitlerin Fıkıh Usulü Açısından Tahlili
+LINK	mevsili	mecduddin-ebul-fazl-abdullah-b-mahmud-el-mevsili	erdem-mevsili-muhtar-2017	Mevsılî'nin Muhtar Adlı Eserinin Kitabü'n-nikah ile Feraiz Bölümleri Arasındaki İmameyn'e Yapılan Atıfların Tesbit ve Değerlendirilmesi
+LINK	zemahseri	carullah-ebul-kasim-mahmud-b-omer-ez-zemahseri	erken-carperdi-mugni-2021	Çarperdî'nin el-Muğnî Adlı Eseri ile Zemahşerî'nin el-Enmûzec Adlı Eserinin Karşılaştırmalı Analizi
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	erkilet-bekir-cessas-2025	Ebû Bekir el-Cessâs'ın Tahsis Anlayışı ve Fürû Fıkha Tatbiki
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	erkmen-arap-dilinde-2021	Arap Dilinde Harfi Cerler ve Ahkâm Ayetlerinde Manaya Etkisi: Cessâs Örneği
+LINK	mekki	serefuleimme-burhaneddin-mahmud-et-tercumani-el-mekki	erkmen-nahiv-tefsir-2025	Nahiv-tefsir İlişkisi Bağlamında Mekkî B. Ebî Tâlib'in el-Hidâye Ilâ Bulûği'n-Nihâye Adlı Eserinin İncelenmesi
+LINK	tirmizi	ebu-bekir-ahmed-b-ali-el-verrak-et-tirmizi	ertas-fikih-mezhepleriyle-2006	Fıkıh Mezhepleriyle Karşılaştırmalı Olarak Tirmizi'nin Hukukçuluğu
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	eryigit-usulu-serahsi-2023	Usûlü's-Serahsî ve el-Müstasfâ'da Lafızların Manalarına Delâletlerinin Mukâyesesi
+LINK	mekki	serefuleimme-burhaneddin-mahmud-et-tercumani-el-mekki	eski-usuli-gelenekte-2023	Şiî-usûlî Gelenekte Cebel-i Amil Bölgesinin Yeri: Muhammed B. Mekkî el-Amilî (Şehîd-i Evvel) Örneği
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	fidan-bekir-razi-2019	Ebû Bekir er-Râzî el-Cessâs'ın Mefhûm-i Muhâlif Anlayışı ve Ahkâm Âyetleri Tefsirine Yansıması
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	gelincik-muzeni-tahavi-2020	Müzenî ve Tahâvî Muhtasarlarında “Aile Hukuku”bölümünün Muhteva ve Metot Açısından Mukayesesi
+LINK	aksarayi	cemaleddin-muhammed-b-muhammed-el-aksarayi	genc-abdurrahman-yusuf-2025	Abdurrahmân B. Yûsuf Aksarâyî'nin 'İmâdü'l-İslâm Adlı Eserinin Transliterasyonu ve Hanefi İlmihâl Geleneğindeki Yeri
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	gengil-cessas-maturidi-2025	Cessâs ile Mâtürîdî'nin Evlilik ve Sonuçlarına İlişkin Yaklaşımlarının Karşılaştırmalı Tahlili
 LINK	attabi	zahiduddin-ebu-nasr-ahmed-b-muhammed-el-attabi	ghadri-muhtasaru-attabi-2024	Muhtasaru'l-Attâbi  A Lâ'şerh İ L-Camii'i'l-Kebir adlı eserin tahkik Ve encelemesi
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	ginbiroglu-islam-hukuk-2006	İslam Hukuk Metodolojisinde Ahad Haber ve Cessas'ın (M.917/981) Ahad Habere Yaklaşımı
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	gokkaya-serahsi-mebsut-2024	Serahsi'nin el-Mebsût İsimli Eseri Özelinde Namaz İbadetine Dair Hanefî İmamlarının Görüş Ayrılıkları ve Gerekçeleri
+LINK	mevsili	mecduddin-ebul-fazl-abdullah-b-mahmud-el-mevsili	gulay-mevsili-ihtiyar-2019	el-Mevsilî'nin el-İhtiyâr Adlı Eserinde Şeklen Birbirine Benzeyip Hüküm Açısından Farklı Olan Meselelerin Tahlîli
 LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	gulengul-hanefiligmisirgirisi-2019	Hanefîliğin Mısır'a Girişi ve İmam Tahâvî
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	guler-cessas-kurtubi-2025	Cessâs ve Kurtubî Tefsirlerinde Ahkam Âyetlerinin Mukayeseli Değerlendirilmesi(ceza Hukuku Örneği)
+LINK	emevi	burhaneddin-ebul-muvaffak-mesud-b-suca-el-emevi	guler-fikhin-tesekkul-2026	Fıkhın Teşekkül Sürecinde Ebû Hanîfe'nin Emevî Siyâseti Karşısındaki Tutumu
+LINK	signaki	husameddin-el-huseyin-b-ali-es-signaki	gumarov-signaki-nihaye-2026	es-Sığnâkî ve en-Nihâye Adlı Eserindeki Hadislerin Tahrici ve Değerlendirilmesi (Zekât ve Oruç Bölümü)
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	gunduz-tahavi-kuduri-2004	Tahâvî ile Kudûrî'nin Muhtasar'larının Aile Hukuku Bölümlerinin Muhteva ve Metot Açısından Karşılaştırılması
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	guner-irak-semerkand-2022	Irak ve Semerkand Hanefî Ekolleri Arasındaki Usûlî İhtilâflar ve Hanefî Mezhebi Üzerindeki Etkisi (El-Cessas ve es-Semerkandî Örnekliğinde)
+LINK	mevsili	mecduddin-ebul-fazl-abdullah-b-mahmud-el-mevsili	gunes-fakihlerin-nikaha-2025	Fakihlerin Nikâha Dair Sosyolojik Yaklaşımlarının Tahlili (Mevsılî'nin el-İhtiyâr Li-taʽlîli'l-Muhtâr İsimli Eseri Üzerine Bir İnceleme)
+LINK	kerhi	ebul-hasan-ubeydullah-b-el-huseyin-el-kerhi	guney-kuduri-serhu-2006	Kuduri'nin 'Şerhu Muhtasari'l-Kerhi' Adlı Eserinin Siyer Bölümünün Edisyon Kritiği
 LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	gurbanov-serahsinin-2018	Serahsî'nin el-Mebsût'unda Usûl ve Fürû Kaideleri
+SKIP different laqab	sumunni	takiyyuddin-ebul-abbas-ahmed-b-muhammed-es-sumunni	guzel-hacer-askalani-2023	İbn Hacer el-Askalânî'nin Nüzhetü'n-naẓar Fî Tavżîḥi Nuḫbeti'l-fiker Şerhi ile Kemâleddin Eş-Şümünnî'nin Netîcetü'n-naẓar Fî Şerḥi Nuḫbeti'l-fiker Şerhinin Mukayesesi
+LINK	hemedani	abdulmelik-b-ibrahim-el-hemedani	guzel-ilhanli-memluklu-2022	İlhanlı-Memlûklü Çatışmasında Takıyüddin İbn Teymiyye ve Reşîdüddin Fazlullah-ı Hemedânî'nin Aklı
+LINK	emevi	burhaneddin-ebul-muvaffak-mesud-b-suca-el-emevi	hadi-emevi-donemi-2025	Emevi Dönemi ile Modern Dönem Arasında Gazel Ömer B. Ebî Rebîa, Kerim el-Irâkî ve Adnân el-Cezâirî Özelinde Karşılaştırmalı Bir İnceleme
 LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	hazar-tahavinin-2020	Tahâvî'nin Usûl Anlayışı
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	hocaoglu-ahkam-tefsirlerinin-2010	Ahkâm Tefsirlerinin Usûl Açısından Mukayesesi: Cessâs, Herrâsî ve İbn Arabî Örnekleri
+LINK	sabuni	nureddin-ahmed-b-mahmud-es-sabuni	hop-muhammed-sabuni-2000	Muhammed Ali es-Sabuni ve Revaiül-Beyan, Tefsiru Ayati`l-Ahkam Mine`l-Kur`an`ı
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	ilgi-islam-ceza-2016	İslam Ceza Hukuku Özelinde Cessâs'ın Ahkâmu'l Kur'ân'da Takip Ettiği Genel Metodu ve Tercihleri
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	isabaeva-mebsut-cercevesinde-2013	el-Mebsût Çerçevesinde Serahsî'nin Hanefî Fâkihlerine Yönelik Eleştirileri
+LINK	tirmizi	ebu-bekir-ahmed-b-ali-el-verrak-et-tirmizi	izgi-hakim-tirmizi-2007	el-Hakim et-Tirmizi'nin İslam Hukuk Felsefesine Katkıları(özellikle İlelü'l-ibadat Adlı Eseri Çerçevesinde)
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	jalal-tefsiru-ayati-2017	Tefsıru'l -ayatı'l-ahkam Fı Kıtabı'l-Mebsut Lı İmamı'-Serahsı Mın Sureti'l-Ahkaf İla Surei't-Talak
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	jawish-irak-semerkant-2021	Irak ve Semerkant Hanefi Usulcülerinin Nesih Anlayışı (Cessâs ve Semerkandî Özelinde)
+LINK	imadi	ebussuud-efendi-muhammed-b-muhammed-el-imadi	kadad-tedavuliyye-tefsiri-2023	el-Eb'âdu't-tedâvuliyye Fî Tefsîri “İrşâdi'l-Akli's-Selîmilâ Mezâye'l-kitâbi'l-kerîm”li Ebi's-Suud el-İmâdî
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	kagit-hanefi-mezhebinde-2021	Hanefî Mezhebinde Fıkhî İstidlâller Bağlamında Ziyâdetü's-sika (Tahâvî Örneği)
+LINK	imadi	ebussuud-efendi-muhammed-b-muhammed-el-imadi	kajje-ebussuud-imadi-2020	Ebussuud el-Îmadî'nin “Hâşiye Alâ Kitâbi'l-Buyû' Min el-İnâye”adlı Eserinin Tahkik ve Tanıtımı
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	kalic-mebsut-baglaminda-2015	el-Mebsût'u Bağlamında Serahsî'nin Aile Hukukuna İlişkin Ayetleri Yorumu
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	kaplan-hanefi-alim-2024	İki Hanefî Alim İmam Maturidi ve İmam Ebû Câfer et-Tahavi'nîn Allah'ın Sıfatları ve Kelamullah Görüşleri Nin Mukayesesi
+LINK	mevsili	mecduddin-ebul-fazl-abdullah-b-mahmud-el-mevsili	kara-mevsili-muhtar-2017	Mevsılî'nin Muhtar Adlı Eserinin İbâdât ve Muamelât Bölümlerinde İmameyn'in İhtilafı Olan Yerlerin Tespit ve Tahlîli
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	karabulut-bekr-razi-2022	Ebû Bekr er-Râzî el-Cessâs'ın İstihsân Anlayışı ve Fürû Fıkha Tatbiki
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	karabulut-cessas-kiyas-2024	Cessâs'ın Kıyas Anlayışı ve Ahkâmu'l-Kur'ân'a Yansıması
+LINK	mevsili	mecduddin-ebul-fazl-abdullah-b-mahmud-el-mevsili	karaca-mevsili-ihtiyar-2026	Mevsılî'nin el-İhtîyâr Li-Ta'Lili'l-Muhtâr Adlı Eserinde Küllî Kâidelerin Kullanımı
+LINK	zahidi	necmeddin-ebur-reca-muhtar-b-mahmud-ez-zahidi	karaca-zahidi-mucteba-2012	ez-Zâhidî'nin el-Müctebâ Adlı Eserinin Kitabü'n-nikâh Bölümünün Edisyon Kritiği ve Değerlendirmesi
 LINK	zahidi	necmeddin-ebur-reca-muhtar-b-mahmud-ez-zahidi	karaca-zahidi-mucteba-2015	Ez - Zâhidî'nin el - Müctebâ adlı eserinin tahkîki
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	karagoz-serahsi-icma-2004	Serahsi'nin İcmâ' Anlayışı ve Modern Hukuktaki İctihadı Birleştirme Kararıyları ile Mukayesesi
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	karakaya-serahsi-mebsut-2015	Serahsî'nin Mebsut İsimli Şerhiyle, Cessâs'ın Şerhu't-Tahavi İsimli Şerhinin Edebü'l-Kâdî Bölümlerinin Mukayesesi
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	karakaya-serahsi-mebsut-2015	Serahsî'nin Mebsut İsimli Şerhiyle, Cessâs'ın Şerhu't-Tahavi İsimli Şerhinin Edebü'l-Kâdî Bölümlerinin Mukayesesi
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	karakaya-serahsi-mebsut-2015	Serahsî'nin Mebsut İsimli Şerhiyle, Cessâs'ın Şerhu't-Tahavi İsimli Şerhinin Edebü'l-Kâdî Bölümlerinin Mukayesesi
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	karakaya-serahsi-serhu-2025	Serahsî'nin Şerhu's-Siyeri'l-Kebîr Adlı Eseri Işığında İslâm Savaş Hukuku
+LINK	kafiyeci	muhyiddin-muhammed-b-suleyman-el-kafiyeci	karakullukcu-muhyiddin-kafiyeci-2006	Muhyiddîn el-Kâfiyeci ve Vecîzü'n-nizâm Fî İzhâri Medâriki'l-ahkâm Adlı Eseri
+LINK	mevsili	mecduddin-ebul-fazl-abdullah-b-mahmud-el-mevsili	karamustafaoglu-mevsili-ihtiyar-2016	el-Mevsılî'nin el-İhtiyar Adlı Eserindeki Fıkıh Konularının Temel Kaynakları (Nikah Örneği)
+LINK	sabuni	nureddin-ahmed-b-mahmud-es-sabuni	karaoglan-konyali-mehmed-2011	Konyalı Mehmed Vehbi Efendi'nin ?Ahkâm-ı Kur'âniye? Ve ? Muhammed Ali es-Sâbûnî'nin ?Revâiu'l-Beyan? Adlı Eserinin Mukayesesi
 LINK	ersabendi	fahrul-kudat-ebu-bekir-muhammed-b-el-huseyin-el-ersabendi	karaoz-muhammed-nodate	Muhammed el-Ersâbendî'ni̇n Muhtasaru Takvîmi̇'l-Edi̇lle Adlı Eserinin Tahlil ve Tahkiki
+LINK	kerabisi	cemalulislam-ebul-muzaffer-esad-b-muhammed-el-kerabisi	karas-semerkantli-alim-2019	Semerkantlı Alim Ebu'l-Fadl el-Kerabisi'nin Kitabu'l-Furûk Adlı Eseri Bağlamında Furûk Yazım Türünün Analizi
 LINK	baberti	ekmeleddin-muhammed-b-muhammed-el-baberti	karatas-babertinin-2017	Bâbertî'nin el-İnâye Adlı Eserinde Fıkıh Usûlü Tatbiki
+LINK	saymeri	kadi-ebu-abdullah-el-huseyin-b-ali-es-saymeri	kaya-hicri-asir-2026	Hicrî V. Asır İslâm Hukuku Metodolojisinde Hanefî–Şâfiî Ayrışması (Saymerî ve Şîrâzî Örneği)
+LINK	seruci	ebul-abbas-ahmed-b-ibrahim-es-seruci	kaya-hidaye-serhi-2026	Hidâye Şerhi el-Gâye'de Serûcî'nin Tahrîc Anlayışı
+LINK	sinobi	ilyas-b-ibrahim-es-sinobi	kazanc-fikh-ekber-1991	Fıkh-ı Ekber Şerhleri ve İlyas B. İbrahim es-Sinobi'nin Fıkh-ı Ekber Şerhi
 LINK	baberti	ekmeleddin-muhammed-b-muhammed-el-baberti	kemaloglu-ekmeluddin-1987	Ekmelüddin el-Bâberti "hayatı ve eserleri"
+LINK	cevheri	ebul-hasan-ali-b-el-cad-el-cevheri	khanjanov-cevheri-tercume-2014	Ali Cevheri'nin “Tercüme-i Nisabü'l-İhtisab”isimli Eseri: Latinize ve Tahlil
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	kilar-serahsi-usulu-1998	Serahsi`nin el-Usulü ve Gazzali`nin el-Müstasfa`sına Göre Delatün-Nass
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	kilic-cessas-muhtasar-2022	Cessâs'ın Muhtasar ve Debûsî'nin el-Esrâr Adlı Eserlerindeki Diyet ve Cinayetler Bölümünün Hilâf İlmi Açısından Değerlendirilmesi
+LINK	emevi	burhaneddin-ebul-muvaffak-mesud-b-suca-el-emevi	kilic-endulus-emevi-1995	Endülüs Emevi Devletinde Yargı ve İşleyişi (755-1031 M.)
+SKIP kunya	muzaffer	radiyyuddin-abdullah-b-el-muzaffer	kilic-ihtilafu-eimmeti-2026	İhtilâfu'l-Eimmeti'l-Ulemâ Eseri Bağlamında Ebu'l-Muzaffer İbn-i Hübeyre'nin (Ö.560/1165) Fıkıhçılığı
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	kilic-serahsi-temhidu-2022	Serahsî'nin Temhîdu'l-fusûl Fi'l-usûl Adlı Eserinde İmam Şâfiî'ye Nispet Ettiği Görüşlerin Tahkîki
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	koc-serahsi-amidiye-1995	Serahsi ve Amidiye Göre Emir
+LINK	zahidi	necmeddin-ebur-reca-muhtar-b-mahmud-ez-zahidi	kocaboga-necmuddin-muhtar-2024	Necmüddin Muhtâr B. Mahmud ez-Zâhidî'nin Kunyetü'l Münye Li Tetmimi'l-gunye Adlı Eserinin Edisyon Kritiği (Büyûʻ, Şüfʻa, Kısmet, İcârât, Edebüʼl-Kâdî)
 LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	korkmaz-serhul-cessas-2018	Şerhü'l-Cessas Ala'l-Cami'il-Kebir Adlı Eserinin Tahkiki
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	kose-serahsi-mebsut-2024	Serahsî'nin Mebsût'ta Takrîrî Sünnetle İstidlâlleri
+LINK	tirmizi	ebu-bekir-ahmed-b-ali-el-verrak-et-tirmizi	kucukosman-tirmizi-sunen-2018	Tirmizi'nin Sünen'inde Hanefi Mezhebine Yaklaşımı
+LINK	mevsili	mecduddin-ebul-fazl-abdullah-b-mahmud-el-mevsili	kurt-mevsili-ihtiyar-2014	Mevsıli'nin İhtiyar Adlı Eserinde Örf ve Adet
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	kurtulus-ahkam-tefsirlerinde-2023	Ahkâm Tefsirlerinde Kırâat Farklılıkları el-Cessâs'ın Ahkâmu'l-Kur'ân ve el-Kurtubî'nin el-Câmi'li Ahkâmi'l-Kur'ân Örnekleri
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	kusmez-cessas-icma-2003	Cessas'ın İcma Anlayışı
 LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	macit-fikih-2021	Fıkıh Tarihinde İhtisar Geleneği ve İmam Tahavi'nin el-Muhtasar Isimli Eseriyle İmam Kuduri'nin el-Muhtasar İsimli Eserinin Mukayesesi
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	macit-fikih-tarihinde-2019	Fıkıh Tarihinde İhtisar Geleneği ve İmam Tahavi'nin “El-muhtasar İsimli Eseriyle İmam Kuduri'nin ”el-muhtasar" İsimli Eserini Muhkayesesi
+LINK	selci	ebu-abdullah-muhammed-b-suca-es-selci	mansi-imam-muhammed-2021	İmam Muhammed B. Şüca' es-Selcî ve Fıkıh İlmi ile İlgili Görüşleri
 LINK	baberti	ekmeleddin-muhammed-b-muhammed-el-baberti	matpan-fikih-nodate	Fıkıh Usûlü-Meânî İlişkisi (Bâbertî Örneği)
+LINK	ayintabi	sehabeddin-ahmed-b-ibrahim-el-ayintabi	memur-ahmed-imad-2020	Ahmed B. 'İmad el-Hanefi el-'Ayıntabi'nin Eş-Şükriyye Adlı Eserinin Tahkiki
 LINK	habbazi	celaleddin-omer-b-muhammed-el-habbazi	mohammed-habbazinin-nodate	Habbâzî'nin "Şerhu'l-Hidâye" Adlı Eserinin Tahkik ve Tahlili
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	nacar-cessas-fusul-2009	Cessâs'ın “El-Füsûl”adlı Eserindeki Asılların Tespiti
 LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	orazov-islam-2005	İslâm Hukuk Metodolojisinde İmâm Serahsî’ye Göre Emir ve Nehiy
 LINK	natifi	ebul-abbas-ahmed-b-muhammed-en-natifi	orhan-natifinin-1996	Natifi'nin el-Ecnas ve`l-Faruk Adlı Eserinin Tahkik ve Tahlili
+LINK	habbazi	celaleddin-omer-b-muhammed-el-habbazi	oruc-habbazi-mugni-2015	Habbazi'nin el-Mugni Fi Usuli'l-Fıkh Adlı Eserine Harizmi Tarafından Yapılan Şerhin Tahkik ve Tahlili
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	ozbey-serahsi-mebsut-2025	Serahsî'nin el-Mebsût'unda İstihsan Delili (Alışveriş Özelinde)
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	ozcan-hanefi-usulunde-2022	Hanefî Usûlünde Hadislerin Kur'ân'a Arzı Meselesi ve Cessâs Örneği
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	ozdemir-cessas-nesih-2010	Cessâs'ın Nesih Anlayışı
+SKIP different laqab	timurtasi	zahireddin-ebul-abbas-ahmed-b-ismail-et-timurtasi	ozdemir-yuzyilin-sonlarinda-2017	16. Yüzyılın Sonlarında Osmanlı İmparatorluğu'nda Parasal İstikrarsızlık ve Şemseddin Timurtâşî'nin Nükûd Risalesi
+LINK	zemahseri	carullah-ebul-kasim-mahmud-b-omer-ez-zemahseri	ozen-zemahseri-ruusu-2022	Zemahşerî'nin Ruûsü'l-Mesâil'inde Şâfi'îlere Atfettiği Görüşlerin Değerlendirilmesi (Ceza Hukuku Bağlamında)
+LINK	mevsili	mecduddin-ebul-fazl-abdullah-b-mahmud-el-mevsili	ozgen-mevsili-ihtiyar-2025	Mevsılî'nin el-İhtiyâr Adlı Eserinde Borçlar Hukuku Bağlamında Kullanılan Fıkhî Kaidelerin Tespit ve Değerlendirilmesi
+LINK	amasi	mueyyedzade-abdurrahman-b-ali-el-amasi	ozmen-kizil-molla-2015	Kızıl Molla (Abdurrahman B. Ali el-Amasî) Ö. 983 / 1575'nın İbn Kemal'in Hidâye Şerhi Üzerine (Mesh ‛ale'l-Huffeyn Meselesi Bağlamında) İtirazları
+LINK	habbazi	celaleddin-omer-b-muhammed-el-habbazi	ozturk-habbazi-hanefi-2022	Habbâzî'nin Hanefî Usûl Geleneğindeki Yeri ve Usûlcülüğü
 LINK	hassaf	ahmed-b-omer-el-hassaf	ozturk-islam-1982	İslâm Hukukunda el-Hassaf'ın Yeri ve Edebu'l-Kâdi Adlı Eseri
+LINK	bursevi	hocazade-muslihuddin-mustafa-b-yusuf-el-bursevi	ozturk-ismail-hakki-2023	İsmâil Hakkı Bursevî'nin Rûhu'l-beyân Adlı Tefsirinde Ahkâmu'l-Kur'ân
+SKIP kunya	muzaffer	radiyyuddin-abdullah-b-el-muzaffer	ozturk-muzaffer-emir-2023	Ebû'l-Muzaffer es-Sem'ânî'nin Emir ve Nehiy Hakkındaki Görüşleri
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	ozturk-semsuleimme-serahsi-2024	Şemsüleimme Serahsî'nin “El-Mebsût”adlı Eserinde İmam Şâfiî'ye Atfedilen Görüşlerin Tespit ve İncelenmesi (İbadetler Bağlamında Zekât, Oruç ve Hac Özelinde)
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	parlak-imam-safii-2023	İmam Şâfiî'nin er-Risâlesi ile Cessâs'ın el-Fusûl Fi'l-Usûl'ünün Haber, Hadîs ve Sünnet Kavramları Çerçevesinde Mukayesesi
+LINK	mevsili	mecduddin-ebul-fazl-abdullah-b-mahmud-el-mevsili	qarabasha-musul-hadis-2023	Musul'da Hadis İlmi ve Ömer B. Bedr el-Mevsılî el-Hanefinin Hadisçiliği
+LINK	mevsili	mecduddin-ebul-fazl-abdullah-b-mahmud-el-mevsili	riza-mevsili-ihtiyar-2023	Mevsılî'nin el-İhtiyâr Adlı Eseri Bağlamında Hanefî Usûl Kaidelerinin Tespit ve Değerlendirilmesi
+LINK	velvalici	zahiruddin-ebul-feth-abdurresid-el-velvalici	sabiry-feth-velvalici-2024	Ebü'l-feth el-Velvâlici'nin İbadetlerleilgili Fetvâlarının İncelenmesi
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	sacin-tahavi-serhu-2020	Tahâvî'nin Şerhu Meâni'l-Âsâr Adlı Eserinde Üç Hanefi İmama Muhalefet Ettiği Görüşlerinin İncelenmesi
+LINK	emevi	burhaneddin-ebul-muvaffak-mesud-b-suca-el-emevi	sahin-endulus-emevi-2010	Endülüs Emevî Devleti'nde Müşavirler Meclisi'nin Ortaya Çıkışı ve Meclis Üyelerinin Hayatı ve Görüşleri
+LINK	mekki	serefuleimme-burhaneddin-mahmud-et-tercumani-el-mekki	sahin-hukum-ifade-2022	Hüküm İfade Etmesi Açısından Mekkî Ayetler (Mâtürîdî ve Cessâs Tefsirleri Özelinde)
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	sahin-hukum-ifade-2022	Hüküm İfade Etmesi Açısından Mekkî Ayetler (Mâtürîdî ve Cessâs Tefsirleri Özelinde)
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	sahin-imam-serahsi-2019	İmam Serahsî'nin el-Mebsût İsimli Eserinde İbâdât ve Ukûbât Konularında İstihsân Delilinin Uygulanması
 LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	salur-hicri-nodate	Hicri 4. Asır Fıkıh Usulü Geleneklerinde Cessas'ın Yeri
+LINK	sabuni	nureddin-ahmed-b-mahmud-es-sabuni	samanci-hanife-eseri-2025	Ebû Hanife'nin Beş Eseri ile Nûreddin Sâbûnî'nin el-Bidâye'sinde Aklî ve Naklî Delillerin Karşılaştırılması
+LINK	meydani	muhammed-b-ibrahim-ed-darir-el-meydani	sari-mezhep-tercih-2024	Mezhep İçi Tercih Usulü Açısından Meydânî'nin el-Lübâb İsimli Eserinin Değerlendirilmesi
 SKIP namesake	imrani	fahrul-mesayih-ali-b-abdullah-el-imrani	sari-yahya-nodate	Yahya b. Ebi’l-Hayr el-İmrânî ve‘el-Beyân fî Fıkhi’ş-Şâfiî’ Adlı Eserindeki Fıkhî Metodu
+LINK	ahsikesi	husameddin-muhammed-b-muhammed-el-ahsikesi	sarikaya-ahsikesi-muntehab-2023	Ahsîkesî'nin el-Müntehab'ının Hanefî Muhtasar Usûl Geleneği İçerisindeki Yeri
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	sarikaya-hanefi-usulunun-2025	Hanefi Usulünün Oluşumunda Sahabe Amelinin Etkisi (Cessas'ın el-Fusul Fi'l-usul Adlı Eseri Ekseninde)
 LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	satici-imam-2023	İmam Serahsi'nin İktisadi Görüşleri
 SKIP namesake	imadi	ebussuud-efendi-muhammed-b-muhammed-el-imadi	saylan-celaleddin-2012	Celâleddîn el- İmâdî’nin Ğurerü’ş-Şürût ve Dürerü’s-Sümût Adlı Eserinin Tahkîk ve Tahlîli
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	sekercioglu-hanefi-mezhebinde-2023	Hanefî Mezhebinde Zarûret ve Fıkhî Hükümlere Etkisi: Serahsî'nin el-Mebsût Örneği
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	sekme-delalet-elfaz-2022	Delalet ve Elfaz Bahislerinin Kur'an'ı Anlama ve Yorumlamada Metodik Kullanımı: Taberî ve Cessâs Örnekliğinde Analitik Bir Çalışma
+LINK	mekki	serefuleimme-burhaneddin-mahmud-et-tercumani-el-mekki	sener-hanefi-akile-2018	Hanefî İbn Akîle el-Mekkî 'Nin el-Cevherü'l-Manzûm'da Ukûbât Âyetlerini Tefsirde Rivâyet Yöntemi
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	senkardesler-serahsi-aile-2009	Serahsî'nin Aile Hukuku Hükümlerinin Gayelerine İlişkin Analizleri
+LINK	timurtasi	zahireddin-ebul-abbas-ahmed-b-ismail-et-timurtasi	sezer-timurtasi-vusul-2019	Timurtâşi'nin el-Vüsûl İlâ Kavâidi'l-Usûl Adlı Eserinin Fıkıh İlmindeki Yeri
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	shabani-serhu-meani-2011	?Şerhu Meâni'l-Âsâr? Eserine Göre Ebû Ca`Fer et-Tahâvî'nin Metodolojisinde Sünnetin Kaynak Değeri ve İbadetlerde Uygulanışı
 LINK	zemahseri	carullah-ebul-kasim-mahmud-b-omer-ez-zemahseri	solaker-zemahserinin-2019	Zemahşerî’nin Keşşaf Tefsirindeki Ahkâm Ayetlerini Yorumlama Metodu
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	soyarslan-tahavi-cassas-2014	Tahâvî (Ö.321/933) ve Cassâs (Ö.371/981) Örnekliğinde İki Hanefî Ahkâm Tefsirinin Mukayesesi
+LINK	imadi	ebussuud-efendi-muhammed-b-muhammed-el-imadi	suzgun-hamid-imadi-2006	Hamid el-İmadi'nin Risalelerinin İslam Hukuku Açısından Değerlendirilmesi
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	tashtanova-serahsi-hadis-2023	Serahsî'de Hadis, Sünnet ve Metin Tenkidi
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	tecimer-serahsi-mebsut-2019	Serahsi'nin el-Mebsut Adlı Eserinde İcma Kavramı (Kitabu'l-büyû' Özelinde)
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	tekin-serahsi-mebsut-2022	Serahsi'nin “El-Mebsut”isimli Eserinde Şafiî'ye Yönelik Atıfların Tesbit ve İncenlemesi
 LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	tetik-serahsinin-nodate	Serahsi’nin İstihsan Anlayışı: Teori ve Uygulama
 LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	timur-tahavinin-2016	Tahavi’nin Akide Şerhlerinde İtikadi Farklılaşmalar
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	tokan-cessas-ahkamu-2025	Cessâs'ın “Ahkâmü'l-Kur'ân”eserinde Ferâizle İlgili Hadislerin Tespit, Tahrîc ve Tahlîli
+LINK	imrani	fahrul-mesayih-ali-b-abdullah-el-imrani	toktas-ibadetlerde-furuk-2024	İbadetlerde Furûk-u Fıkhiyye Konularının Tespit ve Tahlili (İmrânî'nin el-Beyân Adlı Eseri Bağlamında)
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	topcu-maturidi-cessas-2017	Mâtürîdî ve Cessâs Tefsirlerinde İbadetlere Dair Ahkâm Ayetlerinin Yorumlanması
 LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	torun-abdullah-nodate	Abdullah b. Mesud (r.a.)’ın Fıkhının Serahsî'nin Mebsut'unda Tezahürü
 LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	torun-serahsi-mebsut-2024	Serahsî'nin Mebsût'unda geçen Abdullah b. Mes'ûd (r.a.) rivayetlerinin Hanefî Mezhebine etkisi
+LINK	aksarayi	cemaleddin-muhammed-b-muhammed-el-aksarayi	tunel-cemaleddin-aksarayi-2023	Cemâleddin Aksarâyî'nin “Hâşiye Alâ Şerhi Mecmâ'i'l-bahreyn”adlı Eserinin İlm-i Hilâf Bağlamında Değerlendirilmesi
+LINK	kerhi	ebul-hasan-ubeydullah-b-el-huseyin-el-kerhi	turk-kerhi-hayati-2005	Ma`rûf el-Kerhî: Hayâtı, Tasavvufi Görüşleri ve “Menâkibu Ma`rûf el-Kerhî”isimli Eser
+LINK	kerhi	ebul-hasan-ubeydullah-b-el-huseyin-el-kerhi	turk-kerhi-hayati-2005	Ma`rûf el-Kerhî: Hayâtı, Tasavvufi Görüşleri ve “Menâkibu Ma`rûf el-Kerhî”isimli Eser
+LINK	timurtasi	zahireddin-ebul-abbas-ahmed-b-ismail-et-timurtasi	turkmen-timurtasi-fetva-2025	Timurtâşî'nin Fetva Anlayışı
 LINK	kessi	ahmed-b-musa-el-kessi	tuychibaev-ahmed-musa-2021	Ahmed b. Mûsa el-Keşşî'nin Mecmû'u'l-Havâdis ve'n-Nevâzil ve'l-Vâkıʻât adlı eserinin tahkik ve değerlendirilmesi
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	ucar-ahkam-ayetlerinin-2024	Ahkâm Âyetlerinin Yorumlanmasında Kıraat Farklılıklarının Etkisi (Tahâvî Örneği)
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	ufakca-halvani-serahsi-2019	Halvani ve Serahsi'nin el-Mebsut Adlı Eserlerinin Nikah Bölümlerinin Mukayesesi
 LINK	attabi	zahiduddin-ebu-nasr-ahmed-b-muhammed-el-attabi	ulutas-attabinin-nodate	Attabî’nin “Cevâmiu’l-Fıkıh” Adlı Eserinin Tahkik ve Tahlili
+LINK	tirmizi	ebu-bekir-ahmed-b-ali-el-verrak-et-tirmizi	var-hakim-tirmizi-2022	Hakîm et-Tirmizî'nin Kitâbu'l-Menhiyyât Adlı Eserindeki Fıkhî Görüşlerin Tahlili
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	varol-serahsi-mebsut-2008	Serahsi'nin ?El-Mebsut?undaki Hadis Metin Tenkitlerinin Tahlili (XVI-XXX. Cüzler)
 LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	yalcin-ahkam-2022-1	Ahkâm Âyetelri Bağlamında Kırâat-Fıkıh İlişkisi: Taberî ve Cessâs Örneği
 LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	yalcin-ahkam-2022	Ahkâm Âyetleri Bağlamında Fıkıh-Kıraat İlişkisi: Taberî ve Cessâs Örneği
+LINK	sagani	radiyyuddin-el-hasan-b-muhammed-es-sagani	yanik-radiyyuddin-sagani-2019	Radıyyüddin es-Sagânî ve ed-Dürrü'l-Mültekat Adlı Eserinin Değerlendirilmesi
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	yardim-serahsi-gore-1995	Serahsi`ye Göre Hadler ve Uygulamaları
+LINK	baberti	ekmeleddin-muhammed-b-muhammed-el-baberti	yasa-ekmeluddin-baberti-2022	Ekmelüddîn Bâbertî'nin Mezhep ve İctihad Anlayışı
+LINK	sabuni	nureddin-ahmed-b-mahmud-es-sabuni	yassikaya-sabuni-safvetu-2026	Sâbûnî'nin “Safvetü't Tefâsîr”isimli Eserinde Hüküm Ayetlerine Yaklaşımı (Bakara Suresi Örneği)
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	yazici-serahsi-gazzali-2007	Serahsi, Gazzali, el-Baci ve Ebu'l-Hüseyin el-Basri'nin Fıkıh Usullerinde Hadislerin Kullanımı
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	yazicioglu-klasiklesme-surecinde-2008	Klasikleşme Sürecinde Hanefî Fıkıh Usûlünde Akıl-vahiy İlişkisi (Cessas ve Debusî Örneği)
+LINK	bistami	ziyaulislam-ebu-suca-omer-b-muhammed-el-bistami	yeniceri-alaaddin-muhammed-2018	Alâaddîn Ali B. Muhammed el-Bistâmi Eş-şahrûdî el-Musannifek ve el-Hudûd Ve'l-Ahkâm el-Fıkhıyye Adlı Eseri
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	yigit-serahsi-mebsut-2015	Serahsî'nin el-Mebsut ve Maverdî'nin el-Hâvî İsimli Eserlerinin Namaz Bölümlerinin Yöntem ve Muhteva Açısından Analizi
+LINK	ayintabi	sehabeddin-ahmed-b-ibrahim-el-ayintabi	yildirim-ahmed-imad-2019	Ahmed B. Imâd el-Hanefî el-Ayıntâbî' Nin el-Hamdiyye Adlı Eserinin Tahkiki
+LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	yildirim-cessas-tusi-2023	Cessâs (Ö.370/981) ve Tûsî'nin (Ö.460/1067) Ahkâm Âyetlerine Yaklaşımı
+LINK	tirmizi	ebu-bekir-ahmed-b-ali-el-verrak-et-tirmizi	yildiz-tirmizi-cami-2017	Tirmizî'nin Cami'inde Fıkhü'l-hadis ve Fakih Muhaddisler
 LINK	signaki	husameddin-el-huseyin-b-ali-es-signaki	yilmaz-maturidi-2016	Mâtürîdî Âlimlerden Sığnâkî’nin (ö. 714/1314) et-Tesdîd fî şerhi’t-Temhîd Adlı Eserinin Tahkiki ve İlâhiyyat Konularının Tahlili
+LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	yilmaz-serahsi-mebsut-2023	Serahsî'nin el-Mebsût İsimli Eseri Bağlamında Hanefilerde Ruhsat Uygulamaları
+LINK	kerhi	ebul-hasan-ubeydullah-b-el-huseyin-el-kerhi	yilmaz-serhu-muhtasari-2024	Şerhu Muhtasari'l-kerhi'de “Asıl”kavramı: Zekât ve İcâre Bölümleri Çerçevesinde Bir İnceleme
+LINK	zemahseri	carullah-ebul-kasim-mahmud-b-omer-ez-zemahseri	yoldas-zemahseri-beydavi-2021	Zemahşeri, Beydavi ve Nesefi Tefsirlerinde Fıkhi Ayetlere Yaklaşımların Mukayesesi
+LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	zhamashev-hanefi-hadis-2017	Hanefî Hadis Anlayışı Açısından İmam Tahâvî'nin Bedreddîn el-Aynî'ye Yansımaları
+LINK	itkani	kivameddin-emir-katib-el-itkani	zhunissov-kivamuddin-itkani-2019	Kıvâmüddîn el-İtkânî'nin Gâyetü'l-Beyân Adlı Eserinin Metot ve Muhteva Açısından İncelenmesi (Kitâbü's-Salât Örneği)
+LINK	temimi	ebu-abdullah-muhammed-b-semaa-et-temimi	zourob-fethu-rabbi-2018	Fethu Rabbi'l-Beriyye Fî Fıkhi's-Sâdeti'l-Hanefiyye (Abdülfettâh B. Derviş et-Temîmî) Adlı Eserin Edisyon Kritiği, İnceleme ve Değerlendirilmesi

@@ -5,4 +5,7 @@ language: tr
 year: 1995
 university: "Erciyes Üniversitesi, Sosyal Bilimler Enstitüsü"
 city: "Kayseri"
+advisors: ["Halit Ünal"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=K0LMlddzT21wnIETOrYdZw"
+yokId: 42727
 addedAt: 2026-09-24

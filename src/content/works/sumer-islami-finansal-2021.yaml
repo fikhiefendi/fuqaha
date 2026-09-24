@@ -1,0 +1,17 @@
+type: "tez-doktora"
+title: "İslami Finansal Varlık Fiyatlama Modeli ve Arbitraj Fiyatlama Modelinin Test Edilmesi: Katılım 50 Endeksi ile Bir Uygulama"
+titleTranslation: {"en": "Testing islamic financial asset pricing model and arbitrage pricing model: An application with participation 50 index"}
+authors: ["Sumer, Serpil"]
+language: "tr"
+year: 2021
+university: "Atatürk Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "Erzurum"
+department: "İşletme Ana Bilim Dalı / Muhasebe Finansman Bilim Dalı"
+advisors: ["Ramazan Yanık"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=-6iQPOkUlcWBpCks4MWilQ"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=8tbPippmWV_b-Irrn9YEAmb9E-9BQStkdOPGL338foY7R1rLsfGcJp_i3-I96S9b"
+abstract: "Finansal Varlık Fiyatlama Modeli, 1952 yılında Harry Markowitz tarafından geliştirilmiştir. Modern portföy teorisi üzerine inşa edilen model zaman içerisinde yapılan eleştiriler doğrultusunda gelişim göstermiştir. Portföyün beklenen getirisinin sadece risksiz faiz oranı tarafından etkilenmediğini varlıkların değerini etkileyen birden çok faktörün bulunduğu varsayımı üzerine Arbitraj Fiyatlama Modeli geliştirilmiştir. Modelde yer alan risksiz varlık parametresinin İslami finans prensipleri ile uyumlu olmaması üzerine de İslami Finansal Varlık Fiyatlama Modeli geliştirilmiştir. Bu çalışmanın amacı, İslami Finansal Varlık Fiyatlama Modeli ile Arbitraj Fiyatlama Modelinin Katılım 50 Endeksi'ne uygulanabilirliğini test etmektir. Risksiz varlık yerine enflasyon oranı kullanılarak oluşturulan modellerin panel analiz ile test edildiği bu çalışmada, oluşturulan her iki modelin de 2014Q4-2020Q3 zaman aralığında oluşturulan portföylerin beklenen getirilerini hesaplamak için kullanılabileceği sonucuna ulaşılmıştır. Son yıllarda İslami finans alanında yapılan çalışmalardaki artış göz önünde bulundurulduğunda bu çalışmanın İslami finans literatürüne önemli bir katkı yapacağı düşünülmektedir. Çalışmanın sonunda İslami Finansal Varlık Fiyatlama Modelinde risksiz varlık yerine kullanılabilecek değişken önerileri sunulmuştur."
+yokId: 674571
+origin: otomatik
+addedAt: 2026-09-24

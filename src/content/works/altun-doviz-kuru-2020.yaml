@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "Döviz Kuru ve Pay Piyasası Getiri Oynaklığının Modellemesi ve Yayılımı"
+titleTranslation: {"en": "Volatility modeling and spillover of exchange rate and stock market"}
+authors: ["Altun, Özlem"]
+language: "tr"
+year: 2020
+university: "Şırnak Üniversitesi, Lisansüstü Eğitim Enstitüsü"
+city: "Şırnak"
+department: "İslam Ekonomisi ve Finansı Ana Bilim Dalı"
+advisors: ["Emre Esat Topaloğlu"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=PLCRCON9iGQVfGiUyXRAvA"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=wf-FPgY-5qjHEzEoOgvMs9_Fwu53V3XjVfgYd4RIVMg8sJEI432IZBV8aJTJdEC8"
+abstract: "Günümüzde yatırım kararı alan yatırımcılar için önemli faktörlerden biri de fiyatlardaki oynaklıklardır. Finansal piyasalardaki varlıkların fiyatlarında oluşan artış ya da azalışlar o piyasada volatilite kavramının karşılığını oluşturmaktadır. Yatırımcılar ve kurumlar için volatilitenin önceden öngörülebilmesi ve modellenebilmesi önem arz etmektedir. Volatilite, piyasaya etki eden olumlu veya olumsuz haberler sonucu ortaya çıkabileceği gibi siyasi olaylar ve ekonomik gelişmelerden de etkilenmektedir. Küreselleşme sonucu piyasaların birbirleri ile etkileşimleri yani bir piyasadaki volatilitenin herhangi bir piyasayı olumlu ya da olumsuz etkilemesi volatilite yayılımını meydana getirmektedir. Volatilite yayılımının araştırılması, yatırım kararları alınırken belirsizlik ve risk düzeyinin tahmin edilmesinde yardımcı olmaktadır. Bu çalışmada, 2000-2019 dönemi için haftalık veriler kullanılarak, döviz kurları ve BIST100 endeks getiri serilerinin volatilite modellemesini yapmak ve döviz kurları ile BIST100 endeksi getirisi arasındaki volatilite yayılımını ortaya çıkartmak amaçlanmaktadır. Bundan dolayı araştırmada ilk olarak döviz kurları ve BIST100 endeksinin volatilite yapısı ARCH-GARCH modelleri ile belirlenmiş, aralarındaki volatilite yayılımı ise Multi-GARCH modeller ile incelenmiştir. Elde edilen bulgular USD ve EURO döviz kurlarından BIST100 endeksine negatif yönlü volatilite yayılımının olduğunu ve USD döviz kurundan EURO döviz kuruna ise pozitif yönlü volatilite yayılımının olduğunu ortaya koymuştur."
+yokId: 658237
+origin: otomatik
+addedAt: 2026-09-24

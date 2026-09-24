@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "İslami Finans Endeksleri ile Kıymetli Metaller Arasındaki İlişkinin Keşfi: Ekonometrik Bir Analiz"
+titleTranslation: {"en": "Exploring the relationship between Islamic finance indices and precious metals: An econometric analysis"}
+authors: ["Bilginer, Fatih"]
+language: "tr"
+year: 2026
+university: "Kahramanmaraş Sütçü İmam Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "Kahramanmaraş"
+department: "Finans ve Bankacılık Ana Bilim Dalı"
+advisors: ["Levent Sezal", "Yaşar Alptürk"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=M7UW0OeP8QGBllv34tFnpw"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=5T1_CZ5-UGb9QCmoURec4HOQvLrYEbQtZ_G8rsF1h0ufHWK8DtYTUTygBOQBVzZb"
+abstract: "Bu çalışmanın amacı, İslami finans endeksleri ile kıymetli metaller arasındaki ilişkileri zaman ve frekans boyutunda incelemektir. Bu kapsamda Dow Jones Islamic Market World Index, FTSE Shariah All-World Index, MSCI World Islamic Index ve S&P Global BMI Shariah Index ile altın, gümüş, paladyum ve platin arasındaki ilişkiler analiz edilmiştir. Araştırmada 15 Haziran 2016–31 Mayıs 2026 dönemine ait günlük logaritmik getiri serileri kullanılmıştır. Analiz sürecinde öncelikle serilerin durağanlığı Zivot-Andrews yapısal kırılmalı birim kök testi ile incelenmiş, ardından zaman ve frekans boyutundaki ilişkiler dalgacık uyum analizi (Wavelet Coherence [WTC]) ile değerlendirilmiştir. Elde edilen bulguların sağlamlığı ise Toda-Yamamoto nedensellik testi ile sınanmıştır. Bulgular, tüm serilerin düzeyde durağan olduğunu gösterirken, WTC sonuçları, İslami finans endeksleri ile kıymetli metaller arasındaki ilişkilerin zaman ve frekansa bağlı olarak değişen dinamik bir yapıya sahip olduğunu, özellikle COVID-19 ve sonrasını kapsayan dönemde etkileşimin güçlendiğini ortaya koymuştur. Ayrıca ilişkilerin genel olarak pozitif yönlü olduğu, ancak öncülük yapısının dönemlere ve yatırım ufuklarına göre değiştiği belirlenmiştir. Toda-Yamamoto sonuçları ise tüm İslami finans endekslerinden gümüşe doğru tek yönlü, altın, paladyum ve platin ile endeksler arasında ise genel olarak çift yönlü nedensellik ilişkileri bulunduğunu göstermektedir. Sonuç olarak çalışma, İslami finans endeksleri ile kıymetli metaller arasındaki ilişkinin sabit ve doğrusal olmadığını, küresel gelişmelerin etkisiyle zaman ve frekans boyutunda değişen dinamik bir karakter sergilediğini ortaya koymaktadır."
+yokId: 1022960
+origin: otomatik
+addedAt: 2026-09-24

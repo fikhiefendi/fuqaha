@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "Türkiye'de İllerin Katılım Bankacılığının Performans Analizi"
+titleTranslation: {"en": "Performance analysis of participation banking in Turkish provinces"}
+authors: ["Özbey, Aysel"]
+language: "tr"
+year: 2026
+university: "Süleyman Demirel Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "Isparta"
+department: "İslam İktisadı ve Finansı Ana Bilim Dalı / İslam İktisadı ve Finansı Bilim Dalı"
+advisors: ["Mahmut Sami Öztürk"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=M95A1iNjX2gZoqfGb0j6FQ"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=KOgdn9H3uVnWeb15j2W4hyoOl1-U0YEENnEXDk8dKMmGVikCEgKm1TL1ajAbDb_5"
+abstract: "Bu çalışma, Türkiye'de iller düzeyinde katılım bankacılığının performansını çok kriterli karar verme (ÇKKV) yöntemleri kullanarak analiz etmeyi amaçlamaktadır. Katılım bankaları, faizsiz bankacılık ilkeleri doğrultusunda faaliyet gösteren ve son yıllarda Türkiye finansal sistemi içinde hızla büyüyen bir bankacılık segmentini temsil etmektedir. Bu bağlamda, katılım bankacılığı faaliyetlerinin bölgesel ölçekte ne ölçüde yaygınlaştığı ve hangi illerde daha güçlü bir finansal yapı sergilediği hem sektörün sürdürülebilirliği hem de bölgesel finansal kalkınma açısından büyük önem taşımaktadır. Çalışmada, Türkiye'deki 81 il için katılım bankacılığına ilişkin finansal ve operasyonel göstergeler kullanılarak çok boyutlu bir analiz çerçevesi oluşturulmuştur. Performans değerlendirmesinde kişi başı nakdi kredi, kişi başı tasarruf mevduatı, kişi başı toplam mevduat, takipteki alacaklar ve yurtiçi banka şube sayısı olmak üzere beş temel gösterge kullanılmıştır. Bu göstergeler, katılım bankacılığının hem finansal derinliğini hem de risk ve erişilebilirlik boyutlarını birlikte yansıtması nedeniyle tercih edilmiştir. Yöntemsel olarak çalışma üç aşamalı bir yaklaşım üzerine kurulmuştur. İlk aşamada, iller katılım bankacılığı göstergeleri bakımından benzerliklerine göre K-Means kümeleme yöntemi ile gruplandırılmıştır. İkinci aşamada, her küme için kriter ağırlıkları nesnel ve veriye dayalı Entropi yöntemi kullanılarak hesaplanmıştır. Son aşamada ise her küme kendi içinde TOPSIS ve VIKOR yöntemleriyle performans açısından sıralanmıştır. Bu bütünleşik yöntemsel yapı, hem iller arasındaki yapısal farklılıkların ortaya konulmasına hem de her küme içinde göreli performansların farklı karar verme mantıklarıyla değerlendirilmesine olanak sağlamıştır. Elde edilen bulgular, Türkiye'de katılım bankacılığı performansının iller arasında önemli ölçüde farklılaştığını ve bu farklılaşmanın özellikle bankacılık erişimi (şube yaygınlığı) ve kredi riski (takipteki alacaklar) boyutlarında yoğunlaştığını göstermektedir. İstanbul'un tek başına bir küme oluşturması, katılım bankacılığı faaliyetlerinin büyük ölçüde merkezîleştiğini ortaya koyarken; Ankara, Bursa, Gaziantep, Kocaeli ve Rize gibi illerin yer aldığı küme, İstanbul'un ardından gelen bölgesel finansal merkezleri temsil etmektedir. TOPSIS ve VIKOR sonuçlarının birlikte değerlendirilmesi, bazı illerin yüksek hacme sahip olmasına rağmen risk ve erişim açısından daha kırılgan bir yapı sergileyebildiğini; buna karşılık bazı illerin daha dengeli bir katılım bankacılığı profiline sahip olduğunu göstermektedir."
+yokId: 997204
+origin: otomatik
+addedAt: 2026-09-24

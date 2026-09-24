@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "Finansal Kapsayıcılık ile Ekonomik Büyüme Arasındaki İlişkinin Kantil Regresyon Yöntemiyle Analizi"
+titleTranslation: {"en": "Analysis of the relationship between financial inclusion and economic growth with quantile regression method"}
+authors: ["Özyıldırım, Yunus"]
+language: "tr"
+year: 2019
+university: "Uşak Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "Uşak"
+department: "Ekonometri Ana Bilim Dalı"
+advisors: ["Murat Gündüz"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=FXZhwMz6YjB0pjTXFeraLg"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=Mir2lXQK1dkmQ9Ige3PZbtbBGuY5Mx0SlKMveS6tJXajdjWRvQ7xHXxrtr-zxJTh"
+abstract: "Küresel anlamda bakıldığında, finansal hizmetlerin erişilebilirliği, kullanılabilirliği ve kullanımı açısından en önemli kuruluşlar bankalardır. Politika yapıcıların önemli önceliklerinden birisi bankalar aracılığıyla oluşturulan finansal piyasayı daha kapsayıcı hale getirmek, tüm yetişkinlerin erişebildiği ve tasarruflarını finansal piyasalar aracılığıyla kullandığı kapsamlı bir finansal piyasa oluşturmaktır. Çalışmada Sarma (2008) tarafından geliştirilen yetişkin bireylerin finansal hizmetlere ne ölçüde eriştiklerini ve kullandıklarını ölçen mevduat ve katılım bankacılığı verilerini esas alan finansal kapsayıcılık endeksi Türkiye için illere göre hesaplanmıştır. Bu endeks 0 ile 1 arasında değerler almakta, 0 değeri finansal kapsayıcılığın dışında kalındığını, 1 ise finansal kapsayıcılığın tam olarak sağlandığını göstermektedir. Çalışma kapsamında Türkiye'nin 2011-2017 yıllarını kapsayan 81 ili için finansal kapsayıcılık endeksi oluşturulmuştur. Yine aynı yöntem ile Türkiye'nin 2007-2017 yıllarını kapsayan 81 ili için katılım bankacılığının finansal kapsayıcılığı da hesaplanmıştır. Finansal sistemin boyutlarının gösterildiği endeks değerlerinde bölgeler arasında büyük farklılıklar olduğu saptanmıştır. Oluşturulan endeks değerlerinin ekonomik büyüme ile arasında nasıl bir ilişki içinde olduğu Kantil Regresyon yöntemiyle detaylı olarak incelenmiştir. Bulgular düşük kantil bölgelerinde istatistiksel olarak anlamlı bir ilişkinin bulunduğunu, yüksek kantil bölgelerinde ise anlamlı fakat negatif bir ilişkinin bulunduğunu ortaya koymuştur."
+yokId: 550010
+origin: otomatik
+addedAt: 2026-09-24

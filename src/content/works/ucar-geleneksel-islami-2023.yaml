@@ -1,0 +1,17 @@
+type: "tez-doktora"
+title: "Geleneksel ve İslami Hisse Senedi Endeksleri Arasındaki İlişki ve Performans Analizi"
+titleTranslation: {"en": "Relationship and performance analysis among conventional and Islamic stock indices"}
+authors: ["Uçar, Gözde"]
+language: "tr"
+year: 2023
+university: "Afyon Kocatepe Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "Afyonkarahisar"
+department: "İşletme Ana Bilim Dalı / İşletme Bilim Dalı"
+advisors: ["Tuğrul Kandemir"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=_qb3oFxhLWOeLaoLXku9Wg"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=G_oJ1rKE4SgJUkomyAKpR2eT1XaQEO5aiV3mX2nlcS4daBFeVYBk1bbLYQhefgiS"
+abstract: "Uluslararası sermaye piyasalarında köklü bir geçmişe sahip olan islami hisse senedi endeksleri dini hassasiyetleri olan yatırımcıların yatırım ortamına dahil edilebilmesi amacıyla geliştirilmiştir. Geleneksel hisse senetlerinin islami finans kuralları temelinde filtrelenmesiyle oluşturulan islami hisse senedi endeksleri her profilden yatırımcının da ilgi odağı olmuştur. Bu çalışmada risk yönetimi ve çeşitlendirme imkanı açısından değerlendirilmek üzere geleneksel ve islami hisse senedi endeksleri arasındaki eşbütünleşme ve nedensellik ilişkileri ile getiri performansı farklılıklarının tespiti amaçlanmıştır. Bu kapsamda Türkiye, İngiltere, ABD, Japonya, Çin, Rusya, Malezya, Hindistan ve Brezilya geleneksel ve islami hisse senedi endekslerinin 06.01.2011- 30.09.2021 periyodunda ABD Doları cinsinden elde edilen günlük kapanış fiyatları getiri serilerine dönüştürülmüştür. Getiri serilerinin modellenmesine dayanan CUSUMSQ analiziyle yapısal kırılmalara ilişkin ön bulgular, Carrion-i Silvestre birim kök testiyle kırılma tarihleri belirlenmiştir. Yapısal kırılma tespit edilmeyen Japonya serilerine Johansen eşbütünleşme ve Granger nedensellik, kırılmalar tespit edilen 8 ülke serilerine Maki eşbütünleşme ve Toda-Yamamoto nedensellik analizleri uygulanmıştır. Getiri performansları Riske Göre Düzeltilmiş performans ölçütleri Sharpe, Treynor ve Jensen Alfa ile analiz edilmiştir. Analizler sonucunda her bir ülkenin geleneksel ve islami hisse senedi endeks getirileri arasında en az 2 eşbütünleşme vektörü; Rusya ve Brezilya geleneksel hisse senedi endeks getirilerinden islami hisse senedi endeks getirilerine doğru tek yönlü, diğer 7 ülkenin geleneksel ve islami hisse senedi endeks getirileri arasında çift yönlü nedensellik ilişkisi saptanmıştır. 2011-2021 periyodunda en yüksek ortalama getiriyi geleneksel hisse senedi endeksleri, COVID-19 döneminde islami hisse senedi endeksleri sağlamıştır. Geleneksel hisse senedi endeksleri daha yüksek sistematik riske ve oynak yapıya sahiptir. Her bir performans ölçütüne göre genel anlamda geleneksel hisse senedi endeksi islami hisse senedi endeksinden daha iyi getiri performansı sergilemiştir. Bu bağlamda Modern Portföy Teorisinde varsayılan risk ve getiri arasındaki doğrusal ilişki desteklenerek, geleneksel hisse senedi endekslerinin uzun dönemde yüksek getiri hedefleyen yatırımcılar için tercih edilebilir olduğu; nedensellik ve eşbütünleşme ilişkileri dolayısıyla geleneksel ve islami hisse senedi endeksleriyle yapılacak çeşitlendirmenin risk yönetimi açısından faydalı olmayacağı öngörülmüştür."
+yokId: 793620
+origin: otomatik
+addedAt: 2026-09-24

@@ -1,0 +1,16 @@
+type: "tez-yl"
+title: "BİST Katılım Endeksi'nin Finansal ve Reel Ekonomik Faktörlere Duyarlılığı: Yapısal Kırılmalı Eşbütünleşme ve Nedensellik Analizi"
+titleTranslation: {"en": "The sensitivity of the BIST Participation Index to financial and real economic factors: A structural break cointegration and causality analysis"}
+authors: ["Aydın, Hayrullah"]
+language: "tr"
+year: 2026
+university: "Bingöl Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "Bingöl"
+department: "İşletme Ana Bilim Dalı / Muhasebe Finansman Bilim Dalı"
+advisors: ["Müslüm Polat"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=RsoYAuae4tX_zy4PlnekGg"
+abstract: "Bu çalışma, İslami finans ilkelerine dayanan ve katılım finans piyasalarının önemli göstergelerinden biri olan BIST Katılım Endeksi ile Türkiye ekonomisini temsil eden seçilmiş makroekonomik değişkenler (altın, petrol, döviz kuru, faiz, enflasyon, işsizlik ve istihdam) arasındaki ilişkileri incelemiştir. Araştırmada, 2011:M2 ve 2025:M12 dönemine ait aylık veriler kullanılarak, kısa dönemli ilişkiler Toda–Yamamoto nedensellik testi ile uzun dönemli ilişkiler ise Gregory–Hansen yapısal kırılmalı eşbütünleşme testi kullanılarak analiz edilmiştir. Toda–Yamamoto nedensellik testi sonuçlarına göre, döviz kurundan Katılım Endeksi'ne doğru ve Katılım Endeksi'nden petrol fiyatlarına ve faiz oranlarına doğru tek yönlü bir nedensellik ilişkisi belirlenmiştir. Buna karşın Katılım Endeksi ile altın fiyatları ve enflasyon arasında ise istatistiksel olarak anlamlı bir nedensellik ilişkisi bulunamamıştır. Reel sektör göstergeleri açısından değerlendirildiğinde ise Katılım Endeksi'nden istihdama doğru tek yönlü ve ayrıca Katılım Endeksi ile işsizlik arasında ise çift yönlü bir nedensellik ilişkisi belirlenmiştir. Bu durum finansal piyasalar ile işgücü piyasası arasında karşılıklı bir ilişki bulunduğunu göstermektedir. Gregory–Hansen yapısal kırılmalı eşbütünleşme testi için toplam dört model oluşturulmuştur. Elde edilen sonuçlara göre, İlk modelde Katılım Endeksi, altın ve petrol fiyatları arasında sabitte ve trendde kırılma içeren eşbütünleşme ilişkisi, İkinci modelde Katılım Endeksi, döviz kuru ve istihdam değişkenleri arasında sabitte kırılma içeren eşbütünleşme ilişkisi, Üçüncü modelde Katılım Endeksi, faiz oranı ve işsizlik değişkenleri arasında rejim değişimini içeren eşbütünleşme ilişkisi ve Dördüncü modelde ise Katılım Endeksi, enflasyon ve işsizlik değişkenleri arasında sabitte ve trendde kırılma içeren uzun dönemli bir eşbütünleşme ilişkisi olduğu tespit edilmiştir. Analizlerde belirlenen yapısal kırılma tarihlerinin, Türkiye ekonomisinde önemli ekonomik dalgalanmaların yaşandığı 2018 döviz krizi, 2019 küresel belirsizlikler ve 2022 küresel enflasyon ve enerji krizi gibi dönemlerle örtüşmesi, katılım finans piyasalarının makroekonomik şoklara duyarlı bir yapıya sahip olduğunu göstermektedir."
+yokId: 1018829
+origin: otomatik
+addedAt: 2026-09-24

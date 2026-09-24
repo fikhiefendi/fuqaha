@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "Portfolio Construction with Particle Swarm Optimization in Turkish Stock Market"
+titleTranslation: {"tr": "Parçacık sürü optimizasyon tekniği ile Türkiye hisse piyasasında portföy üretimi"}
+authors: ["Salman, Özgür"]
+language: "en"
+year: 2018
+university: "İstanbul Bilgi Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "İstanbul"
+department: "Uluslararası Finans Ana Bilim Dalı / Uluslararası Finans ve Katılım Bankacılığı Bilim Dalı"
+advisors: ["Cenktan Özyıldırım"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=NcZMJ4yUAQVeo29ntkUiEA"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=MzP7PYssFqdb3WIjlroAkZ34iMZPqbEEYFLegi87yRc1xkwnjJQBBV6jb2e2RSIQ"
+abstract: "Bu çalışma, parçacık sürü optimizasyon tekniği kullanılarak, portföy seçimi için deneysel bir yaklaşımı sunmaktadır. PSO, sosyal davranışların bir portföy optimizasyon problemine entegrasyonu kullanılmıştır. PSO'nun entegrasyonu ile finansal varlıkların getirileri, matematiksel nedenler olarak, algısal düzeyde ele alınma şansına sahiptir. Temel hedef, MATLAB yazılımını kullanarak, beklenen portfolyo getirisini maksimize etmek ve aynı zamanda portfolyo riskinin varyansını en aza indirgemektir. Birbirine benzer başka geleneksel seçim modellerini tespit etmek için, diğer portföy optimizasyon teknikleri koda uygulanmaktadır. Kod, ana pso komut dosyası ve altı diğer fonksiyon dosyası tarafından oluşturulmuştur. Çalışma verileri BIST 30 endeksinin katılımcıları olan altı hisse senedinden oluşmaktadır ve 31 Aralık 2010'dan 30 Aralık 2015'e kadar test edilmiştir. Bir karşılaştırma olarak, ortalama-varyans modeli ve parçacık sürüsü optimizasyonu karşılaştırılmıştır. Ortalama-varyans modelinin temel problemi, ağırlıkları yalnızca iki ölçüt üzerine dağıtmaktadır ve kısa satış uygulaması içermemektedir. Aksine, PSO sınırlandırılmamış arama alanında, portföye ağırlık dağıtımı yapmak için daha uygun bir teknik gibi görünmektedir."
+yokId: 505779
+origin: otomatik
+addedAt: 2026-09-24

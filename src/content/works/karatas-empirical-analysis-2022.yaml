@@ -1,0 +1,17 @@
+type: "tez-doktora"
+title: "Empirical Analysis of the Islamic Finance İnvestor Sensitivity to Commodity Price Fluctuations"
+titleTranslation: {"tr": "İslami finans yatırımcısının emtia fiyatı dalgalanmalarına duyarlılığının ampirik analizi"}
+authors: ["Karataş, Ayyüce Memiş"]
+language: "en"
+year: 2022
+university: "Ankara Yıldırım Beyazıt Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "Ankara"
+department: "Bankacılık ve Finans Bilim Dalı"
+advisors: ["Ayhan Kapusuzoğlu"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=EPWT0CLJg2J3fiABFdY3Gg"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=RsTBl6RWK25OBMIKtIgYYblZ50ctXZy9XvmfQkFZUKbv6_AjutdBkVrBoV9qfFxi"
+abstract: "1990'lardan bu yana İslami sermaye piyasalarının hem teorisinde hem de uygulamasında önemli gelişmeler olmuştur. Sermaye piyasası yatırımlarının artan risk çeşitliliği, küreselleşme ve finansal serbestleşme sonucunda yatırımcılar alternatif yatırım araçlarına yönelmektedir. İslami endeksler, İslami izleme standartlarının bir sonucu olarak sistematik risk kaynaklarına karşı daha az savunmasız oldukları için geleneksel yatırımcılar için de caziptir. Emtia fiyatları, diğer makroekonomik faktörlerin yanı sıra, özellikle reel sektörün işleyişini iyi desteklemesi ve İslami finansın kar-zarar paylaşımı konsepti üzerine kurulmuş bir finansal sistem olması nedeniyle İslami hisse senedi endeksleri için özellikle önemlidir. Emtia piyasaları, yatırımcılara tahvil ve hisse senetleri ile ters fiyat korelasyonu olan emtia piyasalarından daha fazla kâr etme fırsatı verir. Çalışmanın amacı, İslami endeks ile emtia fiyatları arasında doğrusal olmayan ve varyansta nedensellik testlerinden yararlanarak her bir emtia ve İslami endeks için uygun portföy çeşitlendirmesini elde etmektir. Bu yazıda kullanılan veriler günlük zaman verileridir ve örnek zaman periyotları 29.12.2009-28.10.2019 arasında 2557 günlük gözlem ile değişmektedir. Nedensellik sonuçlarına göre İslami Endekslerin portföy çeşitlendirmesinde fayda sağlayacağı ve enerji ve diğer İslami endeksler ile SGR, SYBN ve WHT (Model 14,15,16) verileri ile çeşitlendirme imkânı sağlayacağı sonucuna varılmıştır. Ancak tüm İslami endeks modelleri (Model 1,2,3,4,5,6) ve değerli metal grubu modelleri (Model 17,18,19,20,21) için bir kombinasyon bulunmamaktadır. Kıymetli metal modeli sonuçları, değerli metallerin özellikle varyans nedenselliği üzerinde etkili bir çeşitlendirme aracı olmadığını göstermektedir."
+yokId: 753781
+origin: otomatik
+addedAt: 2026-09-24

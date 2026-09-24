@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "Türkiye'de Katılım Bankalarının Sağladığı Konut Finansmanının Konut Fiyatlarına ve Enflasyona Etkisi"
+titleTranslation: {"en": "The effect of housing finance provided by participation banks on housing prices and inflation in Turkey"}
+authors: ["Başboğa, Zehra Zeynep"]
+language: "tr"
+year: 2022
+university: "Recep Tayyip Erdoğan Üniversitesi, Lisansüstü Eğitim Enstitüsü"
+city: "Rize"
+department: "İktisat Ana Bilim Dalı"
+advisors: ["Haydar Karadağ"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=XmqkwRXmqMtTiBlTAuVRng"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=qVqOZFj2DwNmvdf1oGFYiNONzEvrThxPck7mb_TWsV1eaqTBFeaoy1OIGVMC5VGe"
+abstract: "Konut, bireylerin en temel barınma haklarından biridir. Lakin kimi zaman bireyler konut ihtiyaçlarını karşılayamamakta, karşıladıkları durumlarda da nitelikli konutlara ulaşamamaktadır. Konut maliyetlerinin, tüketici fiyat endeksinin ve faiz oranlarının oldukça yüksek olması özellikle orta ve alt gelir grubuna mensup bireylerin konut edinimi zorlaştırmaktadır. Ayrıca faize bulaşmamak ve faizden uzak durmak isteyen fakat bir konut edinmek içinde yeterli birikime sahip olamayan kesimler, talep ettikleri konutları finanse etmekte zorlanır. Bu sorunla başa çıkabilmek için katılım bankaları konut finansman modelleri geliştirmiştir. Bu çalışmada Türkiye'de katılım bankalarının sağladığı konut finansmanının konut fiyatları ve tüketici fiyat endeksi üzerinde etkisi olup olmadığını belirlemek amaçlanmıştır. Dört bölümden oluşan çalışmada ilk olarak Türkiye'deki katılım bankalarında uygulanan konut finansman modellerine değinildikten sonra konut sorunları ve ''Türkiye'deki Katılım Bankalarında Uygulanan Konut Finansman Modelleri'' ele alınmıştır. Çalışmanın dördüncü bölümünde çalışmanın amacı doğrultusunda, katılım bankaları tarafından kullandırılan konut kredileri, konut fiyat endeksi ve tüketici fiyat endeksi değişkenleri 2013:01- 2020:12 dönemlerini kapsayan aylık zaman serisi verileri ele alınarak analiz yapılmıştır. Ekonometrik analiz için EViews 10 programı kullanılmış olup, ilk aşamada serilerin durağanlık durumları Genişletilmiş Dickey Fuller (ADF) ve Phillips Perron (PP) birim kök testleri ile sınanmıştır. Serilerin hangi seviyede durağan olduklarının incelenmesinin ardından aralarındaki uzun dönemli ilişki, Johansen Eşbütünleşme Testi ile ortaya koyulmuştur. Nihai olarak Katılım bankaları tarafından sağlanan konut finansmanı ile konut fiyatları ve tüketici fiyat endeksi oranları arasındaki nedensellik ilişkisinin varlığı Granger Nedensellik Analiziyle test edilmiştir. Elde edilen bulgular ışığında, 2013-2020 yılları arası Türkiye ekonomisine ait veriler kullanılarak yapılan Granger Causality Nedensellik Analizinden elde edilen bulgular genel olarak değerlendirildiğinde katılım bankaları tarafından kullandırılan konut kredileri ile konut fiyat endeksi değişkenleri arasında çift yönlü, katılım bankaları tarafından kullandırılan konut kredileri ile tüketici değişkenleri arasında tek yönlü ilişkinin varlığından söz edilebilir."
+yokId: 764451
+origin: otomatik
+addedAt: 2026-09-24

@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "Katılım Bankacılığında Yapay Zeka Destekli Ürün Önerme Modeli"
+titleTranslation: {"en": "Artificial intelligence supported product recommendation model in participation banking"}
+authors: ["Ezber, Pelin Nazlı"]
+language: "tr"
+year: 2024
+university: "İstanbul Üniversitesi-Cerrahpaşa, Lisansüstü Eğitim Enstitüsü"
+city: "İstanbul"
+department: "Endüstri Mühendisliği Ana Bilim Dalı / Endüstri Mühendisliği Bilim Dalı"
+advisors: ["Ersin Namlı"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=Zi7TmvBg4zdTsX4O5Z0K2A"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=KMB79M3N7zK1UR2WYeRgQkZCzOXp-pIQISY3HzywlLL-S9fvSg3-XkEAHvTcad1y"
+abstract: "Her geçen gün yeni çalışmalarla gelişen yapay zekâ özellikle tahminleme çalışmalarıyla belirsizlik içinde yaşadığımız anları aydınlatmaktadır. Öngörünün son derece önemli olduğu finans alanında gelecek durum ve rakamlarla ilgili tahmin yürütebilmek hayati olduğundan dolayı; bankacılık, sektör olarak yapay zekadaki gelişmelerin önde gelen takipçilerinden olmuştur. Konvensiyonel bankacılık sisteminde agresif uygulamalara ve alternatiflere açık olsa da katılım bankacılığında İslami prensiplerin oluşturduğu kısıtlarla hareket alanı daralmakta ve aksiyonların en doğru seçenek olması önem kazanmaktadır. Bu çalışmanın amacı yapay zekâ destekli modellerle katılım bankacılığının gelişimine katkı sunmaktır. Bu amaç doğrultusunda konuyla ilgili detaylı araştırmalara yer verilip analizler yapılmış, uygulama olarak kümeleme ve birliktelik analizi ile yapay zekâ destekli ürün önerme modeli kurulmuştur. Bu modelle her bir müşteriye en doğru ürünün önerilmesiyle müşteri aktifliği ve sadakati arttırılması amaçlanmaktadır."
+yokId: 868090
+origin: otomatik
+addedAt: 2026-09-24

@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "Türkiye'de Mevduat ve Katılım Bankalarının Nispi Performansı ile BIST Bankacılık Endeksi Arasındaki İlişki"
+titleTranslation: {"en": "The relative performance of deposit and participation banks in Türki̇ye and the BIST banking index"}
+authors: ["Altın, Ümit"]
+language: "tr"
+year: 2026
+university: "Düzce Üniversitesi, Lisansüstü Eğitim Enstitüsü"
+city: "Düzce"
+department: "Dijital Ekonomi ve Pazarlama Ana Bilim Dalı (disiplinlerarası)"
+advisors: ["Oğuz Kara"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=84qf5VAVJI2O5SDE_ncRPA"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=5T1_CZ5-UGb9QCmoURec4O_IRgHpda3Ohf5M6Z8snzsKjqA-qReZ7brYZQKaAYBq"
+abstract: "Bu araştırma, bankacılık sektöründe göreceli operasyonel teknik etkinlik skorları ile hisse senedi performansı arasındaki dinamik etkileşimi ampirik ve teorik bir bütünlük içinde incelemeyi amaçlamaktadır. Bu doğrultuda çalışma iki aşamalı bir metodolojik kurgu üzerine inşa edilmiştir. Araştırmanın ilk aşamasında, Türkiye'de faaliyet gösteren 25 bankanın çeyreklik bazda (2019Q1-2025Q1 arası) kredi etkinliği ile kârlılık ve sermaye yeterliliği odaklı göreceli performansları Bootstrap tahminli Veri Zarflama Analizi (VZA) ile ölçülmüştür. İkinci aşamada ise elde edilen bu bootstrap teknik etkinlik skorları ile Borsa İstanbul'da (BİST) işlem gören bankaların hisse senedi getirileri arasındaki uzun ve kısa dönemli ilişkiler; yatay kesit bağımlılığını ve heterojenliği dikkate alan ikinci nesil panel veri metodolojisi kullanılarak analiz edilmiştir. İlk aşamadan elde edilen Bootstrap VZA bulguları, 2019-2021 yılları arasında teknik etkinlik skorlarında yüksek bir oynaklık yaşandığını, 2022 yılından itibaren ise sektör genelinde bir stabilizasyon eğilimini ortaya koymuştur. İkinci aşama panel eşbütünleşme test sonuçları, teknik etkinlik skorları ile hisse senedi getirileri arasında uzun dönemli doğrusal bir ortak stokastik trendin (eşbütünleşme) bulunmadığını göstermiştir. AMG uzun dönem katsayı tahmin sonuçlarına göre, panel genelinde teknik etkinlik düzeyinin hisse senedi getirileri üzerindeki katsayısı istatistiki olarak anlamsız bulunurken; bankalar bazındaki heterojen analizde Yapı Kredi için anlamlı ve negatif bir katsayı (β = -34.457) elde edilmiştir. Panel genelinde ve banka bazında Ortak Dinamik Süreç (_c) katsayısının anlamlı ve pozitif çıkması, BİST bankacılık endeksinde hisse senedi fiyatlamalarının mikro performanstan ziyade ortak makroekonomik ve sistemik şoklar tarafından domine edildiğini göstermiştir. Dumitrescu-Hurlin panel nedensellik testi sonuçları ise, teknik etkinlikten hisse senedine doğru bir nedensellik bulunmazken, hisse senedi getirilerinden teknik etkinliğe doğru tek yönlü ve güçlü bir Granger nedensellik ilişkisinin varlığını kanıtlamıştır. Elde edilen tüm ampirik bulgular bir bütün olarak değerlendirildiğinde; finansal performans verilerinin piyasa tarafından absorbe edilmesi nedeniyle BİST bankacılık sektörünün Etkin Piyasa Hipotezi'nin (EPH) yarı-güçlü formuyla uyumlu olduğu sonucuna ulaşılmıştır."
+yokId: 1023107
+origin: otomatik
+addedAt: 2026-09-24

@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "Açık Bankacılıkta Uygulama Programlama Arayüzü (API) Entegrasyonunda Karşılaşılan Sorunlar ve Çözüm Önerileri: Karşılaştırmalı Niteliksel Bir Yaklaşım ile Katılım Bankası Örneği"
+titleTranslation: {"en": "challenges and solution proposals in API integration in open banking: A comparative qualitative approach with participation bank example"}
+authors: ["Kale, Murat"]
+language: "tr"
+year: 2025
+university: "İstanbul Medeniyet Üniversitesi, Lisansüstü Eğitim Enstitüsü"
+city: "İstanbul"
+department: "İşletme Ana Bilim Dalı"
+advisors: ["Arafat Salih Aydıner"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=8b7wMBVOineIt0NlNx5NkQ"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=CtwiQkYvArAb95Ufpfs_vubrrSYVOhPAI4v2JyZ4X2O3DXX6APdCmW5kIz81vfMH"
+abstract: "Bu tez, açık bankacılık sistemlerinde Uygulama Programlama Arayüzü (API) entegrasyon süreçlerinde karşılaşılan sorunları ve bu sorunlara yönelik çözüm önerilerini kapsamlı bir şekilde incelemeyi amaçlamaktadır. Araştırmanın odak noktası, Türkiye'deki Fintek şirketleri ile katılım bankaları arasında açık bankacılık teknolojisinin uygulama alanlarıdır. Fintek alanında yürütülen çalışmada, entegrasyon problemleri, lisans ve belge gereklilikleri, veri akışı hataları ve güvenlik endişeleri ayrıntılı bir şekilde ele alınmıştır. Çalışmada karşılaştırmalı nitel yöntem benimsenmiş ve veri toplama süreci sektör uzmanlarıyla yapılan mülakatlar aracılığıyla gerçekleştirilmiştir. Araştırmanın temel sorusu, API entegrasyon süreçlerinde ortaya çıkan teknik ve beşerî sorunların neler olduğu ve bu sorunlara yönelik hangi çözüm önerilerinin entegrasyon süreçlerini daha etkin ve sürdürülebilir hale getirebileceğidir. Çalışmanın bilimsel katkısının, API entegrasyonu alanında literatüre yeni bilgiler ekleyerek Fintek sektöründe yaşanan sorunların daha iyi anlaşılmasını sağlaması hedeflenmektedir. Uygulamalı katkı ise, Fintek şirketleri ve katılım bankalarının entegrasyon süreçlerinde karşılaştıkları sorunların çözümüne yönelik pratik öneriler sunarak süreçlerin hızlanması, kalitenin artırılması ve müşteri memnuniyetinin yükseltilmesine katkı sağlamayı hedeflemektedir. Araştırma sonucunda geliştirilen çözüm önerilerinin, entegrasyon süreçlerini kolaylaştırarak sektördeki iş birliklerini artırması ve açık bankacılık ekosisteminin daha verimli çalışmasına katkı sağlaması beklenmektedir. Bu yönüyle çalışma hem akademik hem de pratik düzeyde sektördeki uygulamalara yön verecek nitelikte bilgiler sunmayı hedeflemektedir."
+yokId: 984655
+origin: otomatik
+addedAt: 2026-09-24

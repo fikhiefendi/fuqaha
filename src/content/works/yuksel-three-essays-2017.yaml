@@ -1,0 +1,17 @@
+type: "tez-doktora"
+title: "Three Essays in Financial Markets"
+titleTranslation: {"tr": "Finansal piyasaları inceleyen üç makale"}
+authors: ["Yüksel, Serkan"]
+language: "en"
+year: 2017
+university: "İstanbul Bilgi Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "İstanbul"
+department: "İktisat Ana Bilim Dalı"
+advisors: ["Ege Yazgan"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=QJiNb1HFclR-I4RVtsemoA"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=vbVkXe1KChYWNElr1MuLZv7v3l6naSxfFtgzDNFOZLmlqzTP9Pj2Rg4v_4uZIZ1R"
+abstract: "Bu tez, farklı ekonometrik modeller kullanarak finansal piyasalardaki bazı sorulara ilişkin üç temel çalışma içermektedir. Tezin ana amacı, 2008 krizi sonrasında finansal piyasalarda ortaya çıkan gelişmeleri incelemek ve finansal piyasalarda yaşanan değişimler sonrası ortaya çıkan sorulara dair yanıtlar getirmektir. Bu tezi oluşturan üç makale sırasıyla finansal ekonometri, davranışsal finans ve İslami finans alanlarında literatüre katkı sağlamaktadır. İlk makalede“Rastsal Matriks Teorisi”uygulanarak, küresel piyasalarda 2008 krizi öncesi ve sonrasında korelasyon haritası çıkarılmış, ve bu korelasyon etkileşim haritası etkileşim incelenmiştir. Küresel piyasalardaki endeks getirilerinden oluşturulan kesit korelasyon matriksi C'nin yapısı, Rastsal Matriks Teorisi metodu ile incelenmiştir. Böylelikle 2008 krizinin finansal piyasalara etkisi araştırılmıştır. Bu C matriksinin yapısı hem kriz öncesi dönem, hem de kriz sonrası dönemde incelenmesi ile birlikte krizin finansal piyasalarda etkileşim yapısında ne gibi değişikliklere neden olduğu gözlenmiştir. C matriksinin karakteristik köklerinin (özdeğerleri) Rastsal Matriks özelliklerine sahip olup olmadığı test edilmiş ve bu karakteristik köklerin çoğunlukla rastsallık teorisine uygun özellikleri sahip olduğu saptanmıştır.İkinci makalede, küresel piyasalar içinde en fazla işlem yapılan piyasalar arasında yer alan Türkiye'nin tek sermaye piyasası işlem platformu olan Borsa İstanbul'da işlem yapan bireysel yatırımcılar çalışılmıştır. Literatürde bahsedilen fazla işlem anomalisin net bir şekilde gözlendiği Borsa İstanbul'da bireysel yatırımcıların portföy yapıları incelenerek, bu bireysel yatırımcıların fazla işlem anomalisine neden olan karakteristik yapı ortaya konulmuştur. Yatırımcıların portföy işlem hacimlerine göre getirileri karşılaştırılmış ve işlem sayısı ile portföy getirisi arasında negatif ilişki olduğu saptanmıştır. Bu durum, davranışsal finans literatüründe konu edilen“aşırı güven”sendromunun Borsa İstanbul'da da gözlendiğini ortaya koymuştur. Üçüncü makalede, 2008 krizi sonrasında gündemde daha çok yer tutmaya başlayan İslami Finans modeli üzerine çalışmaya yer verilmiştir.Bulgularımıza göre Granger Nedenselliği uzun dönemde iki taraflı reddedilmiştir. Zaman serilerinin durağanlaştırılması sonrasında uygulanan analizlerde VAR parametreleri de bu sonucu desteklemektedir. Böylelikle İslami finans modelinin konvansiyonel finans modelinden farklılaşmadığı argümanına ters kanıt elde edilmiştir. Ayrıca, nedensellik analizlerine kriz öncesi ve sonrası için yinelendiğinde, kriz sonrasında nedensellik ilişkisinin daha çok reddedildiği gözlenmiştir. Bu durum, kriz sonrasında alternatif finans modeli olarak İslami Finans'ın farklı bir paradigma getirme potansiyeli olduğu argümanını desteklemektedir."
+yokId: 496066
+origin: otomatik
+addedAt: 2026-09-24

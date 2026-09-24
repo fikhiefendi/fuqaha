@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "Türkiye'de Katılım ve Geleneksel Bankaların Risk Yönetimi Açısından Karşılaştırılması: Kantil VAR Yaklaşımı"
+titleTranslation: {"en": "Comparision of participating and traditional banks in terms of risk management in Turkey: Quantile VAR approach"}
+authors: ["Güloğlu, Hilal"]
+language: "tr"
+year: 2017
+university: "İstanbul Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "İstanbul"
+department: "İşletme Ana Bilim Dalı"
+advisors: ["Ercan Sarıdoğan"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=2A1KTKRYtXpf-j-2yxjeeA"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=q3-d9QtLoVA2OMExHSkJpd8P8vp3zvycpiHn2xvC7fDYDUpMpFi1el_6P7bLGN54"
+abstract: "Bu tezin amacı son dönemlerde dünyada ve Türkiye'de katılım bankacılığı, İslami Bankacılık ya da faizsiz bankacılık gibi isimlerle anılan bankacılık sisteminin geleneksel bankacılık sistemiyle risk yönetimi açısından karşılaştırılmasıdır. Karşılaştırma yapılırken özellikle bankaların herbirinin finansal şoklara duyarlılığı ekonometrik yöntemlerle incelenmiştir. Bu bağlamda son dönemlerde White vd.(2016) tarafından geliştirilen ve risk analizlerinde sıklıkla kullanılan kantil VAR yöntemi kullanılmıştır. Çalışmada ilk olarak BIST100 de kote olan geleneksel bankalardan Akbank, Garanti Bankası, İşbankası, Yapı ve Kredi Bankası, ve katılım bankası olan Albaraka Türk'ün yerel ve küresel piyaslarla ortak kuyruk bağımlılığı (tail codependence) test edilmiştir. Daha sonra bu bankalar için günlük dinamik riske maruz değer tahmin edilmiştir. Son olarak ta ulusal ve uluslararası piyasalar ile islami piyasalarda da bir şok meydana geldiğinde bankaların uzun dönem risklerinin bu şoklara tepkisi ve dirençliliği kantil VAR tekniğinden elde edilen etki tepki fonksiyonlarıyla analiz edilmiştir. Bu çalışmada ulusal piyasalar BIST100 endeksiyle ve uluslararası piyasalar S&P500 endeksleriyle, İslami piyasalar ise DJ Islamic Financial endeksiyle temsil edilmiştir. Çalışma sonuçları finansal krizlerden katılım bankalarının geleneksel bankalara göre daha az etkilendiğini ortaya koymaktadır"
+yokId: 467336
+origin: otomatik
+addedAt: 2026-09-24

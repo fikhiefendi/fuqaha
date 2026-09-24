@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "Ortaklığa Dayalı Konut Finansmanı Modelinde Borcun Taksitlerle Ödenmesi Problemlerine Model Oluşturulması"
+titleTranslation: {"en": "Creating models for problems of payment loan in the shared equity home financing model"}
+authors: ["Öztürk, Harun"]
+language: "tr"
+year: 2012
+university: "Süleyman Demirel Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "Isparta"
+department: "İşletme Ana Bilim Dalı / Sayısal Yöntemler Bilim Dalı"
+advisors: ["Abdullah Eroğlu"]
+topics: ["İslam iktisadı"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=vM-3TwmzQxrIgfv3nGarCw"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=rcbWnuqW6HxCZ_98ARapgjH-UVd3sLcAu__63C2lzYWVSEj1ObqLpemrCy54BpRx"
+abstract: "Günümüzde faizsiz bankacılık ve ev finansman modeli uygulamaları oldukça yaygın olarak kullanılmaktadır. Özellikle ev sahibi olma ve borcunu ödeme durumlarında karşılaşılan zorluklar, ev finansmanı modellerinde farklı ödeme yöntemlerini geliştirme sonucunu doğurmaktadır. Ortaklığa Dayalı Konut Finansmanı Modeli'nde, geri ödemeler kişinin gelir düzeyine ve ekonomik yapısına göre her bir dönem için eşit olmakla birlikte miktarsal yada oransal farklılıklar göstermektedir. Bununla birlikte, geri ödemeler ve kira gelirleri ile müşterinin hissesinin arttığı, finansörün hissesinin azaldığı, borçlanma esasına dayanmaktadır. Çeşitli modeller ile elde edilen formüller literatürde yer almaktadır. Ancak bazı problemlerin çözümünde bu formüller yetersiz kalmaktadır.Bu çalışmada, Ortaklığa Dayalı Konut Finansmanı Modeli'ndeki bazı varsayımlar genişletilerek geri ödemelerin ve özellikle de kira miktarlarının eşit, parçalı geometrik ve aritmetik eğilimli seri şeklinde olduğu durumlar için yeni formüller elde edilmektedir. Elde edilen formüllerde, geri ödemeler ile kira gelirleri arasındaki ilişkiler belirlenmektedir. Ayrıca geliştirilen modeller için sayısal örnekler ve çözüm önerileri verilmektedir. Geri ödemelerdeki ve kira gelirlerindeki değişimlerle birlikte ödeme süresi bilgisayar çözümleri ile incelenmektedir."
+yokId: 321720
+origin: otomatik
+addedAt: 2026-09-24
