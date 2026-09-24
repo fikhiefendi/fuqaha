@@ -5,3 +5,7 @@ dist/
 __pycache__/
 *.pyc
 .claude/
+
+# tez toplayıcı (tools/tezci): yerel veritabanı ve çıktılar
+tools/tezci/veri/
+tools/tezci/cikti/

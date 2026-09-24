@@ -1,0 +1,456 @@
+# =====================================================================
+#  FIKIH TEZ ARŞİVİ — ALAN TANIMLARI
+#  Bu dosya, hangi tezlerin "ilgili" sayılacağını belirler.
+#  Yazım: Türkçe karakter, şapka (â, î, û) ve büyük/küçük harf fark etmez;
+#  her şey karşılaştırmadan önce sadeleştirilir (fıkhî = fikhi = FIKHÎ).
+#
+#  Terimler kelime BAŞINDAN eşleşir: "fıkh" → fıkhî, fıkhın, fıkhu'l-...
+#  Özel desen gerekiyorsa başına "re:" yazın (sadeleştirilmiş metne
+#  uygulanan düzenli ifade), örn. "re:\bkiyas(?!la)" = kıyas ama kıyaslama değil.
+# =====================================================================
+
+surum: 1
+
+# ---------------------------------------------------------------------
+# 1) ÇEKİRDEK BİRİMLER — ABD veya Bilim Dalı adında geçerse tez
+#    doğrudan KABUL edilir ve ilgili kategoriye yazılır.
+# ---------------------------------------------------------------------
+cekirdek_birimler:
+  - desen: "islam hukuk"                 # İslam Hukuku ABD / Bilim Dalı
+    kategori: fikih
+  - desen: "re:\\bfikih (ana ?bilim|bilim) dali"   # Fıkıh ABD / BD
+    kategori: fikih
+  - desen: "islam iktisadi ve hukuku"
+    kategori: [fikih, iktisat]
+  - desen: "islam iktisad"
+    kategori: iktisat
+  - desen: "islam ekonomi"
+    kategori: iktisat
+  - desen: "islami bankacilik"
+    kategori: iktisat
+  - desen: "islami finans"
+    kategori: iktisat
+  - desen: "katilim bankacilig"
+    kategori: iktisat
+  - desen: "islami sigortacilik"
+    kategori: iktisat
+
+# ---------------------------------------------------------------------
+# 2) GENİŞ BİRİMLER — bu birimlerin TÜM tezleri çekilir ve tek tek
+#    puanlanır (Tefsir, Hadis vb. içinden fıkıhla ilgili olanları bulmak için).
+#    Bu birimlerde "İslami bağlam" otomatik var sayılır.
+# ---------------------------------------------------------------------
+genis_birimler:
+  - "temel islam bilimleri"
+  - "ilahiyat"
+  - "islam bilimleri"
+  - "islami ilimler"
+  - "islam arastirmalari"
+  - "din bilimleri"            # Felsefe ve Din Bilimleri dahil
+  - "islam tarihi"             # İslam Tarihi ve Sanatları (fıkıh tarihi için)
+  - "islam medeniyeti"
+  - "islam mezhepleri"
+
+# ---------------------------------------------------------------------
+# 3) KATEGORİLER — sitede görünecek başlıklar
+# ---------------------------------------------------------------------
+kategoriler:
+  fikih:        "Fıkıh ve İslâm Hukuku"
+  fikih_usulu:  "Fıkıh Usûlü ve Metodoloji"
+  fikih_tarihi: "Fıkıh Tarihi"
+  fukaha:       "Fukahânın Görüşleri ve Eserleri"
+  mukayeseli:   "Mukayeseli İslâm Hukuku"
+  iktisat:      "İslâm İktisadı ve Ekonomisi"
+
+# ---------------------------------------------------------------------
+# 4) PUANLAMA
+#    Alan çarpanları: başlık x3, anahtar kelime x2, özet x1 (üst sınırlı)
+# ---------------------------------------------------------------------
+puanlama:
+  carpan: {baslik: 3, anahtar: 2, ozet: 1}
+  ozet_ust_sinir: 4          # özetten gelen puan en fazla bu kadar
+  kabul_esigi: 6             # ≥ 6 → kabul
+  inceleme_esigi: 3          # 3–5 → elle incelenecek; < 3 → ret
+  # Geniş birimlerde fıkıh dışı bir bilim dalındaki (Tefsir, Hadis, Kelam, Arap Dili…)
+  # tezler için daha yüksek kabul eşiği. Genel dallar bu kuraldan muaftır.
+  diger_dal_kabul_esigi: 9
+  # Genel birimler: bu adlı ABD/BD'lerde normal eşik (6) geçerli. Diğer geniş birimlerde
+  # (İslam Tarihi, Mezhepler Tarihi, Din Bilimleri, Tefsir/Hadis/Kelam dalları…) eşik 9.
+  genel_dallar: ["temel islam bilimleri", "islam arastirmalari", "islam bilimleri", "islami ilimler", "ilahiyat"]
+  # İlahiyat dışı bölümlerde (Hukuk, Tarih, İktisat…) yalnızca "bağlam gerektiren"
+  # terimlerle gelen tezler en fazla "inceleme"ye düşer; otomatik kabul için
+  # güçlü bir sinyal (fıkıh, İslam hukuku, şer'iyye sicili, katılım bankacılığı…) gerekir.
+  diger_bolumde_guclu_sinyal_sart: true
+
+# Terim → ağırlık. Her terim bir kategoriye de işaret edebilir.
+terimler:
+  # --- Güçlü fıkıh sinyalleri (tek başına yeterli) ---
+  - {t: "fikh",               a: 3, k: fikih}   # fıkhî, fıkhın, fıkhu...
+  - {t: "fikih",              a: 3, k: fikih}
+  - {t: "fiqh",               a: 3, k: fikih}
+  - {t: "fukaha",             a: 3, k: fukaha}
+  - {t: "fakih",              a: 3, k: fukaha}
+  - {t: "islam hukuk",        a: 3, k: fikih}
+  - {t: "islamic law",        a: 3, k: fikih}
+  - {t: "islamic jurisprudence", a: 3, k: fikih}
+  - {t: "islamic legal",      a: 3, k: fikih}
+  - {t: "fetva",              a: 3, k: fikih}
+  - {t: "fatwa",              a: 3, k: fikih}
+  - {t: "ahkam",              a: 2, k: fikih}   # ahkâm âyetleri/hadisleri
+  - {t: "furu",               a: 1, k: fikih}
+  - {t: "muamelat",           a: 3, k: fikih}
+  - {t: "ibadat",             a: 2, k: fikih}
+  - {t: "ukubat",             a: 3, k: fikih}
+  - {t: "sharia",             a: 2, k: fikih}
+  - {t: "seriat",             a: 2, k: fikih}
+  - {t: "seri hukum",         a: 3, k: fikih}   # şer'î hüküm
+  - {t: "muftu",              a: 2, k: fikih}
+  - {t: "hanefi",             a: 2, k: fukaha}
+  - {t: "safii",              a: 2, k: fukaha}
+  - {t: "maliki",             a: 2, k: fukaha}
+  - {t: "re:\\bhanbeli(?!n\\b)", a: 2, k: fukaha}   # Hanbelî (Ahmed b. Hanbel'in değil)
+  - {t: "caferi",             a: 2, k: fukaha}
+  - {t: "zahiri",             a: 1, k: fukaha}
+  - {t: "re:\\bmezhe[bp]",    a: 1, baglam: true}
+  - {t: "madhhab",            a: 2}
+
+  # --- Fakih adları ve klasik fıkıh eserleri (başlıkta geçmesi güçlü sinyal) ---
+  - {t: "ebu hanife",         a: 3, k: fukaha}
+  - {t: "ebu yusuf",          a: 3, k: fukaha}
+  - {t: "seybani",            a: 3, k: fukaha}
+  - {t: "serahsi",            a: 3, k: fukaha}
+  - {t: "kasani",             a: 3, k: fukaha}
+  - {t: "merginani",          a: 3, k: fukaha}
+  - {t: "cessas",             a: 3, k: fukaha}
+  - {t: "debusi",             a: 3, k: fukaha}
+  - {t: "pezdevi",            a: 3, k: fukaha}
+  - {t: "kerhi",              a: 3, k: fukaha}
+  - {t: "tahavi",             a: 1, k: fukaha}   # kelâmcı da
+  - {t: "molla husrev",       a: 3, k: fukaha}
+  - {t: "ibn nuceym",         a: 3, k: fukaha}
+  - {t: "ibn abidin",         a: 3, k: fukaha}
+  - {t: "ebussuud",           a: 3, k: fukaha}
+  - {t: "karafi",             a: 3, k: fukaha}
+  - {t: "satibi",             a: 3, k: fukaha}
+  - {t: "ibn kudame",         a: 3, k: fukaha}
+  - {t: "imam safii",         a: 3, k: fukaha}
+  - {t: "imam malik",         a: 3, k: fukaha}
+  - {t: "maverdi",            a: 2, k: fukaha}
+  - {t: "cuveyni",            a: 2, k: fukaha}
+  - {t: "ibn teymiyye",       a: 1, k: fukaha}
+  - {t: "ibn kayyim",         a: 1, k: fukaha}
+  - {t: "ibn hazm",           a: 1, k: fukaha}
+  - {t: "ibn rusd",           a: 1, k: fukaha}
+  - {t: "sevkani",            a: 1, k: fukaha}
+  - {t: "gazzali",            a: 1, k: fukaha}
+  - {t: "mebsut",             a: 3, k: fukaha}
+  - {t: "bedaiu",             a: 3, k: fukaha}
+  - {t: "re:\\bhidaye(?!t)",  a: 2, k: fukaha}   # el-Hidâye (hidayet değil)
+  - {t: "reddul-muhtar",      a: 3, k: fukaha}
+  - {t: "fetava",             a: 3, k: [fikih, fukaha]}   # Fetâvâ-yı Hindiyye vb.
+  - {t: "multeka",            a: 3, k: fukaha}
+  - {t: "mudevvene",          a: 3, k: fukaha}
+  - {t: "harac",              a: 2, k: [fikih, iktisat], baglam: true}
+  - {t: "ictihat",            a: 2, k: fikih_usulu}
+  - {t: "orf",                a: 1, k: fikih_usulu, baglam: true}
+
+  # --- Usûl / metodoloji ---
+  - {t: "usul-i fik",         a: 3, k: fikih_usulu}
+  - {t: "usulul-fik",        a: 3, k: fikih_usulu}
+  - {t: "usul al-fiqh",       a: 3, k: fikih_usulu}
+  - {t: "legal theory",       a: 2, k: fikih_usulu}
+  - {t: "ictihad",            a: 2, k: fikih_usulu}
+  - {t: "ijtihad",            a: 2, k: fikih_usulu}
+  - {t: "re:\\bkiyas(?!l|i\\b)", a: 2, k: fikih_usulu, baglam: true}   # kıyas (kıyaslama, Kıyâsî değil)
+  - {t: "istihsan",           a: 3, k: fikih_usulu}
+  - {t: "istislah",           a: 3, k: fikih_usulu}
+  - {t: "maslahat",           a: 2, k: fikih_usulu}
+  - {t: "makasid",            a: 3, k: fikih_usulu}
+  - {t: "maqasid",            a: 3, k: fikih_usulu}
+  - {t: "sedd-i zera",        a: 3, k: fikih_usulu}
+  - {t: "delalet",            a: 1, k: fikih_usulu}
+  - {t: "re:\\bicma(?!l)",    a: 2, k: fikih_usulu}   # icmâ (icmal değil)
+  - {t: "kavaid",             a: 1, k: fikih_usulu}   # gramer kavâidi de olabilir
+  - {t: "kaide",              a: 1, k: fikih_usulu}
+  - {t: "furuk",              a: 2, k: fikih_usulu}
+  - {t: "telfik",             a: 3, k: fikih_usulu}
+
+  # --- Fıkıh tarihi (bağlam gerektirir) ---
+  - {t: "seriyye sicil",      a: 3, k: fikih_tarihi, guclu: false}   # Tarih bölümlerindeki sicil transkripsiyonları incelemeye düşer
+  - {t: "kadi sicil",         a: 3, k: fikih_tarihi, guclu: false}
+  - {t: "mecelle",            a: 3, k: [fikih, fikih_tarihi]}
+  - {t: "seyhulislam",        a: 2, k: fikih_tarihi}
+  - {t: "fetvahane",          a: 3, k: fikih_tarihi}
+  - {t: "re:\\bkadi(?!n)",    a: 1, k: fikih_tarihi, baglam: true}   # kadı (kadın değil)
+  - {t: "kanunname",          a: 1, k: fikih_tarihi, baglam: true}
+  - {t: "hukuk tarih",        a: 1, k: fikih_tarihi, baglam: true}
+  - {t: "tesekkul",           a: 1, k: fikih_tarihi, baglam: true}
+
+  # --- Fukahâ, eser, tahkik (bağlam gerektirir) ---
+  - {t: "fikhi gorus",        a: 3, k: fukaha}
+  - {t: "fikhcilig",          a: 3, k: fukaha}
+
+  # --- Mukayeseli İslâm hukuku (bağlam gerektirir) ---
+  - {t: "mukayese",           a: 1, k: mukayeseli, baglam: true}
+  - {t: "karsilastirmal",     a: 1, k: mukayeseli, baglam: true}
+  - {t: "comparative",        a: 1, k: mukayeseli, baglam: true}
+  - {t: "modern hukuk",       a: 2, k: mukayeseli, baglam: true}
+  - {t: "pozitif hukuk",      a: 2, k: mukayeseli, baglam: true}
+  - {t: "turk medeni kanun",  a: 2, k: mukayeseli, baglam: true}
+  - {t: "turk ceza kanun",    a: 2, k: mukayeseli, baglam: true}
+  - {t: "borclar kanun",      a: 2, k: mukayeseli, baglam: true}
+  - {t: "roma hukuk",         a: 2, k: mukayeseli, baglam: true}
+  - {t: "yahudi hukuk",       a: 2, k: mukayeseli, baglam: true}
+  - {t: "turk hukuk",         a: 2, k: mukayeseli, baglam: true}
+
+  # --- Konu alanları (bağlam gerektirir) ---
+  - {t: "nikah",              a: 2, k: fikih, baglam: true}
+  - {t: "talak",              a: 2, k: fikih, baglam: true}
+  - {t: "bosanma",            a: 1, k: fikih, baglam: true}
+  - {t: "miras",              a: 2, k: fikih, baglam: true}
+  - {t: "vakif",              a: 1, k: fikih, baglam: true}
+  - {t: "vakf",               a: 1, k: fikih, baglam: true}
+  - {t: "had cezas",          a: 3, k: fikih}
+  - {t: "kisas",              a: 2, k: fikih, baglam: true}
+  - {t: "diyet",              a: 1, k: fikih, baglam: true}
+  - {t: "akit",               a: 1, k: fikih, baglam: true}
+  - {t: "re:\\bakd(?!eniz)",  a: 1, k: fikih, baglam: true}
+  - {t: "helal",              a: 1, k: fikih, baglam: true}
+  - {t: "re:\\bharam(?!eyn)", a: 1, k: fikih, baglam: true}
+  - {t: "re:\\bhukum(?!et)",  a: 1, k: fikih, baglam: true}   # hüküm (hükümet değil)
+  - {t: "hukuk",              a: 1, baglam: true}
+
+  # --- Fıkıh teknik terimleri (bağlam gerektirir) ---
+  - {t: "re:\\bakid(?!e)",    a: 2, k: fikih, baglam: true}   # akid (akide değil)
+  - {t: "muhayyerlik",        a: 3, k: fikih}
+  - {t: "re:\\bhiyar\\b",     a: 2, k: fikih, baglam: true}
+  - {t: "gasb",               a: 2, k: fikih, baglam: true}
+  - {t: "itlaf",              a: 2, k: fikih, baglam: true}
+  - {t: "vedia",              a: 2, k: fikih, baglam: true}
+  - {t: "kefalet",            a: 2, k: fikih, baglam: true}
+  - {t: "rehin",              a: 2, k: fikih, baglam: true}
+  - {t: "vekalet",            a: 1, k: fikih, baglam: true}
+  - {t: "hibe",               a: 2, k: fikih, baglam: true}
+  - {t: "vasiyet",            a: 2, k: fikih, baglam: true}
+  - {t: "nafaka",             a: 2, k: fikih, baglam: true}
+  - {t: "mehir",              a: 2, k: fikih, baglam: true}
+  - {t: "iddet",              a: 2, k: fikih, baglam: true}
+  - {t: "velayet",            a: 1, k: fikih, baglam: true}
+  - {t: "re:\\bhacr\\b",      a: 2, k: fikih, baglam: true}
+  - {t: "karz",               a: 2, k: [fikih, iktisat], baglam: true}
+  - {t: "taharet",            a: 2, k: fikih, baglam: true}
+  - {t: "abdest",             a: 1, k: fikih, baglam: true}
+  - {t: "teyemmum",           a: 2, k: fikih, baglam: true}
+  - {t: "kefaret",            a: 2, k: fikih, baglam: true}
+  - {t: "kazf",               a: 3, k: fikih}
+  - {t: "hirabe",             a: 3, k: fikih}
+  - {t: "tazir",              a: 2, k: fikih, baglam: true}
+  - {t: "ikrah",              a: 2, k: fikih, baglam: true}
+  - {t: "azimet",             a: 1, k: fikih_usulu, baglam: true}
+  - {t: "ruhsat",             a: 1, k: fikih_usulu, baglam: true}
+  - {t: "mukallef",           a: 2, k: fikih_usulu, baglam: true}
+  - {t: "hile-i ser",         a: 3, k: fikih}
+  - {t: "fikhu",              a: 3, k: fikih}
+
+  # --- Eksi puanlar: kelâm/akaid ağırlıklı tezleri ayıklamak için ---
+  - {t: "itikad",             a: -3}
+  - {t: "akaid",              a: -3}
+  - {t: "re:\\bkelam(?!-i)",   a: -2}
+
+  # --- İslâm iktisadı / finans ---
+  - {t: "katilim bankacilig", a: 3, k: iktisat}
+  - {t: "katilim finans",     a: 3, k: iktisat}
+  - {t: "katilim bank",       a: 3, k: iktisat}
+  - {t: "islami finans",      a: 3, k: iktisat}
+  - {t: "islami bankacilik",  a: 3, k: iktisat}
+  - {t: "islam bankacilig",   a: 3, k: iktisat}
+  - {t: "islam bankalar",     a: 3, k: iktisat}
+  - {t: "ozel finans kurum",  a: 3, k: iktisat}   # katılım bankalarının eski adı
+  - {t: "islam iktisad",      a: 3, k: iktisat}
+  - {t: "islam ekonomi",      a: 3, k: iktisat}
+  - {t: "islamic finance",    a: 3, k: iktisat}
+  - {t: "islamic banking",    a: 3, k: iktisat}
+  - {t: "islamic economics",  a: 3, k: iktisat}
+  - {t: "faizsiz",            a: 3, k: iktisat}
+  - {t: "interest-free",      a: 3, k: iktisat}
+  - {t: "re:\\briba(?!t)",     a: 3, k: iktisat}
+  - {t: "sukuk",              a: 3, k: iktisat}
+  - {t: "murabaha",           a: 3, k: iktisat}
+  - {t: "mudarebe",           a: 3, k: iktisat}
+  - {t: "mudaraba",           a: 3, k: iktisat}
+  - {t: "musareke",           a: 3, k: iktisat}
+  - {t: "musharaka",          a: 3, k: iktisat}
+  - {t: "tekaful",            a: 3, k: iktisat}
+  - {t: "takaful",            a: 3, k: iktisat}
+  - {t: "karz-i hasen",       a: 3, k: iktisat}
+  - {t: "zekat",              a: 3, k: [fikih, iktisat]}
+  - {t: "zakat",              a: 3, k: [fikih, iktisat]}
+  - {t: "faiz",               a: 2, k: iktisat, baglam: true}
+  - {t: "icare",              a: 1, k: iktisat, baglam: true}
+  - {t: "selem",              a: 1, k: iktisat, baglam: true}
+  - {t: "iktisa",             a: 1, k: iktisat, baglam: true}
+  - {t: "ekonomi",            a: 1, k: iktisat, baglam: true}
+  - {t: "finans",             a: 1, k: iktisat, baglam: true}
+
+# "guclu: false": terim puan getirir ama İlahiyat dışı bölümlerde tek başına otomatik kabul sağlamaz.
+# "baglam: true" olan terimler ancak aşağıdakilerden biri de metinde geçerse
+# (veya tez geniş/çekirdek birimdeyse) sayılır.
+islami_baglam:
+  - "islam"
+  - "islamic"
+  - "muslim"
+  - "musluman"
+  - "kur'an"
+  - "kuran"
+  - "quran"
+  - "sunnet"
+  - "hadis"
+  - "peygamber"
+  - "sahabe"
+  - "re:\\bseri\\b"            # şer'î
+  - "fikh"
+  - "fikih"
+  - "fetva"
+  - "hanefi"
+  - "safii"
+  - "maliki"
+  - "hanbeli"
+  - "re:\\bdini\\b"
+  - "ilahiyat"
+  - "mecelle"
+
+# Eşleşmeden ÖNCE metinden silinecek yanıltıcı ifadeler
+dislama_ifadeleri:
+  - "vakif universite"
+  - "vakif universitesi"
+  - "kulturel miras"
+  - "somut olmayan kulturel miras"
+  - "dunya mirasi"
+  - "mimari miras"
+  - "endustriyel miras"
+  - "dogal miras"
+  - "genetik miras"
+  - "kiyaslama"
+  - "faiz oran"          # faiz oranları: tek başına iktisat konusu
+  - "diyet uygula"       # beslenme diyeti
+  - "diyet tedavi"
+  - "diyetisyen"
+  - "kisas-i enbiya"      # peygamber kıssaları
+  - "kisasu'l-enbiya"
+  - "kisasul enbiya"
+  - "kadi abdulcebbar"   # Mu'tezilî kelâmcı
+  - "kadi abdulcabbar"
+  - "kadi beyzavi"       # müfessir
+  - "kadi burhaneddin divan"   # şair
+  - "kadizade"
+  - "kadi-zade"
+
+# Bu fukahâ/eser adları başlıkta geçerse "fukaha" kategorisi eklenir
+# (bağlam gerektirir). Listeyi genişletebilirsiniz.
+fukaha_adlari:
+  - "ebu hanife"
+  - "ebu yusuf"
+  - "seybani"
+  - "imam muhammed"
+  - "tahavi"
+  - "kerhi"
+  - "cessas"
+  - "debusi"
+  - "serahsi"
+  - "pezdevi"
+  - "kasani"
+  - "merginani"
+  - "nesefi"
+  - "molla husrev"
+  - "ibn nuceym"
+  - "ibn abidin"
+  - "ebussuud"
+  - "halebi"
+  - "imam safi"
+  - "safii'nin"
+  - "maverdi"
+  - "cuveyni"
+  - "gazzali"
+  - "nevevi"
+  - "suyuti"
+  - "zerkesi"
+  - "imam malik"
+  - "karafi"
+  - "satibi"
+  - "ibn rusd"
+  - "ibn abdilber"
+  - "ahmed b. hanbel"
+  - "ibn kudame"
+  - "ibn teymiyye"
+  - "ibn kayyim"
+  - "ibn hazm"
+  - "sevkani"
+  - "ibnu'l-humam"
+  - "ibnu'l-hümam"
+  - "kemal pasazade"
+  - "dede cengi"
+  - "ali haydar"
+  - "omer nasuhi"
+  - "hamdi yazir"
+
+# Başlıkta şu kalıplar varsa ve bir fukaha/fıkıh sinyali de varsa
+# "fukaha" kategorisi eklenir.
+fukaha_kaliplari:
+  - "gorus"
+  - "gorusleri"
+  - "hayati"
+  - "eserleri"
+  - "adli eser"
+  - "tahkik"
+  - "serhi"
+  - "risale"
+  - "metodu"
+  - "anlayisi"
+
+# Başlık/özette bunlar varsa (ve kabul edilmişse) "fikih_tarihi" eklenir
+tarih_kaliplari:
+  - "tarih"
+  - "erken donem"
+  - "klasik donem"
+  - "abbasi"
+  - "emevi"
+  - "memluk"
+  - "selcuklu"
+  - "re:\\b\\d{1,2}\\. ?(yy|yuzyil)"
+  - "re:\\b(hicri|miladi) \\d"
+  - "sicil"
+
+# ---------------------------------------------------------------------
+# 5) ARAMA SORGULARI (birim dışı tezleri yakalamak için)
+#    Hukuk, Tarih, İktisat, Bankacılık vb. bölümlerdeki ilgili tezler.
+# ---------------------------------------------------------------------
+anahtar_sorgular:
+  - "fıkıh"
+  - "fıkhî"
+  - "İslam hukuku"
+  - "fetva"
+  - "Mecelle"
+  - "şer'iyye sicili"
+  - "kadı sicili"
+  - "İslam iktisadı"
+  - "İslam ekonomisi"
+  - "İslami finans"
+  - "katılım bankacılığı"
+  - "faizsiz"
+  - "sukuk"
+  - "murabaha"
+  - "zekât"
+  - "riba"
+  - "Hanefi"
+  - "Şâfiî"
+  - "Mâlikî"
+  - "Hanbelî"
+  - "maslahat"
+  - "makâsıd"
+  - "İslam aile hukuku"
+  - "İslam ceza hukuku"
+  - "İslam miras hukuku"
+  - "vakıf hukuku"
+  - "Islamic law"
+  - "Islamic finance"
+  - "fiqh"
