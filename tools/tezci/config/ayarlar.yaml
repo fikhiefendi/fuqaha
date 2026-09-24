@@ -1,0 +1,50 @@
+# Çalışma ayarları. Alan (konu) tanımları için: config/alanlar.yaml
+
+veritabani: veri/tezler.db
+cikti_klasoru: cikti
+gunluk_dosyasi: veri/tezci.log
+
+# Varsayılan kaynak: tezara | yok | ikisi
+#  tezara → hızlı (dakikalar), YÖK verisinin tezara.org'daki temizlenmiş kopyası
+#  yok    → doğrudan YÖK (yavaş; YÖK hız sınırı yüzünden ilk tarama günler sürebilir)
+#  ikisi  → önce tezara, sonra YÖK'ten son yıllar (en sağlam)
+kaynak: ikisi
+
+tezara:
+  url: https://meili.tezara.org
+  # tezara.org'un tarayıcıda kullandığı herkese açık yalnızca-arama anahtarı.
+  # Çalışmazsa: tezara.org'da arama yapıp tarayıcı geliştirici araçlarında
+  # meili.tezara.org isteğinin "Authorization: Bearer ..." değerini buraya yazın.
+  anahtar: 58d605332555ae955edf0760b53e2748c54412978e22b07c8f35d8e41069007f
+  indeks: theses
+  sayfa_boyutu: 500
+  bekleme_sn: 1
+  # ABD / Bilim Dalı adlarını keşfetmek için arama tohumları
+  kesif_tohumlari: ["islam", "fıkıh", "fikih", "katılım", "ilahiyat", "din bilimleri", "temel islam", "islami", "iktisad"]
+  anahtar_sorgu_ust_siniri: 3000     # her anahtar sorgu için en fazla kaç sonuç
+  derin_kontrol_gun: 30              # bu kadar günde bir birimlerin tamamı yeniden kontrol edilir
+
+yok:
+  arama_bekleme_sn: 30               # iki arama arası (YÖK "TR7" engeli koymasın diye)
+  detay_bekleme_sn: 3                # detay/PDF istekleri arası
+  engel_bekleme_dk: 30               # engel sayfası gelirse bekleme (katlanarak artar)
+  engel_deneme: 3
+  en_eski_yil: 1950
+  genis_birim_detay: hepsi           # hepsi | on_eleme (geniş birimlerde her tezin detayı çekilsin mi)
+  guncelleme_geriye_yil: 1           # güncellemede: bu yıl + geçen yıl
+  kisitli_pdf_kontrol_gun: 90        # PDF'i kısıtlı tezler bu kadar günde bir yeniden kontrol edilir
+
+disa_aktar:
+  inceleme_dahil: false              # true: "inceleme" durumundakiler de sitede/CSV'de yer alır
+
+# Fuqaha sitesi (github.com/fikhiefendi/fuqaha) ile bütünleşme.
+# Bu klasör sitenin içinde (tools/tezci) durduğunda "../.." sitenin köküdür.
+site:
+  klasor: ../..
+  tur_duzelt: true        # Kesin eşleşen (aynı YÖK kaydı) mevcut kayıtlarda Doktora/YL türünü YÖK'e göre düzelt
+  konu_eslemesi:          # kategori → sitedeki "Konu" etiketi ("fikih" genel olduğu için etiketlenmez)
+    fikih_usulu: "Fıkıh usulü"
+    fikih_tarihi: "Fıkıh tarihi"
+    fukaha: "Şahıs çalışmaları"
+    mukayeseli: "Mukayeseli hukuk"
+    iktisat: "İslam iktisadı"

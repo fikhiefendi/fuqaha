@@ -29,13 +29,17 @@ const advisors = [...advisorCount].sort((a, b) => b[1] - a[1] || collator.compar
 const years = works.map((w) => w.data.year).filter((y): y is number => !!y);
 const minYear = Math.min(...years);
 const maxYear = Math.max(...years);
-const snippet = (s?: string) => (s && s.length > 260 ? `${s.slice(0, 257).replace(/\s+\S*$/, '')}…` : (s ?? ''));
 const num = new Intl.NumberFormat(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB' : 'tr-TR');
 
 const payload = {
   typeLabels: Object.fromEntries(types.map((key) => [key, pick(WORK_TYPES[key as keyof typeof WORK_TYPES], lang)])),
   langLabels: Object.fromEntries(languages.map((l) => [l, languageName(l, lang)])),
   locale: lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB' : 'tr-TR',
+  listUrl: url('data/bibliography-list.json'),
+  hrefBase: href(lang, 'bibliography/'),
+  noYear: t('bib.noYear'),
+  fullTextShort: k('bib.fullTextShort'),
+  fullTextTitle: k('bib.fullText'),
 };
 ---
 
@@ -147,48 +151,10 @@ const payload = {
             <button type="button" data-sort-by="pages">{k('bib.pages')}</button>
           </div>
 
-          <ol class="items" data-list data-view="list">
-            {
-              works.map((w) => {
-                const d = w.data;
-                return (
-                  <li
-                    class="item"
-                    data-id={w.id}
-                    data-type={d.type}
-                    data-lang={d.language}
-                    data-uni={universityName(d.university)}
-                    data-adv={d.advisors.join('|')}
-                    data-topics={d.topics.join('|')}
-                    data-year={d.year ?? ''}
-                    data-pages={d.pageCount ?? ''}
-                    data-abs={d.abstract ? 1 : 0}
-                    data-pdf={d.fullText ? 1 : 0}
-                  >
-                    <span class="c-year">{d.year ?? '—'}</span>
-                    <span class="c-kind">{typeLabel(w, lang)}</span>
-                    <a class="c-title" href={href(lang, `bibliography/${w.id}/`)} lang={d.language}>
-                      {d.title}
-                    </a>
-                    <span class="c-author">{d.authors.map(displayName).join(', ')}</span>
-                    <span class="c-adv">{d.advisors.join(', ')}</span>
-                    <span class="c-uni" title={d.university}>
-                      {universityName(d.university)}
-                    </span>
-                    <span class="c-pages">{d.pageCount ? num.format(d.pageCount) : ''}</span>
-                    <span class="c-meta">{[d.authors.map(displayName).join(', '), universityName(d.university), d.city, d.year ?? t('bib.noYear')].filter(Boolean).join(' · ')}</span>
-                    {d.abstract && <p class="c-abs" lang={d.language}>{snippet(d.abstract)}</p>}
-                    {d.topics.length > 0 && <span class="c-topics">{d.topics.join(' · ')}</span>}
-                    {d.fullText && (
-                      <a class="c-pdf" href={d.fullText} rel="noopener" target="_blank" title={k('bib.fullText')}>
-                        {k('bib.fullTextShort')}
-                      </a>
-                    )}
-                  </li>
-                );
-              })
-            }
+          <ol class="items" data-list data-view="list" aria-busy="true">
+            {/* Rows are rendered in the browser from data/bibliography-list.json (see the script below). */}
           </ol>
+          <noscript><p class="meta">{t('bib.export')}: <a href={url('data/bibliography.csv')}>CSV</a> · <a href={url('data/bibliography.json')}>JSON</a></p></noscript>
           <p class="none" hidden data-none>{t('bib.none')}</p>
           <div class="more" data-more-box>
             <button type="button" class="btn small plain" data-more>{k('bib.showMore')}</button>
@@ -822,13 +788,82 @@ const payload = {
     typeLabels: Record<string, string>;
     langLabels: Record<string, string>;
     locale: string;
+    listUrl: string;
+    hrefBase: string;
+    noYear: string;
+    fullTextShort: string;
+    fullTextTitle: string;
   };
+  /** See src/pages/data/bibliography-list.json.ts */
+  type Row = [string, string, string, string, string, string[], string[], number | null, number | null, 0 | 1, string, string, string, string, string];
   const label = (key: string) => document.querySelector<HTMLElement>(`#stat-labels`)!.content.querySelector<HTMLElement>(`[data-k="${key}"]`)!.textContent!;
   const nf = new Intl.NumberFormat(meta.locale);
   const PAGE = 50;
 
+  async function main() {
+
   const form = document.querySelector<HTMLFormElement>('[data-filters]')!;
   const list = document.querySelector<HTMLOListElement>('[data-list]')!;
+  // Build the rows. Elements created here carry the same scoped-style attribute as the list.
+  const scope = [...list.attributes].map((x) => x.name).find((n) => n.startsWith('data-astro-cid-'));
+  const scopeClass = [...list.classList].find((c) => c.startsWith('astro-'));
+  const make = <K extends keyof HTMLElementTagNameMap>(tag: K, cls: string, text?: string) => {
+    const e = document.createElement(tag);
+    e.className = scopeClass ? `${cls} ${scopeClass}` : cls;
+    if (scope) e.setAttribute(scope, '');
+    if (text !== undefined) e.textContent = text;
+    return e;
+  };
+  const rowFmt = new Intl.NumberFormat(meta.locale);
+  const rows = (await (await fetch(meta.listUrl)).json()) as Row[];
+  const frag = document.createDocumentFragment();
+  for (const [id, type, lang, uni, uniFull, adv, topics, year, pages, abs, pdf, title, authors, city, snip] of rows) {
+    const li = make('li', 'item');
+    Object.assign(li.dataset, {
+      id,
+      type,
+      lang,
+      uni,
+      adv: adv.join('|'),
+      topics: topics.join('|'),
+      year: year ? String(year) : '',
+      pages: pages ? String(pages) : '',
+      abs: String(abs),
+      pdf: pdf ? '1' : '0',
+    });
+    const a = make('a', 'c-title', title);
+    a.href = `${meta.hrefBase}${id}/`;
+    a.lang = lang;
+    const u = make('span', 'c-uni', uni);
+    u.title = uniFull;
+    li.append(
+      make('span', 'c-year', year ? String(year) : '—'),
+      make('span', 'c-kind', meta.typeLabels[type] ?? type),
+      a,
+      make('span', 'c-author', authors),
+      make('span', 'c-adv', adv.join(', ')),
+      u,
+      make('span', 'c-pages', pages ? rowFmt.format(pages) : ''),
+      make('span', 'c-meta', [authors, uni, city, year ?? meta.noYear].filter(Boolean).join(' · ')),
+    );
+    if (snip) {
+      const p = make('p', 'c-abs', snip);
+      p.lang = lang;
+      li.append(p);
+    }
+    if (topics.length) li.append(make('span', 'c-topics', topics.join(' · ')));
+    if (pdf) {
+      const l = make('a', 'c-pdf', meta.fullTextShort);
+      l.href = pdf;
+      l.rel = 'noopener';
+      l.target = '_blank';
+      l.title = meta.fullTextTitle;
+      li.append(l);
+    }
+    frag.append(li);
+  }
+  list.append(frag);
+  list.removeAttribute('aria-busy');
   const items = [...list.querySelectorAll<HTMLLIElement>('.item')];
   const count = document.querySelector<HTMLElement>('[data-count]')!;
   const none = document.querySelector<HTMLElement>('[data-none]')!;
@@ -1145,4 +1180,7 @@ const payload = {
   form.addEventListener('input', () => apply());
   form.addEventListener('reset', () => setTimeout(() => apply()));
   apply(false);
+  }
+
+  main();
 </script>

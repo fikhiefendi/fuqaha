@@ -1,0 +1,4 @@
+httpx>=0.25
+beautifulsoup4>=4.12
+lxml>=4.9
+PyYAML>=6.0
