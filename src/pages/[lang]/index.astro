@@ -9,7 +9,7 @@ import { formatDate, getFeatured, getPosts, postImage } from '../../lib/entries'
 import { photo } from '../../lib/images';
 import { getScholars, lifeShort } from '../../lib/scholars';
 import { getWorks } from '../../lib/works';
-import { langPaths, pick, useT, type Lang, type UIKey } from '../../i18n/ui';
+import { langPaths, pick, useT, type Lang } from '../../i18n/ui';
 import { href } from '../../lib/url';
 import { WORK_TYPES } from '../../site.config';
 
@@ -36,17 +36,7 @@ const num = new Intl.NumberFormat(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB'
 ---
 
 <Base lang={lang} home>
-  <HeroSlider
-    lang={lang}
-    items={featured}
-    modules={[
-      { href: href(lang, 'scholars/'), label: t('nav.scholars'), ar: 'التراجم' },
-      { href: href(lang, 'timeline/'), label: t('nav.timeline' as UIKey), ar: 'الخريطة الزمنية' },
-      { href: href(lang, 'map/'), label: t('nav.map'), ar: 'البلدان' },
-      { href: href(lang, 'network/'), label: t('nav.network' as UIKey), ar: 'السلاسل' },
-      { href: href(lang, 'bibliography/'), label: t('nav.bibliography'), ar: 'المصنفات' },
-    ]}
-  />
+  <HeroSlider lang={lang} items={featured} />
 
   <section class="section" id="main-sections">
     <div class="wrap">

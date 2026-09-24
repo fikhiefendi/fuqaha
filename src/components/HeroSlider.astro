@@ -11,10 +11,8 @@ interface Props {
   lang: Lang;
   items: FeatureItem[];
   interval?: number;
-  /** Section shortcuts along the foot of the hero. */
-  modules?: { href: string; label: string; ar: string }[];
 }
-const { lang, items, interval = 7000, modules = [] } = Astro.props;
+const { lang, items, interval = 7000 } = Astro.props;
 const t = useT(lang);
 const pad = (n: number) => String(n).padStart(2, '0');
 ---
@@ -68,21 +66,6 @@ const pad = (n: number) => String(n).padStart(2, '0');
     </svg>
     <span class="badge-mark"><Mark size={30} /></span>
   </a>
-
-  {
-    modules.length > 0 && (
-      <nav class="wrap modules" aria-label={t('menu')}>
-        {modules.map((m, i) => (
-          <a href={m.href} class:list={['module', { lead: i === 0 }]}>
-            <span class="m-label">{m.label}</span>
-            <span class="m-ar" lang="ar">
-              {m.ar}
-            </span>
-          </a>
-        ))}
-      </nav>
-    )
-  }
 
   <a href="#main-sections" class="notch" aria-label="↓">
     <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="m3 5 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
@@ -162,7 +145,7 @@ const pad = (n: number) => String(n).padStart(2, '0');
   }
   .content {
     position: relative;
-    padding-block: var(--header-h) 200px;
+    padding-block: var(--header-h) 110px;
   }
   .content > * {
     max-width: 680px;
@@ -242,64 +225,6 @@ const pad = (n: number) => String(n).padStart(2, '0');
     color: var(--ink);
   }
 
-  /* Section shortcuts */
-  .modules {
-    position: absolute;
-    z-index: 3;
-    inset-block-end: 34px;
-    inset-inline: 0;
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 10px;
-  }
-  .module {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 92px;
-    padding: 14px 16px;
-    border: 1px solid rgb(255 255 255 / 0.55);
-    background: rgb(20 16 10 / 0.28);
-    backdrop-filter: blur(6px);
-    color: #fff;
-    transition:
-      background 0.25s,
-      border-color 0.25s;
-  }
-  .module:hover {
-    background: rgb(29 80 71 / 0.85);
-    border-color: transparent;
-  }
-  .module.lead {
-    background: var(--accent);
-    border-color: transparent;
-  }
-  .module.lead::after {
-    content: '';
-    position: absolute;
-    inset-block-start: -1px;
-    inset-inline-end: -1px;
-    border-style: solid;
-    border-width: 0 14px 14px 0;
-    border-color: transparent rgb(22 17 11 / 0.6) transparent transparent;
-  }
-  :root[dir='rtl'] .module.lead::after {
-    border-width: 0 0 14px 14px;
-    border-color: transparent transparent transparent rgb(22 17 11 / 0.6);
-  }
-  .m-label {
-    font: 600 0.98rem/1.25 var(--sans);
-  }
-  .m-ar {
-    align-self: flex-end;
-    font: 700 1.05rem var(--arabic);
-    color: rgb(255 255 255 / 0.75);
-  }
-  :root[dir='rtl'] .m-ar {
-    align-self: flex-start;
-  }
-
   /* Slowly turning seal */
   .badge {
     position: absolute;
@@ -362,7 +287,7 @@ const pad = (n: number) => String(n).padStart(2, '0');
 
   .caption {
     position: absolute;
-    inset-block-end: 142px;
+    inset-block-end: 30px;
     inset-inline-end: 32px;
     max-width: 38ch;
     font: italic 400 0.76rem/1.45 var(--sans);
@@ -373,7 +298,7 @@ const pad = (n: number) => String(n).padStart(2, '0');
   .pager {
     position: absolute;
     z-index: 3;
-    inset-block-end: 142px;
+    inset-block-end: 26px;
     inset-inline: 0;
     display: flex;
     align-items: center;
@@ -437,13 +362,6 @@ const pad = (n: number) => String(n).padStart(2, '0');
   }
 
   @media (max-width: 900px) {
-    .modules {
-      grid-template-columns: none;
-      grid-auto-flow: column;
-      grid-auto-columns: 150px;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
     .badge {
       display: none;
     }
@@ -451,12 +369,6 @@ const pad = (n: number) => String(n).padStart(2, '0');
   @media (max-width: 760px) {
     .caption {
       display: none;
-    }
-    .module {
-      min-height: 76px;
-    }
-    .content {
-      padding-block-end: 180px;
     }
     .cta-line {
       width: 44px;
