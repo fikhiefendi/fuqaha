@@ -116,12 +116,18 @@ const works = defineCollection({
     issue: z.union([z.number(), z.string()]).optional(),
     pages: z.string().optional(),
     university: z.string().optional(),
+    /** Department within the institute, e.g. "Temel İslam Bilimleri Ana Bilim Dalı / İslam Hukuku Bilim Dalı". */
+    department: z.string().optional(),
+    advisors: z.array(z.string()).default([]),
+    pageCount: z.number().int().optional(),
     city: z.string().optional(),
     topics: z.array(z.string()).default([]),
     scholars: z.array(z.string()).default([]),
     madhhab: madhhab.optional(),
     url: z.url().optional(),
     doi: z.string().optional(),
+    /** Link to the full text (e.g. the PDF on the YÖK National Thesis Centre). */
+    fullText: z.url().optional(),
     abstract: z.string().optional(),
     addedAt: z.coerce.date(),
   }),

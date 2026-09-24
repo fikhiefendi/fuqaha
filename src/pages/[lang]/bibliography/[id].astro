@@ -1,36 +1,45 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import PageHead from '../../../components/PageHead.astro';
-import { bibtex, displayName, getWorks, isnad, languageName, record, typeLabel } from '../../../lib/works';
-import { coins, toRis } from '../../../lib/cite';
+import { displayName, getWorks, isnad, languageName, record, typeLabel, universityName } from '../../../lib/works';
+import { coins, toBibtex, toRis } from '../../../lib/cite';
 import { photo } from '../../../lib/images';
 import { LOCALES, useT, type Lang } from '../../../i18n/ui';
 import { href } from '../../../lib/url';
+import { sameAdvisor, scholarsOf, similarTo } from '../../../lib/relations';
+import { getScholars, lifeShort } from '../../../lib/scholars';
 
 export async function getStaticPaths() {
   const works = await getWorks();
-  return LOCALES.flatMap((lang) =>
-    works.map((w) => ({
-      params: { lang, id: w.id },
-      props: {
-        w,
-        related: works.filter((o) => o.id !== w.id && o.data.university && o.data.university === w.data.university).slice(0, 6),
-      },
-    })),
-  );
+  const byId = new Map(works.map((w) => [w.id, w]));
+  const scholars = new Map((await getScholars()).map((s) => [s.id, s]));
+  const paths = [];
+  for (const w of works) {
+    const similar = (await similarTo(w)).map((x) => ({ w: byId.get(x.id)!, score: x.score }));
+    const advisor = sameAdvisor(w, works).slice(0, 8);
+    const skip = new Set([w.id, ...similar.map((x) => x.w.id), ...advisor.map((x) => x.id)]);
+    const related = works.filter((o) => !skip.has(o.id) && o.data.university && universityName(o.data.university) === universityName(w.data.university)).slice(0, 6);
+    const jurists = scholarsOf(w.id).map((id) => scholars.get(id)!).filter(Boolean);
+    for (const lang of LOCALES) paths.push({ params: { lang, id: w.id }, props: { w, related, similar, advisor, jurists } });
+  }
+  return paths;
 }
 
 const lang = Astro.params.lang as Lang;
-const { w, related } = Astro.props;
+const { w, related, similar, advisor, jurists } = Astro.props;
+const num = new Intl.NumberFormat(lang === 'ar' ? 'ar' : lang === 'en' ? 'en-GB' : 'tr-TR');
 const t = useT(lang);
 const d = w.data;
 const rows: [string, string][] = [
   [t('bib.type'), typeLabel(w, lang)],
   [t('bib.author'), d.authors.map(displayName).join(', ')],
+  [t('bib.advisor'), d.advisors.join(', ')],
   [t('bib.university'), d.university ?? ''],
+  [t('bib.department'), d.department ?? ''],
   [t('bib.city'), d.city ?? ''],
   [t('bib.year'), d.year ? String(d.year) : t('bib.noYear')],
   [t('bib.language'), languageName(d.language, lang)],
+  [t('bib.pages'), d.pageCount ? num.format(d.pageCount) : ''],
   [t('bib.topic'), d.topics.join(', ')],
 ].filter(([, v]) => v) as [string, string][];
 const jsonld = {
@@ -66,12 +75,45 @@ const jsonld = {
         }
       </dl>
       {
-        d.url && (
-          <p class="link">
-            <a href={d.url} rel="noopener" target="_blank">
-              {d.url}
-            </a>
+        (d.url || d.fullText) && (
+          <p class="links">
+            {d.fullText && (
+              <a class="btn small" href={d.fullText} rel="noopener" target="_blank">
+                {t('bib.fullText')}
+              </a>
+            )}
+            {d.url && (
+              <a class="plain-link" href={d.url} rel="noopener" target="_blank">
+                {t('bib.record')} ↗
+              </a>
+            )}
           </p>
+        )
+      }
+      {
+        d.abstract && (
+          <section class="abstract">
+            <h2>{t('bib.abstract')}</h2>
+            <p lang={d.language}>{d.abstract}</p>
+          </section>
+        )
+      }
+      {
+        jurists.length > 0 && (
+          <section class="jurists" data-pagefind-ignore>
+            <h2>{t('bib.relatedScholars')}</h2>
+            <ul>
+              {jurists.map((s) => (
+                <li>
+                  <a href={href(lang, `scholars/${s.id}/`)}>
+                    <span class="j-ar" lang="ar">{s.data.name.ar}</span>
+                    {lang !== 'ar' && <span class="j-name">{s.data.name[lang]}</span>}
+                    <span class="meta">{lifeShort(s, lang)}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
         )
       }
     </div>
@@ -85,18 +127,57 @@ const jsonld = {
       </div>
       <div class="cite-box">
         <p class="label">RIS (Zotero, EndNote, Mendeley)</p>
-        <pre data-copy-src>{toRis(record(w))}</pre>
+        <pre data-copy-src>{toRis({ ...record(w), abstract: undefined })}</pre>
         <button type="button" class="btn small plain" data-copy data-done={t('bib.copied')}>{t('bib.copy')}</button>
       </div>
       <div class="cite-box">
         <p class="label">BibTeX</p>
-        <pre data-copy-src>{bibtex(w)}</pre>
+        <pre data-copy-src>{toBibtex({ ...record(w), abstract: undefined })}</pre>
         <button type="button" class="btn small plain" data-copy data-done={t('bib.copied')}>{t('bib.copy')}</button>
       </div>
       <span class="Z3988" title={coins(record(w))}></span>
     </aside>
   </div>
 
+  {
+    similar.length > 0 && (
+      <section class="wrap related" data-pagefind-ignore>
+        <h2>{t('bib.similar')}</h2>
+        <p class="meta note">{t('bib.similarNote')}</p>
+        <ul>
+          {similar.map(({ w: r, score }) => (
+            <li>
+              <a href={href(lang, `bibliography/${r.id}/`)}>
+                <span class="r-title">{r.data.title}</span>
+                <span class="meta">
+                  {[r.data.authors.map(displayName).join(', '), r.data.university?.replace(/, .*$/, ''), r.data.year].filter(Boolean).join(' · ')}
+                </span>
+                <span class="score" style={`--s:${Math.min(1, score * 1.6)}`} aria-hidden="true"></span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+  {
+    advisor.length > 0 && (
+      <section class="wrap related" data-pagefind-ignore>
+        <h2>{t('bib.sameAdvisor')}</h2>
+        <p class="meta note">{d.advisors.join(', ')}</p>
+        <ul>
+          {advisor.map((r) => (
+            <li>
+              <a href={href(lang, `bibliography/${r.id}/`)}>
+                <span class="r-title">{r.data.title}</span>
+                <span class="meta">{[r.data.authors.map(displayName).join(', '), r.data.year].filter(Boolean).join(' · ')}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
   {
     related.length > 0 && (
       <section class="wrap related" data-pagefind-ignore>
@@ -116,9 +197,13 @@ const jsonld = {
       </section>
     )
   }
+  <div class="end"></div>
 </Base>
 
 <style>
+  .end {
+    height: 40px;
+  }
   .by {
     margin-block-start: 12px;
     font: 700 1rem var(--sans);
@@ -154,13 +239,74 @@ const jsonld = {
     margin: 0;
     color: var(--ink);
   }
-  .link {
-    margin-block-start: 18px;
-    word-break: break-all;
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 20px;
+    margin-block-start: 20px;
   }
-  .link a {
+  .plain-link {
     color: var(--accent);
     text-decoration: underline;
+    text-underline-offset: 3px;
+    font-size: 0.9rem;
+  }
+  .abstract,
+  .jurists {
+    margin-block-start: 36px;
+  }
+  .abstract h2,
+  .jurists h2 {
+    font-size: 1.15rem;
+    margin-block-end: 10px;
+  }
+  .abstract p {
+    max-width: 72ch;
+    font: 400 1rem/1.8 var(--serif);
+    color: var(--text);
+    text-align: justify;
+    hyphens: auto;
+  }
+  .jurists ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .jurists a {
+    display: grid;
+    gap: 2px;
+    padding: 10px 16px;
+    border: 1px solid var(--rule);
+    border-inline-start: 3px solid var(--rubric);
+    background: var(--surface);
+  }
+  .jurists a:hover {
+    border-color: var(--accent);
+  }
+  .j-ar {
+    font: 700 1.1rem var(--arabic);
+    color: var(--accent);
+  }
+  .j-name {
+    font: 600 0.9rem var(--serif);
+    color: var(--ink);
+  }
+  .note {
+    margin-block: -6px 10px;
+  }
+  .score {
+    display: block;
+    width: 80px;
+    height: 3px;
+    margin-block-start: 4px;
+    background: linear-gradient(to right, var(--rubric) calc(var(--s) * 100%), var(--rule) 0);
+  }
+  :root[dir='rtl'] .score {
+    background: linear-gradient(to left, var(--rubric) calc(var(--s) * 100%), var(--rule) 0);
   }
   .cite h2 {
     font-size: 1.1rem;
@@ -199,7 +345,7 @@ const jsonld = {
     word-break: break-word;
   }
   .related {
-    padding-block: 32px 72px;
+    padding-block: 32px 40px;
     border-block-start: 1px solid var(--rule);
   }
   .related h2 {

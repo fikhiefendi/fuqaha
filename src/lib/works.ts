@@ -11,6 +11,25 @@ export async function getWorks(): Promise<Work[]> {
   );
 }
 
+// Former names of universities, so a university is counted once.
+const RENAMED: Record<string, string> = {
+  'Uludağ Üniversitesi': 'Bursa Uludağ Üniversitesi',
+  'Osmangazi Üniversitesi': 'Eskişehir Osmangazi Üniversitesi',
+  'Cumhuriyet Üniversitesi': 'Sivas Cumhuriyet Üniversitesi',
+  'Bozok Üniversitesi': 'Yozgat Bozok Üniversitesi',
+  'Hacı Bektaş Veli Üniversitesi': 'Nevşehir Hacı Bektaş Veli Üniversitesi',
+  'Katip Çelebi Üniversitesi': 'İzmir Katip Çelebi Üniversitesi',
+  "el-Câmiatü'l-Ürdüniyye Külliyyetü'd-Dirâsâti'l-Ulyâ": 'University of Jordan',
+  "University of Jordan (Al-Jami'ah Al-Urdunia)": 'University of Jordan',
+};
+
+/** The university alone, without its institute, under its current name. */
+export function universityName(u?: string): string {
+  if (!u) return '';
+  const name = u.split(/,\s*|\s+(?=(?:Sosyal Bilimler|Lisansüstü Eğitim|İslami İlimler) )/)[0].trim();
+  return RENAMED[name] ?? RENAMED[u] ?? name;
+}
+
 /** "Kaya, Eyyüp Said" → "Eyyüp Said Kaya" */
 export function displayName(name: string): string {
   const [last, first] = name.split(/,\s*/);
@@ -61,6 +80,11 @@ export function record(w: Work): Rec {
     url: d.url,
     doi: d.doi,
     topics: d.topics,
+    advisors: d.advisors,
+    department: d.department,
+    pageCount: d.pageCount,
+    fullText: d.fullText,
+    abstract: d.abstract,
   };
 }
 

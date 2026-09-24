@@ -14,6 +14,7 @@
   --accent-dark: #133a33;
   --rubric: #a23f2a;
   --on-accent: #ffffff;
+  --chart: #168064;
   --shadow: 33 29 23;
   color-scheme: light;
 
@@ -41,6 +42,7 @@
     --accent: #7cc0ae;
     --accent-dark: #9ad3c3;
     --on-accent: #0f231f;
+    --chart: #3aa98a;
     --rubric: #e38a70;
     --shadow: 0 0 0;
     color-scheme: dark;
@@ -57,6 +59,7 @@
   --accent: #7cc0ae;
   --accent-dark: #9ad3c3;
   --on-accent: #0f231f;
+  --chart: #3aa98a;
   --rubric: #e38a70;
   --shadow: 0 0 0;
   color-scheme: dark;

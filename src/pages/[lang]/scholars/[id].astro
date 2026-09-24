@@ -13,6 +13,8 @@ import { lineage, lineageSvg } from '../../../lib/lineage';
 import { backdrop } from '../../../lib/images';
 import { miladi } from '../../../lib/hijri';
 import { sourceForms } from '../../../lib/sources';
+import { worksAbout } from '../../../lib/relations';
+import { displayName, getWorks, typeLabel } from '../../../lib/works';
 
 export async function getStaticPaths() {
   const scholars = await getScholars();
@@ -65,6 +67,8 @@ const nameOf = (id: string) => {
   return lang === 'ar' ? x.data.name.ar : x.data.name[lang];
 };
 const net = neighbours(s.id);
+const aboutIds = new Set(worksAbout(s.id));
+const studies = aboutIds.size ? (await getWorks()).filter((w) => aboutIds.has(w.id)) : [];
 const yearOf = (id: string) => byId.get(id)?.data.death.hijri ?? null;
 const tree = net.teachers.length || net.students.length
   ? lineageSvg(
@@ -156,6 +160,25 @@ const srcRef =
                 ),
             )}
             {t('scholar.namesNote') && <p class="meta note">{t('scholar.namesNote')}</p>}
+          </section>
+        )
+      }
+
+      {
+        studies.length > 0 && (
+          <section class="studies" data-pagefind-ignore>
+            <h2>{t('scholar.studies' as UIKey)}</h2>
+            <ul>
+              {studies.map((w) => (
+                <li>
+                  <a href={href(lang, `bibliography/${w.id}/`)}>
+                    <span class="kind">{typeLabel(w, lang)}</span>
+                    <span class="st">{w.data.title}</span>
+                    <span class="meta">{[w.data.authors.map(displayName).join(', '), w.data.university?.replace(/, .*$/, ''), w.data.year].filter(Boolean).join(' · ')}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </section>
         )
       }
@@ -332,6 +355,33 @@ const srcRef =
     text-underline-offset: 5px;
   }
 
+  .studies ul {
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .studies li {
+    border-block-end: 1px solid var(--rule);
+  }
+  .studies a {
+    display: grid;
+    gap: 2px;
+    padding-block: 12px;
+  }
+  .studies .kind {
+    font: 600 0.72rem var(--sans);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--rubric);
+  }
+  .studies .st {
+    font: 600 1rem/1.4 var(--serif-latin);
+    color: var(--ink);
+  }
+  .studies a:hover .st {
+    color: var(--accent);
+  }
+  .studies,
   .chain,
   .cite {
     margin-block-start: 44px;

@@ -19,6 +19,11 @@ export type Rec = {
   url?: string;
   doi?: string;
   topics: string[];
+  advisors?: string[];
+  department?: string;
+  pageCount?: number;
+  fullText?: string;
+  abstract?: string;
 };
 
 const THESIS_LABEL: Record<string, string> = { 'tez-doktora': 'Doktora Tezi', 'tez-yl': 'Yüksek Lisans Tezi' };
@@ -41,6 +46,9 @@ export function toBibtex(r: Rec): string {
     ['year', r.year],
     ['language', r.language],
     ['keywords', r.topics.length ? r.topics.join(', ') : undefined],
+    ['pagetotal', r.pageCount],
+    ['note', r.advisors?.length ? `Danışman: ${r.advisors.join(', ')}` : undefined],
+    ['abstract', r.abstract],
     ['doi', r.doi],
     ['url', r.url],
   ];
@@ -66,15 +74,19 @@ export function toRis(r: Rec): string {
     ['PB', r.university ?? r.publisher],
     ['CY', r.city],
     ['M3', THESIS_LABEL[r.type]],
+    ...(r.advisors ?? []).map((a): [string, string] => ['A3', a]),
+    ['N1', r.department],
+    ['AB', r.abstract],
     ['LA', r.language],
     ...r.topics.map((k): [string, string] => ['KW', k]),
     ['DO', r.doi],
     ['UR', r.url],
+    ['L1', r.fullText],
   ];
   return [...lines.filter(([, v]) => v !== undefined && v !== '').map(([k, v]) => `${k}  - ${v}`), 'ER  - '].join('\r\n');
 }
 
-const CSV_COLS: (keyof Rec)[] = ['id', 'type', 'title', 'authors', 'year', 'university', 'city', 'publisher', 'journal', 'language', 'topics', 'doi', 'url'];
+const CSV_COLS: (keyof Rec)[] = ['id', 'type', 'title', 'authors', 'advisors', 'year', 'university', 'department', 'city', 'pageCount', 'publisher', 'journal', 'language', 'topics', 'doi', 'url', 'fullText', 'abstract'];
 
 export function toCsv(recs: Rec[]): string {
   const cell = (v: unknown) => {
