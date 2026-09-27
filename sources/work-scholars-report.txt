@@ -177,6 +177,7 @@ LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	macit-fikih-tarihinde-2019	Fık
 LINK	selci	ebu-abdullah-muhammed-b-suca-es-selci	mansi-imam-muhammed-2021	İmam Muhammed B. Şüca' es-Selcî ve Fıkıh İlmi ile İlgili Görüşleri
 LINK	baberti	ekmeleddin-muhammed-b-muhammed-el-baberti	matpan-fikih-nodate	Fıkıh Usûlü-Meânî İlişkisi (Bâbertî Örneği)
 LINK	ayintabi	sehabeddin-ahmed-b-ibrahim-el-ayintabi	memur-ahmed-imad-2020	Ahmed B. 'İmad el-Hanefi el-'Ayıntabi'nin Eş-Şükriyye Adlı Eserinin Tahkiki
+LINK	habbazi	celaleddin-omer-b-muhammed-el-habbazi	mohammed-habbazi-hasiyetu-2024	Habbâzî'nin Hâşiyetü'l-hidâye Adlı Eserinin Tahkik ve Tahlili(Kitâbu't-tahâre'den Kitâbu'ş-şerike'ye Kadar)
 LINK	habbazi	celaleddin-omer-b-muhammed-el-habbazi	mohammed-habbazinin-nodate	Habbâzî'nin "Şerhu'l-Hidâye" Adlı Eserinin Tahkik ve Tahlili
 LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	nacar-cessas-fusul-2009	Cessâs'ın “El-Füsûl”adlı Eserindeki Asılların Tespiti
 LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	orazov-islam-2005	İslâm Hukuk Metodolojisinde İmâm Serahsî’ye Göre Emir ve Nehiy
