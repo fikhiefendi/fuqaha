@@ -1,33 +1,7 @@
-# 2026-09-27: 4 yeni, 0 tamamlandı, 28 tür düzeltildi, 0 çıkarıldı, 8667 değişmedi
-TAMAMLANDI 1.00 acar-islam-1994 <= 32113 [+—; tür tez-doktora→tez-yl]
-TAMAMLANDI 1.00 ozturk-islam-nodate-1 <= 72760 [+—; tür tez-doktora→tez-yl]
-TAMAMLANDI 1.00 yilmaz-hanefi-nodate <= 110799 [+—; tür tez-doktora→tez-yl]
-TAMAMLANDI 1.00 ozcan-suc-nodate <= 128014 [+—; tür tez-doktora→tez-yl]
-TAMAMLANDI 1.00 bahcekapili-kilise-2003 <= 137749 [+—; tür tez-doktora→tez-yl]
-TAMAMLANDI 1.00 aydin-ibnul-humamin-nodate <= 209173 [+—; tür tez-doktora→tez-yl]
-TAMAMLANDI 1.00 kaloshi-osmanli-nodate <= 231213 [+—; tür tez-doktora→tez-yl]
-TAMAMLANDI 1.00 yildiz-cumhuriyet-nodate <= 314276 [+—; tür tez-doktora→tez-yl]
-TAMAMLANDI 1.00 gulec-arap-1979 <= 347010 [+—; tür tez-doktora→tez-yl]
-TAMAMLANDI 1.00 nassrat-mehmed-nodate <= 351564 [+—; tür tez-doktora→tez-yl]
-TAMAMLANDI 1.00 akgul-islam-nodate <= 368058 [+—; tür tez-doktora→tez-yl]
-TAMAMLANDI 1.00 mohammed-habbazinin-nodate <= 380125 [+—; tür tez-doktora→tez-yl]
-TAMAMLANDI 1.00 sahin-islam-nodate-1 <= 394665 [+—; tür tez-doktora→tez-yl]
-TAMAMLANDI 1.00 torun-abdullah-nodate <= 437043 [+—; tür tez-doktora→tez-yl]
-TAMAMLANDI 1.00 balci-ebussuud-nodate <= 437181 [+—; tür tez-doktora→tez-yl]
-TAMAMLANDI 1.00 kose-islam-nodate <= 590236 [+—; tür tez-doktora→tez-yl]
-TAMAMLANDI 1.00 ozturk-resid-nodate <= 682259 [+—; tür tez-doktora→tez-yl]
-TAMAMLANDI 1.00 aktan-hanefi-nodate <= 717119 [+—; tür tez-doktora→tez-yl]
-TAMAMLANDI 1.00 keskin-hanefi-2022 <= 717633 [+—; tür tez-doktora→tez-yl]
+# 2026-09-30: 0 yeni, 0 tamamlandı, 6 tür düzeltildi, 0 çıkarıldı, 8693 değişmedi
 TAMAMLANDI 1.00 sahin-baskanlik-sisteminin-2022 <= 734537 [+—; tür tez-doktora→tez-yl]
 TAMAMLANDI 1.00 sahin-baskanlik-sisteminin-2022 <= 737140 [+—; tür tez-yl→tez-doktora]
 TAMAMLANDI 1.00 ali-2023 <= 738799 [+—; tür tez-doktora→tez-yl]
 TAMAMLANDI 1.00 ali-2023 <= 841379 [+—; tür tez-yl→tez-doktora]
 TAMAMLANDI 1.00 eser-16-nodate <= 875645 [+—; tür tez-doktora→tez-yl]
-YENİ mohammed-habbazi-hasiyetu-2024 <= 898175 Habbâzî'nin Hâşiyetü'l-hidâye Adlı Eserinin Tahkik ve Tahlili(Kitâbu't-tahâre'den Kitâbu'ş
 TAMAMLANDI 1.00 eser-16-nodate <= 901510 [+—; tür tez-yl→tez-doktora]
-YENİ yildiz-cumhuriyet-donemi-2024 <= 925441 Cumhuriyet Dönemi Türk Hukukçularının İslam Hukuku Hakkındaki Yaklaşımları
-TAMAMLANDI 1.00 celik-islam-nodate <= 934242 [+—; tür tez-doktora→tez-yl]
-YENİ kose-islam-hukuk-2024 <= 936689 İslam Hukuk Tarihinde Bilirkişilik ve Fıkhî Uygulamalar
-TAMAMLANDI 1.00 yildiz-islam-nodate <= 974534 [+—; tür tez-doktora→tez-yl]
-TAMAMLANDI 1.00 yilmaz-katilim-nodate <= 1000212 [+—; tür tez-doktora→tez-yl]
-YENİ yildirim-katilim-bankaciliginda-2026 <= 1006832 Katılım Bankacılığında Sukuk İhraçlarının Finansal Raporlamaya Yansımaları: Türkiye Analiz
