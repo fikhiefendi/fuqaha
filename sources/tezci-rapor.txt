@@ -1,4 +1,4 @@
-# 2026-09-30: 0 yeni, 0 tamamlandı, 6 tür düzeltildi, 0 çıkarıldı, 8693 değişmedi
+# 2026-10-04: 0 yeni, 0 tamamlandı, 6 tür düzeltildi, 0 çıkarıldı, 8693 değişmedi
 TAMAMLANDI 1.00 sahin-baskanlik-sisteminin-2022 <= 734537 [+—; tür tez-doktora→tez-yl]
 TAMAMLANDI 1.00 sahin-baskanlik-sisteminin-2022 <= 737140 [+—; tür tez-yl→tez-doktora]
 TAMAMLANDI 1.00 ali-2023 <= 738799 [+—; tür tez-doktora→tez-yl]
