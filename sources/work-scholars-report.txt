@@ -32,6 +32,7 @@ SKIP different laqab	izniki	kutbuddinzade-muhammed-el-izniki	atawula-kutbuddin-2
 LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	atci-ebu-2018	Ebû Ca'fer et-Tahâvî'nin İbadetler ile İlgili Konularda Hanefî İmamlarına Muhâlif Görüşleri
 LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	atli-serahsi-mebsut-2022	Serahsî'nin el-Mebsût'u Çerçevesinde Mehirle İlgili Meseleler
 LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	atmaca-muzeni-tahavi-2006	Müzeni ve Tahavi`nin Muhtasarlarının Zekat Bölümlerinin Kaynak, Muhteva ve Metod Açısından Karşılaştırılması
+LINK	mekki	serefuleimme-burhaneddin-mahmud-et-tercumani-el-mekki	avan-endulus-tefsir-2026	Endülüs Tefsir Geleneğinde Mekkî B. Ebî Tâlib'in Yeri- el-Hidâye Tefsiri Özelinde-
 LINK	mevsili	mecduddin-ebul-fazl-abdullah-b-mahmud-el-mevsili	avci-mevsili-ihtiyar-2017	Mevsılî'nin el-İhtiyâr'ında Maslahat Düşüncesi
 LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	ayazgok-serahsinin-nodate	Serahsî'nin Kıyas Anlayışı
 LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	aydin-serahsi-mebsut-2023	Serahsî'nin El- Mebsût İsimli Eserinde Muâmelât Bahsi Bağlamında İmam Şâfiî'ye Yönelik Atıfların Tespit ve İncelenmesi
