@@ -1,13 +1,22 @@
-# 2026-10-21: 6 yeni, 0 tamamlandı, 6 tür düzeltildi, 0 çıkarıldı, 8708 değişmedi
+# 2026-10-25: 13 yeni, 2 tamamlandı, 6 tür düzeltildi, 0 çıkarıldı, 8714 değişmedi
 TAMAMLANDI 1.00 sahin-baskanlik-sisteminin-2022 <= 734537 [+—; tür tez-doktora→tez-yl]
 TAMAMLANDI 1.00 sahin-baskanlik-sisteminin-2022 <= 737140 [+—; tür tez-yl→tez-doktora]
 TAMAMLANDI 1.00 ali-2023 <= 738799 [+—; tür tez-doktora→tez-yl]
 TAMAMLANDI 1.00 ali-2023 <= 841379 [+—; tür tez-yl→tez-doktora]
 TAMAMLANDI 1.00 eser-16-nodate <= 875645 [+—; tür tez-doktora→tez-yl]
 TAMAMLANDI 1.00 eser-16-nodate <= 901510 [+—; tür tez-yl→tez-doktora]
-YENİ koseoglu-ortaogretim-fikih-2026 <= 1030769 Ortaöğretim Fıkıh Dersi Müfredatının İncelenmesi ve Değerlendirilmesi
-YENİ bagdat-arap-dilinde-2026 <= 1030794 Arap Dilinde Hâl Konusu ve Türkçe Dil Bilgisiyle Mukayesesi
-YENİ teymuroglu-turkiye-bireysel-2026 <= 1030829 Türkiye'de Bireysel Emeklilik: Otomatik Katılım Sisteminde Şirketlerin Faizsiz Fon Tercihl
-YENİ merdun-bilgisayar-oyunlarinda-2026 <= 1030914 Bilgisayar Oyunlarında Gerçekleştirilen Dijital Hırsızlığın TCK ve İslam Hukuku Açısından 
-YENİ bayrakdar-hanefi-ibadet-2026 <= 1030927 Hanefî İbadet Ahkâmında Miktarların Tayini
-YENİ orhan-kudame-mugni-2026 <= 1030948 İbn Kudâme’nin el-Muğnî Adlı Eserinde Ceza Hukuku Bağlamında Şafiî Mezhebine Nispet Edilen
+YENİ akpinar-louis-milliot-2026 <= 1026173 Louis Milliot Örnekliğinde Fransız Oryantalizmi ve Fıkıh
+YENİ saritas-mevzuat-edebiyatinda-2026 <= 1026310 Mevzûât Edebiyatında Mübarek Gün ve Geceler
+YENİ topcu-kasani-beda-2026 <= 1026429 Kâsânî'nin Bedâʾiʿinde İstihsan Yönteminin Ceza Hukukunda Uygulanışı
+TAMAMLANDI 1.00 olgun-kitle-nodate <= 1026581 [+titleTranslation, year, department, advisors, topics, url, fullText, abstract, yokId]
+YENİ hos-nuceym-usul-2026 <= 1026585 İbn Nüceym'in Usul Anlayışı: Fethu'l-Gaffâr'daki İhtilaflı Meseleler Üzerinden Bir İncelem
+YENİ kocak-semerkandi-kudame-2026 <= 1026612 Semerkandî ve Ibn Kudâme Özelinde İcmâ Kavramı: Karşılaştırmalı Bir Analiz
+YENİ uysal-geleneksel-nahiv-2026 <= 1026733 Geleneksel Nahiv Öğreniminde Acurrûmiyye ve el-Misbâh Adlı Eserlerin Yeri (Karşılaştırmalı
+YENİ yuksel-yusr-pezdevi-2024 <= 1026928 Ebu'l-Yüsr el-Pezdevi'nin Eş'arilik Algısı
+YENİ ismailogullari-islami-finansin-2025 <= 1027112 İslami Finansın KOBİ'lerin Gelişimi Üzerindeki Etkileri: Bingöl İli Örneği
+YENİ kalender-yusuf-karadavi-2026 <= 1027600 Yusuf el-Karadavi'nin Fetvalarında İzlediği Yöntem
+TAMAMLANDI 1.00 kuru-vhicri-nodate <= 1027625 [+titleTranslation, year, department, advisors, topics, url, abstract, yokId]
+YENİ yorulmaz-maverdi-nuket-2026 <= 1027640 Mâverdî'nin en-Nüket Ve'l-ʿUyûn Adlı Eserinde Furûk İncelemesi
+YENİ tan-hanefi-fetva-2026 <= 1027665 Hanefî Fetva Literatüründe Hırsızlık Suçu ve Cezası: Kitābu's-Seriḳa (4-7./10-13. Yüzyılla
+YENİ alsakkal-bahri-memlukler-2026 <= 1027973 Bahri Memlükler Dönemi Şam Fakihlerinde Dil-fıkıh İlişkisi
+YENİ koc-lutfullah-muhammed-2026 <= 1028076 Lütfullah B. Muhammed el-Erzurûmî'nin Risâle Fî İlmi't-Tecvîd Adlı Eserinin Tahkiki ve Kar
