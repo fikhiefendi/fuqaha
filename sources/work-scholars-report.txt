@@ -58,6 +58,7 @@ LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	cantepe-beyan-nesih-2021	Bey
 LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	catallar-klasik-donem-2010	Klasik Dönem Hanefî Fıkıh Usûlü Literatüründe Nesih Kavramı: Debûsî ve Serahsî Örneği
 LINK	cessas	ebu-bekir-ahmed-b-ali-er-razi-el-cessas	cavus-cessas-sabuni-2026	Cessâs ve Sâbûnî Özelinde İslâm Ticaret Hukukundaki Kavram ve Hükümlerin Mukayeseli Tahlili
 LINK	sabuni	nureddin-ahmed-b-mahmud-es-sabuni	cavus-cessas-sabuni-2026	Cessâs ve Sâbûnî Özelinde İslâm Ticaret Hukukundaki Kavram ve Hükümlerin Mukayeseli Tahlili
+LINK	izniki	kutbuddinzade-muhammed-el-izniki	cay-fikih-sosyolojisi-2026	Fıkıh Sosyolojisi Açısından Kutbüddinzâde İznikî'nin Mürşidü'l-Müteehhilîn Adlı Eseri
 LINK	serahsi	semsuleimme-ebu-bekir-muhammed-b-ahmed-es-serahsi	celebi-hadis-usulu-2026	Hadis Usulü Bağlamında el-Kifâye Fî İlmi'r-Rivâye ve Usûlü's-Serahsî Mukayesesi
 LINK	tahavi	ebu-cafer-ahmed-b-muhammed-et-tahavi	celik-tahavi-beyhaki-2017	Tahâvî ve Beyhakî'de Hadis (Şerhu Meâni'l - Âsâr ve Ma'rifetu's - Sünen Örneği)
 LINK	mevsili	mecduddin-ebul-fazl-abdullah-b-mahmud-el-mevsili	cesme-mevsili-muhtar-2010	el-Mevsılî'nin el-Muhtar'ında Züfer'e Ait Görüşlerin Tahkiki

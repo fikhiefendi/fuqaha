@@ -1,22 +1,20 @@
-# 2026-10-25: 13 yeni, 2 tamamlandı, 6 tür düzeltildi, 0 çıkarıldı, 8714 değişmedi
+# 2026-10-28: 13 yeni, 0 tamamlandı, 6 tür düzeltildi, 0 çıkarıldı, 8729 değişmedi
 TAMAMLANDI 1.00 sahin-baskanlik-sisteminin-2022 <= 734537 [+—; tür tez-doktora→tez-yl]
 TAMAMLANDI 1.00 sahin-baskanlik-sisteminin-2022 <= 737140 [+—; tür tez-yl→tez-doktora]
 TAMAMLANDI 1.00 ali-2023 <= 738799 [+—; tür tez-doktora→tez-yl]
 TAMAMLANDI 1.00 ali-2023 <= 841379 [+—; tür tez-yl→tez-doktora]
 TAMAMLANDI 1.00 eser-16-nodate <= 875645 [+—; tür tez-doktora→tez-yl]
 TAMAMLANDI 1.00 eser-16-nodate <= 901510 [+—; tür tez-yl→tez-doktora]
-YENİ akpinar-louis-milliot-2026 <= 1026173 Louis Milliot Örnekliğinde Fransız Oryantalizmi ve Fıkıh
-YENİ saritas-mevzuat-edebiyatinda-2026 <= 1026310 Mevzûât Edebiyatında Mübarek Gün ve Geceler
-YENİ topcu-kasani-beda-2026 <= 1026429 Kâsânî'nin Bedâʾiʿinde İstihsan Yönteminin Ceza Hukukunda Uygulanışı
-TAMAMLANDI 1.00 olgun-kitle-nodate <= 1026581 [+titleTranslation, year, department, advisors, topics, url, fullText, abstract, yokId]
-YENİ hos-nuceym-usul-2026 <= 1026585 İbn Nüceym'in Usul Anlayışı: Fethu'l-Gaffâr'daki İhtilaflı Meseleler Üzerinden Bir İncelem
-YENİ kocak-semerkandi-kudame-2026 <= 1026612 Semerkandî ve Ibn Kudâme Özelinde İcmâ Kavramı: Karşılaştırmalı Bir Analiz
-YENİ uysal-geleneksel-nahiv-2026 <= 1026733 Geleneksel Nahiv Öğreniminde Acurrûmiyye ve el-Misbâh Adlı Eserlerin Yeri (Karşılaştırmalı
-YENİ yuksel-yusr-pezdevi-2024 <= 1026928 Ebu'l-Yüsr el-Pezdevi'nin Eş'arilik Algısı
-YENİ ismailogullari-islami-finansin-2025 <= 1027112 İslami Finansın KOBİ'lerin Gelişimi Üzerindeki Etkileri: Bingöl İli Örneği
-YENİ kalender-yusuf-karadavi-2026 <= 1027600 Yusuf el-Karadavi'nin Fetvalarında İzlediği Yöntem
-TAMAMLANDI 1.00 kuru-vhicri-nodate <= 1027625 [+titleTranslation, year, department, advisors, topics, url, abstract, yokId]
-YENİ yorulmaz-maverdi-nuket-2026 <= 1027640 Mâverdî'nin en-Nüket Ve'l-ʿUyûn Adlı Eserinde Furûk İncelemesi
-YENİ tan-hanefi-fetva-2026 <= 1027665 Hanefî Fetva Literatüründe Hırsızlık Suçu ve Cezası: Kitābu's-Seriḳa (4-7./10-13. Yüzyılla
-YENİ alsakkal-bahri-memlukler-2026 <= 1027973 Bahri Memlükler Dönemi Şam Fakihlerinde Dil-fıkıh İlişkisi
-YENİ koc-lutfullah-muhammed-2026 <= 1028076 Lütfullah B. Muhammed el-Erzurûmî'nin Risâle Fî İlmi't-Tecvîd Adlı Eserinin Tahkiki ve Kar
+YENİ naji-aksa-tufani-2026 <= 1031065 Aksa Tufanı Sonrası Filistin Meselesine Dair Fıkhî Fetvalar: Usûl Açısından Bir İnceleme
+YENİ coban-mehmet-zeki-2026 <= 1031176 Mehmet Zeki Duman'ın Beyânu'l- Hak Tefsiri'nin Ahkâm Ayetleri Açısından İncelenmesi
+YENİ cevahir-sifir-reel-2026 <= 1031308 Sıfır Reel Faiz Politikasının Uygulanabilirliği
+YENİ sarica-aile-dini-2026 <= 1031360 Aile ve Dini Rehberlik Bürolarına Evlilik ve Boşanma ile İlgili Yapılan Başvuruların İslam
+YENİ kamis-boykot-islam-2026 <= 1031368 Boykot ve İslam Hukukundaki Hükmü
+YENİ djama-islamic-conventional-2026 <= 1031425 Islamic and Conventional Finance: A Comparative Study in Türkiye
+YENİ serif-2026 <= 1031494 معاني الحروف في ديوان الإمام الشافعي: دراسة في ضوء جهود الدرسين النحوي واللساني
+YENİ kaskus-katilim-bankaciligi-2026 <= 1031503 Katılım Bankacılığı Tercih Nedenleri, Müşteri Güveninin Sadakat Üzerinde Etkisinde Dindarl
+YENİ yaldirak-yuzyilda-bolu-2026 <= 1031506 XIX. Yüzyılda Bolu'nun İdari, Sosyal ve İktisadi Yapısı
+YENİ selek-orta-islam-2026 <= 1031683 Orta Çağ İslam Dünyasında Buhara'nın İlmî ve Siyasi Hayatında Burhân ve Mahbûbî Aileleri
+YENİ naldemirci-klasik-donem-2026 <= 1031719 Klasik Dönem (8.-12. Yüzyıllar Arası) Hanefî Furû Eserlerinde Sarf Akdinin Gelişimi
+YENİ cay-fikih-sosyolojisi-2026 <= 1031728 Fıkıh Sosyolojisi Açısından Kutbüddinzâde İznikî'nin Mürşidü'l-Müteehhilîn Adlı Eseri
+YENİ bayraktutan-escrow-sozlesmesi-2026 <= 1032026 Escrow Sözleşmesi ve Katılım Bankacılığında Uygulanabilirliği

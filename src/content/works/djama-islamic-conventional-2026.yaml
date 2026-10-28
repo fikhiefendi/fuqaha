@@ -1,0 +1,17 @@
+type: "tez-yl"
+title: "Islamic and Conventional Finance: A Comparative Study in Türkiye"
+titleTranslation: {"tr": "İslami ve geleneksel finans: Türkiye'de karşılaştırmalı bir çalışma"}
+authors: ["Djama, Omar Djamal Djama Omar Djamal"]
+language: "en"
+year: 2026
+university: "Çankırı Karatekin Üniversitesi, Sosyal Bilimler Enstitüsü"
+city: "Çankırı"
+department: "İşletme Ana Bilim Dalı"
+advisors: ["Erol Yener"]
+topics: ["İslam iktisadı", "Mukayeseli hukuk"]
+url: "https://tez.yok.gov.tr/UlusalTezMerkezi/tezDetay.jsp?id=O42PBWYvZG7BEfOlzT_4NA"
+fullText: "https://tez.yok.gov.tr/UlusalTezMerkezi/TezGoster?key=5T1_CZ5-UGb9QCmoURec4KSlzNI9i7hj7H_c0q3OoTKdcW1WihtPrlkoAwdiNKlF"
+abstract: "This This study examines the relative effects of participation banks and conventional banks on economic growth in Turkey over the period July 2019 to June 2025. It investigates the elasticity of economic output, measured by GDP, with respect to bank financing provided by both banking systems within an increasingly hybrid financial structure. The empirical methodology adopts a quantitative approach based on multiple linear regression. The analysis relies on secondary data sources, including the Banking Regulation and Supervision Agency (BDDK) and the World Bank. In addition, several diagnostic tests are conducted, including multicollinearity diagnostics and residual autocorrelation testing using the Durbin–Watson statistic, in order to assess the validity of the estimated relationships and identify the respective impacts of participation and conventional financing on economic growth dynamics. The results indicate a strong structural interdependence within the Turkish financial system. While conventional banking exhibits a larger scale and a stronger association with GDP fluctuations (β = 0.631; r = 0.973), participation banking also shows a positive correlation with economic expansion (r = 0.971). Overall, the model explains 94.9% of the variation in GDP. However, the presence of severe multicollinearity (VIF = 59.681) limits the statistical identification of the marginal effects of each banking system, suggesting that both sectors evolve closely together and cannot be fully isolated econometrically."
+yokId: 1031425
+origin: otomatik
+addedAt: 2026-10-28
