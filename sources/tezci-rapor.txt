@@ -1,7 +1,12 @@
-# 2026-11-11: 0 yeni, 0 tamamlandı, 6 tür düzeltildi, 0 çıkarıldı, 8742 değişmedi
+# 2026-11-15: 5 yeni, 0 tamamlandı, 6 tür düzeltildi, 0 çıkarıldı, 8742 değişmedi
 TAMAMLANDI 1.00 sahin-baskanlik-sisteminin-2022 <= 734537 [+—; tür tez-doktora→tez-yl]
 TAMAMLANDI 1.00 sahin-baskanlik-sisteminin-2022 <= 737140 [+—; tür tez-yl→tez-doktora]
 TAMAMLANDI 1.00 ali-2023 <= 738799 [+—; tür tez-doktora→tez-yl]
 TAMAMLANDI 1.00 ali-2023 <= 841379 [+—; tür tez-yl→tez-doktora]
 TAMAMLANDI 1.00 eser-16-nodate <= 875645 [+—; tür tez-doktora→tez-yl]
 TAMAMLANDI 1.00 eser-16-nodate <= 901510 [+—; tür tez-yl→tez-doktora]
+YENİ kartal-istanbul-kadi-2026 <= 1032317 İstanbul Kadı Sicillerindeki Para Vakfı Örneklerinin Analizi: Kuruluş, İşletme ve Uygulama
+YENİ kalem-katilim-bankaciligi-2024 <= 1032400 Katılım Bankacılığı ve Türkiye Ekonomisine Katkılarının Analizi
+YENİ mavis-arrest-with-2013 <= 1032539 Arrest with a Warrant in Turkey: An Assessment in the Light of the Case Law of European Co
+YENİ eyup-2026 <= 1032587 أثر المقاصد الشرعية الجزئية في ضبط أحكام الشركات
+YENİ alarefi-2026 <= 1032664 أثر الهندسة المالية الإسلامية على النمو الاقتصادي في تركيا
